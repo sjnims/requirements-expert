@@ -80,19 +80,19 @@
 
 # Status labels (current state)
 - name: "status:blocked"
-  color: "b60205"
+  color: "e99695"
   description: "Blocked by dependencies"
 
 - name: "status:in-progress"
-  color: "0e8a16"
+  color: "c5def5"
   description: "Work in progress"
 
 - name: "status:needs-repro"
-  color: "d876e3"
+  color: "f9c4f4"
   description: "Cannot reproduce"
 
 - name: "status:needs-review"
-  color: "fbca04"
+  color: "fff3b3"
   description: "Ready for review"
 
 # Effort labels (time estimate)
