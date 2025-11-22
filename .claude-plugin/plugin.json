@@ -1,0 +1,20 @@
+{
+  "name": "requirements-expert",
+  "version": "0.1.0",
+  "description": "A comprehensive requirements management plugin that guides users through the full requirements lifecycle (vision → epics → user stories → tasks) using GitHub Projects for complete traceability and collaboration",
+  "author": {
+    "name": "Steve Nims",
+    "email": "sjnims@gmail.com"
+  },
+  "keywords": [
+    "requirements",
+    "product-management",
+    "agile",
+    "user-stories",
+    "epics",
+    "github-projects",
+    "planning",
+    "prioritization"
+  ],
+  "license": "MIT"
+}

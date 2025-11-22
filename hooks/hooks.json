@@ -1,0 +1,14 @@
+{
+  "UserPromptSubmit": [
+    {
+      "matcher": ".*",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "Analyze the user's message to determine if they are asking about or working on:\n- Building/planning/designing a new application or feature\n- Product vision, epics, user stories, tasks, or acceptance criteria\n- Requirements gathering, discovery, or documentation\n- Prioritization of features or work\n- Breaking down work into smaller pieces\n\nIf the user's message is clearly related to any of the above, respond with:\n```suggestion\nIt looks like you're working on requirements. Would you like to use the requirements-expert plugin to help structure this work? It can guide you through vision → epics → stories → tasks using GitHub Projects.\n```\n\nIf the message is not related to requirements work, respond with an empty string.\n\nIMPORTANT: Only suggest the plugin when it's clearly relevant. Don't suggest for:\n- General coding questions\n- Debugging existing code\n- Simple feature requests that don't need full requirements process\n- Questions about how things work",
+          "timeout": 10
+        }
+      ]
+    }
+  ]
+}
