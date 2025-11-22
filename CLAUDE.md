@@ -471,29 +471,102 @@ When modifying this plugin:
 
 ## Publishing & Version Management
 
-### Version Release Checklist
+### Version Release Procedure
 
-When releasing a new version (e.g., v0.2.0):
+When releasing a new version (e.g., v0.1.0), follow this procedure:
 
-1. **Update version in both manifests** (must match):
-   - `plugins/requirements-expert/.claude-plugin/plugin.json`
-   - `.claude-plugin/marketplace.json` (in plugins array)
+#### 1. Create Release Branch
 
-2. **Update documentation**:
-   - README.md changelog section
-   - Any breaking changes or new features
+```bash
+# Ensure main is up to date
+git checkout main
+git pull origin main
 
-3. **Tag the release**:
-   ```bash
-   git tag v0.2.0
-   git push origin v0.2.0
-   ```
+# Create release branch
+git checkout -b release/v0.1.0
+```
 
-4. **Test the plugin**:
-   ```bash
-   cc --plugin-dir plugins/requirements-expert
-   # Run through full lifecycle test
-   ```
+#### 2. Update Version Numbers
+
+Update version in **both manifests** (must match):
+- `plugins/requirements-expert/.claude-plugin/plugin.json`
+- `.claude-plugin/marketplace.json` (in plugins array)
+
+#### 3. Update Documentation
+
+- `README.md` - Add entry to changelog section
+- `CHANGELOG.md` - Document changes, breaking changes, and new features
+- Any other relevant documentation
+
+#### 4. Test the Plugin
+
+```bash
+# Load plugin locally and test
+cc --plugin-dir plugins/requirements-expert
+
+# Run through full lifecycle test:
+# /re:init → /re:discover-vision → /re:identify-epics →
+# /re:create-stories → /re:create-tasks → /re:prioritize →
+# /re:review → /re:status
+```
+
+#### 5. Commit and Create PR
+
+```bash
+# Commit version bump and documentation updates
+git add .
+git commit -m "Bump version to v0.1.0"
+
+# Push release branch
+git push origin release/v0.1.0
+
+# Create pull request
+gh pr create --title "Release v0.1.0" \
+  --body "Version bump to v0.1.0
+
+## Changes
+- [List major changes]
+- [List bug fixes]
+- [List documentation updates]
+
+## Checklist
+- [x] Version updated in both manifests
+- [x] CHANGELOG.md updated
+- [x] README.md updated
+- [x] Plugin tested locally
+"
+```
+
+#### 6. Merge and Tag
+
+After PR review and approval:
+
+```bash
+# Merge PR via GitHub UI or:
+gh pr merge --squash  # or --merge or --rebase based on preference
+
+# Switch to main and pull the merged changes
+git checkout main
+git pull origin main
+
+# Tag the release (on the merge commit)
+git tag v0.1.0
+
+# Push the tag
+git push origin v0.1.0
+```
+
+#### 7. Create GitHub Release
+
+```bash
+# Create GitHub Release with auto-generated notes
+gh release create v0.1.0 --generate-notes
+
+# Or manually specify release notes
+gh release create v0.1.0 --title "v0.1.0" --notes "Release notes here"
+```
+
+**Note**: Main branch is protected and requires PRs. All version bumps must go through the release branch workflow.
 
 **Publishing**: The entire repository acts as a marketplace. The `plugins/requirements-expert/` directory is the distributable plugin unit.
 
