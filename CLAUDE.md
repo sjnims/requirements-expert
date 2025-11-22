@@ -43,9 +43,8 @@ This repository uses a **marketplace-at-root** structure where the repository ac
 │       ├── commands/                # 8 slash commands (*.md)
 │       ├── skills/                  # 6 knowledge modules (*/SKILL.md)
 │       ├── agents/                  # 2 specialized agents (*.md)
-│       ├── hooks/
-│       │   └── hooks.json           # UserPromptSubmit hook
-│       └── .mcp.json                # GitHub CLI MCP server config
+│       └── hooks/
+│           └── hooks.json           # UserPromptSubmit hook
 ├── README.md                        # User-facing documentation
 └── CLAUDE.md                        # This file (development docs)
 ```
@@ -315,7 +314,7 @@ gh project list --owner [owner]   # List existing projects
 
 ## GitHub CLI Integration
 
-All commands use `gh` CLI for GitHub operations via the Bash tool. The `.mcp.json` configures a GitHub MCP server but commands primarily use direct CLI calls.
+All commands use `gh` CLI for GitHub operations via the Bash tool. This is the plugin's **only external dependency**.
 
 ### Critical Commands
 

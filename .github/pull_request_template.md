@@ -11,7 +11,7 @@
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] Documentation update (improvements to README, CLAUDE.md, or component docs)
 - [ ] Refactoring (code change that neither fixes a bug nor adds a feature)
-- [ ] Configuration change (changes to .markdownlint.json, .mcp.json, etc.)
+- [ ] Configuration change (changes to .markdownlint.json, plugin.json, etc.)
 
 ## Component(s) Affected
 
@@ -22,7 +22,7 @@
 - [ ] Agents (requirements-assistant, requirements-validator)
 - [ ] Hooks (UserPromptSubmit)
 - [ ] Documentation (README.md, CLAUDE.md, SECURITY.md)
-- [ ] Configuration (.markdownlint.json, .mcp.json, plugin.json, marketplace.json)
+- [ ] Configuration (.markdownlint.json, plugin.json, marketplace.json)
 - [ ] Issue/PR templates
 - [ ] Other (please specify):
 
