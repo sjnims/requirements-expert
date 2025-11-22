@@ -1,5 +1,10 @@
 # Requirements Expert Plugin for Claude Code
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub release](https://img.shields.io/github/v/release/sjnims/requirements-expert)](https://github.com/sjnims/requirements-expert/releases)
+[![GitHub issues](https://img.shields.io/github/issues/sjnims/requirements-expert)](https://github.com/sjnims/requirements-expert/issues)
+[![Markdown Lint](https://github.com/sjnims/requirements-expert/actions/workflows/markdownlint.yml/badge.svg)](https://github.com/sjnims/requirements-expert/actions/workflows/markdownlint.yml)
+
 A comprehensive requirements management plugin that guides users through the full requirements lifecycle using GitHub Projects for complete traceability and collaboration.
 
 ## Overview
@@ -379,12 +384,4 @@ Contributions welcome! Please:
 
 ## Changelog
 
-### v0.1.0 (Initial Release)
-
-- Full requirements lifecycle support
-- GitHub Projects integration
-- 8 commands for all phases
-- 6 methodology skills
-- 2 specialized agents
-- MoSCoW prioritization
-- Automated validation
+See [CHANGELOG.md](CHANGELOG.md) for detailed release history.
