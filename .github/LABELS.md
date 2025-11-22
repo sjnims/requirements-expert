@@ -102,7 +102,8 @@ Time estimates:
 
 ## Label Naming Convention
 
-- Use **hyphens** (`-`) not underscores (`_`) for consistency
+- **Custom labels**: Use hyphens (`-`) not underscores (`_`) for multi-word labels
+- **Default GitHub labels**: Keep spaces as-is (`good first issue`, `help wanted`) for ecosystem compatibility
 - Use lowercase
 - Use colons (`:`) for category prefixes (`component:`, `priority:`, `status:`, `effort:`)
 - Keep names concise and descriptive
