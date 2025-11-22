@@ -110,7 +110,7 @@ Time estimates:
 ## Best Practices
 
 1. **labels.yml is the source of truth** - always update it when changing labels
-2. **Use consistent colors** within categories (e.g., all component labels use shades of blue)
+2. **Use consistent colors** within categories (e.g., component labels use cool colors: blues, purples, and teals)
 3. **Keep descriptions clear** - they appear in the label picker
 4. **Don't create too many labels** - aim for 25-35 total
 5. **Archive unused labels** rather than delete (consider dependencies)
