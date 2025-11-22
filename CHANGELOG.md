@@ -102,8 +102,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Code quality tools**:
   - Markdownlint configuration (`.markdownlint.json`)
-  - VS Code settings for consistent development
-  - Markdown ignore patterns
+  - Markdown ignore patterns (`.markdownlintignore`)
 
 #### Plugin Architecture
 

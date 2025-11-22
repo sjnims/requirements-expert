@@ -473,7 +473,7 @@ When modifying this plugin:
 
 ### Version Release Procedure
 
-When releasing a new version (e.g., v0.1.0), follow this procedure:
+When releasing a new version (e.g., v0.x.x), follow this procedure:
 
 #### 1. Create Release Branch
 
@@ -483,7 +483,7 @@ git checkout main
 git pull origin main
 
 # Create release branch
-git checkout -b release/v0.1.0
+git checkout -b release/v0.x.x
 ```
 
 #### 2. Update Version Numbers
@@ -515,14 +515,14 @@ cc --plugin-dir plugins/requirements-expert
 ```bash
 # Commit version bump and documentation updates
 git add .
-git commit -m "Bump version to v0.1.0"
+git commit -m "Bump version to v0.x.x"
 
 # Push release branch
-git push origin release/v0.1.0
+git push origin release/v0.x.x
 
 # Create pull request
-gh pr create --title "Release v0.1.0" \
-  --body "Version bump to v0.1.0
+gh pr create --title "Release v0.x.x" \
+  --body "Version bump to v0.x.x
 
 ## Changes
 - [List major changes]
@@ -550,20 +550,20 @@ git checkout main
 git pull origin main
 
 # Tag the release (on the merge commit)
-git tag v0.1.0
+git tag v0.x.x
 
 # Push the tag
-git push origin v0.1.0
+git push origin v0.x.x
 ```
 
 #### 7. Create GitHub Release
 
 ```bash
 # Create GitHub Release with auto-generated notes
-gh release create v0.1.0 --generate-notes
+gh release create v0.x.x --generate-notes
 
 # Or manually specify release notes
-gh release create v0.1.0 --title "v0.1.0" --notes "Release notes here"
+gh release create v0.x.x --title "v0.x.x" --notes "Release notes here"
 ```
 
 **Note**: Main branch is protected and requires PRs. All version bumps must go through the release branch workflow.
