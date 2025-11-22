@@ -4,37 +4,37 @@ This directory contains the canonical label configuration for the repository.
 
 ## Files
 
-- **labels.yml**: Source of truth for all repository labels (30 labels total)
+- **labels.yml**: Source of truth for all repository labels
 - **sync-labels.sh**: Script for syncing labels (helper/documentation)
 
 ## Label Categories
 
-### Type Labels (7)
+### Type Labels
 
 Default GitHub labels for issue/PR classification:
 - `bug`, `documentation`, `duplicate`, `enhancement`, `invalid`, `question`, `wontfix`
 
-### Component Labels (5)
+### Component Labels
 
 Identify which part of the codebase:
 - `component:agent`, `component:command`, `component:docs`, `component:hook`, `component:skill`
 
-### Priority Labels (4)
+### Priority Labels
 
 Urgency classification:
 - `priority:critical`, `priority:high`, `priority:medium`, `priority:low`
 
-### Status Labels (4)
+### Status Labels
 
 Current state of work:
 - `status:blocked`, `status:in-progress`, `status:needs-repro`, `status:needs-review`
 
-### Effort Labels (3)
+### Effort Labels
 
 Time estimates:
 - `effort:small` (< 1 hour), `effort:medium` (1-4 hours), `effort:large` (> 4 hours)
 
-### Community, Dependency, and Special Labels (7)
+### Community, Dependency, and Special Labels
 
 **Community**:
 - `good first issue` - Good for newcomers
@@ -104,6 +104,6 @@ Then remove from labels.yml.
 4. **Don't create too many labels** - aim for 25-35 total
 5. **Archive unused labels** rather than delete (consider dependencies)
 
-## Current Label Count: 30
+## Label Count
 
-This is a healthy number - enough for good organization without overwhelming contributors.
+The repository maintains a balanced set of labels - enough for good organization without overwhelming contributors. Check `labels.yml` for the current complete list.
