@@ -34,10 +34,17 @@ Current state of work:
 Time estimates:
 - `effort:small` (< 1 hour), `effort:medium` (1-4 hours), `effort:large` (> 4 hours)
 
-### Special Labels (7)
+### Community, Dependency, and Special Labels (7)
 
-- `good first issue`, `help wanted` - Community
-- `dependencies`, `github-actions` - Dependabot
+**Community**:
+- `good first issue` - Good for newcomers
+- `help wanted` - Extra attention needed
+
+**Dependency** (Dependabot):
+- `dependencies` - Dependency file updates
+- `github-actions` - GitHub Actions updates
+
+**Special**:
 - `experiment` - Testing/experimental changes
 - `pinned` - Never mark as stale
 - `security` - Security-related issues
