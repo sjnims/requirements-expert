@@ -53,35 +53,46 @@ Time estimates:
 
 ### Adding a New Label
 
-1. Add to `labels.yml`:
+1. **Update labels.yml** (source of truth):
    ```yaml
    - name: "new-label"
      color: "ff6ec7"
      description: "Description here"
    ```
 
-2. Create on GitHub:
+2. **Apply to GitHub**:
    ```bash
    gh label create "new-label" --color "ff6ec7" --description "Description here"
    ```
 
-3. Commit labels.yml changes
+3. **Commit** labels.yml changes
 
 ### Updating a Label
 
-```bash
-gh label edit "label-name" --color "new-color" --description "new description"
-```
+1. **Update labels.yml** (source of truth):
+   ```yaml
+   - name: "label-name"
+     color: "new-color"
+     description: "new description"
+   ```
 
-Then update labels.yml to match.
+2. **Apply to GitHub**:
+   ```bash
+   gh label edit "label-name" --color "new-color" --description "new description"
+   ```
+
+3. **Commit** labels.yml changes
 
 ### Deleting a Label
 
-```bash
-gh label delete "label-name" --yes
-```
+1. **Remove from labels.yml** (source of truth)
 
-Then remove from labels.yml.
+2. **Delete from GitHub**:
+   ```bash
+   gh label delete "label-name" --yes
+   ```
+
+3. **Commit** labels.yml changes
 
 ### Syncing All Labels
 
