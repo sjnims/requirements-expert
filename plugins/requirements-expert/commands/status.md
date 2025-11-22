@@ -1,5 +1,5 @@
 ---
-name: status
+name: re:status
 description: Show comprehensive overview of requirements project status, progress, and health
 allowed-tools: [Bash, Read]
 ---
@@ -148,7 +148,7 @@ Display comprehensive status:
 
 **Issues Found:** [N critical, N warnings]
 
-[If issues:] Run `/requirements:review` for detailed validation report.
+[If issues:] Run `/re:review` for detailed validation report.
 
 ---
 
@@ -188,14 +188,14 @@ Display comprehensive status:
 [Based on status, provide actionable suggestions]
 
 **Immediate Actions:**
-[If no vision:] Run `/requirements:discover-vision` to create vision
-[If no epics:] Run `/requirements:identify-epics` to identify major capabilities
-[If epics not prioritized:] Run `/requirements:prioritize` to rank epics
-[If highest priority epic has no stories:] Run `/requirements:create-stories` to break down top epic
-[If highest priority story has no tasks:] Run `/requirements:create-tasks` to create implementation tasks
+[If no vision:] Run `/re:discover-vision` to create vision
+[If no epics:] Run `/re:identify-epics` to identify major capabilities
+[If epics not prioritized:] Run `/re:prioritize` to rank epics
+[If highest priority epic has no stories:] Run `/re:create-stories` to break down top epic
+[If highest priority story has no tasks:] Run `/re:create-tasks` to create implementation tasks
 
 **Health Issues:**
-[If validation issues:] Run `/requirements:review` to identify and fix issues
+[If validation issues:] Run `/re:review` to identify and fix issues
 [If too many In Progress:] Focus on completing work before starting new items
 [If progress stalled:] Review blockers and dependencies
 
@@ -225,12 +225,12 @@ Based on current status:
 3. [Third priority action]
 
 **Commands:**
-- `/requirements:discover-vision` - [If no vision]
-- `/requirements:identify-epics` - [If vision but no epics]
-- `/requirements:create-stories` - [If epics but incomplete stories]
-- `/requirements:create-tasks` - [If stories but incomplete tasks]
-- `/requirements:prioritize` - [If items not prioritized]
-- `/requirements:review` - [Regular validation]
+- `/re:discover-vision` - [If no vision]
+- `/re:identify-epics` - [If vision but no epics]
+- `/re:create-stories` - [If epics but incomplete stories]
+- `/re:create-tasks` - [If stories but incomplete tasks]
+- `/re:prioritize` - [If items not prioritized]
+- `/re:review` - [Regular validation]
 ```
 
 ### Step 4: Provide Context-Aware Guidance
@@ -244,9 +244,9 @@ Based on the status, provide specific next steps:
 Your requirements project is newly initialized!
 
 Next Steps:
-1. Run `/requirements:discover-vision` to define your product vision
-2. Then `/requirements:identify-epics` to identify major capabilities
-3. Use `/requirements:prioritize` to rank epics
+1. Run `/re:discover-vision` to define your product vision
+2. Then `/re:identify-epics` to identify major capabilities
+3. Use `/re:prioritize` to rank epics
 4. Start implementing highest-priority epics
 
 Estimated time to complete vision + epics: 1-2 hours
@@ -259,9 +259,9 @@ Estimated time to complete vision + epics: 1-2 hours
 You have a solid vision. Time to break it down!
 
 Next Steps:
-1. Run `/requirements:identify-epics` to identify 5-12 major capabilities
-2. Prioritize epics with `/requirements:prioritize`
-3. Create stories for top epic with `/requirements:create-stories`
+1. Run `/re:identify-epics` to identify 5-12 major capabilities
+2. Prioritize epics with `/re:prioritize`
+3. Create stories for top epic with `/re:create-stories`
 ```
 
 **If epics exist but few stories:**
@@ -273,9 +273,9 @@ You have [N] epics. Let's create user stories!
 Focus: [Highest priority epic name]
 
 Next Steps:
-1. Run `/requirements:create-stories` for epic #[num]
-2. Prioritize stories with `/requirements:prioritize`
-3. Create tasks for top story with `/requirements:create-tasks`
+1. Run `/re:create-stories` for epic #[num]
+2. Prioritize stories with `/re:prioritize`
+3. Create tasks for top story with `/re:create-tasks`
 ```
 
 **If well underway:**
@@ -288,8 +288,8 @@ Current Focus: [In progress items]
 
 Next Steps:
 1. Complete in-progress items
-2. Run `/requirements:status` regularly to track progress
-3. Run `/requirements:review` weekly for quality checks
+2. Run `/re:status` regularly to track progress
+3. Run `/re:review` weekly for quality checks
 ```
 
 **If near complete:**
@@ -303,7 +303,7 @@ Remaining Work:
 - [N] stories to finish
 - [N] tasks remaining
 
-Keep going! Run `/requirements:status` to track final progress.
+Keep going! Run `/re:status` to track final progress.
 ```
 
 ### Step 5: Export Option
@@ -325,8 +325,8 @@ If user wants export, create the file or add comment as requested.
 
 ## Error Handling
 
-- If no project exists: Guide to `/requirements:init`
-- If project empty: Guide to `/requirements:discover-vision`
+- If no project exists: Guide to `/re:init`
+- If project empty: Guide to `/re:discover-vision`
 - If GitHub API fails: Show cached/partial data with warning
 
 ## Notes

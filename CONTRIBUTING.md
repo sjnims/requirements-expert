@@ -90,8 +90,8 @@ git checkout -b fix/issue-description
 cc --plugin-dir plugins/requirements-expert
 
 # Test commands in Claude Code
-/requirements:init
-/requirements:status
+/re:init
+/re:status
 ```
 
 ### 5. Verify GitHub CLI Setup
@@ -156,7 +156,7 @@ markdownlint '**/*.md' --ignore node_modules --fix
 
 ## Component-Specific Guidelines
 
-### Commands (`/requirements:*`)
+### Commands (`/re:*`)
 
 When creating or modifying commands:
 
@@ -251,14 +251,14 @@ When modifying hooks:
 For significant changes, test the complete lifecycle:
 
 ```bash
-/requirements:init
-/requirements:discover-vision
-/requirements:identify-epics
-/requirements:create-stories
-/requirements:create-tasks
-/requirements:prioritize
-/requirements:review
-/requirements:status
+/re:init
+/re:discover-vision
+/re:identify-epics
+/re:create-stories
+/re:create-tasks
+/re:prioritize
+/re:review
+/re:status
 ```
 
 ### Test Repository

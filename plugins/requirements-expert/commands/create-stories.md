@@ -1,5 +1,5 @@
 ---
-name: create-stories
+name: re:create-stories
 description: Break down an epic into user stories following INVEST criteria and create story issues in GitHub Projects
 allowed-tools: [AskUserQuestion, Bash, Read]
 ---
@@ -17,7 +17,7 @@ Load the **user-story-creation** skill to access methodology, INVEST criteria, a
 1. **List Available Epics:**
    - Use `gh project item-list [project-id] --format json`
    - Filter for Type = "Epic"
-   - If no epics: Suggest running `/requirements:identify-epics` first, exit
+   - If no epics: Suggest running `/re:identify-epics` first, exit
 
 2. **Present Epic Menu:**
    Use AskUserQuestion:
@@ -175,8 +175,8 @@ Use AskUserQuestion:
 
 **Handle response:**
 - "Create stories for another epic": Restart from Step 1
-- "Prioritize stories": Execute `/requirements:prioritize`
-- "Create tasks for a story": Execute `/requirements:create-tasks`
+- "Prioritize stories": Execute `/re:prioritize`
+- "Create tasks for a story": Execute `/re:create-tasks`
 - "Done for now": Show success message
 
 ### Step 9: Success Message
@@ -191,17 +191,17 @@ Stories:
 ...
 
 Next Steps:
-1. Run `/requirements:prioritize` to rank stories
-2. Run `/requirements:create-tasks` to break down highest-priority story
+1. Run `/re:prioritize` to rank stories
+2. Run `/re:create-tasks` to break down highest-priority story
 3. Review stories and refine acceptance criteria
-4. Use `/requirements:status` to see progress
+4. Use `/re:status` to see progress
 
 Pro tip: Tackle stories one at a time - implement, test, ship, repeat!
 ```
 
 ## Error Handling
 
-- If no epics exist: Guide to `/requirements:identify-epics`
+- If no epics exist: Guide to `/re:identify-epics`
 - If epic has no content: Suggest updating epic issue first
 - If story violates INVEST: Provide refinement suggestions
 - If too many/few stories: Guidance on right-sizing

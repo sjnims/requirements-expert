@@ -1,5 +1,5 @@
 ---
-name: init
+name: re:init
 description: Initialize a GitHub Project for requirements management with custom fields and views
 allowed-tools: [Bash, AskUserQuestion]
 ---
@@ -63,9 +63,9 @@ Initialize a new GitHub Project for requirements management. This command create
    - Status (Not Started, In Progress, Completed)
 
    Next Steps:
-   1. Run `/requirements:discover-vision` to create your product vision
-   2. Then `/requirements:identify-epics` to identify major capabilities
-   3. Use `/requirements:status` anytime to see project overview
+   1. Run `/re:discover-vision` to create your product vision
+   2. Then `/re:identify-epics` to identify major capabilities
+   3. Use `/re:status` anytime to see project overview
    ```
 
 7. **Error Handling:**

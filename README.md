@@ -58,7 +58,7 @@ cc --plugin-dir plugins/requirements-expert
 ### 1. Initialize a New Project
 
 ```
-/requirements:init
+/re:init
 ```
 
 Creates a GitHub Project for your repository with custom fields (Type, Priority, Status) and configures project views.
@@ -66,7 +66,7 @@ Creates a GitHub Project for your repository with custom fields (Type, Priority,
 ### 2. Discover Your Vision
 
 ```
-/requirements:discover-vision
+/re:discover-vision
 ```
 
 Interactive Q&A session that helps you articulate:
@@ -80,7 +80,7 @@ Creates a Vision issue in your GitHub Project.
 ### 3. Identify Epics
 
 ```
-/requirements:identify-epics
+/re:identify-epics
 ```
 
 Analyzes your vision and guides you through identifying major features/capabilities. Creates Epic issues as children of the Vision issue.
@@ -88,7 +88,7 @@ Analyzes your vision and guides you through identifying major features/capabilit
 ### 4. Create User Stories
 
 ```
-/requirements:create-stories
+/re:create-stories
 ```
 
 Select an epic and break it down into user stories following INVEST criteria. Creates Story issues as children of the Epic.
@@ -96,7 +96,7 @@ Select an epic and break it down into user stories following INVEST criteria. Cr
 ### 5. Define Tasks
 
 ```
-/requirements:create-tasks
+/re:create-tasks
 ```
 
 Break a story into concrete tasks with acceptance criteria. Creates Task issues as children of the Story.
@@ -104,7 +104,7 @@ Break a story into concrete tasks with acceptance criteria. Creates Task issues 
 ### 6. Prioritize
 
 ```
-/requirements:prioritize
+/re:prioritize
 ```
 
 Use MoSCoW framework (Must/Should/Could/Won't) to prioritize at any level.
@@ -112,7 +112,7 @@ Use MoSCoW framework (Must/Should/Could/Won't) to prioritize at any level.
 ### 7. Review & Validate
 
 ```
-/requirements:review
+/re:review
 ```
 
 Runs automated validation checks:
@@ -124,7 +124,7 @@ Runs automated validation checks:
 ### 8. Check Status
 
 ```
-/requirements:status
+/re:status
 ```
 
 View project overview:
@@ -169,13 +169,13 @@ All requirements are stored as GitHub issues in GitHub Projects with this hierar
 User: "I'd like to build a web app that helps users track their fitness goals"
 
 → requirements-assistant agent detects this and suggests the plugin
-→ User accepts, agent runs /requirements:init
+→ User accepts, agent runs /re:init
 → Project created
-→ Agent runs /requirements:discover-vision
+→ Agent runs /re:discover-vision
 → Interactive Q&A creates Vision issue
 → Agent asks: "Continue to identify epics?"
 → User: "Yes"
-→ Agent runs /requirements:identify-epics
+→ Agent runs /re:identify-epics
 → ... continues through the lifecycle
 ```
 
@@ -185,8 +185,8 @@ User: "I'd like to build a web app that helps users track their fitness goals"
 User: "I have a vision defined, need help identifying epics"
 
 → requirements-assistant detects this
-→ Agent runs /requirements:review to validate existing vision
-→ If valid, runs /requirements:identify-epics
+→ Agent runs /re:review to validate existing vision
+→ If valid, runs /re:identify-epics
 → If issues found, suggests fixing them first
 ```
 
@@ -195,7 +195,7 @@ User: "I have a vision defined, need help identifying epics"
 ```
 User: "I need to add another epic to my project"
 
-→ User runs /requirements:identify-epics
+→ User runs /re:identify-epics
 → Command detects existing epics
 → Offers to add new epic or refine existing ones
 → Creates new epic as child of Vision issue
@@ -205,14 +205,14 @@ User: "I need to add another epic to my project"
 
 | Command | Description |
 |---------|-------------|
-| `/requirements:init` | Initialize GitHub Project with custom fields |
-| `/requirements:discover-vision` | Interactive vision discovery session |
-| `/requirements:identify-epics` | Identify and create epic issues |
-| `/requirements:create-stories` | Break epic into user stories |
-| `/requirements:create-tasks` | Break story into tasks with acceptance criteria |
-| `/requirements:prioritize` | Prioritize requirements using MoSCoW |
-| `/requirements:review` | Validate requirements for quality and completeness |
-| `/requirements:status` | Show project overview and status |
+| `/re:init` | Initialize GitHub Project with custom fields |
+| `/re:discover-vision` | Interactive vision discovery session |
+| `/re:identify-epics` | Identify and create epic issues |
+| `/re:create-stories` | Break epic into user stories |
+| `/re:create-tasks` | Break story into tasks with acceptance criteria |
+| `/re:prioritize` | Prioritize requirements using MoSCoW |
+| `/re:review` | Validate requirements for quality and completeness |
+| `/re:status` | Show project overview and status |
 
 ## Skills
 
@@ -312,7 +312,7 @@ gh auth refresh -s project # Add project scope if needed
 
 ### Project Name
 
-Auto-generated from repository name during `/requirements:init`, or you can specify a custom name when prompted.
+Auto-generated from repository name during `/re:init`, or you can specify a custom name when prompted.
 
 ## Troubleshooting
 
@@ -343,7 +343,7 @@ gh auth refresh -s project
 
 ### "Project not found"
 
-Run `/requirements:init` to create the project, or ensure the project exists in your repository.
+Run `/re:init` to create the project, or ensure the project exists in your repository.
 
 ### "Cannot create child issues"
 
@@ -356,12 +356,12 @@ GitHub Projects (the new version) is required for parent/child relationships. En
 
 ## Best Practices
 
-1. **Start with Vision**: Always begin with `/requirements:discover-vision` to establish clear direction
+1. **Start with Vision**: Always begin with `/re:discover-vision` to establish clear direction
 2. **One Epic at a Time**: Fully flesh out one epic before moving to the next
 3. **Keep Stories Small**: User stories should be 1-5 days of work (INVEST criteria)
 4. **Clear Acceptance Criteria**: Every story and task needs 3-5 testable acceptance criteria
-5. **Regular Review**: Run `/requirements:review` frequently to catch issues early
-6. **Prioritize Often**: Use `/requirements:prioritize` at each phase to focus on high-value work
+5. **Regular Review**: Run `/re:review` frequently to catch issues early
+6. **Prioritize Often**: Use `/re:prioritize` at each phase to focus on high-value work
 7. **Iterate**: Use the feedback loops to refine requirements as you learn
 
 ## Contributing

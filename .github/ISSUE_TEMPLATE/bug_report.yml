@@ -24,7 +24,7 @@ body:
       description: Steps to reproduce the behavior
       placeholder: |
         1. Load plugin with `cc --plugin-dir plugins/requirements-expert`
-        2. Run command `/requirements:init`
+        2. Run command `/re:init`
         3. See error...
     validations:
       required: true
@@ -51,8 +51,8 @@ body:
     id: command
     attributes:
       label: Command Used
-      description: Which /requirements:* command were you using?
-      placeholder: "/requirements:init"
+      description: Which /re:* command were you using?
+      placeholder: "/re:init"
 
   - type: textarea
     id: environment

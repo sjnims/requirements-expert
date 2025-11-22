@@ -12,14 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release of requirements-expert Claude Code plugin
 - Full requirements lifecycle support (Vision → Epics → User Stories → Tasks)
 - 8 slash commands for all workflow phases:
-  - `/requirements:init` - Initialize GitHub Project
-  - `/requirements:discover-vision` - Interactive vision discovery
-  - `/requirements:identify-epics` - Identify major capabilities
-  - `/requirements:create-stories` - Break epics into user stories
-  - `/requirements:create-tasks` - Break stories into tasks
-  - `/requirements:prioritize` - Apply MoSCoW prioritization
-  - `/requirements:review` - Validate requirements quality
-  - `/requirements:status` - View project overview
+  - `/re:init` - Initialize GitHub Project
+  - `/re:discover-vision` - Interactive vision discovery
+  - `/re:identify-epics` - Identify major capabilities
+  - `/re:create-stories` - Break epics into user stories
+  - `/re:create-tasks` - Break stories into tasks
+  - `/re:prioritize` - Apply MoSCoW prioritization
+  - `/re:review` - Validate requirements quality
+  - `/re:status` - View project overview
 - 6 methodology skills:
   - vision-discovery - Product vision discovery methodology
   - epic-identification - Epic identification from vision

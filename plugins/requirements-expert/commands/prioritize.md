@@ -1,5 +1,5 @@
 ---
-name: prioritize
+name: re:prioritize
 description: Prioritize requirements (epics, stories, or tasks) using MoSCoW framework (Must/Should/Could/Won't Have)
 allowed-tools: [AskUserQuestion, Bash, Read]
 ---
@@ -30,7 +30,7 @@ Based on selection:
 **If Epics:**
 - Use `gh project item-list [project-id] --format json`
 - Filter for Type = "Epic"
-- If no epics: Suggest running `/requirements:identify-epics`, exit
+- If no epics: Suggest running `/re:identify-epics`, exit
 
 **If Stories:**
 - First ask which epic (use AskUserQuestion with epic options)
@@ -153,12 +153,12 @@ Display:
 **Next Steps:**
 [If Epics were prioritized:]
 - Start with first Must Have epic
-- Run `/requirements:create-stories` for that epic
+- Run `/re:create-stories` for that epic
 - Focus on completing Must Haves before Should Haves
 
 [If Stories were prioritized:]
 - Start with first Must Have story
-- Run `/requirements:create-tasks` for that story
+- Run `/re:create-tasks` for that story
 - Complete stories in priority order
 
 [If Tasks were prioritized:]

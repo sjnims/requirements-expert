@@ -15,10 +15,10 @@ The requirements-expert plugin is a **Claude Code plugin** that guides users thr
 **Test Locally**:
 ```bash
 cc --plugin-dir plugins/requirements-expert
-/requirements:init  # Test a command
+/re:init  # Test a command
 ```
 
-**8 Commands**: init, discover-vision, identify-epics, create-stories, create-tasks, prioritize, review, status
+**8 Commands**: re:init, re:discover-vision, re:identify-epics, re:create-stories, re:create-tasks, re:prioritize, re:review, re:status
 
 **6 Skills**: vision-discovery, epic-identification, user-story-creation, task-breakdown, prioritization, requirements-feedback
 
@@ -53,7 +53,7 @@ This repository uses a **marketplace-at-root** structure where the repository ac
 
 ### Three-Layer Architecture
 
-1. **Commands Layer** (`/requirements:*` commands)
+1. **Commands Layer** (`/re:*` commands)
    - User-facing entry points
    - Interactive workflows using `AskUserQuestion` tool
    - Execute GitHub CLI commands via `Bash` tool
@@ -108,9 +108,9 @@ Vision Issue (#1, Type: Vision, labels: type:vision)
 Commands offer to auto-chain to the next phase:
 
 ```
-/requirements:discover-vision completes
+/re:discover-vision completes
   → Ask: "Continue to identify epics?"
-  → If yes: Execute /requirements:identify-epics
+  → If yes: Execute /re:identify-epics
   → If no: Exit gracefully
 ```
 
@@ -181,7 +181,7 @@ Only four priority levels (no custom priorities):
 4. Use imperative form: "Do X", not "You should do X"
 5. Include error handling for common failure modes
 6. Follow markdown style guide (ATX headers, dash lists, fenced code blocks)
-7. Test with: `cc --plugin-dir plugins/requirements-expert` then `/requirements:new-command`
+7. Test with: `cc --plugin-dir plugins/requirements-expert` then `/re:new-command`
 8. Lint before committing: `markdownlint plugins/requirements-expert/commands/new-command.md`
 
 ### Adding a New Skill
@@ -269,7 +269,7 @@ cd /Users/stevenims/Projects/requirements-expert
 cc --plugin-dir plugins/requirements-expert
 
 # Test specific command
-/requirements:init
+/re:init
 
 # Verify GitHub CLI setup
 gh auth status                    # Check authentication
@@ -297,20 +297,20 @@ gh project list --owner [owner]   # List existing projects
 - GitHub Projects enabled on repository
 
 **Full Lifecycle Test**:
-1. `/requirements:init` - Create project with custom fields
-2. `/requirements:discover-vision` - Create vision issue
-3. `/requirements:identify-epics` - Create epic issues
-4. `/requirements:create-stories` - Create story issues (select epic)
-5. `/requirements:create-tasks` - Create task issues (select story)
-6. `/requirements:prioritize` - Apply MoSCoW priorities
-7. `/requirements:review` - Validate structure and quality
-8. `/requirements:status` - View project summary
+1. `/re:init` - Create project with custom fields
+2. `/re:discover-vision` - Create vision issue
+3. `/re:identify-epics` - Create epic issues
+4. `/re:create-stories` - Create story issues (select epic)
+5. `/re:create-tasks` - Create task issues (select story)
+6. `/re:prioritize` - Apply MoSCoW priorities
+7. `/re:review` - Validate structure and quality
+8. `/re:status` - View project summary
 
 **Test Scenarios**:
-- **New project**: Start with `/requirements:init`, follow full workflow
+- **New project**: Start with `/re:init`, follow full workflow
 - **Resume work**: Agent checks GitHub state, suggests next appropriate command
 - **Add to existing**: Commands detect existing items and offer to add more
-- **Validation**: Run `/requirements:review` to check for issues
+- **Validation**: Run `/re:review` to check for issues
 
 ## GitHub CLI Integration
 
@@ -424,7 +424,7 @@ allowed-tools: [Bash, AskUserQuestion, Read]
 
 Body contains **instructions FOR Claude** (imperative form), not instructions TO the user.
 
-**Available commands**: init, discover-vision, identify-epics, create-stories, create-tasks, prioritize, review, status
+**Available commands**: re:init, re:discover-vision, re:identify-epics, re:create-stories, re:create-tasks, re:prioritize, re:review, re:status
 
 ### Skills (`plugins/requirements-expert/skills/*/SKILL.md`)
 

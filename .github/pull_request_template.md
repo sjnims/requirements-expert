@@ -1,4 +1,4 @@
-## Description
+# Description
 
 <!-- Provide a clear and concise description of your changes -->
 
@@ -17,7 +17,7 @@
 
 <!-- Mark all that apply -->
 
-- [ ] Commands (`/requirements:*`)
+- [ ] Commands (`/re:*`)
 - [ ] Skills (methodology and best practices)
 - [ ] Agents (requirements-assistant, requirements-validator)
 - [ ] Hooks (UserPromptSubmit)
@@ -45,7 +45,7 @@ Fixes # (issue)
 
 **Test Steps**:
 1. <!-- e.g., Load plugin with `cc --plugin-dir plugins/requirements-expert` -->
-2. <!-- e.g., Run command `/requirements:init` -->
+2. <!-- e.g., Run command `/re:init` -->
 3. <!-- e.g., Verify project created successfully -->
 4. <!-- etc. -->
 

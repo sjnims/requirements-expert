@@ -44,7 +44,7 @@ body:
     id: component-name
     attributes:
       label: Specific Component (if applicable)
-      description: E.g., "/requirements:init", "vision-discovery skill", "requirements-assistant agent"
+      description: E.g., "/re:init", "vision-discovery skill", "requirements-assistant agent"
       placeholder: Component name
 
   - type: textarea

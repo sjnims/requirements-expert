@@ -1,5 +1,5 @@
 ---
-name: review
+name: re:review
 description: Validate requirements for completeness, consistency, quality, and traceability
 allowed-tools: [Bash, Read]
 ---
@@ -108,7 +108,7 @@ Generate comprehensive report:
 [List any critical issues that prevent requirements from being actionable]
 
 ### Missing Vision
-- [ ] No vision issue found - run `/requirements:discover-vision`
+- [ ] No vision issue found - run `/re:discover-vision`
 
 ### Broken Traceability
 - [ ] Epic #[num] has no parent vision
@@ -168,7 +168,7 @@ Based on validation results:
 
 **If Critical Issues Found:**
 1. Fix critical issues before proceeding
-2. Re-run `/requirements:review` after fixes
+2. Re-run `/re:review` after fixes
 
 **If Only Warnings:**
 1. Address high-priority warnings
@@ -245,7 +245,7 @@ Use the validation report above to guide fixes.
 Requirements look good! You're ready to start implementation.
 
 **Recommendations:**
-- Re-run `/requirements:review` periodically (weekly/monthly)
+- Re-run `/re:review` periodically (weekly/monthly)
 - Update requirements as you learn during implementation
 - Use feedback from testing to refine acceptance criteria
 
@@ -256,7 +256,7 @@ Requirements look good! You're ready to start implementation.
 ## Error Handling
 
 - If no requirements exist: Guide to appropriate creation commands
-- If project doesn't exist: Suggest `/requirements:init`
+- If project doesn't exist: Suggest `/re:init`
 - If validation fails: Provide clear, actionable guidance
 
 ## Notes

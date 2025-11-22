@@ -1,5 +1,5 @@
 ---
-name: discover-vision
+name: re:discover-vision
 description: Guide user through interactive vision discovery and create vision issue in GitHub Projects
 allowed-tools: [AskUserQuestion, Bash]
 ---
@@ -16,7 +16,7 @@ Load the **vision-discovery** skill to access methodology and question templates
 
 1. Check if a GitHub Project exists for this repository:
    - Use `gh project list --owner [owner] --format json`
-   - If no projects found: Suggest running `/requirements:init` first, then exit
+   - If no projects found: Suggest running `/re:init` first, then exit
    - If multiple projects: Use AskUserQuestion to ask which project to use
    - Store project ID for later use
 
@@ -89,7 +89,7 @@ Structure the vision as:
 [User's 2-3 key metrics]
 
 ## Scope & Boundaries
-[To be defined - suggest running /requirements:identify-epics to define scope via epics]
+[To be defined - suggest running /re:identify-epics to define scope via epics]
 ```
 
 ### Step 5: Create Vision Issue
@@ -120,8 +120,8 @@ Your vision has been documented and added to the project.
 Next Steps:
 1. Review the vision issue and add any additional details
 2. Share with stakeholders for feedback
-3. Run `/requirements:identify-epics` to identify major capabilities
-4. Use `/requirements:review` to validate the vision
+3. Run `/re:identify-epics` to identify major capabilities
+4. Use `/re:review` to validate the vision
 
 Pro tip: The vision is a living document - update it as you learn more!
 ```
@@ -137,13 +137,13 @@ Use AskUserQuestion:
 - multiSelect: false
 
 If user selects "Yes":
-- Execute `/requirements:identify-epics` command
+- Execute `/re:identify-epics` command
 
 ## Error Handling
 
 - If GitHub CLI not available: Provide installation instructions
 - If not authenticated: Suggest `gh auth login`
-- If project doesn't exist: Suggest `/requirements:init`
+- If project doesn't exist: Suggest `/re:init`
 - If issue creation fails: Show error and suggest checking permissions
 
 ## Notes

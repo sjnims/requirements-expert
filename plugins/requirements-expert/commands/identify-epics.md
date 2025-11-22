@@ -1,5 +1,5 @@
 ---
-name: identify-epics
+name: re:identify-epics
 description: Identify major capabilities (epics) from vision and create epic issues in GitHub Projects
 allowed-tools: [AskUserQuestion, Bash, Read]
 ---
@@ -17,7 +17,7 @@ Load the **epic-identification** skill to access methodology and templates.
 1. **Check for Vision:**
    - Use `gh project item-list [project-id] --format json` to list items
    - Filter for Type = "Vision"
-   - If no vision found: Inform user they need to run `/requirements:discover-vision` first, then exit
+   - If no vision found: Inform user they need to run `/re:discover-vision` first, then exit
    - Store vision issue number/URL for parent linking
 
 2. **Read Vision Issue:**
@@ -149,7 +149,7 @@ Use AskUserQuestion:
   - "No, I'll prioritize later" (description: "Skip prioritization for now")
 - multiSelect: false
 
-If "Yes": Execute `/requirements:prioritize` command
+If "Yes": Execute `/re:prioritize` command
 
 If "No": Show next steps
 
@@ -162,17 +162,17 @@ Display:
 Created [N] epics linked to Vision (#[vision-num])
 
 Next Steps:
-1. Run `/requirements:prioritize` to rank epics by importance
+1. Run `/re:prioritize` to rank epics by importance
 2. Review epic issues and add details as needed
-3. Run `/requirements:create-stories` to break down highest-priority epic
-4. Use `/requirements:status` to see project overview
+3. Run `/re:create-stories` to break down highest-priority epic
+4. Use `/re:status` to see project overview
 
 Pro tip: Start with one epic, create stories for it, then move to the next!
 ```
 
 ## Error Handling
 
-- If no vision exists: Guide to `/requirements:discover-vision`
+- If no vision exists: Guide to `/re:discover-vision`
 - If vision is incomplete: Suggest reviewing and updating it first
 - If issue creation fails: Show error and permissions guidance
 - If too many/few epics: Provide guidance on right-sizing

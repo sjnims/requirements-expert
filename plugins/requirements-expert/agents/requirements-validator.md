@@ -1,7 +1,7 @@
 ---
 name: requirements-validator
 description: |
-  Use this agent when validating requirements for completeness, consistency, quality, and traceability. Triggered by /requirements:review command or when user asks to validate, check quality, or review requirements.
+  Use this agent when validating requirements for completeness, consistency, quality, and traceability. Triggered by /re:review command or when user asks to validate, check quality, or review requirements.
 
   <example>
   Context: User wants to validate their requirements before development
@@ -15,10 +15,10 @@ description: |
 
   <example>
   Context: User runs the review command
-  user: "/requirements:review"
+  user: "/re:review"
   assistant: "Running requirements validation..."
   <commentary>
-  The /requirements:review command should invoke this agent to perform validation.
+  The /re:review command should invoke this agent to perform validation.
   </commentary>
   assistant: "I'll use the requirements-validator agent to validate your requirements and generate a detailed report."
   </example>

@@ -1,5 +1,5 @@
 ---
-name: create-tasks
+name: re:create-tasks
 description: Break down a user story into implementation tasks with acceptance criteria and create GitHub issues in a GitHub Project.
 allowed-tools: [AskUserQuestion, Bash, Read]
 ---
@@ -17,7 +17,7 @@ Load the **task-breakdown** skill to access methodology, patterns, and templates
 1. **List Available Stories:**
    - Use `gh project item-list [project-id] --format json`
    - Filter for Type = "Story"
-   - If no stories: Suggest running `/requirements:create-stories` first, exit
+   - If no stories: Suggest running `/re:create-stories` first, exit
 
 2. **Present Story Menu:**
    Use AskUserQuestion:
@@ -234,12 +234,12 @@ Use AskUserQuestion:
 
 **Handle response:**
 - "Create tasks for another story": Restart from Step 1
-- "Check project status": Execute `/requirements:status`
+- "Check project status": Execute `/re:status`
 - "Done for now": Exit
 
 ## Error Handling
 
-- If no stories exist: Guide to `/requirements:create-stories`
+- If no stories exist: Guide to `/re:create-stories`
 - If story has no acceptance criteria: Suggest updating story first
 - If tasks too large: Provide splitting guidance
 - If no technical tasks identified: Might be story is too vague
