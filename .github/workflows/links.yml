@@ -19,7 +19,7 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v1
         with:
-          args: --verbose --no-progress --exclude-link-local '**/*.md'
+          args: --verbose --no-progress --exclude-link-local --exclude-file .lycheeignore '**/*.md'
           fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
