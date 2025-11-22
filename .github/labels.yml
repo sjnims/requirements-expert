@@ -1,0 +1,131 @@
+# GitHub Labels Configuration
+# This file defines all labels used in the repository
+# Use this as the source of truth for label management
+
+# Default GitHub labels (type)
+- name: "bug"
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: "documentation"
+  color: "0075ca"
+  description: "Improvements or additions to documentation"
+
+- name: "duplicate"
+  color: "cfd3d7"
+  description: "This issue or pull request already exists"
+
+- name: "enhancement"
+  color: "a2eeef"
+  description: "New feature or request"
+
+- name: "invalid"
+  color: "e4e669"
+  description: "This doesn't seem right"
+
+- name: "question"
+  color: "d876e3"
+  description: "Further information is requested"
+
+- name: "wontfix"
+  color: "ffffff"
+  description: "This will not be worked on"
+
+# Community labels
+- name: "good first issue"
+  color: "7057ff"
+  description: "Good for newcomers"
+
+- name: "help wanted"
+  color: "008672"
+  description: "Extra attention is needed"
+
+# Component labels (what part of codebase)
+- name: "component:agent"
+  color: "0052cc"
+  description: "Agents layer"
+
+- name: "component:command"
+  color: "5319e7"
+  description: "Commands layer"
+
+- name: "component:docs"
+  color: "d4c5f9"
+  description: "Documentation files"
+
+- name: "component:hook"
+  color: "006b75"
+  description: "Hooks"
+
+- name: "component:skill"
+  color: "1d76db"
+  description: "Skills layer"
+
+# Priority labels (how urgent)
+- name: "priority:critical"
+  color: "b60205"
+  description: "Blocking, security, or breaking"
+
+- name: "priority:high"
+  color: "d93f0b"
+  description: "Important but not blocking"
+
+- name: "priority:medium"
+  color: "fbca04"
+  description: "Should be addressed"
+
+- name: "priority:low"
+  color: "0e8a16"
+  description: "Nice to have"
+
+# Status labels (current state)
+- name: "status:blocked"
+  color: "e99695"
+  description: "Blocked by dependencies"
+
+- name: "status:in-progress"
+  color: "c5def5"
+  description: "Work in progress"
+
+- name: "status:needs-repro"
+  color: "f9c4f4"
+  description: "Cannot reproduce"
+
+- name: "status:needs-review"
+  color: "fff3b3"
+  description: "Ready for review"
+
+# Effort labels (time estimate)
+- name: "effort:small"
+  color: "c2e0c6"
+  description: "< 1 hour"
+
+- name: "effort:medium"
+  color: "bfdadc"
+  description: "1-4 hours"
+
+- name: "effort:large"
+  color: "f9d0c4"
+  description: "> 4 hours"
+
+# Dependency labels (Dependabot)
+- name: "dependencies"
+  color: "0366d6"
+  description: "Pull requests that update a dependency file"
+
+- name: "github-actions"
+  color: "000000"
+  description: "Pull requests that update GitHub Actions code"
+
+# Special labels
+- name: "experiment"
+  color: "ff6ec7"
+  description: "Experimental changes or testing"
+
+- name: "pinned"
+  color: "fef2c0"
+  description: "Never mark as stale"
+
+- name: "security"
+  color: "ee0701"
+  description: "Security-related"
