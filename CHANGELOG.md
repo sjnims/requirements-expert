@@ -8,15 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Comprehensive repository review document (repo-review-2025-11-22.md)
-- CI/CD workflows for automation
-- Dependabot configuration for GitHub Actions updates
-- Enhanced issue labels (dependencies, github-actions)
-- Repository badges in README
 
-## [0.1.0] - 2024-11-22
-
-### Added
 - Initial release of requirements-expert Claude Code plugin
 - Full requirements lifecycle support (Vision → Epics → User Stories → Tasks)
 - 8 slash commands for all workflow phases:
@@ -53,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT License
 - Markdownlint configuration for code quality
 - UserPromptSubmit hook for proactive plugin suggestions
-
-[Unreleased]: https://github.com/sjnims/requirements-expert/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/sjnims/requirements-expert/releases/tag/v0.1.0
+- CI/CD workflows for automation
+- Dependabot configuration for GitHub Actions updates
+- Enhanced issue labels (dependencies, github-actions)
+- Repository badges in README
