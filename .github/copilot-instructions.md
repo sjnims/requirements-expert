@@ -215,7 +215,7 @@ Single `UserPromptSubmit` hook for detecting requirements queries.
 ```
 /                                    # Repository root (marketplace)
 ├── .github/
-│   ├── workflows/                   # CI/CD workflows
+│   ├── workflows/                   # CI and automation workflows
 │   │   ├── markdownlint.yml        # Markdown linting (runs on every PR)
 │   │   ├── links.yml               # Link checking (weekly + PRs)
 │   │   └── validate-workflows.yml  # Workflow validation
