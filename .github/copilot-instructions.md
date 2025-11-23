@@ -553,7 +553,7 @@ When reviewing version bump PRs:
 - Commands: `plugins/requirements-expert/commands/` (8 files)
 - Skills: `plugins/requirements-expert/skills/` (6 directories)
 - Agents: `plugins/requirements-expert/agents/` (2 files)
-- Workflows: `.github/workflows/` (3 files)
+- Workflows: `.github/workflows/` (5 files)
 
 ## Key Architecture Principles to Enforce
 
