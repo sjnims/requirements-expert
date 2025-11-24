@@ -27,8 +27,8 @@ Initialize a GitHub Project for requirements management. This command is **idemp
    - Get repository info: `gh repo view --json nameWithOwner`
    - If fails: "Not in a git repository with GitHub remote. Navigate to your project repository."
    - Parse JSON to extract nameWithOwner (format: `{"nameWithOwner":"owner/repo"}`)
-   - Split nameWithOwner on "/" to get owner and repo separately
-   - Example: "sjnims/requirements-expert" → owner="sjnims", repo="requirements-expert"
+   - Split nameWithOwner on "/" to get the owner (before the "/")
+   - Example: "sjnims/requirements-expert" → owner="sjnims"
 
 ## Project Setup
 
