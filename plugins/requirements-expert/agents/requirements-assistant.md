@@ -163,7 +163,7 @@ Always check GitHub Project state before suggesting actions:
 gh project list --owner [owner] --format json
 
 # If project exists, get items
-gh project item-list [project-id] --format json
+gh project item-list [project-number] --format json
 
 # Count items by type
 # Filter for Type = "Vision", "Epic", "Story", "Task"

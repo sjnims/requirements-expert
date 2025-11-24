@@ -28,7 +28,7 @@ Use AskUserQuestion:
 Based on selection:
 
 **If Epics:**
-- Use `gh project item-list [project-id] --format json`
+- Use `gh project item-list [project-number] --format json`
 - Filter for Type = "Epic"
 - If no epics: Suggest running `/re:identify-epics`, exit
 

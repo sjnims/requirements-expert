@@ -53,7 +53,7 @@ Use GitHub CLI to retrieve all requirements from the project:
 
 ```bash
 # Get project items
-gh project item-list [project-id] --format json
+gh project item-list [project-number] --format json
 
 # Filter by type
 # Type = "Vision" (should be exactly 1)

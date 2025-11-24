@@ -134,7 +134,7 @@ All commands and agents check GitHub Project state before acting:
 
 ```bash
 # Check what exists
-gh project item-list [project-id] --format json
+gh project item-list [project-number] --format json
 
 # Filter by Type custom field
 # Count Vision (should be exactly 1)
