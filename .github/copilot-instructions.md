@@ -106,7 +106,7 @@ Why both? Custom fields enable project views; labels enable cross-project querie
 **Only external dependency**: GitHub CLI (`gh`). All operations use `gh` commands via Bash tool.
 
 Before any GitHub operation:
-- Check CLI exists: `which gh`
+- Check CLI exists: `command -v gh`
 - Verify auth: `gh auth status` (requires `repo` and `project` scopes)
 - Get repo context: `gh repo view --json nameWithOwner`
 
