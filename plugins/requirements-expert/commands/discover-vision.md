@@ -18,12 +18,12 @@ Load the **vision-discovery** skill to access methodology and question templates
    - Use `gh project list --owner [owner] --format json`
    - If no projects found: Suggest running `/re:init` first, then exit
    - If multiple projects: Use AskUserQuestion to ask which project to use
-   - Store project ID for later use
+   - Store project number for later use
 
 ### Step 2: Check for Existing Vision
 
 1. Search for existing vision issues:
-   - Use `gh project item-list [project-id] --format json`
+   - Use `gh project item-list [project-number] --format json`
    - Filter for items with Type = "Vision"
    - If vision exists: Ask user if they want to update it or create new one
 
@@ -99,7 +99,7 @@ Structure the vision as:
    - Capture issue number and URL
 
 2. Add issue to project:
-   - Use `gh project item-add [project-id] --owner [owner] --url [issue-url]`
+   - Use `gh project item-add [project-number] --owner [owner] --url [issue-url]`
 
 3. Set custom fields:
    - Type: Vision

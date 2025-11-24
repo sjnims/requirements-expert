@@ -15,7 +15,7 @@ Load the **task-breakdown** skill to access methodology, patterns, and templates
 ### Step 1: Select Story to Break Down
 
 1. **List Available Stories:**
-   - Use `gh project item-list [project-id] --format json`
+   - Use `gh project item-list [project-number] --format json`
    - Filter for Type = "Story"
    - If no stories: Suggest running `/re:create-stories` first, exit
 
@@ -158,7 +158,7 @@ For each task:
    - Capture issue number and URL
 
 3. **Add to Project:**
-   - Use `gh project item-add [project-id] --owner [owner] --url [issue-url]`
+   - Use `gh project item-add [project-number] --owner [owner] --url [issue-url]`
 
 4. **Set Custom Fields:**
    - Type: Task

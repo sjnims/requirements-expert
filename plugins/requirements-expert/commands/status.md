@@ -18,7 +18,7 @@ Display a comprehensive overview of the requirements project including counts, p
    - Get project URL and metadata
 
 2. **Retrieve All Items:**
-   - Use `gh project item-list [project-id] --format json`
+   - Use `gh project item-list [project-number] --format json`
    - Get full details including custom fields (Type, Priority, Status)
 
 3. **Categorize by Type:**

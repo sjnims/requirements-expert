@@ -15,7 +15,7 @@ Load the **user-story-creation** skill to access methodology, INVEST criteria, a
 ### Step 1: Select Epic to Break Down
 
 1. **List Available Epics:**
-   - Use `gh project item-list [project-id] --format json`
+   - Use `gh project item-list [project-number] --format json`
    - Filter for Type = "Epic"
    - If no epics: Suggest running `/re:identify-epics` first, exit
 
@@ -142,7 +142,7 @@ For each finalized story:
    - Capture issue number and URL
 
 3. **Add to Project:**
-   - Use `gh project item-add [project-id] --owner [owner] --url [issue-url]`
+   - Use `gh project item-add [project-number] --owner [owner] --url [issue-url]`
 
 4. **Set Custom Fields:**
    - Type: Story

@@ -134,7 +134,7 @@ All commands and agents check GitHub Project state before acting:
 
 ```bash
 # Check what exists
-gh project item-list [project-id] --format json
+gh project item-list [project-number] --format json
 
 # Filter by Type custom field
 # Count Vision (should be exactly 1)
@@ -289,6 +289,25 @@ gh project list --owner [owner]   # List existing projects
 # Commands use YAML frontmatter + markdown instructions
 ```
 
+### CI/CD Workflows
+
+The repository includes 5 GitHub Actions workflows:
+
+**Primary CI** (runs on every PR):
+1. **markdownlint.yml** (~30-40s) - Enforces markdown style (ATX headers, dash lists, 2-space indentation)
+2. **links.yml** (~1-2min) - Validates all links (excluding `.lycheeignore`)
+3. **validate-workflows.yml** (~20-30s) - Validates workflow YAML syntax using actionlint
+
+**Utility Workflows**:
+4. **greet.yml** - Welcomes first-time contributors
+5. **stale.yml** - Marks inactive issues/PRs as stale
+
+**If markdownlint fails**:
+```bash
+markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix issues
+markdownlint plugins/requirements-expert/commands/*.md  # Check specific files
+```
+
 ### Testing Workflow
 
 **Prerequisites**:
@@ -316,16 +335,51 @@ gh project list --owner [owner]   # List existing projects
 
 All commands use `gh` CLI for GitHub operations via the Bash tool. This is the plugin's **only external dependency**.
 
-### Critical Commands
+### Critical GitHub CLI Patterns (VERIFIED)
+
+**IMPORTANT**: These patterns were verified against `gh` CLI v2.x. Commands that deviate from these patterns will fail.
 
 **Project Operations**:
 ```bash
-gh project create --owner [owner] --title "[name]"         # Create project
-gh project list --owner [owner] --format json              # List projects
-gh project item-list [project-id] --format json            # List items
-gh project item-add [project-id] --owner [owner] --url [issue-url]  # Add issue
-gh project item-edit --id [item-id] --field-id [field-id] --value "[value]"  # Set field
-gh project field-create [project-id] --owner [owner] --data-type SINGLE_SELECT --name "Type"  # Create field
+# Projects are OWNER-SCOPED (not repository-scoped)
+gh project create --owner [owner] --title "[name]"                    # ✅ CORRECT
+gh project list --owner [owner] --format json                         # ✅ CORRECT
+gh project field-list [project-number] --owner [owner] --format json  # ✅ CORRECT
+
+# WRONG - these flags DO NOT EXIST
+gh project create --repo owner/repo  # ❌ WRONG - --repo flag not supported
+gh project list --repo owner/repo    # ❌ WRONG - use --owner instead
+```
+
+**Use Project Number, NOT GraphQL ID**:
+```bash
+# Project number: sequential integer (1, 2, 3...) visible in URL
+# GraphQL ID: long string like "PVT_kwHOAAUfK84BI2KN"
+# Commands expect PROJECT NUMBER, not GraphQL ID
+
+gh project field-list 4 --owner sjnims              # ✅ CORRECT (number 4)
+gh project field-list PVT_kwHOAAUfK84BI2KN          # ❌ WRONG (GraphQL ID)
+```
+
+**Field Creation - Use Single Command**:
+```bash
+# Create field with ALL options in one command (efficient)
+gh project field-create [project-number] --owner [owner] \
+  --name "Type" \
+  --data-type SINGLE_SELECT \
+  --single-select-options "Vision,Epic,Story,Task" \
+  --format json
+
+# WRONG - Don't create field then add options separately (slow)
+# gh project field-create ... --name "Type"           # ❌ WRONG
+# gh project field-create ... --single-select-option "Vision"  # ❌ WRONG (separate calls)
+```
+
+**Other Operations**:
+```bash
+gh project item-list [project-number] --owner [owner] --format json             # List items
+gh project item-add [project-number] --owner [owner] --url [issue-url]          # Add issue
+gh project item-edit --id [item-id] --field-id [field-id] --value "[value]"     # Set field
 ```
 
 **Issue Operations**:
@@ -468,6 +522,10 @@ When modifying this plugin:
 5. **Don't duplicate content** - Between SKILL.md and references/, between README and CLAUDE.md
 6. **Don't make up GitHub issue numbers** - Always query actual state
 7. **Don't suggest commands without prerequisites** - Check vision exists before suggesting epics
+8. **Don't use `--repo` flag for project commands** - Projects use `--owner` (owner-scoped, not repo-scoped)
+9. **Don't use GraphQL IDs in commands** - Use project number (sequential integer from URL)
+10. **Don't create fields with multiple commands** - Use `--single-select-options` with comma-separated list
+11. **Don't leave draft files in production directories** - Remove `*-SUGGESTED.md`, `*-BACKUP.md` before merging to main
 
 ## Publishing & Version Management
 
@@ -598,3 +656,84 @@ When developing new features for this plugin:
 - Python/Ruby/other runtimes
 - Docker or containers
 - Database (GitHub is the database)
+
+## Critical Patterns from Copilot Instructions
+
+The `.github/copilot-instructions.md` file contains critical patterns for PR reviews. Key highlights:
+
+### GitHub CLI Usage Patterns (CRITICAL)
+
+When reviewing or writing commands that interact with GitHub Projects:
+
+**Owner-scoped projects**:
+- ✅ Use: `gh project list --owner owner`
+- ❌ Never: `gh project list --repo owner/repo` (flag doesn't exist)
+
+**Project number vs ID**:
+- ✅ Use: Project number (1, 2, 3...) from URL
+- ❌ Never: GraphQL ID (PVT_xxx) in `gh` commands
+
+**Efficient field creation**:
+- ✅ Use: `--single-select-options "opt1,opt2,opt3"` (one command)
+- ❌ Never: Multiple calls to add each option separately
+
+### Draft Files Policy
+
+**Production directories** (`commands/`, `skills/`, `agents/`, `hooks/`):
+- Only production-ready components
+- No `*-SUGGESTED.md`, `*-BACKUP.md`, `*-OLD.md` files
+
+**Development branches**:
+- Draft files are acceptable during feature development
+- Must be removed before merging to main
+- Alternative: Move drafts outside plugin root (e.g., `drafts/` directory)
+
+### Markdown Style Compliance (CI Critical)
+
+The CI will fail if markdown doesn't comply:
+- ✅ ATX headers (`#`), not setext (underlines)
+- ✅ Dash lists (`-`), not asterisk (`*`) or plus (`+`)
+- ✅ 2-space indentation for nested lists
+- ✅ Fenced code blocks, not indented blocks
+- ✅ No line length limits (MD013 disabled)
+
+**Allowed HTML tags**: `<example>`, `<commentary>`, `<details>`, `<summary>`, `<br>`
+
+### State-First Validation Pattern
+
+All commands must validate state before acting:
+
+```bash
+# Check existing project
+existing=$(gh project list --owner "${owner}" --format json | \
+  jq ".projects[] | select(.title==\"${project_name}\")")
+
+if [ -n "$existing" ]; then
+  # Reuse existing project
+  project_number=$(echo "$existing" | jq -r '.number')
+else
+  # Create new project
+  gh project create --owner "${owner}" --title "${project_name}"
+fi
+```
+
+This ensures:
+- Idempotency (safe to re-run commands)
+- No duplicate projects/fields/issues
+- Accurate state representation
+
+### Two-Layer Metadata System
+
+Every requirement issue must have BOTH:
+
+1. **Custom Fields** (Project-level):
+   - Set via `gh project item-edit --field-id [id] --value "[value]"`
+   - Enables Project views/filtering
+   - Fields: Type, Priority, Status
+
+2. **Labels** (Issue-level):
+   - Set via `gh issue create --label "type:epic,priority:must-have"`
+   - Enables cross-project queries
+   - Labels: `type:*`, `priority:*`
+
+**Why both?** Custom fields are project-specific; labels are portable across GitHub.

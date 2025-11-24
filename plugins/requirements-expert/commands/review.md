@@ -15,7 +15,7 @@ Load the **requirements-validator** agent OR implement validation logic directly
 ### Step 1: Scan Requirements
 
 1. **Retrieve All Requirements:**
-   - Use `gh project item-list [project-id] --format json`
+   - Use `gh project item-list [project-number] --format json`
    - Categorize by Type: Vision, Epic, Story, Task
    - Count items at each level
 

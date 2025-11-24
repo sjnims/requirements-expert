@@ -15,7 +15,7 @@ Load the **epic-identification** skill to access methodology and templates.
 ### Step 1: Verify Prerequisites
 
 1. **Check for Vision:**
-   - Use `gh project item-list [project-id] --format json` to list items
+   - Use `gh project item-list [project-number] --format json` to list items
    - Filter for Type = "Vision"
    - If no vision found: Inform user they need to run `/re:discover-vision` first, then exit
    - Store vision issue number/URL for parent linking
@@ -116,7 +116,7 @@ For each selected/added epic:
    - Capture issue number and URL
 
 3. **Add to Project:**
-   - Use `gh project item-add [project-id] --owner [owner] --url [issue-url]`
+   - Use `gh project item-add [project-number] --owner [owner] --url [issue-url]`
 
 4. **Set Custom Fields:**
    - Type: Epic
