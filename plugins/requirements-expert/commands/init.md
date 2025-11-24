@@ -1,7 +1,7 @@
 ---
 name: re:init
 description: Initialize a GitHub Project for requirements management with custom fields and views
-allowed-tools: [Bash, AskUserQuestion, Read]
+allowed-tools: [Bash, AskUserQuestion]
 ---
 
 # Initialize Requirements Project
@@ -45,7 +45,7 @@ Initialize a GitHub Project for requirements management. This command is **idemp
        - label: "[Repository Name] Roadmap"
          description: "Emphasizes long-term planning and feature roadmap view"
    - Note: User can select "Other" to provide a custom project name
-   - Replace [Repository Name] placeholder with actual repository name from step 3
+   - Replace [Repository Name] placeholder with the repository name (the part after the "/" in `nameWithOwner` from step 3). For example, if `nameWithOwner` is "sjnims/requirements-expert", use "requirements-expert"
    - Store the user's choice for project creation
 
 5. **Check for Existing Project (Idempotency):**
