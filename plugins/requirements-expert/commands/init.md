@@ -105,9 +105,14 @@ Initialize a GitHub Project for requirements management. This command is **idemp
 
 7. **Check Existing Fields:**
    - List all existing fields once: `gh project field-list [project-number] --owner [owner] --format json`
-   - Parse JSON response to extract field names
-   - Store the list of existing field names for use in subsequent steps
-   - Example: If response contains fields with names "Title", "Status", "Assignees", store these names
+   - If command fails:
+     - Log warning: "Could not retrieve existing fields, will attempt to create all fields"
+     - Set field names list to empty (this ensures subsequent steps will attempt creation)
+     - Continue to step 8
+   - If command succeeds:
+     - Parse JSON response to extract field names
+     - Store the list of existing field names for use in subsequent steps
+     - Example: If response contains fields with names "Title", "Status", "Assignees", store these names
    - This single query replaces multiple redundant field-list calls
 
 8. **Create Type Field (If Missing):**
