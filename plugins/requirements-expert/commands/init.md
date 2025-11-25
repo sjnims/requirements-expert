@@ -116,36 +116,36 @@ Initialize a GitHub Project for requirements management. This command is **idemp
    - This single query replaces multiple redundant field-list calls
 
 8. **Create Type Field (If Missing):**
-   - Check if "Type" exists in the stored field names list from step 7
-   - If exists:
-     - Inform user: "Type field already exists, skipping creation"
-   - If not exists:
-     - Create field with all options in one command:
-       ```
-       gh project field-create [project-number] --owner [owner] \
-         --name "Type" \
-         --data-type SINGLE_SELECT \
-         --single-select-options "Vision,Epic,Story,Task" \
-         --format json
-       ```
-     - If command fails: Note the failure but continue (user can add field manually)
-     - Inform user: "Created Type field with options: Vision, Epic, Story, Task"
+    - Check if "Type" exists in the stored field names list from step 7
+    - If exists:
+      - Inform user: "Type field already exists, skipping creation"
+    - If not exists:
+      - Create field with all options in one command:
+        ```
+        gh project field-create [project-number] --owner [owner] \
+          --name "Type" \
+          --data-type SINGLE_SELECT \
+          --single-select-options "Vision,Epic,Story,Task" \
+          --format json
+        ```
+      - If command fails: Note the failure but continue (user can add field manually)
+      - Inform user: "Created Type field with options: Vision, Epic, Story, Task"
 
 9. **Create Priority Field (If Missing):**
-   - Check if "Priority" exists in the stored field names list from step 7
-   - If exists:
-     - Inform user: "Priority field already exists, skipping creation"
-   - If not exists:
-     - Create field with all options:
-       ```
-       gh project field-create [project-number] --owner [owner] \
-         --name "Priority" \
-         --data-type SINGLE_SELECT \
-         --single-select-options "Must Have,Should Have,Could Have,Won't Have" \
-         --format json
-       ```
-     - If command fails: Note the failure but continue
-     - Inform user: "Created Priority field with MoSCoW options"
+    - Check if "Priority" exists in the stored field names list from step 7
+    - If exists:
+      - Inform user: "Priority field already exists, skipping creation"
+    - If not exists:
+      - Create field with all options:
+        ```
+        gh project field-create [project-number] --owner [owner] \
+          --name "Priority" \
+          --data-type SINGLE_SELECT \
+          --single-select-options "Must Have,Should Have,Could Have,Won't Have" \
+          --format json
+        ```
+      - If command fails: Note the failure but continue
+      - Inform user: "Created Priority field with MoSCoW options"
 
 10. **Create Status Field (If Missing):**
     - Check if "Status" exists in the stored field names list from step 7
