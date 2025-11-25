@@ -77,14 +77,14 @@ Initialize a GitHub Project for requirements management. This command is **idemp
          - label: "Exit"
            description: "Stop and let me fix the issue manually"
      - Handle user choice:
-       - If "Retry": Attempt project creation again (loop back to create command)
+       - If "Retry": Re-execute the project creation command (line 64). If creation fails again, present the recovery options again (allowing user to continue trying, check permissions, or exit)
        - If "Check permissions":
          - Run: `gh auth status`
          - Display the output
          - Show refresh command: `gh auth refresh -s project`
          - Explain: "Projects require 'repo' and 'project' scopes"
          - Note: Projects are owner-scoped (user/org), not repository-scoped
-         - After showing diagnostics, present recovery options again (Retry or Exit)
+         - After showing diagnostics, present the same recovery options again (Retry, Check permissions, or Exit)
        - If "Exit": Exit gracefully with message:
          ```
          Project creation failed. Manual steps to resolve:
