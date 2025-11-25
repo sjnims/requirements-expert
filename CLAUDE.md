@@ -74,6 +74,19 @@ This repository uses a **marketplace-at-root** structure where the repository ac
 
 **Critical Design Decision**: No local files for requirements. Everything is GitHub issues in GitHub Projects.
 
+**Why No Local State?**
+
+This plugin intentionally does NOT persist local state (e.g., project numbers in `.local.md` files). Design rationale:
+
+1. **Single source of truth**: GitHub Projects is authoritative - commands always query GitHub directly
+2. **Always accurate**: Direct queries reflect real-time state, never stale cached data
+3. **Multi-machine**: Works identically across developer machines without synchronization
+4. **No sync conflicts**: Eliminates local state synchronization issues and merge conflicts
+5. **Idempotency**: Commands safely re-run without risk of local state corruption
+6. **Team collaboration**: All team members see identical data without manual sync
+
+Other `/re:*` commands discover projects dynamically by querying GitHub rather than relying on cached references.
+
 **Hierarchy Structure** (parent/child relationships):
 ```
 Vision Issue (#1, Type: Vision, labels: type:vision)

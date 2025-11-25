@@ -161,6 +161,52 @@ All requirements are stored as GitHub issues in GitHub Projects with this hierar
 - `priority:must-have`, `priority:should-have`, `priority:could-have`, `priority:wont-have`
 - `type:vision`, `type:epic`, `type:story`, `type:task`
 
+## Architecture & Design Philosophy
+
+### GitHub as the Source of Truth
+
+This plugin follows a **stateless architecture** where GitHub Projects is the single source of truth:
+
+**What this means:**
+
+- ✅ All requirements data lives in GitHub Issues and Projects
+- ✅ No local files or cached state (no `.local.md` files)
+- ✅ Commands always query GitHub directly for current state
+- ✅ Works identically across all machines and team members
+
+**Why this design?**
+
+1. **Real-time accuracy**: Always reflects current project state
+2. **Team collaboration**: Everyone sees the same data
+3. **Multi-machine**: Use the plugin from any machine without sync
+4. **No conflicts**: No local state means no merge/sync issues
+5. **GitHub native**: Leverage GitHub's collaboration features fully
+
+**Data Flow:**
+
+```mermaid
+flowchart LR
+    A[Claude Code<br/>requirements-expert] -->|gh CLI| B[GitHub API]
+    B -->|Query/Create| C[GitHub Projects]
+    C -->|Issues + Hierarchy| D[Requirements Data]
+
+    style A fill:#e1f5ff
+    style C fill:#ff6b6b,color:#fff
+    style D fill:#51cf66,color:#fff
+
+    Note[No Local State<br/>Always Fresh Data]
+    style Note fill:#ffe066
+```
+
+**Flow explanation:**
+
+- `/re:*` commands use GitHub CLI (`gh`)
+- CLI talks to GitHub API
+- Data stored in GitHub Projects (Issues with parent/child links)
+- **No local cache** - always queries GitHub for current state
+
+This design ensures that all team members always see the same, up-to-date requirements without manual synchronization.
+
 ## Usage Examples
 
 ### Example 1: Starting from Scratch
