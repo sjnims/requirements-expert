@@ -163,22 +163,53 @@ Initialize a GitHub Project for requirements management. This command is **idemp
       - If command fails: Note the failure but continue
       - Inform user: "Created Status field with workflow states"
 
-## Views Setup (Best Effort)
+## Views Setup (Manual Configuration Required)
 
-11. **Create Project Views:**
-    - Note: View creation with grouping/filtering is not well-supported by gh CLI
-    - Attempt basic view creation (names only):
-      - Try: `gh project view-create [project-number] --owner [owner] --name "By Type"`
-      - Try: `gh project view-create [project-number] --owner [owner] --name "By Priority"`
-      - Try: `gh project view-create [project-number] --owner [owner] --name "Active Work"`
-    - If commands fail:
-      - Inform user: "View creation requires manual setup in GitHub web interface"
-      - Provide project URL for manual configuration
-      - Suggest views to create manually:
-        - "By Type" - group by Type field
-        - "By Priority" - group by Priority field
-        - "Active Work" - filter Status = "In Progress"
-    - Note: Grouping and filtering must be configured via web interface after creation
+11. **Views Setup - Manual Instructions:**
+    - Note: GitHub CLI does not support view creation or configuration
+    - All views must be created manually via the GitHub web interface
+    - Inform user: "Project views require manual setup in the GitHub web interface"
+    - Display project URL: [project-url]
+
+    **Manual Setup Instructions:**
+
+    1. **Access the project**:
+       - Open the project in your browser: [project-url]
+       - Or navigate to: Repository → Projects → [Project Name]
+
+    2. **Create recommended views**:
+
+       **View 1: "By Type" (Board View)**
+       - Click "+ New view" → Board
+       - Name: "By Type"
+       - Layout: Board
+       - Group by: Type
+       - Shows: All items grouped by Vision/Epic/Story/Task
+
+       **View 2: "By Priority" (Board View)**
+       - Click "+ New view" → Board
+       - Name: "By Priority"
+       - Layout: Board
+       - Group by: Priority
+       - Shows: All items grouped by Must Have/Should Have/Could Have/Won't Have
+
+       **View 3: "Active Work" (Table View)**
+       - Click "+ New view" → Table
+       - Name: "Active Work"
+       - Layout: Table
+       - Filter: Status = "In Progress"
+       - Shows: Only items currently being worked on
+
+       **View 4: "Backlog" (Table View)**
+       - Click "+ New view" → Table
+       - Name: "Backlog"
+       - Layout: Table
+       - Filter: Status = "Not Started"
+       - Shows: Work ready to be started
+
+    3. **Set default view** (optional):
+       - Click "..." menu on preferred view
+       - Select "Set as default"
 
 ## Success Reporting
 
@@ -206,7 +237,7 @@ Initialize a GitHub Project for requirements management. This command is **idemp
 - Display clear, actionable error messages
 - If project creation fails: Show gh error output and suggest remedies
 - If field creation fails: Note which fields failed but continue
-- If view creation fails: Provide manual instructions
+- Views require manual setup: Provide comprehensive manual instructions
 
 ## Implementation Notes
 
@@ -246,4 +277,4 @@ Other `/re:*` commands will query GitHub to discover the project rather than rel
 
 - Verified with gh CLI version 2.x on macOS
 - Commands tested: `gh project list`, `gh project create`, `gh project field-list`, `gh project field-create`
-- View creation may not fully support grouping/filtering via CLI
+- View creation is not supported via CLI; manual setup via web interface is required
