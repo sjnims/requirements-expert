@@ -64,11 +64,42 @@ Initialize a GitHub Project for requirements management. This command is **idemp
    - Create project: `gh project create --owner [owner] --title "[name]" --format json`
    - Parse JSON response to extract `number` and `url`
    - If creation fails:
-     - Display error message
-     - Suggest: "Verify token permissions include 'repo' and 'project' scopes"
-     - Note: Projects are owner-scoped (user/org), not repository-scoped
-   - Inform user: "Created project: [name] at [url]"
-   - Capture project `number` for subsequent commands
+     - Display the actual error message from gh CLI
+     - Use AskUserQuestion for interactive recovery:
+       - question: "Project creation failed. How would you like to proceed?"
+       - header: "Recovery"
+       - multiSelect: false
+       - options:
+         - label: "Retry"
+           description: "Try creating the project again"
+         - label: "Check permissions"
+           description: "Show commands to verify and fix GitHub CLI permissions"
+         - label: "Exit"
+           description: "Stop and let me fix the issue manually"
+     - Handle user choice:
+       - If "Retry": Re-execute the project creation command (line 64). If creation fails again, present the recovery options again (allowing user to continue trying, check permissions, or exit)
+       - If "Check permissions":
+         - Run: `gh auth status`
+         - Display the output
+         - Show refresh command: `gh auth refresh -s project`
+         - Explain: "Projects require 'repo' and 'project' scopes"
+         - Note: Projects are owner-scoped (user/org), not repository-scoped
+         - After showing diagnostics, present the same recovery options again (Retry, Check permissions, or Exit)
+       - If "Exit": Exit gracefully with message:
+         ```
+         Project creation failed. Manual steps to resolve:
+
+         1. Check authentication: `gh auth status`
+         2. Verify scopes include 'repo' and 'project'
+         3. Refresh token if needed: `gh auth refresh -s project`
+         4. Ensure you have permission to create projects for owner: [owner]
+         5. Retry the command: `/re:init`
+
+         Error details: [show original error message]
+         ```
+   - If creation succeeds:
+     - Inform user: "Created project: [name] at [url]"
+     - Capture project `number` for subsequent commands
 
 ## Custom Fields Setup
 
