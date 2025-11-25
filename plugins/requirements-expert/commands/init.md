@@ -237,7 +237,7 @@ Initialize a GitHub Project for requirements management. This command is **idemp
 - Display clear, actionable error messages
 - If project creation fails: Show gh error output and suggest remedies
 - If field creation fails: Note which fields failed but continue
-- If view creation fails: Provide manual instructions
+- Views require manual setup: Provide comprehensive manual instructions
 
 ## Implementation Notes
 
@@ -277,4 +277,4 @@ Other `/re:*` commands will query GitHub to discover the project rather than rel
 
 - Verified with gh CLI version 2.x on macOS
 - Commands tested: `gh project list`, `gh project create`, `gh project field-list`, `gh project field-create`
-- View creation may not fully support grouping/filtering via CLI
+- View creation is not supported via CLI; manual setup via web interface is required
