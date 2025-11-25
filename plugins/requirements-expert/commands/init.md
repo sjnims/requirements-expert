@@ -217,6 +217,17 @@ Initialize a GitHub Project for requirements management. This command is **idemp
 - **Field creation supports comma-separated options**: Use `--single-select-options "option1,option2,option3"` to create field and options in one command
 - **Idempotency is critical**: Always check for existing resources before creating
 
+**State Management:**
+
+This command intentionally does NOT persist local state (e.g., project number in a `.local.md` file). Design rationale:
+
+1. **GitHub is the source of truth**: All requirements data lives in GitHub Issues and Projects
+2. **Idempotency**: Commands query GitHub directly, ensuring they always reflect current state
+3. **Multi-machine support**: No local state means the plugin works identically across machines
+4. **No sync issues**: Local state could become stale; direct queries are always accurate
+
+Other `/re:*` commands will query GitHub to discover the project rather than relying on cached references.
+
 **Command Execution:**
 
 - All operations should be non-interactive (use `--format json` where available)
