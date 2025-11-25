@@ -103,55 +103,69 @@ Initialize a GitHub Project for requirements management. This command is **idemp
 
 ## Custom Fields Setup
 
-7. **Create Type Field (Idempotent):**
-   - List existing fields: `gh project field-list [project-number] --owner [owner] --format json`
-   - Parse JSON to check if a field with `name` = "Type" exists
-   - If exists:
-     - Inform user: "Type field already exists, skipping creation"
-     - Continue to next field
-   - If not exists:
-     - Create field with all options in one command:
-       ```
-       gh project field-create [project-number] --owner [owner] \
-         --name "Type" \
-         --data-type SINGLE_SELECT \
-         --single-select-options "Vision,Epic,Story,Task" \
-         --format json
-       ```
-     - If command fails: Note the failure but continue (user can add field manually)
-     - Inform user: "Created Type field with options: Vision, Epic, Story, Task"
+7. **Check Existing Fields:**
+   - List all existing fields once: `gh project field-list [project-number] --owner [owner] --format json`
+   - If command fails:
+     - Log warning: "Could not retrieve existing fields, will attempt to create all fields"
+     - Set field names list to empty (this ensures subsequent steps will attempt creation)
+     - Continue to step 8
+   - If command succeeds:
+     - Parse JSON response to extract field names
+     - Store the list of existing field names for use in subsequent steps
+     - Example: If response contains fields with names "Title", "Status", "Assignees", store these names
+   - This single query replaces multiple redundant field-list calls
 
-8. **Create Priority Field (Idempotent):**
-   - List existing fields: `gh project field-list [project-number] --owner [owner] --format json`
-   - Check if "Priority" field exists
-   - If not exists:
-     - Create field with all options:
-       ```
-       gh project field-create [project-number] --owner [owner] \
-         --name "Priority" \
-         --data-type SINGLE_SELECT \
-         --single-select-options "Must Have,Should Have,Could Have,Won't Have" \
-         --format json
-       ```
-   - Inform user: "Created Priority field with MoSCoW options"
+8. **Create Type Field (If Missing):**
+    - Check if "Type" exists in the stored field names list from step 7
+    - If exists:
+      - Inform user: "Type field already exists, skipping creation"
+    - If not exists:
+      - Create field with all options in one command:
+        ```
+        gh project field-create [project-number] --owner [owner] \
+          --name "Type" \
+          --data-type SINGLE_SELECT \
+          --single-select-options "Vision,Epic,Story,Task" \
+          --format json
+        ```
+      - If command fails: Note the failure but continue (user can add field manually)
+      - Inform user: "Created Type field with options: Vision, Epic, Story, Task"
 
-9. **Create Status Field (Idempotent):**
-   - List existing fields: `gh project field-list [project-number] --owner [owner] --format json`
-   - Check if "Status" field exists
-   - If not exists:
-     - Create field with all options:
-       ```
-       gh project field-create [project-number] --owner [owner] \
-         --name "Status" \
-         --data-type SINGLE_SELECT \
-         --single-select-options "Not Started,In Progress,Completed" \
-         --format json
-       ```
-   - Inform user: "Created Status field with workflow states"
+9. **Create Priority Field (If Missing):**
+    - Check if "Priority" exists in the stored field names list from step 7
+    - If exists:
+      - Inform user: "Priority field already exists, skipping creation"
+    - If not exists:
+      - Create field with all options:
+        ```
+        gh project field-create [project-number] --owner [owner] \
+          --name "Priority" \
+          --data-type SINGLE_SELECT \
+          --single-select-options "Must Have,Should Have,Could Have,Won't Have" \
+          --format json
+        ```
+      - If command fails: Note the failure but continue
+      - Inform user: "Created Priority field with MoSCoW options"
+
+10. **Create Status Field (If Missing):**
+    - Check if "Status" exists in the stored field names list from step 7
+    - If exists:
+      - Inform user: "Status field already exists, skipping creation"
+    - If not exists:
+      - Create field with all options:
+        ```
+        gh project field-create [project-number] --owner [owner] \
+          --name "Status" \
+          --data-type SINGLE_SELECT \
+          --single-select-options "Not Started,In Progress,Completed" \
+          --format json
+        ```
+      - If command fails: Note the failure but continue
+      - Inform user: "Created Status field with workflow states"
 
 ## Views Setup (Best Effort)
 
-10. **Create Project Views:**
+11. **Create Project Views:**
     - Note: View creation with grouping/filtering is not well-supported by gh CLI
     - Attempt basic view creation (names only):
       - Try: `gh project view-create [project-number] --owner [owner] --name "By Type"`
@@ -168,7 +182,7 @@ Initialize a GitHub Project for requirements management. This command is **idemp
 
 ## Success Reporting
 
-11. **Display Success Message:**
+12. **Display Success Message:**
     ```
     ✅ GitHub Project initialized successfully!
 
