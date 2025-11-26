@@ -18,6 +18,12 @@ cc --plugin-dir plugins/requirements-expert
 /re:init  # Test a command
 ```
 
+**Lint Markdown**:
+```bash
+markdownlint '**/*.md' --ignore node_modules
+markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix
+```
+
 **8 Commands**: re:init, re:discover-vision, re:identify-epics, re:create-stories, re:create-tasks, re:prioritize, re:review, re:status
 
 **6 Skills**: vision-discovery, epic-identification, user-story-creation, task-breakdown, prioritization, requirements-feedback
@@ -279,7 +285,6 @@ markdownlint '**/*.md' --ignore node_modules --fix
 
 ```bash
 # Load plugin locally (from repository root)
-cd /Users/stevenims/Projects/requirements-expert
 cc --plugin-dir plugins/requirements-expert
 
 # Test specific command
