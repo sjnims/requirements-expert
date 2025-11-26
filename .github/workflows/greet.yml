@@ -6,6 +6,12 @@ on:
   issues:
     types: [opened]
 
+# Group by PR/issue number to prevent overlapping greetings for same item
+# cancel-in-progress: false ensures all first-timers get greeted
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.event.issue.number || github.ref }}
+  cancel-in-progress: false
+
 jobs:
   greeting:
     runs-on: ubuntu-latest

@@ -6,6 +6,12 @@ on:
   pull_request_target:
     types: [opened, synchronize]
 
+# Cancel in-progress reviews when new commits are pushed to the same PR
+# This prevents duplicate reviews on rapid pushes and saves API tokens
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   claude-review:
     # Only allow trusted authors (OWNER, MEMBER, COLLABORATOR) to trigger reviews
