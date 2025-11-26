@@ -5,12 +5,6 @@ on:
   # preventing forked PRs from exfiltrating secrets
   pull_request_target:
     types: [opened, synchronize]
-    # Only run Claude review on plugin and documentation changes
-    paths:
-      - "plugins/**/*.md"
-      - "plugins/**/*.json"
-      - "*.md"
-      - ".github/workflows/*.yml"
 
 jobs:
   claude-review:

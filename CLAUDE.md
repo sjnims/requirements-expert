@@ -780,9 +780,9 @@ When developing new features for this plugin:
 - Docker or containers
 - Database (GitHub is the database)
 
-## Critical Patterns from Copilot Instructions
+## Critical PR Review Patterns
 
-The `.github/copilot-instructions.md` file contains critical patterns for PR reviews. Key highlights:
+Key patterns to follow when reviewing PRs or writing code:
 
 ### GitHub CLI Usage Patterns (CRITICAL)
 
