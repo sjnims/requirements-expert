@@ -5,7 +5,8 @@ This directory contains the canonical label configuration for the repository.
 ## Files
 
 - **labels.yml**: Source of truth for all repository labels
-- **sync-labels.sh**: Script for syncing labels (helper/documentation)
+- **sync-labels.sh**: Script for manual label syncing (helper/documentation)
+- **workflows/sync-labels.yml**: Automated workflow that syncs labels on push to main
 
 ## Label Categories
 
@@ -66,12 +67,14 @@ Time estimates:
      description: "Description here"
    ```
 
-2. **Apply to GitHub**:
+2. **Create a PR** - the workflow runs in dry-run mode to preview the new label
+
+3. **Merge to main** - the label is created automatically
+
+   Or apply manually:
    ```bash
    gh label create "new-label" --color "ff6ec7" --description "Description here"
    ```
-
-3. **Commit** labels.yml changes
 
 ### Updating a Label
 
@@ -82,18 +85,22 @@ Time estimates:
      description: "new description"
    ```
 
-2. **Apply to GitHub**:
+2. **Create a PR** - the workflow runs in dry-run mode to preview changes
+
+3. **Merge to main** - the label is updated automatically
+
+   Or apply manually:
    ```bash
    gh label edit "label-name" --color "new-color" --description "new description"
    ```
 
-3. **Commit** labels.yml changes
-
 ### Deleting a Label
+
+Deleting labels requires manual action - the automated workflow only creates and updates labels (never deletes) for safety.
 
 1. **Remove from labels.yml** (source of truth)
 
-2. **Delete from GitHub**:
+2. **Delete from GitHub manually**:
    ```bash
    gh label delete "label-name" --yes
    ```
@@ -102,9 +109,11 @@ Time estimates:
 
 ### Syncing All Labels
 
-**Option 1**: Manual sync using gh CLI (see sync-labels.sh for guidance)
+Labels are **automatically synced** when changes to `labels.yml` are pushed to main.
 
-**Option 2**: Use a label sync GitHub Action (recommended for automation)
+- **PR preview**: When you open a PR that modifies `labels.yml`, the workflow runs in dry-run mode to show what changes would be applied.
+- **Automatic sync**: When the PR is merged to main, changes are applied automatically.
+- **Manual sync**: Use the GitHub CLI (see sync-labels.sh for guidance) or trigger the workflow manually via GitHub Actions > Sync Labels > Run workflow.
 
 ## Label Naming Convention
 
