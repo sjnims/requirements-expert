@@ -1,6 +1,17 @@
 #!/bin/bash
-# Sync labels from labels.yml to GitHub repository
-# Usage: .github/sync-labels.sh
+# =============================================================================
+# DEPRECATED: This script is kept for reference only.
+#
+# Labels are now synced automatically via GitHub Actions workflow:
+#   .github/workflows/sync-labels.yml
+#
+# The workflow:
+#   - Runs automatically when labels.yml is modified and merged to main
+#   - Previews changes in dry-run mode on pull requests
+#   - Can be triggered manually via GitHub Actions UI
+#
+# See .github/LABELS.md for full documentation.
+# =============================================================================
 
 set -e
 
@@ -11,21 +22,16 @@ if [ ! -f "$LABELS_FILE" ]; then
     exit 1
 fi
 
-echo "Syncing labels from $LABELS_FILE to GitHub..."
-
-# Parse YAML and create/update labels
-# This requires yq (brew install yq) or we use a simpler approach
-
-# For now, provide instructions
+echo "==============================================="
+echo "NOTE: Labels are now synced automatically!"
+echo "See: .github/workflows/sync-labels.yml"
+echo "==============================================="
 echo ""
-echo "To sync labels, you have two options:"
+echo "For manual operations, use gh CLI:"
 echo ""
-echo "Option 1: Use a label sync action (recommended)"
-echo "  Add this workflow to .github/workflows/sync-labels.yml"
-echo ""
-echo "Option 2: Manually create labels using gh CLI"
-echo "  Parse .github/labels.yml and run:"
-echo "  gh label create \"name\" --color \"color\" --description \"desc\""
+echo "  Create:  gh label create \"name\" --color \"color\" --description \"desc\""
+echo "  Update:  gh label edit \"name\" --color \"color\" --description \"desc\""
+echo "  Delete:  gh label delete \"name\" --yes"
 echo ""
 echo "Current labels in labels.yml: $(grep -c '^- name:' "$LABELS_FILE")"
 echo ""
