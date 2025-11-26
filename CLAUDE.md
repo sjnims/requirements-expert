@@ -746,7 +746,7 @@ git push origin v0.x.x
 
 Release Drafter automatically maintains a draft release with notes generated from merged PRs. To publish:
 
-1. Navigate to [Releases](../../releases) in GitHub
+1. Navigate to the repository's **Releases** page in GitHub
 2. Find the draft release created by Release Drafter
 3. Review the auto-generated release notes
 4. Verify the version matches your tag (v0.x.x)
