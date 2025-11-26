@@ -14,11 +14,12 @@ on:
 
 jobs:
   claude-review:
-    # Optional: Filter by PR author
-    # if: |
-    #   github.event.pull_request.user.login == 'external-contributor' ||
-    #   github.event.pull_request.user.login == 'new-developer' ||
-    #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
+    # Only allow trusted authors (OWNER, MEMBER, COLLABORATOR) to trigger reviews
+    # This prevents fork PRs from running code with access to secrets
+    if: |
+      github.event.pull_request.author_association == 'OWNER' ||
+      github.event.pull_request.author_association == 'MEMBER' ||
+      github.event.pull_request.author_association == 'COLLABORATOR'
 
     runs-on: ubuntu-latest
     permissions:
@@ -31,6 +32,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
+          # Checkout the PR head to review actual PR code (not base branch)
+          ref: ${{ github.event.pull_request.head.sha }}
           # Full history for comprehensive code review context
           fetch-depth: 0
 
@@ -50,7 +53,7 @@ jobs:
             - Security concerns
             - Test coverage
 
-            Use the repository's CLAUDE.md for guidance on style and conventions. Be constructive and helpful in your feedback.
+            Read the repository's CLAUDE.md file for guidance on style and conventions. Be constructive and helpful in your feedback.
 
             Use `gh pr comment` with your Bash tool to leave your review as a comment on the PR.
 
