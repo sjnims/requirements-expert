@@ -419,6 +419,21 @@ Contributions welcome! Please:
 4. Ensure commands, skills, and agents follow the existing patterns (see CLAUDE.md)
 5. Submit a pull request with a clear description of changes
 
+## Acknowledgments
+
+This project wouldn't exist without the incredible work of others:
+
+- **[Claude](https://claude.ai)** - The AI assistant that helped design, build, and refine every aspect of this plugin. From architecture decisions to documentation, Claude was a true collaborator throughout.
+
+- **[Anthropic](https://anthropic.com)** - For creating Claude and [Claude Code](https://claude.ai/code), the powerful AI coding assistant that makes plugins like this possible.
+
+- **[GitHub](https://github.com)** - For GitHub Projects (the backbone of this plugin's data architecture), GitHub CLI, and GitHub Actions that power our CI/CD.
+
+- **Open Source Tools** - The quality tools that keep this project maintainable:
+  - [markdownlint](https://github.com/DavidAnson/markdownlint) for consistent documentation
+  - [lychee](https://github.com/lycheeverse/lychee) for link validation
+  - [actionlint](https://github.com/rhysd/actionlint) for workflow validation
+
 ## License
 
 [MIT License](LICENSE.txt)
