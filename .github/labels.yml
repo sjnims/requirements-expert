@@ -129,3 +129,20 @@
 - name: "security"
   color: "ee0701"
   description: "Security-related"
+
+- name: "stale"
+  color: "ededed"
+  description: "No recent activity - will be closed soon"
+
+- name: "breaking"
+  color: "b60205"
+  description: "Breaking change - requires major version bump"
+
+# Category labels (type of improvement)
+- name: "automation"
+  color: "0e8a16"
+  description: "CI/CD and workflow automation improvements"
+
+- name: "optimization"
+  color: "1d76db"
+  description: "Performance and efficiency improvements"

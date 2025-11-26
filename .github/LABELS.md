@@ -48,6 +48,12 @@ Time estimates:
 - `experiment` - Testing/experimental changes
 - `pinned` - Never mark as stale
 - `security` - Security-related issues
+- `stale` - No recent activity (auto-applied by stale workflow)
+- `breaking` - Breaking change requiring major version bump
+
+**Category** (type of improvement):
+- `automation` - CI/CD and workflow automation improvements
+- `optimization` - Performance and efficiency improvements
 
 ## Managing Labels
 
