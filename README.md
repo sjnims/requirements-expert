@@ -190,12 +190,12 @@ flowchart LR
     B -->|Query/Create| C[GitHub Projects]
     C -->|Issues + Hierarchy| D[Requirements Data]
 
-    style A fill:#e1f5ff
-    style C fill:#ff6b6b,color:#fff
-    style D fill:#51cf66,color:#fff
+    style A fill:#0969da,color:#fff
+    style C fill:#cf222e,color:#fff
+    style D fill:#1a7f37,color:#fff
 
     Note[No Local State<br/>Always Fresh Data]
-    style Note fill:#ffe066
+    style Note fill:#9a6700,color:#fff
 ```
 
 **Flow explanation:**
