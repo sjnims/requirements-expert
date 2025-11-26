@@ -107,9 +107,8 @@ Time estimates:
 
 Labels are **automatically synced** when changes to `labels.yml` are pushed to main.
 
-**Automatic sync** (recommended): Simply update `labels.yml` and push to main. The `sync-labels.yml` workflow will automatically apply changes.
-
-**Manual sync**: Use the GitHub CLI (see sync-labels.sh for guidance) or trigger the workflow manually via GitHub Actions > Sync Labels > Run workflow.
+- **Automatic sync** (recommended): Simply update `labels.yml` and push to main. The `sync-labels.yml` workflow will automatically apply changes.
+- **Manual sync**: Use the GitHub CLI (see sync-labels.sh for guidance) or trigger the workflow manually via GitHub Actions > Sync Labels > Run workflow.
 
 ## Label Naming Convention
 
