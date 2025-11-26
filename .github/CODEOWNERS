@@ -1,5 +1,13 @@
+# CODEOWNERS - Defines code ownership for automatic reviewer assignment
+#
+# Note: The wildcard rule must be FIRST (GitHub uses last-match-wins).
+# Specific rules below are currently same owner but documented separately
+# to enable per-area ownership when the team grows.
+
 # Default owner for everything
 * @sjnims
+
+# --- Specific ownership rules (ready for team scaling) ---
 
 # GitHub configuration (workflows, templates, dependabot)
 /.github/ @sjnims
