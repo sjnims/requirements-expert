@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
 
       - name: Run markdownlint
-        uses: articulate/actions-markdownlint@v1
+        uses: articulate/actions-markdownlint@ab2cefb7bda6ac43ba087d46988b36e18bd57bfd # v1
         with:
           config: .markdownlint.json
           files: "**/*.md"
