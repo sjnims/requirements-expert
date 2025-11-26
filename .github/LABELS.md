@@ -5,7 +5,8 @@ This directory contains the canonical label configuration for the repository.
 ## Files
 
 - **labels.yml**: Source of truth for all repository labels
-- **sync-labels.sh**: Script for syncing labels (helper/documentation)
+- **sync-labels.sh**: Script for manual label syncing (helper/documentation)
+- **workflows/sync-labels.yml**: Automated workflow that syncs labels on push to main
 
 ## Label Categories
 
@@ -66,12 +67,12 @@ Time estimates:
      description: "Description here"
    ```
 
-2. **Apply to GitHub**:
+2. **Commit and push** to main - the label will be created automatically
+
+   Or apply manually:
    ```bash
    gh label create "new-label" --color "ff6ec7" --description "Description here"
    ```
-
-3. **Commit** labels.yml changes
 
 ### Updating a Label
 
@@ -82,29 +83,33 @@ Time estimates:
      description: "new description"
    ```
 
-2. **Apply to GitHub**:
+2. **Commit and push** to main - the label will be updated automatically
+
+   Or apply manually:
    ```bash
    gh label edit "label-name" --color "new-color" --description "new description"
    ```
-
-3. **Commit** labels.yml changes
 
 ### Deleting a Label
 
 1. **Remove from labels.yml** (source of truth)
 
-2. **Delete from GitHub**:
+2. **Delete from GitHub manually** (not automatic for safety):
    ```bash
    gh label delete "label-name" --yes
    ```
 
 3. **Commit** labels.yml changes
 
+> **Note**: The automated sync workflow does not delete labels that exist in GitHub but are missing from labels.yml. This prevents accidental deletions. Delete labels manually using the command above.
+
 ### Syncing All Labels
 
-**Option 1**: Manual sync using gh CLI (see sync-labels.sh for guidance)
+Labels are **automatically synced** when changes to `labels.yml` are pushed to main.
 
-**Option 2**: Use a label sync GitHub Action (recommended for automation)
+**Automatic sync** (recommended): Simply update `labels.yml` and push to main. The `sync-labels.yml` workflow will automatically apply changes.
+
+**Manual sync**: Use the GitHub CLI (see sync-labels.sh for guidance) or trigger the workflow manually via GitHub Actions > Sync Labels > Run workflow.
 
 ## Label Naming Convention
 
