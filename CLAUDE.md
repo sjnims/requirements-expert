@@ -305,7 +305,7 @@ gh project list --owner [owner]   # List existing projects
 
 ### CI/CD Workflows
 
-The repository includes 7 GitHub Actions workflows:
+The repository includes 10 GitHub Actions workflows:
 
 **Primary CI** (runs on every PR):
 1. **markdownlint.yml** (~30-40s) - Enforces markdown style (ATX headers, dash lists, 2-space indentation)
@@ -316,9 +316,14 @@ The repository includes 7 GitHub Actions workflows:
 4. **claude.yml** - Claude Code integration for issue triage and PR assistance
 5. **claude-code-review.yml** - Automated PR code review using Claude
 
+**Automation Workflows**:
+6. **labeler.yml** - Auto-labels PRs based on changed files
+7. **sync-labels.yml** - Syncs labels from labels.yml to repository
+8. **release-drafter.yml** - Auto-generates release notes from merged PRs
+
 **Utility Workflows**:
-6. **greet.yml** - Welcomes first-time contributors
-7. **stale.yml** - Marks inactive issues/PRs as stale
+9. **greet.yml** - Welcomes first-time contributors
+10. **stale.yml** - Marks inactive issues/PRs as stale
 
 **If markdownlint fails**:
 ```bash
@@ -739,6 +744,16 @@ git push origin v0.x.x
 
 #### 7. Create GitHub Release
 
+Release Drafter automatically maintains a draft release with notes generated from merged PRs. To publish:
+
+1. Navigate to [Releases](../../releases) in GitHub
+2. Find the draft release created by Release Drafter
+3. Review the auto-generated release notes
+4. Verify the version matches your tag (v0.x.x)
+5. Click "Publish release"
+
+**Alternative** (if Release Drafter draft doesn't exist):
+
 ```bash
 # Create GitHub Release with auto-generated notes
 gh release create v0.x.x --generate-notes
@@ -748,6 +763,8 @@ gh release create v0.x.x --title "v0.x.x" --notes "Release notes here"
 ```
 
 **Note**: Main branch is protected and requires PRs. All version bumps must go through the release branch workflow.
+
+**Tip**: Release Drafter categorizes PRs by label. Ensure PRs have appropriate labels (`enhancement`, `bug`, `documentation`, `breaking`, etc.) before merging for accurate release notes.
 
 **Publishing**: The entire repository acts as a marketplace. The `plugins/requirements-expert/` directory is the distributable plugin unit.
 

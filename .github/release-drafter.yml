@@ -1,0 +1,89 @@
+# Release Drafter Configuration
+# Automatically generates release notes from merged PRs
+# See: https://github.com/release-drafter/release-drafter
+
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+
+# Group PRs by label into categories
+categories:
+  - title: 'Breaking Changes'
+    labels:
+      - 'breaking'
+  - title: 'Features'
+    labels:
+      - 'enhancement'
+  - title: 'Bug Fixes'
+    labels:
+      - 'bug'
+  - title: 'Documentation'
+    labels:
+      - 'documentation'
+      - 'component:docs'
+  - title: 'Commands'
+    labels:
+      - 'component:command'
+  - title: 'Skills'
+    labels:
+      - 'component:skill'
+  - title: 'Agents'
+    labels:
+      - 'component:agent'
+  - title: 'Hooks'
+    labels:
+      - 'component:hook'
+  - title: 'Maintenance'
+    labels:
+      - 'dependencies'
+      - 'github-actions'
+      - 'automation'
+  - title: 'Security'
+    labels:
+      - 'security'
+  - title: 'Performance'
+    labels:
+      - 'optimization'
+
+# Exclude certain labels from release notes
+exclude-labels:
+  - 'duplicate'
+  - 'invalid'
+  - 'wontfix'
+  - 'stale'
+
+# Format for each change entry
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-title-escapes: '\<*_&'
+
+# Determine version bump from labels
+version-resolver:
+  major:
+    labels:
+      - 'breaking'
+  minor:
+    labels:
+      - 'enhancement'
+  patch:
+    labels:
+      - 'bug'
+      - 'documentation'
+      - 'dependencies'
+      - 'github-actions'
+      - 'automation'
+      - 'security'
+      - 'optimization'
+  default: patch
+
+# Release notes template
+template: |
+  ## What's Changed
+
+  $CHANGES
+
+  ## Contributors
+
+  $CONTRIBUTORS
+
+  ---
+
+  **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
