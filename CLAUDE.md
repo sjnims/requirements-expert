@@ -270,7 +270,8 @@ markdownlint '**/*.md' --ignore node_modules --fix
 - 2-space list indentation
 - No line length limits (MD013 disabled)
 - Fenced code blocks (not indented)
-- Allow HTML elements: `<example>`, `<commentary>`, `<details>`, `<summary>`, `<br>`
+- Underscores for emphasis (`_italic_`), asterisks for bold (`**bold**`)
+- Allow HTML elements: `<example>`, `<commentary>`, `<details>`, `<summary>`, `<br>`, `<invoke>`, `<parameter>`
 
 **VS Code integration**: Markdown validation is enabled (see `.vscode/settings.json`)
 
@@ -304,16 +305,20 @@ gh project list --owner [owner]   # List existing projects
 
 ### CI/CD Workflows
 
-The repository includes 5 GitHub Actions workflows:
+The repository includes 7 GitHub Actions workflows:
 
 **Primary CI** (runs on every PR):
 1. **markdownlint.yml** (~30-40s) - Enforces markdown style (ATX headers, dash lists, 2-space indentation)
 2. **links.yml** (~1-2min) - Validates all links (excluding `.lycheeignore`)
 3. **validate-workflows.yml** (~20-30s) - Validates workflow YAML syntax using actionlint
 
+**Claude Code Workflows**:
+4. **claude.yml** - Claude Code integration for issue triage and PR assistance
+5. **claude-code-review.yml** - Automated PR code review using Claude
+
 **Utility Workflows**:
-4. **greet.yml** - Welcomes first-time contributors
-5. **stale.yml** - Marks inactive issues/PRs as stale
+6. **greet.yml** - Welcomes first-time contributors
+7. **stale.yml** - Marks inactive issues/PRs as stale
 
 **If markdownlint fails**:
 ```bash
