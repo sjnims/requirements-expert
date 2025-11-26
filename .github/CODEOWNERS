@@ -1,0 +1,17 @@
+# Default owner for everything
+* @sjnims
+
+# GitHub configuration (workflows, templates, dependabot)
+/.github/ @sjnims
+
+# Plugin core
+/plugins/requirements-expert/ @sjnims
+
+# Critical documentation
+/README.md @sjnims
+/CLAUDE.md @sjnims
+/SECURITY.md @sjnims
+
+# Manifests (version management)
+/plugins/requirements-expert/.claude-plugin/plugin.json @sjnims
+/.claude-plugin/marketplace.json @sjnims
