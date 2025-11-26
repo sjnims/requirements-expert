@@ -1,0 +1,39 @@
+# Configuration for actions/labeler
+# Automatically applies labels to PRs based on changed files
+# See: https://github.com/actions/labeler
+
+# Component labels
+"component:command":
+  - changed-files:
+      - any-glob-to-any-file: "plugins/requirements-expert/commands/**/*"
+
+"component:skill":
+  - changed-files:
+      - any-glob-to-any-file: "plugins/requirements-expert/skills/**/*"
+
+"component:agent":
+  - changed-files:
+      - any-glob-to-any-file: "plugins/requirements-expert/agents/**/*"
+
+"component:hook":
+  - changed-files:
+      - any-glob-to-any-file: "plugins/requirements-expert/hooks/**/*"
+
+# Documentation label - markdown files except those in component directories
+"component:docs":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.md"
+          - "!plugins/requirements-expert/commands/**/*.md"
+          - "!plugins/requirements-expert/skills/**/*.md"
+          - "!plugins/requirements-expert/agents/**/*.md"
+
+# GitHub Actions workflows
+"github-actions":
+  - changed-files:
+      - any-glob-to-any-file: ".github/workflows/**/*"
+
+# Dependencies (Dependabot config)
+"dependencies":
+  - changed-files:
+      - any-glob-to-any-file: ".github/dependabot.yml"
