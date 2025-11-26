@@ -4,9 +4,21 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
     labels:
       - "dependencies"
       - "github-actions"
     commit-message:
       prefix: "chore"
       include: "scope"
+    # Group minor/patch updates together
+    groups:
+      actions-minor:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    open-pull-requests-limit: 5
