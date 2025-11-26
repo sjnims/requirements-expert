@@ -49,9 +49,9 @@ Time estimates:
 - `pinned` - Never mark as stale
 - `security` - Security-related issues
 - `stale` - No recent activity (auto-applied by stale workflow)
-- `breaking` - Breaking change requiring major version bump
 
-**Category** (type of improvement):
+**Category** (type of change):
+- `breaking` - Breaking change requiring major version bump
 - `automation` - CI/CD and workflow automation improvements
 - `optimization` - Performance and efficiency improvements
 
