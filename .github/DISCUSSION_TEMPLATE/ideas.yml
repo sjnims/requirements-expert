@@ -1,5 +1,7 @@
+name: Ideas
+description: Share feature ideas and suggestions for the requirements-expert plugin
 title: "[Idea] "
-labels: []
+labels: ["enhancement", "idea"]
 body:
   - type: markdown
     attributes:
