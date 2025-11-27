@@ -61,7 +61,7 @@ cc --plugin-dir plugins/requirements-expert
 /re:init
 ```
 
-Creates a GitHub Project for your repository with custom fields (Type, Priority, Status) and configures project views.
+Creates a GitHub Project for your repository with custom fields (Type, Priority, Status). Provides instructions for configuring project views manually.
 
 ### 2. Discover Your Vision
 

@@ -842,7 +842,7 @@ The CI will fail if markdown doesn't comply:
 - ✅ Fenced code blocks, not indented blocks
 - ✅ No line length limits (MD013 disabled)
 
-**Allowed HTML tags**: `<example>`, `<commentary>`, `<details>`, `<summary>`, `<br>`
+**Allowed HTML tags**: `<example>`, `<commentary>`, `<details>`, `<summary>`, `<br>`, `<invoke>`, `<parameter>`
 
 ### State-First Validation Pattern
 
