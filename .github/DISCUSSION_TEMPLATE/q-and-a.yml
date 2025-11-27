@@ -1,0 +1,41 @@
+title: "[Question] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before asking, please check:
+        - [ ] README.md for documentation
+        - [ ] Existing discussions for similar questions
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      options:
+        - Installation/Setup
+        - Using Commands
+        - GitHub Projects Integration
+        - Customization
+        - Best Practices
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: How do I...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any relevant details about your setup or use case
+      placeholder: I'm trying to...
+    validations:
+      required: false

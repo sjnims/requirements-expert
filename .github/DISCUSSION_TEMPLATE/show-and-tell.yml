@@ -1,0 +1,25 @@
+title: "[Showcase] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share how you're using requirements-expert!
+
+  - type: textarea
+    id: showcase
+    attributes:
+      label: What are you sharing?
+      description: Describe what you built or accomplished
+      placeholder: I used requirements-expert to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: learnings
+    attributes:
+      label: Key Learnings
+      description: What did you learn that might help others?
+      placeholder: Tips I'd share...
+    validations:
+      required: false
