@@ -1,0 +1,45 @@
+name: Ideas
+description: Share feature ideas and suggestions for the requirements-expert plugin
+title: "[Idea]: "
+labels: ["enhancement", "idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing your idea! Help us understand what problem you're solving and your proposed solution.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Need
+      description: What problem does this idea solve? What need does it address?
+      placeholder: "I'm frustrated when... I need a way to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Idea
+      description: Describe your idea clearly
+      placeholder: I think it would be great if...
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefit
+    attributes:
+      label: Expected Benefit
+      description: How would this improve the plugin?
+      placeholder: This would help users by...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you thought of other ways to achieve this?
+      placeholder: Instead of this, we could also...
+    validations:
+      required: false

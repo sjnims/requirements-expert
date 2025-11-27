@@ -1,0 +1,36 @@
+name: Show and Tell
+description: Share how you're using requirements-expert and what you've learned
+title: "[Showcase]: "
+labels: ["showcase"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share how you're using requirements-expert! We'd love to hear about your projects and learnings.
+
+  - type: textarea
+    id: showcase
+    attributes:
+      label: What are you sharing?
+      description: Describe what you built or accomplished
+      placeholder: I used requirements-expert to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: learnings
+    attributes:
+      label: Key Learnings
+      description: What did you learn that might help others? This is the heart of Show and Tell!
+      placeholder: Tips I'd share...
+    validations:
+      required: true
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Links or Resources
+      description: Any relevant links to your project, blog post, or resources
+      placeholder: "GitHub repo: ... Blog post: ..."
+    validations:
+      required: false

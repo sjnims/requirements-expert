@@ -1,0 +1,61 @@
+name: Q&A
+description: Ask questions about using the requirements-expert plugin
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question about using the plugin? We're here to help!
+
+        **Before asking**: Please check the [README](https://github.com/sjnims/requirements-expert/blob/main/README.md) and existing discussions first.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission checklist
+      options:
+        - label: I've checked the README.md
+          required: true
+        - label: I've searched existing discussions for similar questions
+          required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      options:
+        - Installation and setup
+        - Using commands
+        - Understanding the workflow
+        - Vision and Epic Discovery
+        - User Stories and Tasks
+        - GitHub CLI integration
+        - GitHub Projects setup
+        - Two-Layer Metadata System
+        - Parent-child relationships
+        - MoSCoW prioritization
+        - INVEST criteria
+        - Troubleshooting
+        - Contributing
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: How do I...? Why does...? Can I...?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any relevant details about your setup or use case
+      placeholder: I'm trying to...
+    validations:
+      required: false
