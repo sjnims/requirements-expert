@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
 
       - name: Run markdownlint
-        uses: articulate/actions-markdownlint@ab2cefb7bda6ac43ba087d46988b36e18bd57bfd # v1
+        uses: articulate/actions-markdownlint@17b8abe7407cd17590c006ecc837c35e1ac3ed83 # v1
         with:
           config: .markdownlint.json
           files: "**/*.md"
