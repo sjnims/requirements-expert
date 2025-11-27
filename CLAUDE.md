@@ -679,14 +679,24 @@ git checkout -b release/v0.x.x
 
 #### 2. Update Version Numbers
 
-Update version in **both manifests** (must match):
+Update version in **all version files** (must match):
 - `plugins/requirements-expert/.claude-plugin/plugin.json`
-- `.claude-plugin/marketplace.json` (in plugins array)
+- `.claude-plugin/marketplace.json` (in plugins array and metadata)
+- All skill SKILL.md files (6 files in `plugins/requirements-expert/skills/*/SKILL.md`)
+
+```bash
+# Find all files with version to update
+grep -r "0\.x\.0" plugins/requirements-expert --include="*.json" --include="SKILL.md"
+```
 
 #### 3. Update Documentation
 
-- `README.md` - Add entry to changelog section
-- `CHANGELOG.md` - Document changes, breaking changes, and new features
+- `CHANGELOG.md` - Copy and clean up notes from Release Drafter draft release:
+  1. View draft: `gh release view <draft-tag>` or check GitHub Releases page
+  2. Deduplicate entries (Release Drafter may categorize same PR multiple times)
+  3. Organize into Keep a Changelog sections (Added, Changed, Fixed, Security, Performance, Documentation)
+  4. Add version comparison links at bottom of file
+- `README.md` - Add entry to changelog section (if applicable)
 - Any other relevant documentation
 
 #### 4. Test the Plugin
@@ -721,9 +731,10 @@ gh pr create --title "Release v0.x.x" \
 - [List documentation updates]
 
 ## Checklist
-- [x] Version updated in both manifests
-- [x] CHANGELOG.md updated
-- [x] README.md updated
+- [x] Version updated in manifests (plugin.json, marketplace.json)
+- [x] Version updated in all skill SKILL.md files
+- [x] CHANGELOG.md updated (from Release Drafter notes)
+- [x] README.md updated (if applicable)
 - [x] Plugin tested locally
 "
 ```

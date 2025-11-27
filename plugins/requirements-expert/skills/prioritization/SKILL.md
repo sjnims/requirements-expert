@@ -1,7 +1,7 @@
 ---
 name: Prioritization
 description: This skill should be used when the user asks to "prioritize requirements", "use MoSCoW", "prioritize epics", "prioritize stories", "prioritize tasks", "what should I build first", "rank features", or when they need to determine the priority order of epics, user stories, or tasks using the MoSCoW framework.
-version: 0.1.0
+version: 0.2.0
 ---
 
 # Prioritization

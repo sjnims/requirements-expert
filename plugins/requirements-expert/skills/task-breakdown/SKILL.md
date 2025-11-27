@@ -1,7 +1,7 @@
 ---
 name: Task Breakdown
 description: This skill should be used when the user asks to "create tasks", "break down story into tasks", "define tasks", "what tasks are needed", "write acceptance criteria", or when they have user stories and need to decompose them into specific, executable tasks with clear acceptance criteria that can be created as GitHub issues in a GitHub Project.
-version: 0.1.0
+version: 0.2.0
 ---
 
 # Task Breakdown

@@ -1,7 +1,7 @@
 ---
 name: Requirements Feedback
 description: This skill should be used when the user asks about "feedback loops", "iterate on requirements", "continuous documentation", "refine requirements", "update requirements", "requirements changed", or when they need guidance on gathering feedback and continuously improving requirements throughout the product lifecycle.
-version: 0.1.0
+version: 0.2.0
 ---
 
 # Requirements Feedback & Continuous Documentation
