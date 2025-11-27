@@ -56,6 +56,12 @@ Time estimates:
 - `automation` - CI/CD and workflow automation improvements
 - `optimization` - Performance and efficiency improvements
 
+### Discussion Labels
+
+Labels for GitHub Discussions categories:
+- `idea` - Feature idea or suggestion
+- `showcase` - Community showcase
+
 ## Managing Labels
 
 ### Adding a New Label

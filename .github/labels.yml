@@ -146,3 +146,12 @@
 - name: "optimization"
   color: "2188ff"
   description: "Performance and efficiency improvements"
+
+# Discussion labels (GitHub Discussions categories)
+- name: "idea"
+  color: "f9a825"
+  description: "Feature idea or suggestion"
+
+- name: "showcase"
+  color: "6f42c1"
+  description: "Community showcase"
