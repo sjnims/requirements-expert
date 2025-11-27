@@ -25,7 +25,7 @@
 
 - name: "question"
   color: "d876e3"
-  description: "Further information is requested"
+  description: "Further information is requested (issues and discussions)"
 
 - name: "wontfix"
   color: "ffffff"

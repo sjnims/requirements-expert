@@ -1,6 +1,6 @@
 name: Show and Tell
 description: Share how you're using requirements-expert and what you've learned
-title: "[Showcase] "
+title: "[Showcase]: "
 labels: ["showcase"]
 body:
   - type: markdown
@@ -21,10 +21,10 @@ body:
     id: learnings
     attributes:
       label: Key Learnings
-      description: What did you learn that might help others?
+      description: What did you learn that might help others? This is the heart of Show and Tell!
       placeholder: Tips I'd share...
     validations:
-      required: false
+      required: true
 
   - type: textarea
     id: links

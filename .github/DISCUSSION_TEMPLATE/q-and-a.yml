@@ -1,6 +1,6 @@
 name: Q&A
 description: Ask questions about using the requirements-expert plugin
-title: "[Question] "
+title: "[Question]: "
 labels: ["question"]
 body:
   - type: markdown
@@ -28,8 +28,12 @@ body:
         - Installation and setup
         - Using commands
         - Understanding the workflow
+        - Vision and Epic Discovery
+        - User Stories and Tasks
         - GitHub CLI integration
         - GitHub Projects setup
+        - Two-Layer Metadata System
+        - Parent-child relationships
         - MoSCoW prioritization
         - INVEST criteria
         - Troubleshooting
