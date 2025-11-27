@@ -40,7 +40,7 @@ jobs:
 
       - name: Run Claude Code Review
         id: claude-review
-        uses: anthropics/claude-code-action@cc28cf34ba37e7abe223f1198e98333275a7139d # v1
+        uses: anthropics/claude-code-action@a7e4c51380c42dd89b127f5e5f9be7b54020bc6b # v1.0.21
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Explicit github_token required for pull_request_target (OIDC doesn't work)
@@ -58,9 +58,10 @@ jobs:
 
             Read the repository's CLAUDE.md file for guidance on style and conventions. Be constructive and helpful in your feedback.
 
-          # Use sticky comment to consolidate reviews into a single updatable comment
-          use_sticky_comment: true
+            Use `gh pr comment` with your Bash tool to leave your review as a comment on the PR.
 
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
           # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options
-          claude_args: '--allowed-tools "Read,Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"'
+          # Note: Using gh pr comment because use_sticky_comment only works with pull_request events,
+          # not pull_request_target. Comments will appear from github-actions[bot].
+          claude_args: '--allowed-tools "Read,Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"'
