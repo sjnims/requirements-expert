@@ -64,4 +64,4 @@ jobs:
           # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options
           # Note: Using gh pr comment because use_sticky_comment only works with pull_request events,
           # not pull_request_target. Comments will appear from github-actions[bot].
-          claude_args: '--allowed-tools "Read,Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"'
+          claude_args: '--allowed-tools Read,Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)'
