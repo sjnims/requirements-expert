@@ -1,7 +1,7 @@
 ---
 name: Epic Identification
 description: This skill should be used when the user asks to "identify epics", "create epics", "what epics do I need", "break down vision into epics", "define major features", "find all epics", or when they have a vision and need to identify the major capabilities or features that will deliver on that vision.
-version: 0.1.0
+version: 0.2.0
 ---
 
 # Epic Identification

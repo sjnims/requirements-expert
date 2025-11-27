@@ -1,7 +1,7 @@
 ---
 name: Vision Discovery
 description: This skill should be used when the user asks to "discover vision", "create a vision", "define product vision", "document vision", "what should my vision be", "help me with vision", or when starting a new requirements project and needs to establish the foundational product vision before identifying epics or stories.
-version: 0.1.0
+version: 0.2.0
 ---
 
 # Vision Discovery

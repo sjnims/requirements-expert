@@ -1,7 +1,7 @@
 ---
 name: User Story Creation
 description: This skill should be used when the user asks to "create user stories", "write user stories", "break down epic into stories", "define user stories", "what stories do I need", or when they have epics defined and need to decompose them into specific, valuable user stories following INVEST criteria.
-version: 0.1.0
+version: 0.2.0
 ---
 
 # User Story Creation

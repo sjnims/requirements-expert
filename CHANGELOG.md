@@ -7,6 +7,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2025-11-26
+
+### Added
+
+- **GitHub Discussion templates** for Q&A, feature requests, announcements, and show-and-tell (#75)
+- **Claude Code GitHub Action workflows** for automated PR review and issue triage (#53)
+- **CODEOWNERS file** for automatic PR reviewer assignment (#54)
+- **Interactive error recovery** to `/re:init` Step 6 with retry, diagnostic, and exit options (#34)
+- **Release Drafter** for automated release notes generation from merged PRs (#62)
+- **PR auto-labeler** based on changed files (#61)
+- **Automated label sync** workflow from `.github/labels.yml` (#60)
+- **Dependabot auto-merge** for non-breaking dependency updates (#64)
+- **Concurrency controls** to all GitHub Actions workflows (#59)
+- Missing labels for workflow automation and versioning (#51)
+
+### Changed
+
+- Consolidated to Claude-only PR review setup, removing redundant reviewers (#55)
+- Optimized `/re:init` field listing to reduce API calls (#35)
+- Improved `/re:init` Step 4 AskUserQuestion structure (#33)
+- Enhanced init command with comprehensive documentation improvements (#26)
+
+### Fixed
+
+- Shell quoting issue in `claude_args` by removing inner quotes (#74)
+- Discussion template slug mismatch and removed unsupported name/description fields
+- Bot workflow cancellation by including actor in concurrency group
+- Claude workflow self-triggering by excluding `claude[bot]` from triggers
+- `validate-workflows.yml` performance using pre-built actionlint action (#71)
+- Claude Code Action native commenting instead of `gh pr comment` (#69)
+- Contents write permission for Claude to push branches
+- Non-existent `gh project view-create` commands in Step 11 (#39)
+- `[project-id]` references replaced with `[project-number]` throughout (#27)
+- GitHub Actions version comments (#70)
+
+### Security
+
+- **Pinned all GitHub Actions to full SHA** for supply chain security (#58)
+
+### Performance
+
+- Added caching to link checker workflow for faster runs (#72)
+
+### Documentation
+
+- Fixed documentation inaccuracies in CLAUDE.md and README.md
+- Improved CLAUDE.md portability and quick reference section
+- Improved Mermaid diagram color contrast in README for accessibility (#57)
+- Fixed CHANGELOG date and added Acknowledgments section to README (#56)
+- Documented "GitHub as source of truth" design decision (#38)
+- Added comprehensive testing strategies to CLAUDE.md (#37)
+- Added verified GitHub CLI patterns and CI/CD documentation
+
 ## [0.1.0] - 2025-11-22
 
 ### Added
@@ -118,4 +171,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `plugin.json` - Plugin metadata and configuration (v0.1.0)
 - `marketplace.json` - Marketplace distribution metadata (v0.1.0)
 
+[Unreleased]: https://github.com/sjnims/requirements-expert/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/sjnims/requirements-expert/releases/tag/v0.2.0
 [0.1.0]: https://github.com/sjnims/requirements-expert/releases/tag/v0.1.0
