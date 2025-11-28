@@ -142,13 +142,17 @@ Create the vision as a GitHub issue in the relevant GitHub Project:
 
 **Issue Description:** Full vision document with all sections
 
-**Custom Fields:**
-- Type: Vision
-- Status: Active
-- Priority: (Not applicable for vision)
+**Two-Layer Metadata (both required):**
 
-**Labels:**
-- `type:vision`
+Set BOTH custom fields AND labels to ensure proper filtering:
+
+| Layer | Field | Value | Purpose |
+|-------|-------|-------|---------|
+| Custom Field | Type | Vision | Project views and filtering |
+| Custom Field | Status | Active | Project status tracking |
+| Label | `type:vision` | - | Cross-project queries, API filtering |
+
+**Why both?** Custom fields are project-specific and enable GitHub Projects views and filtering. Labels are portable across GitHub and enable API-based filtering and cross-project queries.
 
 All epics will be created as child issues of this vision issue, establishing clear traceability.
 
