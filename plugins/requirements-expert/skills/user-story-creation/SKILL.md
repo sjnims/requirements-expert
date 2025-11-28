@@ -18,7 +18,7 @@ User stories serve as the detailed requirements layer:
 - **Stories**: Specific user-facing functionality
 - **Below**: Tasks (implementation steps)
 
-Well-written user stories:
+Ensure user stories:
 
 - Describe functionality from user perspective
 - Deliver independent, testable value
@@ -40,11 +40,11 @@ I want [goal/desire],
 So that [benefit/value].
 ```
 
-**Components:**
+**Include these components:**
 
-- **User type**: WHO wants this (specific role or persona)
-- **Goal**: WHAT they want to do (capability or action)
-- **Benefit**: WHY it matters (value or outcome)
+- **User type**: Specify WHO wants this (specific role or persona)
+- **Goal**: Define WHAT they want to do (capability or action)
+- **Benefit**: State WHY it matters (value or outcome)
 
 ### Example Stories
 
@@ -66,11 +66,11 @@ So that I can use the app.  (no specific benefit)
 
 ### When to Deviate from Template
 
-The template is a guideline, not a requirement:
+Apply these guidelines:
 
-- Use it when it clarifies value and perspective
+- Use the template when it clarifies value and perspective
 - Deviate when it adds unnecessary words
-- Alternative: Simple title + detailed description
+- Consider alternative: Simple title + detailed description
 
 **Alternative format:**
 
@@ -79,7 +79,7 @@ The template is a guideline, not a requirement:
 
 ## INVEST Criteria
 
-Every user story should meet INVEST criteria:
+Validate every user story against INVEST criteria:
 
 | Letter | Criterion | Question |
 |--------|-----------|----------|
@@ -96,58 +96,70 @@ For detailed guidance on each criterion with examples, see `references/invest-cr
 
 ### Step 1: Review the Epic
 
-Understand the epic being broken down:
-
 **Key Actions:**
 
 - Read epic issue in GitHub Projects
-- Understand scope, value, success criteria
+- Analyze scope, value, and success criteria
 - Identify user types and journeys covered
 
 ### Step 2: Identify User Journeys
 
-Map out the user flows within the epic:
+**Key Actions:**
+
+- Map out user flows within the epic
+- Apply task analysis, scenario mapping, and user type breakdown
 
 **Techniques:**
 
-- **Task Analysis**: What tasks do users complete? What's the sequence?
-- **Scenario Mapping**: What scenarios exist? What paths might users take?
-- **User Type Breakdown**: Do different users need different stories?
+- **Task Analysis**: Identify tasks users complete and their sequence
+- **Scenario Mapping**: Document scenarios and paths users might take
+- **User Type Breakdown**: Determine if different users need different stories
 
 ### Step 3: Draft Initial Stories
 
-Create draft stories covering the epic:
+**Key Actions:**
+
+- Create draft stories covering the epic
+- Start with happy paths, then add edge cases
 
 **Start with happy paths:**
 
-- Core functionality for primary scenarios
-- Most common user needs
-- Essential capabilities
+- Cover core functionality for primary scenarios
+- Address most common user needs
+- Include essential capabilities
 
 **Then add edge cases and variations:**
 
-- Error handling
-- Alternative flows
-- Advanced features
+- Add error handling stories
+- Cover alternative flows
+- Include advanced features
 
-**Ensure coverage:**
+**Verify coverage:**
 
-- All epic scope covered
-- No gaps in user journeys
-- All success criteria addressable
+- Confirm all epic scope is covered
+- Check for gaps in user journeys
+- Ensure all success criteria are addressable
 
 ### Step 4: Apply INVEST Criteria
 
-Review each story against INVEST:
+**Key Actions:**
 
-- **Independence**: Can this story be completed without others?
-- **Value**: Does this deliver something users care about?
-- **Size**: Is this 1-5 days of work? If larger, split it.
-- **Testability**: What are the acceptance criteria?
+- Review each story against INVEST criteria
+- Split or revise stories that fail criteria
+
+**Validation checklist:**
+
+- **Independence**: Verify story can be completed without others
+- **Value**: Confirm it delivers something users care about
+- **Size**: Check it's 1-5 days of work; split if larger
+- **Testability**: Define acceptance criteria
 
 ### Step 5: Add Acceptance Criteria
 
-For each story, define clear acceptance criteria:
+**Key Actions:**
+
+- Define clear acceptance criteria for each story
+- Use Given-When-Then format or simple checklist
 
 **Given-When-Then Format:**
 
@@ -176,18 +188,27 @@ Acceptance Criteria:
 
 ### Step 6: Prioritize Stories
 
-Determine sequence and priority:
+**Key Actions:**
 
-- **Sequencing**: Which stories must come first (dependencies)?
-- **Prioritization**: Which deliver most value? Use MoSCoW framework.
+- Determine sequence and priority for stories
+- Apply MoSCoW framework for prioritization
+
+**Guidelines:**
+
+- **Sequencing**: Identify which stories must come first (dependencies)
+- **Prioritization**: Rank by value using MoSCoW framework
 
 ### Step 7: Create Story Issues in GitHub Projects
 
-For each story, create a GitHub issue:
+**Key Actions:**
 
-**Issue Title:** "[Story summary in user voice]"
+- Create a GitHub issue for each story
+- Set custom fields, labels, and parent link
 
-**Issue Description:** Full story with acceptance criteria using template from `references/story-template.md`
+**Issue Configuration:**
+
+- **Title**: "[Story summary in user voice]"
+- **Description**: Full story with acceptance criteria using template from `references/story-template.md`
 
 **Custom Fields:**
 
@@ -204,7 +225,7 @@ For each story, create a GitHub issue:
 
 ## Story Splitting
 
-When stories are too large (more than 1 week of work), split them using these techniques:
+Split stories that are too large (more than 1 week of work) using these techniques:
 
 | Technique | When to Use | Example Split |
 |-----------|-------------|---------------|
@@ -223,49 +244,49 @@ For detailed guidance and examples for each technique, see `references/splitting
 
 ### Write from User Perspective
 
-Focus on what users see and experience:
+Frame stories around what users see and experience:
 
 - ❌ "Implement database indexes for performance"
 - ✅ "Campaign list loads in under 2 seconds"
 
 ### Keep Stories Testable
 
-Always include acceptance criteria:
+Include acceptance criteria for every story:
 
-- 3-5 acceptance criteria per story
-- Specific, observable outcomes
-- Testable without looking at code
+- Add 3-5 acceptance criteria per story
+- Define specific, observable outcomes
+- Ensure testability without looking at code
 
 ### Avoid Technical Tasks as Stories
 
-Technical work should be tasks within user-facing stories:
+Convert technical work into tasks within user-facing stories:
 
 - ❌ Story: "Set up CI/CD pipeline"
 - ✅ Story: "User can see deployment status" (tasks include CI/CD setup)
 
 ### One Story, One Goal
 
-Each story should have singular focus:
+Limit each story to a singular focus:
 
 - ❌ "User can edit profile and change password and upload avatar"
-- ✅ Three separate stories
+- ✅ Split into three separate stories
 
 ### Include Non-Functional Requirements
 
-Don't forget quality attributes:
+Address quality attributes in stories:
 
-- Performance requirements
-- Security constraints
-- Accessibility standards
-- Usability expectations
+- Include performance requirements
+- Specify security constraints
+- Define accessibility standards
+- Document usability expectations
 
 ## Common Pitfalls to Avoid
 
-| Pitfall | Problem | Solution |
-|---------|---------|----------|
+| Pitfall | Problem | Action |
+|---------|---------|--------|
 | **Too Large** | Takes weeks, not days | Split using techniques above |
 | **Too Small** | Trivial, just a task | Combine into meaningful story |
-| **Missing Acceptance Criteria** | Can't verify completion | Add 3-5 specific criteria |
+| **Missing Acceptance Criteria** | Cannot verify completion | Add 3-5 specific criteria |
 | **Pure Technical Story** | No user value | Frame in terms of user impact |
 
 ## Quick Reference: Story Creation Flow
@@ -281,7 +302,7 @@ Don't forget quality attributes:
 
 ## Reference Files
 
-Load references based on context:
+Load references as needed:
 
 | Reference | When to Load | Path |
 |-----------|--------------|------|
@@ -298,4 +319,4 @@ After creating user stories:
 3. Select highest-priority story and proceed to task breakdown
 4. Iterate through all stories, creating tasks for each
 
-User stories are the bridge between epics and executable work—invest time to make them clear, valuable, and testable.
+User stories bridge epics and executable work. Invest time to make them clear, valuable, and testable.
