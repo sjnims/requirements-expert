@@ -74,7 +74,7 @@ Begin by thoroughly understanding the vision:
 - Note user goals and success metrics
 - Understand scope boundaries (what's included/excluded)
 
-**Extract Signals:**
+**Guidelines:**
 - What major capabilities does the solution need?
 - What user journeys must be supported?
 - What integration points or dependencies exist?
@@ -84,40 +84,52 @@ Begin by thoroughly understanding the vision:
 
 Break down the vision into distinct major capabilities:
 
-**Discovery Techniques:**
+**Key Actions:**
+- Apply multiple discovery techniques (below)
+- Group related functionality into logical capabilities
+- Identify 5-10 major things the product must do
 
-**User Journey Mapping:**
+**Guidelines:**
+
+_User Journey Mapping:_
 - What are the end-to-end journeys users will take?
 - Each major journey often maps to one or more epics
-- Example: "User Onboarding", "Content Creation", "Analytics & Reporting"
 
-**Capability Decomposition:**
+_Capability Decomposition:_
 - What are the 5-10 major things this product must do?
 - Group related functionality into logical capabilities
-- Example: "User Authentication", "Data Import/Export", "Collaboration Features"
 
-**Stakeholder Needs:**
+_Stakeholder Needs:_
 - What capabilities do different user types need?
 - Admin vs. end-user capabilities
-- Example: "User Management", "Permissions & Access Control"
 
-**Technical Enablers:**
+_Technical Enablers:_
 - What infrastructure or foundational capabilities are required?
 - APIs, integrations, data pipelines
-- Example: "Third-party Integrations", "Data Synchronization"
+
+**Examples:**
+- ✅ "User Onboarding", "Content Creation", "Analytics & Reporting"
+- ✅ "User Authentication", "Data Import/Export", "Collaboration Features"
+- ✅ "User Management", "Permissions & Access Control"
+- ✅ "Third-party Integrations", "Data Synchronization"
 
 ### Step 3: Define Epic Characteristics
 
 For each identified capability, determine if it qualifies as an epic:
 
-**Epic Criteria:**
+**Key Actions:**
+- Evaluate each capability against epic criteria
+- Check size appropriateness
+- Combine or split as needed
+
+**Guidelines:**
 - **Valuable**: Delivers significant user or business value
 - **Large**: Too big to complete in a single iteration (typically multiple user stories)
 - **Cohesive**: Represents a logical grouping of related functionality
 - **Bounded**: Has clear scope—what's included and excluded
 - **Measurable**: Success can be defined and tracked
 
-**Size Guideline:**
+_Size Guidelines:_
 - An epic typically contains 3-12 user stories
 - Takes multiple sprints/iterations to complete
 - If smaller, consider combining with related epics
@@ -127,21 +139,24 @@ For each identified capability, determine if it qualifies as an epic:
 
 Create clear, descriptive titles and summaries:
 
-**Epic Naming:**
+**Key Actions:**
+- Create descriptive titles for each epic
+- Write structured descriptions using template
+- Ensure names focus on capability, not implementation
+
+**Guidelines:**
 - Use noun phrases describing the capability
 - Be specific but concise (3-6 words)
 - Focus on "what" not "how"
 
-**Good Examples:**
-- "User Authentication & Authorization"
-- "Campaign Performance Dashboard"
-- "Automated Email Notifications"
-- "Third-party Calendar Integration"
-
-**Poor Examples:**
-- "Build the backend" (too vague, technical)
-- "Make users happy" (outcome, not capability)
-- "Phase 1" (not descriptive)
+**Examples:**
+- ✅ "User Authentication & Authorization"
+- ✅ "Campaign Performance Dashboard"
+- ✅ "Automated Email Notifications"
+- ✅ "Third-party Calendar Integration"
+- ❌ "Build the backend" (too vague, technical)
+- ❌ "Make users happy" (outcome, not capability)
+- ❌ "Phase 1" (not descriptive)
 
 ### Epic Issue Template (Minimal)
 
@@ -166,14 +181,19 @@ See `references/epic-template.md` for comprehensive templates and domain-specifi
 
 Ensure all necessary epics have been identified:
 
-**Validation Questions:**
+**Key Actions:**
+- Verify epics collectively deliver the full vision
+- Identify and fill any gaps
+- Map epics back to vision sections
+
+**Guidelines:**
 - Do these epics, collectively, deliver the full vision?
 - Are there gaps in user journeys or capabilities?
 - Have we covered all target user types and their needs?
 - Are success metrics from the vision addressable with these epics?
 - Have we identified necessary infrastructure or technical epics?
 
-**Gap Analysis Technique:**
+_Gap Analysis Technique:_
 - Map epics back to vision sections (problem, users, capabilities, metrics)
 - Identify vision elements not covered by any epic
 - Create additional epics to fill gaps
@@ -182,38 +202,55 @@ Ensure all necessary epics have been identified:
 
 Structure epics for planning and sequencing:
 
-**Logical Grouping:**
+**Key Actions:**
+- Group related epics logically
+- Map dependencies between epics
+- Apply initial prioritization
+
+**Guidelines:**
+
+_Logical Grouping:_
 - Group related epics (e.g., all authentication-related, all reporting-related)
 - Identify epic clusters that deliver cohesive value together
 
-**Dependency Mapping:**
+_Dependency Mapping:_
 - Which epics must come before others?
 - What's the critical path through epic delivery?
-- Example: "User Authentication" likely precedes "User Profile Management"
 
-**Initial Prioritization:**
+_Initial Prioritization:_
 - Apply MoSCoW framework (Must/Should/Could/Won't)
 - Consider value, risk, dependencies, effort
 - Use the prioritization skill for detailed prioritization
+
+**Examples:**
+- ✅ "User Authentication" likely precedes "User Profile Management"
+- ✅ Group: Authentication → Profile → Settings (related cluster)
 
 ### Step 7: Create Epic Issues in GitHub Projects
 
 For each epic, create a GitHub issue in the relevant GitHub Project:
 
-**Issue Title:** "[Epic Name]"
+**Key Actions:**
+- Create GitHub issue for each epic
+- Set custom fields (Type, Priority, Status)
+- Apply labels and link to Vision as parent
 
-**Issue Description:** Full epic definition using template
+**Guidelines:**
 
-**Custom Fields:**
+_Issue Title:_ "[Epic Name]"
+
+_Issue Description:_ Full epic definition using template
+
+_Custom Fields:_
 - Type: Epic
 - Priority: [Must Have / Should Have / Could Have]
 - Status: Not Started
 
-**Labels:**
+_Labels:_
 - `type:epic`
 - `priority:[moscow-level]`
 
-**Parent:** Link to Vision issue as parent
+_Parent:_ Link to Vision issue as parent
 
 All user stories for this epic will be created as child issues, establishing hierarchy.
 
@@ -229,14 +266,6 @@ Epics should be:
 - **Not too big**: "Build the entire platform" → Split into multiple epics
 - **Not too small**: "Add a button" → This is a task, not an epic
 - **Just right**: "Shopping Cart & Checkout" → Major capability with multiple stories
-
-### Focus on Capabilities, Not Implementation
-
-❌ "Build React components for dashboard"
-✅ "Analytics Dashboard"
-
-❌ "Set up PostgreSQL database"
-✅ "Data Storage & Persistence" (if it's a major capability)
 
 ### Ensure User-Centric Value
 
@@ -284,45 +313,54 @@ Epics will likely be refined:
 
 ## Common Pitfalls to Avoid
 
-### Too Many Epics
+### ❌ Wrong Granularity
 
-- More than 15-20 epics often indicates too much granularity
-- Consider combining related epics
-- Large products may need epic grouping into themes/initiatives
+**Too Many Epics** (more than 15-20):
+- ❌ "Add login button" → This is a task, not an epic
+- ❌ "Create password reset form" → This is a user story, not an epic
+- ✅ Combine related items into cohesive epics
+- ✅ Large products may need epic grouping into themes/initiatives
 
-### Too Few Epics
+**Too Few Epics** (fewer than 5):
+- ❌ Insufficient breakdown of vision
+- ✅ Consider all user types, journeys, and infrastructure needs
+- ✅ Decompose vision into more specific capabilities
 
-- Fewer than 5 epics often indicates insufficient breakdown
-- Vision may need decomposition into more specific capabilities
-- Consider all user types, journeys, and infrastructure needs
+### ❌ Implementation-Focused Names
 
-### Implementation-Focused Epics
+❌ **DO NOT** use technical/implementation language:
+- ❌ "API Development" → ✅ "Third-party Integration Support"
+- ❌ "Database Schema" → ✅ "Data Storage & Management"
+- ❌ "Build React components" → ✅ "Analytics Dashboard"
 
-❌ "API Development"
-✅ "Third-party Integration Support"
+### ❌ Vague or Outcome-Focused Names
 
-❌ "Database Schema"
-✅ "Data Storage & Management" (if user-facing)
+❌ **DO NOT** use non-descriptive names:
+- ❌ "Phase 1" → ✅ Specific capability name
+- ❌ "Make users happy" → ✅ "User Onboarding Experience"
+- ❌ "Build the backend" → ✅ Split into specific capabilities
 
-### Missing Infrastructure Epics
+### ❌ Missing Infrastructure Epics
 
-Don't forget necessary enablers:
-- Authentication/Authorization
-- Data migration/import
-- Performance optimization (if critical to UX)
-- Compliance/Security features
+❌ **DO NOT** forget necessary enablers:
+- ❌ Forgetting authentication/authorization
+- ❌ Missing data migration requirements
+- ❌ Overlooking compliance/security needs
+- ❌ Ignoring performance optimization (if critical to UX)
 
 ## Quick Reference: Epic Identification Flow
 
-1. **Review Vision** → Understand problem, users, capabilities, metrics
-2. **Identify Capabilities** → Use journey mapping, decomposition, stakeholder needs
-3. **Validate as Epics** → Check criteria: valuable, large, cohesive, bounded, measurable
-4. **Name & Describe** → Clear titles, structured descriptions using template
-5. **Check Completeness** → Ensure all vision elements covered, no gaps
-6. **Organize** → Group logically, map dependencies
-7. **Prioritize** → Apply MoSCoW framework
-8. **Create Issues** → Add to GitHub Projects as children of vision
-9. **Proceed** → Move to user story creation for each epic
+| Step | Action | Output |
+|------|--------|--------|
+| 1 | Review Vision | Problem, users, capabilities, metrics understood |
+| 2 | Identify Capabilities | Journey mapping, decomposition, stakeholder needs applied |
+| 3 | Validate as Epics | Valuable, large, cohesive, bounded, measurable confirmed |
+| 4 | Name & Describe | Clear titles, structured descriptions using template |
+| 5 | Check Completeness | All vision elements covered, no gaps |
+| 6 | Organize | Logical grouping, dependencies mapped |
+| 7 | Prioritize | MoSCoW framework applied |
+| 8 | Create Issues | Added to GitHub Projects as children of vision |
+| 9 | Proceed | Move to user story creation for each epic |
 
 ## Reference Files
 
