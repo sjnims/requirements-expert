@@ -32,6 +32,11 @@ markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix
 
 **GitHub CLI is critical**: All operations use `gh` commands via Bash tool. Verify with `gh auth status`.
 
+**Version Files** (must match on release):
+- `plugins/requirements-expert/.claude-plugin/plugin.json`
+- `.claude-plugin/marketplace.json`
+- All 6 `plugins/requirements-expert/skills/*/SKILL.md` frontmatter
+
 ## Architecture
 
 ### Repository Structure
@@ -41,11 +46,11 @@ This repository uses a **marketplace-at-root** structure where the repository ac
 ```
 /                                    # Repository root (marketplace)
 ├── .claude-plugin/
-│   └── marketplace.json             # Marketplace manifest (v0.1.0)
+│   └── marketplace.json             # Marketplace manifest (v0.2.0)
 ├── plugins/
 │   └── requirements-expert/         # PLUGIN ROOT (publishable unit)
 │       ├── .claude-plugin/
-│       │   └── plugin.json          # Plugin manifest (v0.1.0)
+│       │   └── plugin.json          # Plugin manifest (v0.2.0)
 │       ├── commands/                # 8 slash commands (*.md)
 │       ├── skills/                  # 6 knowledge modules (*/SKILL.md)
 │       ├── agents/                  # 2 specialized agents (*.md)
@@ -308,9 +313,22 @@ gh project list --owner [owner]   # List existing projects
 # Commands use YAML frontmatter + markdown instructions
 ```
 
+### Validating GitHub Actions Locally
+
+```bash
+# Install actionlint if not already installed
+brew install actionlint
+
+# Validate all workflow files
+actionlint
+
+# Validate a specific workflow
+actionlint .github/workflows/markdownlint.yml
+```
+
 ### CI/CD Workflows
 
-The repository includes 10 GitHub Actions workflows:
+The repository includes 11 GitHub Actions workflows:
 
 **Primary CI** (runs on every PR):
 1. **markdownlint.yml** (~30-40s) - Enforces markdown style (ATX headers, dash lists, 2-space indentation)
@@ -326,9 +344,12 @@ The repository includes 10 GitHub Actions workflows:
 7. **sync-labels.yml** - Syncs labels from labels.yml to repository
 8. **release-drafter.yml** - Auto-generates release notes from merged PRs
 
+**Dependency Management Workflows**:
+9. **dependabot-auto-merge.yml** - Auto-merges non-breaking Dependabot PRs
+
 **Utility Workflows**:
-9. **greet.yml** - Welcomes first-time contributors
-10. **stale.yml** - Marks inactive issues/PRs as stale
+10. **greet.yml** - Welcomes first-time contributors
+11. **stale.yml** - Marks inactive issues/PRs as stale
 
 **If markdownlint fails**:
 ```bash
