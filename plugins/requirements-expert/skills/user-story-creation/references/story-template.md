@@ -73,18 +73,7 @@ At story level, done means:
 
 ---
 
-### Tasks
-
-[Tasks will be created as child issues of this story. Link them here when created]
-
-- Link to Task 1
-- Link to Task 2
-- [Tasks will be linked as children when created]
-
----
-
 **Parent:** [Link to Epic Issue]
-**Children:** [Task Issues will be linked here]
 
 ---
 
