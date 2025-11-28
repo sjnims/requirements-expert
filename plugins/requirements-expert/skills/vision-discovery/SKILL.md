@@ -83,7 +83,7 @@ Define how success will be measured:
 
 ### Step 5: Document the Vision
 
-Create a structured vision document in GitHub Projects as an issue with Type: Vision. Use the template structure from `${CLAUDE_PLUGIN_ROOT}/skills/vision-discovery/references/vision-template.md`.
+Create a structured vision document in GitHub Projects as an issue with Type: Vision. Use the template structure from `references/vision-template.md`.
 
 **Core Sections:**
 1. **Problem Statement** - What problem exists and why it matters
@@ -189,7 +189,7 @@ All epics will be created as child issues of this vision issue, establishing cle
 ### Reference Files
 
 For detailed vision templates and examples:
-- **`${CLAUDE_PLUGIN_ROOT}/skills/vision-discovery/references/vision-template.md`** - Complete vision template with all sections and guidance
+- **`references/vision-template.md`** - Complete vision template with all sections and guidance
 
 ## Next Steps
 
