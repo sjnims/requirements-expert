@@ -161,4 +161,3 @@ At epic level, done means:
 ---
 
 **Parent:** [Link to Vision Issue]
-**Children:** [User Story Issues will be linked here]
