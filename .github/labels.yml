@@ -155,3 +155,12 @@
 - name: "showcase"
   color: "6f42c1"
   description: "Community showcase"
+
+# Review labels (Claude Code Review workflow)
+- name: "review:deep"
+  color: "5319e7"
+  description: "Force comprehensive review with Sonnet"
+
+- name: "review:quick"
+  color: "c2e0c6"
+  description: "Force quick review with Haiku"
