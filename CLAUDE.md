@@ -319,7 +319,7 @@ The repository includes 10 GitHub Actions workflows:
 
 **Claude Code Workflows**:
 4. **claude.yml** - Claude Code integration for issue triage and PR assistance
-5. **claude-code-review.yml** - Automated PR code review using Claude
+5. **claude-code-review.yml** - Intelligent automated PR code review (see details below)
 
 **Automation Workflows**:
 6. **labeler.yml** - Auto-labels PRs based on changed files
@@ -335,6 +335,30 @@ The repository includes 10 GitHub Actions workflows:
 markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix issues
 markdownlint plugins/requirements-expert/commands/*.md  # Check specific files
 ```
+
+#### Claude Code Review Details
+
+The `claude-code-review.yml` workflow provides intelligent, proportional PR reviews:
+
+**Model Selection** (automatic based on PR complexity):
+
+| PR Characteristics | Model | Review Depth |
+|--------------------|-------|--------------|
+| <50 lines, <3 files | Haiku | Trivial (2-4 sentences) |
+| Docs-only, <100 lines | Haiku | Docs (brief, focused) |
+| 50-200 lines | Sonnet | Standard (structured) |
+| >200 lines | Sonnet | Comprehensive (full analysis) |
+
+**Manual Overrides** (via PR labels):
+- `review:deep` - Force comprehensive review with Sonnet
+- `review:quick` - Force quick review with Haiku
+
+**Review Quality Standards**:
+- Scope-aware: Reads linked issue to understand intended scope
+- Verification-backed: Only claims what's explicitly verified
+- Proportional: Review depth matches change complexity
+- No CI status claims: Avoids false positives from timing issues
+- Evidence-based: Cites line numbers, avoids uncertain suggestions
 
 ### Testing Workflow
 

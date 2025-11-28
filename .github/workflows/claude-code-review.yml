@@ -30,6 +30,72 @@ jobs:
       id-token: write
 
     steps:
+      - name: Analyze PR Complexity
+        id: analyze
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUM="${{ github.event.pull_request.number }}"
+          REPO="${{ github.repository }}"
+
+          # Get PR statistics
+          stats=$(gh pr view "$PR_NUM" --repo "$REPO" --json additions,deletions,changedFiles)
+          additions=$(echo "$stats" | jq '.additions')
+          deletions=$(echo "$stats" | jq '.deletions')
+          files=$(echo "$stats" | jq '.changedFiles')
+          total=$((additions + deletions))
+
+          # Get file types to detect docs-only changes
+          file_list=$(gh pr view "$PR_NUM" --repo "$REPO" --json files -q '.files[].path')
+          docs_only=true
+          while IFS= read -r file; do
+            if [[ -n "$file" && ! "$file" =~ \.(md|txt|json|yaml|yml|toml)$ ]]; then
+              docs_only=false
+              break
+            fi
+          done <<< "$file_list"
+
+          # Check for label overrides
+          labels=$(gh pr view "$PR_NUM" --repo "$REPO" --json labels -q '.labels[].name' | tr '\n' ' ')
+
+          # Decision matrix for model and review depth
+          if echo "$labels" | grep -q "review:deep"; then
+            # Manual override for deep review
+            model="sonnet"
+            depth="comprehensive"
+          elif echo "$labels" | grep -q "review:quick"; then
+            # Manual override for quick review
+            model="haiku"
+            depth="trivial"
+          elif [ "$docs_only" = true ] && [ "$total" -lt 100 ]; then
+            # Docs-only changes: use Haiku
+            model="haiku"
+            depth="docs"
+          elif [ "$total" -lt 50 ] && [ "$files" -lt 3 ]; then
+            # Trivial changes: use Haiku
+            model="haiku"
+            depth="trivial"
+          elif [ "$total" -lt 200 ]; then
+            # Standard changes: use Sonnet
+            model="sonnet"
+            depth="standard"
+          else
+            # Large changes: use Sonnet with comprehensive review
+            model="sonnet"
+            depth="comprehensive"
+          fi
+
+          # Output results
+          {
+            echo "model=$model"
+            echo "depth=$depth"
+            echo "lines=$total"
+            echo "files=$files"
+            echo "docs_only=$docs_only"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "PR Analysis: $total lines, $files files, docs_only=$docs_only -> model=$model, depth=$depth"
+
       - name: Checkout repository
         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
         with:
@@ -46,22 +112,75 @@ jobs:
           # Explicit github_token required for pull_request_target (OIDC doesn't work)
           github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
+            ## Context
             REPO: ${{ github.repository }}
-            PR NUMBER: ${{ github.event.pull_request.number }}
+            PR: #${{ github.event.pull_request.number }}
+            REVIEW_DEPTH: ${{ steps.analyze.outputs.depth }}
+            LINES_CHANGED: ${{ steps.analyze.outputs.lines }}
+            FILES_CHANGED: ${{ steps.analyze.outputs.files }}
+            DOCS_ONLY: ${{ steps.analyze.outputs.docs_only }}
 
-            Please review this pull request and provide feedback on:
-            - Code quality and best practices
-            - Potential bugs or issues
-            - Performance considerations
-            - Security concerns
-            - Test coverage
+            ## Review Protocol
 
-            Read the repository's CLAUDE.md file for guidance on style and conventions. Be constructive and helpful in your feedback.
+            ### 1. Understand Scope
+            - Check PR description for "Fixes #X" or "Closes #X" issue reference
+            - If linked, read the issue with `gh issue view` to understand intended scope
+            - Evaluate: Does the PR accomplish that specific scope?
+            - Note scope gaps without blocking (suggest follow-up issues if appropriate)
 
-            Use `gh pr comment` with your Bash tool to leave your review as a comment on the PR.
+            ### 2. Match Review Depth to Change Size
+            Your assigned depth is: **${{ steps.analyze.outputs.depth }}**
 
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options
-          # Note: Using gh pr comment because use_sticky_comment only works with pull_request events,
-          # not pull_request_target. Comments will appear from github-actions[bot].
-          claude_args: '--allowed-tools Read,Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)'
+            - **trivial** (<50 lines, <3 files): 2-4 sentences. Verify correctness, approve if good.
+            - **docs** (documentation only): Brief review. Check accuracy, links, formatting. Skip code analysis.
+            - **standard** (50-200 lines): Structured review with key observations. Focus on correctness and conventions.
+            - **comprehensive** (>200 lines): Full analysis with sections. Consider architecture, testing, security.
+
+            Skip sections that don't apply:
+            - Documentation-only PRs: Skip security, performance, test coverage sections
+            - Config/markdown changes: Skip architecture, API design sections
+            - Trivial PRs: Skip everything except correctness verification
+
+            ### 3. Verification Standards
+            - **Only claim what you've explicitly verified**
+            - Scope observations to the PR diff, not file-wide properties
+            - Do NOT claim "all X now do Y" unless you verified all X (use grep to check)
+            - If checking consistency across a file, list specifically what you verified
+            - Do NOT comment on CI status (it's visible in the PR UI and may still be running)
+
+            ### 4. Quality of Feedback
+            - Be specific and evidence-based; cite line numbers
+            - Avoid uncertain suggestions—if unsure, investigate first or omit
+            - For scope gaps: "X was outside issue scope; consider follow-up issue" (not blocking)
+            - Don't include boilerplate sections that don't apply to this change type
+
+            ### 5. Review Format
+            For **trivial/docs** depth:
+            ```
+            ✅ **LGTM** - [1-2 sentence summary of what the PR does correctly]
+
+            [Optional: 1 minor observation if relevant]
+            ```
+
+            For **standard** depth:
+            ```
+            ## Summary
+            [2-3 sentences on what the PR accomplishes]
+
+            ## Observations
+            - [Specific observations with line references]
+
+            ## Recommendation
+            [APPROVE / REQUEST_CHANGES with clear reasoning]
+            ```
+
+            For **comprehensive** depth: Use full structured review with relevant sections only.
+
+            Read CLAUDE.md for project-specific conventions and critical patterns.
+
+            Post your review via `gh pr comment --repo ${{ github.repository }} --number ${{ github.event.pull_request.number }}`.
+
+          # Model selection based on PR complexity analysis
+          # Grep added to enable verification of consistency claims
+          # gh pr checks added to verify CI status if needed
+          claude_args: '--model ${{ steps.analyze.outputs.model }} --allowed-tools Read,Grep,Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Bash(gh pr checks:*)'
