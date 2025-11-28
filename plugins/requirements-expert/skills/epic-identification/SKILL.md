@@ -179,8 +179,8 @@ _Logical Grouping:_
 - Identify epic clusters that deliver cohesive value together
 
 _Dependency Mapping:_
-- Which epics must come before others?
-- What's the critical path through epic delivery?
+- Identify which epics must come before others
+- Map the critical path through epic delivery
 
 _Initial Prioritization:_
 - Apply MoSCoW framework (Must/Should/Could/Won't)
