@@ -115,14 +115,24 @@ Create clear, descriptive titles and summaries:
 - "Make users happy" (outcome, not capability)
 - "Phase 1" (not descriptive)
 
-**Epic Description Structure:**
+### Epic Issue Template (Minimal)
 
-Use the template from `${CLAUDE_PLUGIN_ROOT}/skills/epic-identification/references/epic-template.md`:
-1. **Overview** - What this epic delivers
-2. **User Value** - Why this matters to users
-3. **Scope** - What's included and excluded
-4. **Success Criteria** - How we know it's done
-5. **Dependencies** - Other epics or external factors required
+```markdown
+## Epic Overview
+[Brief description]
+
+## Value Proposition
+[Why this matters]
+
+## Scope
+- Included: [capabilities]
+- Excluded: [out of scope]
+
+## Success Criteria
+- [ ] [Measurable outcomes]
+```
+
+See `references/epic-template.md` for comprehensive templates and domain-specific examples.
 
 ### Step 5: Validate Completeness
 
