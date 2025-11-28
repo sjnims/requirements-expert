@@ -310,6 +310,15 @@ Load references as needed:
 | **splitting-techniques.md** | Story is too large and needs splitting | `references/splitting-techniques.md` |
 | **story-template.md** | Creating story issue content | `references/story-template.md` |
 
+## Examples
+
+Working examples that can be copied and adapted:
+
+| Example | Use Case | Path |
+|---------|----------|------|
+| **example-story-issue.md** | Creating a single story with full detail | `examples/example-story-issue.md` |
+| **example-story-set.md** | Viewing related stories for an epic | `examples/example-story-set.md` |
+
 ## Next Steps
 
 After creating user stories:
