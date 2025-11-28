@@ -140,7 +140,12 @@ Create a structured vision document in GitHub Projects as an issue with Type: Vi
 **Additional Sections (as applicable):**
 
 7. **Strategic Alignment** - Business goals, market opportunity, competitive landscape
+   - _Include when_: Vision supports broader organizational strategy, multiple stakeholders need market positioning context, or competitive differentiation is a key concern
+   - _Skip when_: Internal tools, personal projects, or when strategic context is obvious from problem statement
+
 8. **Risks & Assumptions** - Key assumptions that must hold true, known risks and mitigations
+   - _Include when_: Product has significant dependencies or unknowns, major assumptions underpin viability, or stakeholders need visibility into potential blockers
+   - _Skip when_: Low-risk well-understood domains, small-scope projects, or when risks are negligible
 
 **Examples:**
 - ✅ Create vision issue with all 6 core sections, Type=Vision custom field, and `type:vision` label
