@@ -129,7 +129,7 @@ Before finalizing the vision:
 ### Iterate and Refine
 
 Vision is not set in stone:
-- Expect to refine as you learn more
+- Refine as new information emerges
 - Update when market conditions or user needs change
 - Use feedback from epic and story creation to improve clarity
 - Treat vision as a living document
