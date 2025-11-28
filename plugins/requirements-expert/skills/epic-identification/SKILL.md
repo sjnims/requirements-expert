@@ -337,6 +337,15 @@ Load references based on context:
 | **epic-template.md** | Creating epic issue content or user requests templates | `references/epic-template.md` |
 | **common-patterns.md** | User's domain is identified for pattern suggestions | `references/common-patterns.md` |
 
+## Examples
+
+Working examples that can be copied and adapted:
+
+| Example | Use Case | Path |
+|---------|----------|------|
+| **example-epic-issue.md** | Creating a single epic issue with full detail | `examples/example-epic-issue.md` |
+| **example-epic-set.md** | Viewing a complete set of 8 epics for a sample product | `examples/example-epic-set.md` |
+
 ## Next Steps
 
 After completing epic identification:
