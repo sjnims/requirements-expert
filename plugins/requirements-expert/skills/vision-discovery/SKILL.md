@@ -86,12 +86,18 @@ Define how success will be measured:
 Create a structured vision document in GitHub Projects as an issue with Type: Vision. Use the template structure from `references/vision-template.md`.
 
 **Core Sections:**
+
 1. **Problem Statement** - What problem exists and why it matters
 2. **Target Users** - Who will use this and their key characteristics
 3. **Solution Overview** - What the product is and does
 4. **Core Value Proposition** - Why users will choose this solution
 5. **Success Metrics** - How success will be measured
 6. **Scope & Boundaries** - What's included and explicitly excluded
+
+**Additional Sections (as applicable):**
+
+7. **Strategic Alignment** - Business goals, market opportunity, competitive landscape
+8. **Risks & Assumptions** - Key assumptions that must hold true, known risks and mitigations
 
 ## Best Practices
 
