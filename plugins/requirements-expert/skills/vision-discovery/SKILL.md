@@ -220,6 +220,14 @@ For detailed vision templates:
 |-----------|--------------|------|
 | **vision-template.md** | Creating vision issue content or documenting vision | `references/vision-template.md` |
 
+## Examples
+
+Working examples that can be copied and adapted:
+
+| Example | Use Case | Path |
+|---------|----------|------|
+| **sample-vision.md** | Viewing a complete vision document | `examples/sample-vision.md` |
+
 ## Next Steps
 
 After completing vision discovery:
