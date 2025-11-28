@@ -222,6 +222,8 @@ When stories are too large (more than 1 week of work), split them using these te
 | **Happy Path vs. Variations** | Simple core + complex edges | Basic upload → Multiple files → Drag & drop |
 | **Data Variations** | Multiple formats/sources | CSV import → Excel → Google Contacts |
 | **Platforms** | Multiple interfaces | In-app → Email → SMS notifications |
+| **User Roles** | Multiple user types | Owner, admin, member views |
+| **Performance Tiers** | Performance-sensitive | Basic → Cached → Optimized |
 
 For detailed guidance and examples for each technique, see `references/splitting-techniques.md`.
 
