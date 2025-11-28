@@ -64,21 +64,13 @@ Break down the vision into distinct major capabilities:
 
 **Guidelines:**
 
-_User Journey Mapping:_
-- What are the end-to-end journeys users will take?
-- Each major journey often maps to one or more epics
+Apply discovery techniques from `references/discovery-techniques.md`:
+- User Journey Mapping
+- Capability Decomposition
+- Stakeholder Needs Analysis
+- Technical Enablers Identification
 
-_Capability Decomposition:_
-- What are the 5-10 major things this product must do?
-- Group related functionality into logical capabilities
-
-_Stakeholder Needs:_
-- What capabilities do different user types need?
-- Admin vs. end-user capabilities
-
-_Technical Enablers:_
-- What infrastructure or foundational capabilities are required?
-- APIs, integrations, data pipelines
+See reference for detailed process and examples for each technique.
 
 **Examples:**
 - ✅ "User Onboarding", "Content Creation", "Analytics & Reporting"
