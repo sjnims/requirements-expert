@@ -53,6 +53,12 @@ Begin by thoroughly understanding the vision:
 - Note integration points and dependencies
 - Review success metrics driving capability requirements
 
+**Examples:**
+- ✅ Review vision, identify 3 user types and 5 core capabilities before proceeding
+- ✅ Map "user uploads file → processes → downloads result" as a key journey
+- ❌ Skip vision review and jump straight to naming epics
+- ❌ Focus only on technical capabilities, ignoring user goals
+
 ### Step 2: Identify Major Capabilities
 
 Break down the vision into distinct major capabilities:
@@ -99,6 +105,12 @@ _Size Guidelines:_
 - Takes multiple sprints/iterations to complete
 - If smaller, consider combining with related epics
 - If larger, consider splitting into multiple epics
+
+**Examples:**
+- ✅ "User Authentication" epic: valuable (enables access), large (multiple stories), cohesive (all auth-related), bounded (login/logout/reset only)
+- ✅ Split "Platform" into "User Management", "Content Management", "Analytics" (each meets criteria)
+- ❌ "Add login button" as an epic (too small—this is a task)
+- ❌ "Build the product" as an epic (too large—needs decomposition)
 
 ### Step 4: Name and Describe Each Epic
 
@@ -163,6 +175,12 @@ _Gap Analysis Technique:_
 - Identify vision elements not covered by any epic
 - Create additional epics to fill gaps
 
+**Examples:**
+- ✅ Discover vision mentions "mobile access" but no epic covers it → add "Mobile Application" epic
+- ✅ Map 8 epics to vision and confirm all 4 user types have supporting capabilities
+- ❌ Assume 3 epics cover everything without checking against vision
+- ❌ Skip completeness check and proceed directly to issue creation
+
 ### Step 6: Organize and Prioritize
 
 Structure epics for planning and sequencing:
@@ -218,6 +236,12 @@ _Labels:_
 _Parent:_ Link to Vision issue as parent
 
 All user stories for this epic will be created as child issues, establishing hierarchy.
+
+**Examples:**
+- ✅ Create issue titled "User Authentication & Authorization" with Type=Epic, Priority=Must Have, linked to Vision #1
+- ✅ Include clear scope in issue body: "Includes: login, logout, password reset. Excludes: SSO, social login"
+- ❌ Create issue with vague title "Auth stuff" and no description
+- ❌ Forget to set Type field to Epic or link to parent Vision issue
 
 ## Epic Templates and Patterns
 
