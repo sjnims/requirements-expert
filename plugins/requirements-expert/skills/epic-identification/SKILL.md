@@ -48,10 +48,10 @@ Begin by thoroughly understanding the vision:
 - Understand scope boundaries (what's included/excluded)
 
 **Guidelines:**
-- What major capabilities does the solution need?
-- What user journeys must be supported?
-- What integration points or dependencies exist?
-- What success metrics drive capability requirements?
+- Identify major capabilities the solution needs
+- Map user journeys that must be supported
+- Note integration points and dependencies
+- Review success metrics driving capability requirements
 
 ### Step 2: Identify Major Capabilities
 
@@ -152,11 +152,11 @@ Ensure all necessary epics have been identified:
 - Map epics back to vision sections
 
 **Guidelines:**
-- Do these epics, collectively, deliver the full vision?
-- Are there gaps in user journeys or capabilities?
-- Have we covered all target user types and their needs?
-- Are success metrics from the vision addressable with these epics?
-- Have we identified necessary infrastructure or technical epics?
+- Verify epics collectively deliver the full vision
+- Identify gaps in user journeys or capabilities
+- Confirm coverage of all target user types and their needs
+- Check that success metrics are addressable with these epics
+- Ensure infrastructure and technical epics are identified
 
 _Gap Analysis Technique:_
 - Map epics back to vision sections (problem, users, capabilities, metrics)
