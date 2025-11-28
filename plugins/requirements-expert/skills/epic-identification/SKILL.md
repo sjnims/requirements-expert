@@ -324,23 +324,15 @@ Don't forget necessary enablers:
 8. **Create Issues** → Add to GitHub Projects as children of vision
 9. **Proceed** → Move to user story creation for each epic
 
-## When to Use References
+## Reference Files
 
 Load references based on context:
 
-- **`references/discovery-techniques.md`**: When applying multiple discovery methods or user needs technique guidance
-- **`references/epic-template.md`**: When creating epic issue content or user requests templates
-- **`references/common-patterns.md`**: When user's domain is identified for pattern suggestions
-
-## Additional Resources
-
-### Reference Files
-
-For detailed epic templates and examples:
-
-- **`${CLAUDE_PLUGIN_ROOT}/skills/epic-identification/references/epic-template.md`** - Complete epic definition template
-- **`${CLAUDE_PLUGIN_ROOT}/skills/epic-identification/references/discovery-techniques.md`** - Six techniques for identifying epics
-- **`${CLAUDE_PLUGIN_ROOT}/skills/epic-identification/references/common-patterns.md`** - Universal and domain-specific epic patterns
+| Reference | When to Load | Path |
+|-----------|--------------|------|
+| **discovery-techniques.md** | Applying multiple discovery methods or user needs technique guidance | `references/discovery-techniques.md` |
+| **epic-template.md** | Creating epic issue content or user requests templates | `references/epic-template.md` |
+| **common-patterns.md** | User's domain is identified for pattern suggestions | `references/common-patterns.md` |
 
 ## Next Steps
 
