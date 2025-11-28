@@ -26,17 +26,9 @@ Well-written user stories:
 - Enable detailed estimation and planning
 - Facilitate conversation and refinement
 
-## When to Use This Skill
+## Prerequisite
 
-Use user story creation when:
-
-- An epic exists and needs to be broken into stories
-- User asks for detailed requirements for a capability
-- Planning an iteration and need to define work
-- Refining or adding stories to an existing epic
-- Validating that stories cover the full epic scope
-
-**Prerequisite:** Epic must exist before creating stories. If no epic exists, use epic-identification skill first.
+Epic must exist before creating stories. If no epic exists, use epic-identification skill first.
 
 ## User Story Format
 
