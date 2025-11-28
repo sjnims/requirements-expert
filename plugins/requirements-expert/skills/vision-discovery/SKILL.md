@@ -154,7 +154,25 @@ Set BOTH custom fields AND labels to ensure proper filtering:
 
 **Why both?** Custom fields are project-specific and enable GitHub Projects views and filtering. Labels are portable across GitHub and enable API-based filtering and cross-project queries.
 
-All epics will be created as child issues of this vision issue, establishing clear traceability.
+### Parent-Child Hierarchy
+
+**The vision issue becomes the parent of ALL epics.** This establishes the root of the requirements hierarchy:
+
+```text
+Vision Issue (#1, Type: Vision)
+  └── Epic Issue (#2, parent: #1)
+  └── Epic Issue (#3, parent: #1)
+  └── Epic Issue (#4, parent: #1)
+```
+
+This hierarchy enables:
+
+- **Clear traceability**: Trace any task back to the originating vision
+- **Impact analysis**: Understand what's affected when vision changes
+- **Progress tracking**: Monitor completion across the entire requirements tree
+- **Native GitHub features**: Leverage GitHub's built-in issue relationship tools
+
+All epics will be created as child issues of this vision issue, establishing clear traceability throughout the requirements lifecycle.
 
 ## Common Pitfalls to Avoid
 
