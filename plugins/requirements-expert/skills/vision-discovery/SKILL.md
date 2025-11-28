@@ -44,6 +44,14 @@ Begin by exploring the problem being solved. Ask probing questions to uncover th
 
 **Technique:** Use the "5 Whys" technique to dig deeper into root causes. When the user describes a problem, ask "why is that a problem?" repeatedly to uncover underlying issues.
 
+**Output:** Clear problem statement with root cause identified. Documented current state, workarounds, and consequences of inaction.
+
+**Examples:**
+- ✅ "Users spend 3+ hours weekly manually reconciling data across spreadsheets, leading to errors and delays"
+- ✅ Ask "Why is that a problem?" when user says "We need a dashboard" to uncover the actual pain point
+- ❌ Accept "We need better reporting" without understanding what makes current reporting inadequate
+- ❌ Skip problem exploration and jump straight to solution discussion
+
 ### Step 2: Identify Target Users
 
 Clearly define who will use and benefit from the solution:
@@ -55,7 +63,15 @@ Clearly define who will use and benefit from the solution:
 - What are their goals and motivations?
 - What pain points do they experience?
 
-**Output:** Create user personas or archetypes with specific, concrete details. Avoid vague descriptions like "business users"—be specific: "marketing managers at mid-size B2B companies tracking campaign ROI."
+**Technique:** Create user personas with specific, concrete details. Interview or research actual users when possible. Prioritize users by frequency of use and criticality of their needs.
+
+**Output:** Documented user personas or archetypes with specific characteristics. Clear distinction between primary and secondary users. Avoid vague descriptions like "business users"—be specific: "marketing managers at mid-size B2B companies tracking campaign ROI."
+
+**Examples:**
+- ✅ "Marketing managers at mid-size B2B companies who need to track campaign ROI across 5+ channels"
+- ✅ Identify both primary users (analysts) and secondary users (executives viewing reports, admins managing access)
+- ❌ "Business users" or "stakeholders" without specific characteristics
+- ❌ Focus only on one user type when multiple distinct personas exist
 
 ### Step 3: Define the Solution Vision
 
@@ -69,6 +85,14 @@ Articulate what the solution is and how it addresses the problem:
 
 **Technique:** Use the "elevator pitch" format: "For [target users] who [need/problem], [product name] is a [category] that [key benefit]. Unlike [alternatives], our product [unique differentiator]."
 
+**Output:** One-sentence product description. Clear value proposition. Defined scope boundaries (what's included and explicitly excluded). Core capabilities identified.
+
+**Examples:**
+- ✅ "For marketing managers who struggle to measure ROI, CampaignTracker is a unified analytics platform that consolidates data from 10+ channels. Unlike manual spreadsheets, it provides real-time insights with zero data entry."
+- ✅ Define clear boundaries: "Includes: campaign tracking, ROI calculation. Excludes: creative design tools, email delivery"
+- ❌ "A platform that helps with marketing" (too vague, no differentiation)
+- ❌ Include everything without clear scope boundaries
+
 ### Step 4: Establish Success Metrics
 
 Define how success will be measured:
@@ -79,11 +103,30 @@ Define how success will be measured:
 - What does "good" look like in 6 months? 1 year?
 - What user behaviors indicate value delivery?
 
-**Output:** Specific, measurable success criteria. Avoid vanity metrics—focus on indicators of genuine value and impact.
+**Technique:** Apply the SMART framework (Specific, Measurable, Achievable, Relevant, Time-bound). Focus on leading indicators of value rather than vanity metrics. Distinguish between adoption metrics, engagement metrics, and outcome metrics.
+
+**Output:** Specific, measurable success criteria with clear targets and timeframes. Avoid vanity metrics—focus on indicators of genuine value and impact.
+
+**Examples:**
+- ✅ "Achieve 1,000 active users with 70%+ weekly retention within 6 months"
+- ✅ "Reduce time spent on manual data reconciliation from 3 hours/week to 15 minutes"
+- ❌ "Be the best product in the market" (unmeasurable)
+- ❌ "Get lots of users" (no specific target or timeframe)
 
 ### Step 5: Document the Vision
 
 Create a structured vision document in GitHub Projects as an issue with Type: Vision. Use the template structure from `references/vision-template.md`.
+
+**Essential Questions:**
+- Have all previous steps been completed with clear outputs?
+- Is the problem statement specific and well-articulated?
+- Are target users clearly defined with concrete characteristics?
+- Is the solution vision differentiated and bounded?
+- Are success metrics specific and measurable?
+
+**Technique:** Use the vision template structure. Synthesize outputs from Steps 1-4 into a cohesive document. Keep it concise (500-1,000 words total). Review with stakeholders before finalizing.
+
+**Output:** Complete vision document as a GitHub issue with all required sections and proper metadata (Type: Vision, labels, custom fields).
 
 **Core Sections:**
 
@@ -98,6 +141,12 @@ Create a structured vision document in GitHub Projects as an issue with Type: Vi
 
 7. **Strategic Alignment** - Business goals, market opportunity, competitive landscape
 8. **Risks & Assumptions** - Key assumptions that must hold true, known risks and mitigations
+
+**Examples:**
+- ✅ Create vision issue with all 6 core sections, Type=Vision custom field, and `type:vision` label
+- ✅ Vision document is 600 words, clear, jargon-free, and answers all key questions from Steps 1-4
+- ❌ Create vision with vague sections like "Users: various stakeholders"
+- ❌ Skip metadata (custom fields and labels) when creating the issue
 
 ## Best Practices
 
