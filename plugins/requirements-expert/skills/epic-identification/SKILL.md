@@ -1,34 +1,7 @@
 ---
 name: Epic Identification
 description: |
-  This skill should be used when the user asks to "identify epics", "break down vision into epics", "find major features", "discover capability areas", "decompose vision", "group requirements into themes", "define high-level features", "what epics do I need", "turn vision into work items", or "split project into epics". It provides methodology for systematically deriving epics from a vision statement using multiple discovery techniques including user journey mapping, capability decomposition, and stakeholder analysis.
-
-  <example>
-  Context: User has completed their vision and is asking about next steps
-  user: "I have my vision document. Now what?"
-  assistant: "Great progress on defining your vision! I'll use the epic-identification skill to help you identify the major capabilities that will deliver your vision."
-  <commentary>
-  User completed vision phase and is asking about next steps - epic identification is the logical next phase in the Vision → Epics → Stories → Tasks workflow.
-  </commentary>
-  </example>
-
-  <example>
-  Context: User explicitly mentions vision completion and asks about features
-  user: "The vision is done, help me figure out the major features"
-  assistant: "I'll use the epic-identification skill to help you identify the major features (epics) from your vision."
-  <commentary>
-  User explicitly states vision is complete and asks about "major features" - this is a direct trigger for epic identification methodology.
-  </commentary>
-  </example>
-
-  <example>
-  Context: User uses informal language to describe epics
-  user: "What are the big chunks of work for this project?"
-  assistant: "I'll use the epic-identification skill to help you identify the major work items (epics) for your project."
-  <commentary>
-  "Big chunks of work" is informal language for epics - the skill should recognize this common phrasing and provide epic identification guidance.
-  </commentary>
-  </example>
+  This skill should be used when the user asks to "identify epics", "break down vision into epics", "find major features", "discover capability areas", "decompose vision", "group requirements into themes", "define high-level features", "what epics do I need", "turn vision into work items", or "split project into epics". Provides methodology for deriving epics from a vision statement using user journey mapping, capability decomposition, and stakeholder analysis.
 version: 0.2.0
 ---
 
