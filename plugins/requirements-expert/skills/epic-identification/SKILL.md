@@ -219,53 +219,7 @@ All user stories for this epic will be created as child issues, establishing hie
 
 ## Epic Templates and Patterns
 
-### Common Epic Patterns
-
-**User-Facing Capabilities:**
-- User Onboarding & Registration
-- Profile & Settings Management
-- Core Workflow/Activity (varies by product)
-- Search & Discovery
-- Notifications & Alerts
-
-**Data & Content:**
-- Data Import/Export
-- Content Creation & Editing
-- Content Organization (tags, folders, etc.)
-- Data Visualization & Reporting
-
-**Collaboration & Sharing:**
-- Team/Organization Management
-- Permissions & Access Control
-- Sharing & Collaboration Features
-- Activity Feeds & History
-
-**Integration & APIs:**
-- Third-party Integrations
-- Public API
-- Webhooks & Event Streaming
-
-**Infrastructure/Technical:**
-- Authentication & Authorization
-- Performance & Scalability
-- Data Migration
-- Offline Support
-
-### Example: E-commerce Product
-
-**Vision:** "Enable small businesses to sell products online easily"
-
-**Identified Epics:**
-1. Product Catalog Management
-2. Shopping Cart & Checkout
-3. Payment Processing Integration
-4. Order Management & Fulfillment
-5. Customer Account Management
-6. Admin Dashboard & Analytics
-7. Marketing & Promotions
-8. Email Notifications
-
-Each maps to a major capability needed to deliver the vision.
+For common epic patterns (universal and domain-specific) and working examples, consult `references/common-patterns.md`.
 
 ## Best Practices
 
