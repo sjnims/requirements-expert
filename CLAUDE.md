@@ -696,7 +696,7 @@ grep -r "0\.x\.0" plugins/requirements-expert --include="*.json" --include="SKIL
   2. Deduplicate entries (Release Drafter may categorize same PR multiple times)
   3. Organize into Keep a Changelog sections (Added, Changed, Fixed, Security, Performance, Documentation)
   4. Add version comparison links at bottom of file
-- `README.md` - Add entry to changelog section (if applicable)
+- `README.md` - Update version references if applicable
 - Any other relevant documentation
 
 #### 4. Test the Plugin
