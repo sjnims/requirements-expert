@@ -183,4 +183,7 @@ jobs:
           # Model selection based on PR complexity analysis
           # Grep added to enable verification of consistency claims
           # gh pr checks added to verify CI status if needed
-          claude_args: '--model ${{ steps.analyze.outputs.model }} --allowed-tools Read,Grep,Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Bash(gh pr checks:*)'
+          # IMPORTANT: The allowed-tools value MUST be wrapped in double quotes to prevent
+          # shell-quote from parsing parentheses and asterisks as shell operators.
+          # See: https://github.com/substack/node-shell-quote - parse() treats ( ) * as operators
+          claude_args: '--model ${{ steps.analyze.outputs.model }} --allowed-tools "Read,Grep,Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Bash(gh pr checks:*)"'
