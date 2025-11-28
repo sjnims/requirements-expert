@@ -184,12 +184,13 @@ All epics will be created as child issues of this vision issue, establishing cle
 6. **Validate** → Review with stakeholders and refine
 7. **Proceed** → Move to epic identification once vision is solid
 
-## Additional Resources
+## Reference Files
 
-### Reference Files
+For detailed vision templates:
 
-For detailed vision templates and examples:
-- **`references/vision-template.md`** - Complete vision template with all sections and guidance
+| Reference | When to Load | Path |
+|-----------|--------------|------|
+| **vision-template.md** | Creating vision issue content or documenting vision | `references/vision-template.md` |
 
 ## Next Steps
 
