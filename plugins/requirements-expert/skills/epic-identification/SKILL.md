@@ -8,7 +8,7 @@ version: 0.2.0
 
 ## Overview
 
-Epic identification is the process of breaking down a product vision into major capabilities or features. Epics represent significant bodies of work that are too large for a single iteration but directly contribute to achieving the vision. This skill guides the systematic discovery and definition of epics from a product vision.
+Systematically decompose a product vision into well-defined epics—major capabilities or features that can be further broken down into user stories and tasks. Epics represent significant bodies of work that are too large for a single iteration but directly contribute to achieving the vision.
 
 ## Purpose
 
