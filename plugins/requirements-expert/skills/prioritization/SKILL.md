@@ -421,7 +421,7 @@ Load references as needed:
 
 | Reference | When to Load | Path |
 |-----------|--------------|------|
-| **moscow-worksheet.md** | Conducting MoSCoW prioritization sessions or applying prioritization framework | `references/moscow-worksheet.md` |
+| **moscow-worksheet.md** | Structured process guidance for conducting MoSCoW prioritization sessions | `references/moscow-worksheet.md` |
 
 ### Example Files
 
