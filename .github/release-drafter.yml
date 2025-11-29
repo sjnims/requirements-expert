@@ -6,24 +6,23 @@
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 
+# Disable default '## ' prefix since our titles include '###'
+category-template: '$TITLE'
+
 # Group PRs by label into Keep a Changelog categories
-# Order matters - first matching label determines category
+# Uses semantic labels only (not component labels) to prevent duplicates
+# Order matters - PRs appear in ALL matching categories, so labels must be mutually exclusive
 categories:
   # Keep a Changelog standard sections
-  - title: '⚠️ Breaking Changes'
+  - title: '### Breaking Changes'
     labels:
       - 'breaking'
   - title: '### Added'
     labels:
       - 'enhancement'
-      - 'component:command'
-      - 'component:skill'
-      - 'component:agent'
-      - 'component:hook'
   - title: '### Changed'
     labels:
       - 'refactor'
-      - 'automation'
   - title: '### Deprecated'
     labels:
       - 'deprecated'
@@ -43,10 +42,12 @@ categories:
   - title: '### Documentation'
     labels:
       - 'documentation'
-      - 'component:docs'
   - title: '### Dependencies'
     labels:
       - 'dependencies'
+  - title: '### CI/CD'
+    labels:
+      - 'automation'
       - 'github-actions'
 
 # Exclude certain labels from release notes
@@ -55,10 +56,44 @@ exclude-labels:
   - 'invalid'
   - 'wontfix'
   - 'stale'
+  - 'review:deep'
+  - 'review:quick'
 
 # Format for each change entry
-change-template: '- $TITLE (#$NUMBER)'
+change-template: '- $TITLE ([#$NUMBER]($URL))'
 change-title-escapes: '\<*_&'
+
+# Auto-apply semantic labels based on conventional commit prefixes
+# This ensures each PR gets exactly ONE semantic label for categorization
+autolabeler:
+  - label: 'breaking'
+    title:
+      - '/^.*!:/'
+      - '/BREAKING CHANGE/'
+    body:
+      - '/BREAKING CHANGE/'
+  - label: 'enhancement'
+    title:
+      - '/^feat(\(.+\))?:/'
+  - label: 'bug'
+    title:
+      - '/^fix(\(.+\))?:/'
+  - label: 'documentation'
+    title:
+      - '/^docs(\(.+\))?:/'
+  - label: 'refactor'
+    title:
+      - '/^refactor(\(.+\))?:/'
+  - label: 'optimization'
+    title:
+      - '/^perf(\(.+\))?:/'
+  - label: 'automation'
+    title:
+      - '/^ci(\(.+\))?:/'
+      - '/^build(\(.+\))?:/'
+  - label: 'security'
+    title:
+      - '/^security(\(.+\))?:/'
 
 # Determine version bump from labels
 version-resolver:
@@ -77,6 +112,7 @@ version-resolver:
       - 'automation'
       - 'security'
       - 'optimization'
+      - 'refactor'
   default: patch
 
 # Release notes template (Keep a Changelog format)

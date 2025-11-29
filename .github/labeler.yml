@@ -1,8 +1,12 @@
 # Configuration for actions/labeler
 # Automatically applies labels to PRs based on changed files
 # See: https://github.com/actions/labeler
+#
+# Note: Semantic labels (enhancement, bug, documentation, etc.) are applied
+# by release-drafter's autolabeler based on conventional commit prefixes.
+# This file only applies component/path-based labels for filtering purposes.
 
-# Component labels
+# Component labels - for filtering PRs by what part of codebase changed
 "component:command":
   - changed-files:
       - any-glob-to-any-file: "plugins/requirements-expert/commands/**/*"
@@ -19,19 +23,26 @@
   - changed-files:
       - any-glob-to-any-file: "plugins/requirements-expert/hooks/**/*"
 
-# Documentation label - markdown files except those in component directories
+# Documentation label - only root-level docs, NOT plugin component files
+# Plugin .md files are covered by their respective component:* labels
 "component:docs":
-  - changed-files:
-      - any-glob-to-any-file:
-          - "**/*.md"
-          - "!plugins/requirements-expert/commands/**/*.md"
-          - "!plugins/requirements-expert/skills/**/*.md"
-          - "!plugins/requirements-expert/agents/**/*.md"
+  - all:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "*.md"
+              - ".github/**/*.md"
+              - "docs/**/*.md"
+          - all-globs-to-all-files:
+              - "!plugins/**/*.md"
 
 # GitHub Actions workflows
 "github-actions":
   - changed-files:
-      - any-glob-to-any-file: ".github/workflows/**/*"
+      - any-glob-to-any-file:
+          - ".github/workflows/**/*"
+          - ".github/*.yml"
+          - "!.github/labeler.yml"
+          - "!.github/dependabot.yml"
 
 # Dependencies (Dependabot config)
 "dependencies":
