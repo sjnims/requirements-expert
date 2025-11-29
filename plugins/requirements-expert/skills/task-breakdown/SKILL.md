@@ -116,6 +116,12 @@ Break down work by typical software layers:
 - Environment setup
 - Monitoring/logging
 
+**Research/Spike Tasks:**
+- Evaluate libraries or tools
+- Prototype approaches
+- Performance testing
+- Feasibility studies
+
 ### Step 3: Apply Common Task Patterns
 
 Use these patterns as starting points:
@@ -258,48 +264,6 @@ Never create a task without clear success conditions:
 - Minimum 3-5 criteria per task
 - Make them specific and testable
 - Include both functional and quality criteria
-
-## Task Types
-
-### Implementation Tasks
-
-Primary work to build functionality:
-- Create UI components
-- Implement API endpoints
-- Write business logic
-- Build data access layer
-
-### Testing Tasks
-
-Verify quality and correctness:
-- Write unit tests
-- Create integration tests
-- Perform manual testing
-- User acceptance testing
-
-### Documentation Tasks
-
-Communicate how it works:
-- API documentation
-- User guides
-- Code comments
-- README updates
-
-### Infrastructure Tasks
-
-Enable functionality:
-- Database migrations
-- Configuration changes
-- Deployment scripts
-- Environment setup
-
-### Research/Spike Tasks
-
-Investigate unknowns:
-- Evaluate libraries/tools
-- Prototype approaches
-- Performance testing
-- Feasibility studies
 
 ## Common Pitfalls to Avoid
 
