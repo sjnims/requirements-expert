@@ -309,89 +309,28 @@ Record prioritization decisions:
 
 ## Best Practices
 
-### Challenge "Must Haves"
+Key practices for effective prioritization:
 
-Everything feels critical to someone:
-- Use strict criteria: "Product is broken without this"
-- Push back on inflated urgency
-- Ask: "Can we ship an MVP without this?"
-- Aim to keep "Must Haves" under 60%
+- **Challenge "Must Haves"** - Use strict criteria; aim for <60% in this category
+- **Be Explicit About "Won't Haves"** - Document exclusions to prevent scope creep
+- **Consider Technical Dependencies** - Foundation before features; respect prerequisites
+- **Revisit and Refine** - Re-prioritize regularly as new information emerges
+- **Involve Stakeholders** - Build consensus across product, development, and users
+- **Use Data When Available** - Inform decisions with usage analytics, research, and revenue data
 
-### Be Explicit About "Won't Haves"
-
-Prevent scope creep:
-- Document what's explicitly out of scope
-- Explain why (not aligned, too costly, wrong time)
-- Revisit in future planning cycles
-- Helps manage stakeholder expectations
-
-### Consider Technical Dependencies
-
-Priority isn't just about value:
-- Some items must come before others (architecture, data model)
-- Foundation before features built on it
-- Don't prioritize item X high if it depends on low-priority item Y
-
-### Revisit and Refine
-
-Priorities change:
-- New information emerges
-- Market conditions shift
-- User feedback reveals new priorities
-- Re-prioritize at regular intervals (quarterly, per release)
-
-### Involve Stakeholders
-
-Prioritization is collaborative:
-- Product owners provide business perspective
-- Developers provide technical perspective
-- Users/customers provide value perspective
-- Build consensus on trade-offs
-
-### Use Data When Available
-
-Inform decisions with evidence:
-- Usage analytics (what features are used most?)
-- User research (what do users need most?)
-- Revenue data (what drives business value?)
-- Competitor analysis (what's table stakes?)
+For detailed guidance on each practice, see `references/best-practices.md`.
 
 ## Common Pitfalls to Avoid
 
-### Everything is a "Must Have"
+Watch for these prioritization anti-patterns:
 
-If everything is critical, nothing is:
-- Challenge assumptions
-- Force trade-offs
-- Use strict criteria for "Must Have"
+- **Everything is a "Must Have"** - If everything is critical, nothing is
+- **Ignoring Technical Dependencies** - Prioritize prerequisites appropriately
+- **Forgetting "Won't Have"** - Explicitly identify what's out of scope
+- **Prioritizing Based on Who Shouts Loudest** - Use objective criteria, not volume
+- **Never Re-Prioritizing** - Stay flexible; revisit priorities regularly
 
-### Ignoring Technical Dependencies
-
-Prioritizing features without considering what they depend on:
-- Map dependencies
-- Prioritize prerequisites appropriately
-- Consider architectural foundations
-
-### Forgetting "Won't Have"
-
-Scope creep occurs when exclusions aren't explicit:
-- Actively identify what's out of scope
-- Document and communicate "Won't Haves"
-- Revisit them in future planning
-
-### Prioritizing Based on Who Shouts Loudest
-
-Let the loudest voice determine priority:
-- Use objective criteria
-- Base decisions on data and strategy
-- Build consensus across stakeholders
-
-### Never Re-Prioritizing
-
-Priorities set once and never revisited:
-- Revisit priorities regularly
-- Adjust based on new information
-- Stay flexible and adaptive
+For detailed mitigation strategies, see `references/best-practices.md`.
 
 ## Quick Reference: Prioritization Flow
 
@@ -414,6 +353,7 @@ Load references as needed:
 | Reference | When to Load | Path |
 |-----------|--------------|------|
 | **moscow-worksheet.md** | Structured process guidance for conducting MoSCoW prioritization sessions | `references/moscow-worksheet.md` |
+| **best-practices.md** | Detailed guidance on prioritization best practices and common pitfalls to avoid | `references/best-practices.md` |
 
 ### Example Files
 
