@@ -33,7 +33,7 @@ Use epic identification when:
 - Validating that all necessary epics have been identified
 - Refining or adding to an existing set of epics
 
-**Prerequisite:** Vision must exist before identifying epics. If no vision exists, use the vision-discovery skill first.
+**Prerequisite:** Vision must exist before identifying epics. If no vision exists, use the **vision-discovery** skill first.
 
 ## Epic Identification Process
 
@@ -373,9 +373,20 @@ Working examples that can be copied and adapted:
 ## Next Steps
 
 After completing epic identification:
+
 1. Create epic issues in GitHub Projects (as children of vision issue)
-2. Prioritize epics using the prioritization skill
-3. Select highest-priority epic and proceed to user story creation
+2. Use the **prioritization** skill to apply MoSCoW priorities to epics
+3. Select highest-priority epic and proceed to the **user-story-creation** skill
 4. Iterate through all epics, creating user stories for each
+5. Use the **requirements-feedback** skill to validate epics with stakeholders
 
 Epics provide the roadmap from vision to execution—invest time to identify them comprehensively and define them clearly.
+
+## Related Skills
+
+| Skill | Relationship |
+|-------|-------------|
+| **vision-discovery** | Prerequisite—vision must exist before identifying epics |
+| **user-story-creation** | Next step—break epics into user stories |
+| **prioritization** | Use to apply MoSCoW framework to epic priorities |
+| **requirements-feedback** | Use to validate epics with stakeholders |

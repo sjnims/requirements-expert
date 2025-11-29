@@ -424,3 +424,12 @@ Load references as needed:
 - Review and adjust regularly
 
 Prioritization is an ongoing activity throughout the requirements lifecycle—use it to focus effort on what matters most and deliver maximum value incrementally.
+
+## Related Skills
+
+| Skill | Relationship |
+|-------|-------------|
+| **epic-identification** | Apply prioritization after identifying epics |
+| **user-story-creation** | Apply prioritization after creating stories |
+| **task-breakdown** | Apply prioritization after breaking down tasks |
+| **requirements-feedback** | Use feedback to inform priority adjustments |

@@ -514,3 +514,13 @@ At each transition:
 ---
 
 Requirements feedback is not a phase—it's an ongoing practice that keeps requirements aligned with reality and ensures continuous improvement throughout the product lifecycle.
+
+## Related Skills
+
+| Skill | Relationship |
+|-------|-------------|
+| **vision-discovery** | Gather feedback to validate and refine vision |
+| **epic-identification** | Gather feedback to validate epic completeness and scope |
+| **user-story-creation** | Gather feedback to validate story value and acceptance criteria |
+| **task-breakdown** | Gather implementation feedback to refine tasks |
+| **prioritization** | Use feedback insights to adjust priorities |

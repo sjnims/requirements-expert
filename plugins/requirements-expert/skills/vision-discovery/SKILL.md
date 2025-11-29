@@ -285,9 +285,18 @@ Working examples that can be copied and adapted:
 ## Next Steps
 
 After completing vision discovery:
+
 1. Create the vision issue in GitHub Projects
 2. Share with stakeholders for feedback
-3. Proceed to epic identification using the epic-identification skill
-4. Reference the vision throughout all subsequent requirements work
+3. Proceed to the **epic-identification** skill to break the vision into epics
+4. Use the **requirements-feedback** skill to gather stakeholder feedback on the vision
+5. Reference the vision throughout all subsequent requirements work
 
 The vision is the foundation—invest time to get it right before moving to epics and stories.
+
+## Related Skills
+
+| Skill | Relationship |
+|-------|-------------|
+| **epic-identification** | Next step—break vision into major capabilities (epics) |
+| **requirements-feedback** | Use to validate vision with stakeholders and users |

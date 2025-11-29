@@ -33,7 +33,7 @@ Use task breakdown when:
 - Creating GitHub issues in a GitHub Project for tracking work
 - Defining clear acceptance criteria for work items
 
-**Prerequisite:** User story must exist before creating tasks. If no story exists, use user-story-creation skill first.
+**Prerequisite:** User story must exist before creating tasks. If no story exists, use the **user-story-creation** skill first.
 
 ## Task Characteristics
 
@@ -361,10 +361,21 @@ Working examples that can be copied and adapted:
 ## Next Steps
 
 After creating tasks:
+
 1. Create task issues in GitHub Projects (as children of story issue)
-2. Assign tasks to team members (if applicable)
-3. Begin execution—implement, test, document
-4. Update task status as work progresses
-5. When all tasks complete, story is complete
+2. Use the **prioritization** skill to apply MoSCoW priorities to tasks
+3. Assign tasks to team members (if applicable)
+4. Begin execution—implement, test, document
+5. Update task status as work progresses
+6. Use the **requirements-feedback** skill to gather feedback during implementation
+7. When all tasks complete, story is complete
 
 Tasks are where vision becomes reality—invest time to make them clear, testable, and actionable.
+
+## Related Skills
+
+| Skill | Relationship |
+|-------|-------------|
+| **user-story-creation** | Prerequisite—create stories before breaking down into tasks |
+| **prioritization** | Use after task creation to apply MoSCoW priorities |
+| **requirements-feedback** | Use to gather implementation feedback and refine requirements |

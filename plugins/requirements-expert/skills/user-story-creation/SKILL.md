@@ -28,7 +28,7 @@ Ensure user stories:
 
 ## Prerequisite
 
-Epic must exist before creating stories. If no epic exists, use epic-identification skill first.
+Epic must exist before creating stories. If no epic exists, use the **epic-identification** skill first.
 
 ## User Story Format
 
@@ -324,8 +324,18 @@ Working examples that can be copied and adapted:
 After creating user stories:
 
 1. Create story issues in GitHub Projects (as children of epic issue)
-2. Prioritize stories using the prioritization skill
-3. Select highest-priority story and proceed to task breakdown
+2. Use the **prioritization** skill to apply MoSCoW priorities to stories
+3. Select highest-priority story and proceed to the **task-breakdown** skill
 4. Iterate through all stories, creating tasks for each
+5. Use the **requirements-feedback** skill to validate stories with stakeholders
 
 User stories bridge epics and executable work. Invest time to make them clear, valuable, and testable.
+
+## Related Skills
+
+| Skill | Relationship |
+|-------|-------------|
+| **epic-identification** | Prerequisite—epics must exist before creating stories |
+| **task-breakdown** | Next step—break stories into implementable tasks |
+| **prioritization** | Use to apply MoSCoW framework to story priorities |
+| **requirements-feedback** | Use to validate stories with users and stakeholders |
