@@ -1,263 +1,333 @@
-# MoSCoW Prioritization Worksheet
+# MoSCoW Prioritization Process Guide
 
-Use this worksheet to systematically prioritize requirements using the MoSCoW framework.
+This reference provides structured process guidance for conducting MoSCoW prioritization sessions. Load this when facilitating prioritization of epics, stories, or tasks.
+
+For a complete worked example, see `examples/example-prioritization-session.md`.
 
 ---
 
-## Prioritization Session Info
+## Session Setup
 
-**Date:** [YYYY-MM-DD]
-**Facilitator:** [Name]
-**Participants:** [Names/roles of stakeholders involved]
-**Scope:** [What are we prioritizing? Epics for Q1? Stories for Sprint 5?]
-**Target/Goal:** [What are we trying to achieve? MVP? V1.0? Next release?]
-**Constraints:** [Time, budget, team size, deadlines]
+Before starting prioritization, ensure the following context is established:
+
+### Required Context
+
+Gather and document:
+
+- **Session date** - When the prioritization is occurring
+- **Facilitator** - Who is leading the session
+- **Participants** - Names and roles of stakeholders involved
+- **Scope** - What is being prioritized (epics for Q1, stories for Sprint 5, etc.)
+- **Target/Goal** - What the prioritization aims to achieve (MVP, V1.0, next release)
+- **Constraints** - Time, budget, team size, deadlines affecting decisions
+
+### Prerequisite Checks
+
+Before proceeding:
+
+- [ ] Items to prioritize exist in GitHub Projects
+- [ ] All participants understand the MoSCoW framework
+- [ ] Decision criteria are agreed upon
+- [ ] Time is allocated (60-90 minutes for 10-20 items)
 
 ---
 
 ## Decision Criteria
 
-**Value to Users:** [Weight: High / Medium / Low]
+Establish and weight the criteria that will guide prioritization decisions:
+
+### Standard Criteria
+
+Assess each criterion's importance for this prioritization:
+
+**Value to Users:**
+
 - Impact on user experience
 - Number of users affected
 - Frequency of use
 
-**Business Value:** [Weight: High / Medium / Low]
+**Business Value:**
+
 - Revenue impact
 - Strategic importance
 - Competitive advantage
 
-**Risk:** [Weight: High / Medium / Low]
+**Risk:**
+
 - Technical complexity
 - Uncertainty / unknowns
 - Market assumptions
 
-**Effort:** [Weight: High / Medium / Low]
+**Effort:**
+
 - Time required
 - Resources needed
 - Technical dependencies
 
+### Weighting
+
+For each criterion, determine its weight for this session:
+
+- **High** - Primary driver of decisions
+- **Medium** - Important consideration
+- **Low** - Secondary factor
+
 ---
 
-## Items to Prioritize
+## Item Assessment
 
-List all items (epics, stories, or tasks) that need prioritization:
+For each item being prioritized, capture:
 
-| ID | Item Name | Description | Value | Risk | Effort | Dependencies |
-|----|-----------|-------------|-------|------|--------|--------------|
-| 1  | [Name]    | [Brief desc]| H/M/L | H/M/L| H/M/L  | [IDs]        |
-| 2  | [Name]    | [Brief desc]| H/M/L | H/M/L| H/M/L  | [IDs]        |
-| 3  | [Name]    | [Brief desc]| H/M/L | H/M/L| H/M/L  | [IDs]        |
-|... | ...       | ...         | ...   | ...  | ...    | ...          |
+### Required Information
+
+| Field | What to Capture |
+|-------|-----------------|
+| ID | Item number or identifier |
+| Name | Clear, descriptive title |
+| Description | Brief summary of the item |
+| Value | High/Medium/Low user and business value |
+| Risk | High/Medium/Low technical and market risk |
+| Effort | High/Medium/Low resource requirement |
+| Dependencies | Other items this depends on or blocks |
+
+### Assessment Process
+
+For each item:
+
+1. Review the item's description and acceptance criteria
+2. Discuss value from user and business perspectives
+3. Assess technical risk and complexity
+4. Estimate relative effort
+5. Identify dependencies on other items
+6. Note any constraints or blockers
 
 ---
 
 ## MoSCoW Classification
 
-### Must Have (≤60% of items)
+Apply the MoSCoW framework to categorize each item.
 
-> Critical requirements without which the product cannot launch or function
+### Must Have (Target: ≤60% of items)
 
-| ID | Item Name | Rationale |
-|----|-----------|-----------|
-| [#]| [Name]    | [Why this is absolutely essential] |
-| [#]| [Name]    | [Why this is absolutely essential] |
-|... | ...       | ... |
+Requirements critical for success. Without these, the product fails to deliver core value.
 
-**Total Must Haves:** [Count] out of [Total] = [%]
+**Classification criteria:**
 
----
+- Non-negotiable for this release
+- Product is not viable without this
+- Legal, regulatory, or safety requirement
+- Core functionality essential to vision
 
-### Should Have (~20% of items)
+**For each Must Have, document:**
 
-> Important requirements that significantly enhance value but can be deferred if necessary
+- Item ID and name
+- Rationale explaining why this is absolutely essential
+- What would break without it
 
-| ID | Item Name | Rationale | Workaround if Deferred |
-|----|-----------|-----------|------------------------|
-| [#]| [Name]    | [Why important but not critical] | [How users cope without it] |
-| [#]| [Name]    | [Why important but not critical] | [How users cope without it] |
-|... | ...       | ... | ... |
+### Should Have (Target: ~20% of items)
 
-**Total Should Haves:** [Count] out of [Total] = [%]
+Important requirements that significantly enhance value but can be deferred if necessary.
 
----
+**Classification criteria:**
 
-### Could Have (~20% of items)
+- High impact but not mission-critical
+- Significantly improves user experience
+- Differentiates from competitors
+- Can work around absence (though painful)
 
-> Nice-to-have requirements that provide marginal value
+**For each Should Have, document:**
 
-| ID | Item Name | Rationale |
-|----|-----------|-----------|
-| [#]| [Name]    | [Why nice to have but low priority] |
-| [#]| [Name]    | [Why nice to have but low priority] |
-|... | ...       | ... |
+- Item ID and name
+- Rationale explaining importance
+- Workaround if deferred
 
-**Total Could Haves:** [Count] out of [Total] = [%]
+### Could Have (Target: ~20% of items)
 
----
+Nice-to-have requirements that provide marginal value.
+
+**Classification criteria:**
+
+- Low impact on core value
+- Enhancement or polish feature
+- Convenience improvement
+- Easy to cut if needed
+
+**For each Could Have, document:**
+
+- Item ID and name
+- Rationale explaining low priority
 
 ### Won't Have (This Time)
 
-> Requirements explicitly excluded from current scope
+Requirements explicitly excluded from current scope.
 
-| ID | Item Name | Rationale | Future Consideration? |
-|----|-----------|-----------|----------------------|
-| [#]| [Name]    | [Why not now] | [When might we revisit?] |
-| [#]| [Name]    | [Why not now] | [When might we revisit?] |
-|... | ...       | ... | ... |
+**Classification criteria:**
 
-**Total Won't Haves:** [Count] out of [Total] = [%]
+- Out of current scope
+- Lower priority than other work
+- Not aligned with current goals
+- Explicitly deferred or rejected
+
+**For each Won't Have, document:**
+
+- Item ID and name
+- Rationale explaining exclusion
+- When to reconsider (future release, condition, or never)
 
 ---
 
 ## Sequencing Within Categories
 
-### Must Haves - Execution Order
+After classification, establish execution order within each category.
 
-Ordered by dependencies, risk, and value:
+### Sequencing Factors
 
-1. [Item name] - [Reason for sequence position]
-2. [Item name] - [Reason for sequence position]
-3. [Item name] - [Reason for sequence position]
-...
+Consider when ordering:
 
-### Should Haves - Execution Order
+- **Dependencies** - Prerequisite items must come first
+- **Risk** - High-uncertainty items early for learning
+- **Value** - Higher-value items first within category
+- **Effort** - Quick wins can build momentum
 
-1. [Item name] - [Reason for sequence position]
-2. [Item name] - [Reason for sequence position]
-...
+### Sequencing Output
 
-### Could Haves - Execution Order
+For each category, document ordered list with position rationale:
 
-1. [Item name] - [Reason for sequence position]
-2. [Item name] - [Reason for sequence position]
-...
+1. Item name - Reason for this sequence position
+2. Item name - Reason for this sequence position
+3. ...continue for all items in category
 
 ---
 
-## Validation & Sanity Checks
+## Validation Checks
+
+Before finalizing, run these validation checks:
 
 ### Distribution Check
 
-- **Must Haves:** [%] (Target: ≤60%)
-- **Should Haves:** [%] (Target: ~20%)
-- **Could Haves:** [%] (Target: ~20%)
-- **Won't Haves:** [%]
+Calculate and verify:
 
-**Is distribution balanced?** [Yes / No]
-**If no, what needs adjustment?** [Notes]
+- **Must Haves:** Count / Total = percentage (Target: ≤60%)
+- **Should Haves:** Count / Total = percentage (Target: ~20%)
+- **Could Haves:** Count / Total = percentage (Target: ~20%)
+- **Won't Haves:** Count documented
+
+**If Must Haves exceed 60%:**
+
+- Challenge each Must Have: "Can we really not ship without this?"
+- Move borderline items to Should Have
+- Look for items that are important but not critical
 
 ### MVP Viability Check
 
-**Can we ship a viable product with just "Must Haves"?** [Yes / No]
+Verify the Must Haves alone deliver a viable product:
 
-**Does it deliver core value?** [Yes / No]
-
-**Would users pay for / use it?** [Yes / No]
-
-**Are all critical user journeys covered?** [Yes / No]
+- [ ] Can the product ship with just Must Haves?
+- [ ] Does it deliver core value to users?
+- [ ] Would users pay for / use this?
+- [ ] Are all critical user journeys covered?
 
 ### Dependency Check
 
-**Are all dependencies respected in sequencing?** [Yes / No]
+Verify sequencing respects dependencies:
 
-**Any items prioritized high that depend on low-priority items?** [List if any]
+- [ ] All dependencies are respected in sequencing
+- [ ] No high-priority items depend on low-priority items
+- [ ] Prerequisite items are appropriately prioritized
 
 ### Stakeholder Alignment
 
-**Have key stakeholders reviewed and approved?** [Yes / No]
+Confirm alignment before proceeding:
 
-**Any major disagreements?** [Notes]
-
-**Consensus achieved?** [Yes / No]
+- [ ] Key stakeholders have reviewed the prioritization
+- [ ] Major disagreements are resolved or documented
+- [ ] Consensus achieved on Must Haves and Won't Haves
 
 ---
 
-## Decisions & Trade-offs
+## Decisions and Trade-offs
 
-Document key decisions and trade-offs made during prioritization:
+Document key decisions made during prioritization:
 
-**Decision 1:**
-- **What:** [What was decided]
-- **Rationale:** [Why]
-- **Trade-off:** [What was sacrificed or deferred]
+### Decision Template
 
-**Decision 2:**
-- **What:** [What was decided]
-- **Rationale:** [Why]
-- **Trade-off:** [What was sacrificed or deferred]
+For each significant decision:
 
-...
+- **What:** Description of the decision
+- **Rationale:** Why this decision was made
+- **Trade-off:** What was sacrificed or deferred
+- **Alternatives considered:** Other options evaluated
+
+### Common Trade-off Patterns
+
+Watch for and document decisions about:
+
+- Feature scope vs. timeline
+- User experience vs. development effort
+- Must Have inflation vs. focused scope
+- Technical debt vs. delivery speed
 
 ---
 
 ## Action Items
 
-**Immediate Actions:**
-- [ ] Update GitHub Projects with priority labels
-- [ ] Update custom "Priority" field on all issues
-- [ ] Order backlog by priority
-- [ ] Communicate prioritization to team
-- [ ] Begin work on first "Must Have" item
+After prioritization, execute these actions:
 
-**Follow-up Actions:**
-- [ ] Schedule re-prioritization review [Date]
-- [ ] Gather user feedback on priorities [Date]
-- [ ] Re-assess "Won't Haves" for future releases [Date]
+### Immediate Actions
 
----
+- [ ] Update GitHub Projects Priority custom field on all issues
+- [ ] Apply priority labels (priority:must-have, priority:should-have, etc.)
+- [ ] Order backlog by priority in project views
+- [ ] Communicate prioritization decisions to team
+- [ ] Begin work on first Must Have item
 
-## Notes & Comments
+### Follow-up Actions
 
-[Any additional notes, context, or discussion points from the prioritization session]
-
----
-
-## Revision History
-
-| Date | Change | By |
-|------|--------|-----|
-| [YYYY-MM-DD] | Initial prioritization | [Name] |
-| [YYYY-MM-DD] | Re-prioritized based on user feedback | [Name] |
-| [YYYY-MM-DD] | Moved Item X from Should to Must | [Name] |
+- [ ] Schedule re-prioritization review at appropriate interval
+- [ ] Gather user/stakeholder feedback on priorities
+- [ ] Re-assess Won't Haves for future releases
+- [ ] Update priorities based on new information
 
 ---
 
-## Example: E-commerce MVP
+## Session Notes
 
-**Scope:** Prioritizing epics for e-commerce platform MVP
-**Target:** Launch in 3 months with core functionality
-**Constraints:** 2 developers, limited budget
+Capture any additional context:
 
-### Must Have (5 epics)
+- Discussion points not captured elsewhere
+- Minority opinions or dissent to revisit
+- Assumptions made during prioritization
+- Questions to investigate before next session
 
-1. **Product Catalog** - Cannot sell without products
-2. **Shopping Cart** - Core functionality for purchases
-3. **Checkout & Payment** - Must be able to complete purchases
-4. **User Accounts** - Track orders, save preferences
-5. **Order Management** - Sellers need to fulfill orders
+---
 
-### Should Have (3 epics)
+## Revision Tracking
 
-6. **Product Search & Filtering** - Important for UX, but can browse categories initially
-7. **Email Notifications** - Enhances experience, but can manually check orders
-8. **Product Reviews** - Builds trust, but not critical for launch
+When priorities change, document:
 
-### Could Have (3 epics)
+- Date of change
+- What changed (item, old priority, new priority)
+- Why the change was made
+- Who approved the change
 
-9. **Wishlist** - Nice feature, low priority
-10. **Product Recommendations** - Enhances discovery, not essential
-11. **Social Sharing** - Marketing feature, not core
+---
 
-### Won't Have (4 epics)
+## Quick Reference
 
-12. **Mobile App** - Web-first strategy, mobile later
-13. **Loyalty Program** - Phase 2 feature
-14. **Multi-vendor Support** - Single vendor for MVP
-15. **International Shipping** - Domestic only for MVP
+### MoSCoW at a Glance
 
-**Distribution:** 5 Must (45%), 3 Should (27%), 3 Could (27%) = Balanced ✓
+| Category | Target % | Question to Ask |
+|----------|----------|-----------------|
+| Must Have | ≤60% | "Can we ship without this?" |
+| Should Have | ~20% | "Important but not critical?" |
+| Could Have | ~20% | "Nice to have if time permits?" |
+| Won't Have | N/A | "Explicitly out of scope?" |
 
-**MVP Viable:** Yes - Can sell products, accept payment, fulfill orders ✓
+### Red Flags
 
-**Sequence:** Product Catalog → Shopping Cart → Checkout → User Accounts → Order Management
+Watch for these issues:
+
+- **>60% Must Haves** - Challenge assumptions, apply stricter criteria
+- **No Won't Haves** - Scope creep risk, explicitly exclude items
+- **Dependency conflicts** - High-priority items depending on low-priority ones
+- **No stakeholder buy-in** - Revisit decisions with key stakeholders
