@@ -130,6 +130,25 @@ Apply this skill when:
 
 **Purpose:** Prevents scope creep by making exclusions explicit
 
+### Classification Decision Tree
+
+Apply these questions in order for each item:
+
+1. **Is this legally, contractually, or safety-required?**
+   - Yes → **Must Have**
+
+2. **Would the product be fundamentally broken or fail to deliver core value without this?**
+   - Yes → **Must Have**
+
+3. **Does this significantly improve value but have a viable workaround?**
+   - Yes → **Should Have**
+
+4. **Is this a nice-to-have enhancement with marginal impact?**
+   - Yes → **Could Have**
+
+5. **Is this explicitly out of scope for this release?**
+   - Yes → **Won't Have**
+
 ## Prioritization Process
 
 ### Step 1: Define Context
