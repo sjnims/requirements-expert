@@ -50,11 +50,11 @@ Use prioritization when:
 - Payment processing (for an e-commerce product)
 - Core workflow (the main thing users do)
 
-**Questions to Ask:**
-- Can we ship without this?
-- Does this deliver essential core value?
-- Is this legally or contractually required?
-- Would users reject the product without this?
+**Classification Criteria** (evaluate each before classifying):
+- Cannot ship without this feature
+- Delivers essential core value to primary users
+- Legal, regulatory, or contractual requirement
+- Users would reject the product without this
 
 **Typical Percentage:** 60% of total requirements
 
@@ -74,11 +74,11 @@ Use prioritization when:
 - Export to multiple formats
 - Email notifications
 
-**Questions to Ask:**
-- Does this significantly improve UX or value?
-- Can users achieve their goals without this (even if harder)?
-- Does this provide important differentiation?
-- Would delaying this cause pain but not failure?
+**Classification Criteria** (evaluate each before classifying):
+- Significantly improves user experience or value
+- Users can achieve goals without this, but with difficulty
+- Provides important competitive differentiation
+- Delay causes pain but not product failure
 
 **Typical Percentage:** 20% of total requirements
 
@@ -98,11 +98,11 @@ Use prioritization when:
 - Keyboard shortcuts
 - Tooltips and help text
 
-**Questions to Ask:**
-- Would users notice if this were missing?
-- Does this provide marginal or incremental value?
-- Is this primarily for convenience or polish?
-- Can this easily be added later?
+**Classification Criteria** (evaluate each before classifying):
+- Users unlikely to notice if missing
+- Provides marginal or incremental value only
+- Primarily a convenience or polish feature
+- Easily added in a future release
 
 **Typical Percentage:** 20% of total requirements
 
@@ -122,11 +122,11 @@ Use prioritization when:
 - Advanced analytics (phase 2 feature)
 - Third-party integrations (beyond core)
 
-**Questions to Ask:**
-- Does this align with current vision and goals?
-- Is this better suited for a future release?
-- Does including this risk delaying more important work?
-- Can we explicitly say "not now" to this?
+**Classification Criteria** (evaluate each before classifying):
+- Does not align with current vision and goals
+- Better suited for a future release
+- Including this risks delaying more important work
+- Can be explicitly documented as "not now"
 
 **Purpose:** Prevents scope creep by making exclusions explicit
 
@@ -134,93 +134,68 @@ Use prioritization when:
 
 ### Step 1: Define Context
 
-Establish the scope and constraints:
+Establish the scope and constraints using AskUserQuestion to gather:
 
-**Clarify:**
+**Scope:**
 - What are we prioritizing? (Epics? Stories? Tasks?)
 - What are the constraints? (Time, budget, resources)
 - What's the target? (MVP? V1.0? Next sprint?)
-- Who are the stakeholders?
 
-**Set Boundaries:**
+**Boundaries:**
 - Total number of items to prioritize
-- Decision criteria (value, risk, effort, dependencies)
+- Decision criteria weights (value, risk, effort, dependencies)
 - Time frame for this prioritization
 
-### Step 2: Assess Each Item
+For detailed context collection workflow, see `references/moscow-worksheet.md`.
 
-For each epic/story/task, evaluate:
+### Step 2: Retrieve and Assess Items
 
-**Value to Users:**
-- How much does this improve user experience?
-- How many users benefit?
-- How often will this be used?
+First, retrieve items from GitHub Projects:
 
-**Business Value:**
-- Revenue impact?
-- Strategic importance?
-- Competitive advantage?
+```bash
+gh project item-list [project-number] --owner [owner] --format json
+```
 
-**Risk:**
-- Technical risk (complexity, unknowns)?
-- Market risk (assumptions about user needs)?
-- Higher risk items often prioritized earlier for learning
+For each item, evaluate against these criteria:
 
-**Effort/Cost:**
-- How much work is required?
-- Resource needs (people, time, tools)?
-- Return on investment?
+| Criterion | Assessment Factors |
+|-----------|-------------------|
+| **User Value** | UX improvement, user count affected, frequency of use |
+| **Business Value** | Revenue impact, strategic importance, competitive advantage |
+| **Risk** | Technical complexity, unknowns, third-party dependencies |
+| **Effort** | Time required, resource needs, ROI |
+| **Dependencies** | Prerequisites, blockers, external dependencies |
 
-**Dependencies:**
-- What must come before this?
-- What is blocked by this?
-- External dependencies?
+Rate each factor as High/Medium/Low. See `references/moscow-worksheet.md` for detailed assessment workflow.
 
 ### Step 3: Apply MoSCoW Categories
 
-For each item, assign a MoSCoW category:
+Use AskUserQuestion to capture priority decisions for each item. Present MoSCoW options with clear descriptions:
 
-**Decision Framework:**
+**Classification Order:**
 
-1. **Start with Must Haves:**
-   - Identify absolute essentials
-   - Challenge each: "Can we really not ship without this?"
-   - Aim for <60% in this category
+1. **Must Haves** - Identify absolute essentials first (target: <60%)
+2. **Should Haves** - High-value but deferrable items
+3. **Could Haves** - Nice-to-have if time permits
+4. **Won't Haves** - Explicitly out of scope (document rationale)
 
-2. **Identify Should Haves:**
-   - High-value, not mission-critical
-   - Important for good UX or differentiation
-   - Can defer if Must Haves at risk
-
-3. **Mark Could Haves:**
-   - Nice to have if time permits
-   - Easy to cut without major impact
-   - Often polish or convenience features
-
-4. **Explicitly List Won't Haves:**
-   - Items that won't be in current scope
-   - Document WHY to prevent revisiting
-   - May be reconsidered in future
+Use the classification criteria from each MoSCoW category above to guide decisions.
 
 ### Step 4: Validate and Balance
 
-Review the prioritization:
+Review the prioritization against these validation rules:
 
-**Balance Check:**
-- Are <60% of items "Must Have"? (If more, challenge them)
-- Is there a healthy mix across categories?
-- Have we explicitly identified "Won't Haves"?
+**Distribution Check:**
+- Must Haves <60%? If exceeded, use AskUserQuestion to challenge: "Can we really not ship without [item]?"
+- At least one Won't Have documented? If none, identify explicit exclusions
+- Dependencies respected? High-priority items must not depend on low-priority items
 
-**Sanity Checks:**
-- Do "Must Haves" collectively deliver minimum viable product?
-- Can we ship with just "Must Haves" if needed?
-- Are dependencies respected? (prerequisite items high priority)
+**MVP Viability Check:**
+- Do Must Haves collectively deliver minimum viable product?
+- Can we ship with just Must Haves if needed?
+- Are all critical user journeys covered?
 
-**Stakeholder Review:**
-- Share prioritization with key stakeholders
-- Get feedback on category assignments
-- Discuss trade-offs and rationale
-- Build consensus
+If validation fails, use AskUserQuestion to present adjustment options. See `references/moscow-worksheet.md` for detailed validation workflow.
 
 ### Step 5: Sequence Within Categories
 
@@ -238,24 +213,29 @@ Within each MoSCoW category, establish order:
 - **Dependency-driven:** Respect technical dependencies
 - **Quick wins:** Mix in some easy, visible wins for morale
 
-### Step 6: Document and Communicate
+### Step 6: Update GitHub Projects
 
-Record prioritization decisions:
+Persist prioritization decisions using GitHub CLI:
 
-**In GitHub Projects:**
-- Update "Priority" custom field on issues
-- Add priority labels (priority:must-have, etc.)
-- Order issues in project views by priority
+**Update Priority Custom Field:**
 
-**Rationale:**
-- Document WHY items are prioritized as they are
-- Capture trade-offs and decisions made
-- Reference for future prioritization
+```bash
+gh project item-edit --id [item-id] --field-id [priority-field-id] --value "[priority]"
+```
 
-**Communication:**
-- Share prioritized backlog with team
-- Explain sequencing and rationale
-- Set expectations about what's in/out of scope
+**Apply Priority Labels:**
+
+```bash
+gh issue edit [issue-number] --repo [owner/repo] --add-label "priority:must-have"
+```
+
+**Add Rationale Comments** (for Must Haves and Won't Haves):
+
+```bash
+gh issue comment [issue-number] --repo [owner/repo] --body "Priority: [level]\n\nRationale: [explanation]"
+```
+
+See `references/moscow-worksheet.md` for the complete GitHub update workflow.
 
 ## Prioritization at Different Levels
 
