@@ -423,6 +423,15 @@ Load references as needed:
 |-----------|--------------|------|
 | **moscow-worksheet.md** | Conducting MoSCoW prioritization sessions or applying prioritization framework | `references/moscow-worksheet.md` |
 
+### Example Files
+
+Review examples for concrete patterns:
+
+| Example | What It Shows | Path |
+|---------|---------------|------|
+| **example-prioritized-backlog.md** | Complete prioritized backlog with MoSCoW distribution, rationale, and GitHub integration | `examples/example-prioritized-backlog.md` |
+| **example-prioritization-session.md** | Full prioritization session including evaluation, trade-offs, and stakeholder alignment | `examples/example-prioritization-session.md` |
+
 ## Integration with Requirements Lifecycle
 
 **When to Prioritize:**
