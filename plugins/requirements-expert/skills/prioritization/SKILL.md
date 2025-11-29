@@ -58,8 +58,6 @@ Use prioritization when:
 
 **Typical Percentage:** 60% of total requirements
 
----
-
 ### Should Have
 
 **Definition:** Important requirements that significantly enhance value but aren't absolutely critical for initial release. Can be deferred if necessary.
@@ -83,8 +81,6 @@ Use prioritization when:
 - Would delaying this cause pain but not failure?
 
 **Typical Percentage:** 20% of total requirements
-
----
 
 ### Could Have
 
@@ -110,8 +106,6 @@ Use prioritization when:
 
 **Typical Percentage:** 20% of total requirements
 
----
-
 ### Won't Have (This Time)
 
 **Definition:** Requirements explicitly excluded from current scope. May be considered for future releases but are off the table now.
@@ -135,8 +129,6 @@ Use prioritization when:
 - Can we explicitly say "not now" to this?
 
 **Purpose:** Prevents scope creep by making exclusions explicit
-
----
 
 ## Prioritization Process
 
