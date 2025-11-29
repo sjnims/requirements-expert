@@ -403,8 +403,11 @@ Priorities set once and never revisited:
 
 ### Reference Files
 
-For detailed prioritization frameworks and examples:
-- **`${CLAUDE_PLUGIN_ROOT}/skills/prioritization/references/moscow-worksheet.md`** - Template for conducting MoSCoW prioritization sessions
+Load references as needed:
+
+| Reference | When to Load | Path |
+|-----------|--------------|------|
+| **moscow-worksheet.md** | Conducting MoSCoW prioritization sessions or applying prioritization framework | `references/moscow-worksheet.md` |
 
 ## Integration with Requirements Lifecycle
 

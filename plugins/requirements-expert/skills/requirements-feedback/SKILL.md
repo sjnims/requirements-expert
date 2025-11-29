@@ -486,8 +486,11 @@ Echo chamber risk:
 
 ### Reference Files
 
-For feedback templates and frameworks:
-- **`${CLAUDE_PLUGIN_ROOT}/skills/requirements-feedback/references/feedback-checklist.md`** - Checklist for conducting feedback reviews at each level
+Load references as needed:
+
+| Reference | When to Load | Path |
+|-----------|--------------|------|
+| **feedback-checklist.md** | Conducting feedback reviews or validating requirements at any level | `references/feedback-checklist.md` |
 
 ---
 
