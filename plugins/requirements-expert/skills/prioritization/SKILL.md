@@ -19,6 +19,20 @@ Effective prioritization:
 - Aligns team and stakeholders on what matters most
 - Provides clear rationale for sequencing decisions
 
+## When to Use This Skill
+
+Use prioritization when:
+- Epics exist and need to be ordered by importance
+- Stories within an epic need priority ranking
+- Tasks need sequencing for implementation
+- User asks what to build first or what's most important
+- Applying MoSCoW labels or priority fields in GitHub Projects
+
+**Prerequisites:** Items must exist before prioritizing. If none exist:
+- No epics? Use the **epic-identification** skill first
+- No stories? Use the **user-story-creation** skill first
+- No tasks? Use the **task-breakdown** skill first
+
 ## MoSCoW Framework
 
 ### Must Have
