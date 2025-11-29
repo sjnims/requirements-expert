@@ -243,9 +243,12 @@ Execute GitHub CLI commands to persist prioritization.
 For each item:
 
 ```bash
-gh project item-edit --id [item-id] --project-id [project-id] \
-  --field-id [priority-field-id] --single-select-option-id [option-id]
+gh project item-edit --id [item-id] \
+  --field-id [priority-field-id] --value "[priority-value]"
 ```
+
+Where `[priority-value]` must match the custom field option name exactly:
+"Must Have", "Should Have", "Could Have", or "Won't Have".
 
 ### Apply Priority Labels
 
