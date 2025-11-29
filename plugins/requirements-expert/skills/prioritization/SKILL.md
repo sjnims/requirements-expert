@@ -361,8 +361,8 @@ Load references as needed:
 
 | Reference | When to Load | Path |
 |-----------|--------------|------|
-| **moscow-worksheet.md** | Structured process guidance for conducting MoSCoW prioritization sessions | `references/moscow-worksheet.md` |
-| **best-practices.md** | Detailed guidance on prioritization best practices and common pitfalls to avoid | `references/best-practices.md` |
+| **moscow-worksheet.md** | Load when executing a multi-phase prioritization session or needing step-by-step workflow guidance | `references/moscow-worksheet.md` |
+| **best-practices.md** | Load when reviewing prioritization decisions, resolving disputes, or validating distribution balance | `references/best-practices.md` |
 
 ### Example Files
 
@@ -370,8 +370,8 @@ Review examples for concrete patterns:
 
 | Example | What It Shows | Path |
 |---------|---------------|------|
-| **example-prioritized-backlog.md** | Complete prioritized backlog with MoSCoW distribution, rationale, and GitHub integration | `examples/example-prioritized-backlog.md` |
-| **example-prioritization-session.md** | Full prioritization session including evaluation, trade-offs, and stakeholder alignment | `examples/example-prioritization-session.md` |
+| **example-prioritized-backlog.md** | Load when needing output format reference for backlog structure, rationale documentation, or GitHub integration | `examples/example-prioritized-backlog.md` |
+| **example-prioritization-session.md** | Load when facilitating stakeholder sessions or needing trade-off discussion patterns | `examples/example-prioritization-session.md` |
 
 ## Integration with Requirements Lifecycle
 
