@@ -217,7 +217,17 @@ Within each MoSCoW category, establish order:
 
 Persist prioritization decisions using GitHub CLI:
 
+**Retrieve Field ID First:**
+
+Before updating fields, retrieve the Priority field ID:
+
+```bash
+gh project field-list [project-number] --owner [owner] --format json | jq '.fields[] | select(.name=="Priority") | .id'
+```
+
 **Update Priority Custom Field:**
+
+Use the retrieved field ID to update items:
 
 ```bash
 gh project item-edit --id [item-id] --field-id [priority-field-id] --value "[priority]"
