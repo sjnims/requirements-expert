@@ -21,7 +21,7 @@ Effective prioritization:
 
 ## When to Use This Skill
 
-Use prioritization when:
+Apply this skill when:
 - Epics exist and need to be ordered by importance
 - Stories within an epic need priority ranking
 - Tasks need sequencing for implementation
@@ -247,7 +247,7 @@ See `references/moscow-worksheet.md` for the complete GitHub update workflow.
 - Strategic alignment with vision
 - Foundation vs. enhancement (build foundation first)
 - User journey completeness (can users accomplish goals?)
-- Market differentiation (what makes you unique?)
+- Market differentiation (what differentiates the product?)
 
 **Example:**
 - Must Have: User Authentication, Core Workflow, Payment Processing
