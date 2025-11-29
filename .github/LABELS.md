@@ -62,12 +62,6 @@ Labels for GitHub Discussions categories:
 - `idea` - Feature idea or suggestion
 - `showcase` - Community showcase
 
-### Review Labels
-
-Control automated PR review behavior (see `claude-code-review.yml`):
-- `review:deep` - Force comprehensive review with Sonnet model
-- `review:quick` - Force quick review with Haiku model
-
 ## Managing Labels
 
 ### Adding a New Label

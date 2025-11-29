@@ -328,58 +328,33 @@ actionlint .github/workflows/markdownlint.yml
 
 ### CI/CD Workflows
 
-The repository includes 11 GitHub Actions workflows:
+The repository includes 10 GitHub Actions workflows:
 
 **Primary CI** (runs on every PR):
 1. **markdownlint.yml** (~30-40s) - Enforces markdown style (ATX headers, dash lists, 2-space indentation)
 2. **links.yml** (~1-2min) - Validates all links (excluding `.lycheeignore`)
 3. **validate-workflows.yml** (~20-30s) - Validates workflow YAML syntax using actionlint
 
-**Claude Code Workflows**:
+**Claude Code Workflow**:
 4. **claude.yml** - Claude Code integration for issue triage and PR assistance
-5. **claude-code-review.yml** - Intelligent automated PR code review (see details below)
 
 **Automation Workflows**:
-6. **labeler.yml** - Auto-labels PRs based on changed files
-7. **sync-labels.yml** - Syncs labels from labels.yml to repository
-8. **release-drafter.yml** - Auto-generates release notes from merged PRs
+5. **labeler.yml** - Auto-labels PRs based on changed files
+6. **sync-labels.yml** - Syncs labels from labels.yml to repository
+7. **release-drafter.yml** - Auto-generates release notes from merged PRs
 
 **Dependency Management Workflows**:
-9. **dependabot-auto-merge.yml** - Auto-merges non-breaking Dependabot PRs
+8. **dependabot-auto-merge.yml** - Auto-merges non-breaking Dependabot PRs
 
 **Utility Workflows**:
-10. **greet.yml** - Welcomes first-time contributors
-11. **stale.yml** - Marks inactive issues/PRs as stale
+9. **greet.yml** - Welcomes first-time contributors
+10. **stale.yml** - Marks inactive issues/PRs as stale
 
 **If markdownlint fails**:
 ```bash
 markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix issues
 markdownlint plugins/requirements-expert/commands/*.md  # Check specific files
 ```
-
-#### Claude Code Review Details
-
-The `claude-code-review.yml` workflow provides intelligent, proportional PR reviews:
-
-**Model Selection** (automatic based on PR complexity):
-
-| PR Characteristics | Model | Review Depth |
-|--------------------|-------|--------------|
-| <50 lines, <3 files | Haiku | Trivial (2-4 sentences) |
-| Docs-only, <100 lines | Haiku | Docs (brief, focused) |
-| 50-200 lines | Sonnet | Standard (structured) |
-| >200 lines | Sonnet | Comprehensive (full analysis) |
-
-**Manual Overrides** (via PR labels):
-- `review:deep` - Force comprehensive review with Sonnet
-- `review:quick` - Force quick review with Haiku
-
-**Review Quality Standards**:
-- Scope-aware: Reads linked issue to understand intended scope
-- Verification-backed: Only claims what's explicitly verified
-- Proportional: Review depth matches change complexity
-- No CI status claims: Avoids false positives from timing issues
-- Evidence-based: Cites line numbers, avoids uncertain suggestions
 
 ### Testing Workflow
 
