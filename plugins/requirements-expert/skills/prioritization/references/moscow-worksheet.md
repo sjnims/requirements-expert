@@ -1,184 +1,219 @@
-# MoSCoW Prioritization Process Guide
+# MoSCoW Prioritization Workflow
 
-This reference provides structured process guidance for conducting MoSCoW prioritization sessions. Load this when facilitating prioritization of epics, stories, or tasks.
+This reference provides structured workflow guidance for executing MoSCoW prioritization sessions. Load this when prioritizing epics, stories, or tasks.
 
 For a complete worked example, see `examples/example-prioritization-session.md`.
 
 ---
 
-## Session Setup
+## Phase 1: Gather Context
 
-Before starting prioritization, ensure the following context is established:
+Before starting prioritization, collect essential context from the user via AskUserQuestion.
 
-### Required Context
+### Required Context to Collect
 
-Gather and document:
+**Scope** - What are we prioritizing?
 
-- **Session date** - When the prioritization is occurring
-- **Facilitator** - Who is leading the session
-- **Participants** - Names and roles of stakeholders involved
-- **Scope** - What is being prioritized (epics for Q1, stories for Sprint 5, etc.)
-- **Target/Goal** - What the prioritization aims to achieve (MVP, V1.0, next release)
-- **Constraints** - Time, budget, team size, deadlines affecting decisions
+- Epics (which capabilities to build first)
+- Stories (which stories within an epic)
+- Tasks (which tasks within a story)
 
-### Prerequisite Checks
+**Target** - What is the prioritization goal?
 
-Before proceeding:
+- MVP (minimum viable product)
+- V1.0 (initial release)
+- Next sprint or iteration
+- Specific milestone or deadline
 
-- [ ] Items to prioritize exist in GitHub Projects
-- [ ] All participants understand the MoSCoW framework
-- [ ] Decision criteria are agreed upon
-- [ ] Time is allocated (60-90 minutes for 10-20 items)
+**Constraints** - What limits the work?
 
----
+- Time (fixed deadline, sprint length)
+- Budget (cost constraints)
+- Resources (team size, skills available)
+- Dependencies (external blockers, prerequisites)
 
-## Decision Criteria
+**Decision Criteria** - What factors matter most?
 
-Establish and weight the criteria that will guide prioritization decisions:
+- User value (impact on user experience)
+- Business value (revenue, strategic importance)
+- Technical risk (complexity, unknowns)
+- Effort (time and resources required)
 
-### Standard Criteria
+### Context Collection Process
 
-Assess each criterion's importance for this prioritization:
-
-**Value to Users:**
-
-- Impact on user experience
-- Number of users affected
-- Frequency of use
-
-**Business Value:**
-
-- Revenue impact
-- Strategic importance
-- Competitive advantage
-
-**Risk:**
-
-- Technical complexity
-- Uncertainty / unknowns
-- Market assumptions
-
-**Effort:**
-
-- Time required
-- Resources needed
-- Technical dependencies
-
-### Weighting
-
-For each criterion, determine its weight for this session:
-
-- **High** - Primary driver of decisions
-- **Medium** - Important consideration
-- **Low** - Secondary factor
+1. Ask about scope using AskUserQuestion
+2. Ask about target/goal using AskUserQuestion
+3. Ask about constraints using AskUserQuestion
+4. Confirm decision criteria weights (High/Medium/Low)
 
 ---
 
-## Item Assessment
+## Phase 2: Retrieve Items
 
-For each item being prioritized, capture:
+Fetch items to prioritize from GitHub Projects.
 
-### Required Information
+### GitHub CLI Commands
 
-| Field | What to Capture |
-|-------|-----------------|
-| ID | Item number or identifier |
-| Name | Clear, descriptive title |
-| Description | Brief summary of the item |
-| Value | High/Medium/Low user and business value |
-| Risk | High/Medium/Low technical and market risk |
-| Effort | High/Medium/Low resource requirement |
-| Dependencies | Other items this depends on or blocks |
+**List project items:**
+
+```bash
+gh project item-list [project-number] --owner [owner] --format json
+```
+
+**Filter by Type:**
+
+- For epics: Filter where Type = "Epic"
+- For stories: Filter where Type = "Story" and parent = selected epic
+- For tasks: Filter where Type = "Task" and parent = selected story
+
+**Query existing priorities:**
+
+```bash
+gh project field-list [project-number] --owner [owner] --format json
+```
+
+### Validation Before Proceeding
+
+- [ ] Items exist in GitHub Projects
+- [ ] Items have Type field set correctly
+- [ ] Item count is reasonable for session (10-20 items ideal)
+
+If no items exist, suggest appropriate creation command:
+
+- No epics? → `/re:identify-epics`
+- No stories? → `/re:create-stories`
+- No tasks? → `/re:create-tasks`
+
+---
+
+## Phase 3: Evaluate Each Item
+
+For each item, assess against the decision criteria.
+
+### Evaluation Criteria
+
+| Criterion | Assessment Questions |
+|-----------|---------------------|
+| **User Value** | How much does this improve user experience? How many users benefit? How often will this be used? |
+| **Business Value** | Revenue impact? Strategic importance? Competitive advantage? |
+| **Technical Risk** | Complexity? Unknowns? Third-party dependencies? |
+| **Effort** | Time required? Resources needed? Dependencies on other items? |
 
 ### Assessment Process
 
 For each item:
 
 1. Review the item's description and acceptance criteria
-2. Discuss value from user and business perspectives
-3. Assess technical risk and complexity
-4. Estimate relative effort
-5. Identify dependencies on other items
-6. Note any constraints or blockers
+2. Rate user value: High / Medium / Low
+3. Rate business value: High / Medium / Low
+4. Rate technical risk: High / Medium / Low
+5. Rate effort: High / Medium / Low
+6. Note dependencies on other items
+
+### Assessment Output
+
+| Item | User Value | Business Value | Risk | Effort | Dependencies |
+|------|------------|----------------|------|--------|--------------|
+| Item 1 | High | High | Low | Medium | None |
+| Item 2 | Medium | High | High | High | Item 1 |
+| ... | ... | ... | ... | ... | ... |
 
 ---
 
-## MoSCoW Classification
+## Phase 4: Apply MoSCoW Classification
 
-Apply the MoSCoW framework to categorize each item.
+Assign each item to a MoSCoW category based on assessment.
 
-### Must Have (Target: ≤60% of items)
+### Classification Logic
 
-Requirements critical for success. Without these, the product fails to deliver core value.
-
-**Classification criteria:**
+**Must Have** (Target: 60% of items)
 
 - Non-negotiable for this release
 - Product is not viable without this
 - Legal, regulatory, or safety requirement
 - Core functionality essential to vision
 
-**For each Must Have, document:**
+**Decision question:** "Can we ship without this?" If no → Must Have
 
-- Item ID and name
-- Rationale explaining why this is absolutely essential
-- What would break without it
-
-### Should Have (Target: ~20% of items)
-
-Important requirements that significantly enhance value but can be deferred if necessary.
-
-**Classification criteria:**
+**Should Have** (Target: ~20% of items)
 
 - High impact but not mission-critical
 - Significantly improves user experience
 - Differentiates from competitors
 - Can work around absence (though painful)
 
-**For each Should Have, document:**
+**Decision question:** "Important but deferrable?" If yes → Should Have
 
-- Item ID and name
-- Rationale explaining importance
-- Workaround if deferred
-
-### Could Have (Target: ~20% of items)
-
-Nice-to-have requirements that provide marginal value.
-
-**Classification criteria:**
+**Could Have** (Target: ~20% of items)
 
 - Low impact on core value
 - Enhancement or polish feature
 - Convenience improvement
 - Easy to cut if needed
 
-**For each Could Have, document:**
+**Decision question:** "Nice to have if time permits?" If yes → Could Have
 
-- Item ID and name
-- Rationale explaining low priority
-
-### Won't Have (This Time)
-
-Requirements explicitly excluded from current scope.
-
-**Classification criteria:**
+**Won't Have** (This Time)
 
 - Out of current scope
 - Lower priority than other work
 - Not aligned with current goals
 - Explicitly deferred or rejected
 
-**For each Won't Have, document:**
+**Decision question:** "Explicitly out of scope?" If yes → Won't Have
 
-- Item ID and name
-- Rationale explaining exclusion
-- When to reconsider (future release, condition, or never)
+### Classification Process
+
+1. Use AskUserQuestion to get priority for each item
+2. Present MoSCoW options with clear descriptions
+3. Collect all priorities before updating GitHub
+4. Record brief rationale for Must Haves and Won't Haves
 
 ---
 
-## Sequencing Within Categories
+## Phase 5: Validate Distribution
 
-After classification, establish execution order within each category.
+Check the priority distribution against targets.
+
+### Distribution Check
+
+Calculate:
+
+- Must Haves: Count / Total = percentage
+- Should Haves: Count / Total = percentage
+- Could Haves: Count / Total = percentage
+- Won't Haves: Count documented
+
+### Validation Rules
+
+| Check | Target | Action if Failed |
+|-------|--------|------------------|
+| Must Haves | 60% | Challenge each: "Can we really not ship without this?" |
+| No Won't Haves | At least 1 | Explicitly identify what's out of scope |
+| Dependency conflict | None | High-priority items must not depend on low-priority items |
+
+### MVP Viability Check
+
+Verify the Must Haves alone deliver a viable product:
+
+- [ ] Can the product ship with just Must Haves?
+- [ ] Does it deliver core value to users?
+- [ ] Would users pay for / use this?
+- [ ] Are all critical user journeys covered?
+
+### Dependency Validation
+
+- [ ] All dependencies are respected in prioritization
+- [ ] No high-priority items depend on low-priority items
+- [ ] Prerequisite items are appropriately prioritized
+
+If validation fails, use AskUserQuestion to adjust priorities.
+
+---
+
+## Phase 6: Sequence Within Categories
+
+Establish execution order within each priority category.
 
 ### Sequencing Factors
 
@@ -191,7 +226,7 @@ Consider when ordering:
 
 ### Sequencing Output
 
-For each category, document ordered list with position rationale:
+For each category, produce ordered list:
 
 1. Item name - Reason for this sequence position
 2. Item name - Reason for this sequence position
@@ -199,116 +234,86 @@ For each category, document ordered list with position rationale:
 
 ---
 
-## Validation Checks
+## Phase 7: Update GitHub
 
-Before finalizing, run these validation checks:
+Execute GitHub CLI commands to persist prioritization.
 
-### Distribution Check
+### Update Priority Custom Field
 
-Calculate and verify:
+For each item:
 
-- **Must Haves:** Count / Total = percentage (Target: ≤60%)
-- **Should Haves:** Count / Total = percentage (Target: ~20%)
-- **Could Haves:** Count / Total = percentage (Target: ~20%)
-- **Won't Haves:** Count documented
+```bash
+gh project item-edit --id [item-id] \
+  --field-id [priority-field-id] --value "[priority-value]"
+```
 
-**If Must Haves exceed 60%:**
+Where `[priority-value]` must match the custom field option name exactly:
+"Must Have", "Should Have", "Could Have", or "Won't Have".
 
-- Challenge each Must Have: "Can we really not ship without this?"
-- Move borderline items to Should Have
-- Look for items that are important but not critical
+### Apply Priority Labels
 
-### MVP Viability Check
+For each item:
 
-Verify the Must Haves alone deliver a viable product:
+```bash
+gh issue edit [issue-number] --repo [owner/repo] \
+  --add-label "priority:must-have"
+```
 
-- [ ] Can the product ship with just Must Haves?
-- [ ] Does it deliver core value to users?
-- [ ] Would users pay for / use this?
-- [ ] Are all critical user journeys covered?
+Label values:
 
-### Dependency Check
+- `priority:must-have`
+- `priority:should-have`
+- `priority:could-have`
+- `priority:wont-have`
 
-Verify sequencing respects dependencies:
+### Add Rationale Comments
 
-- [ ] All dependencies are respected in sequencing
-- [ ] No high-priority items depend on low-priority items
-- [ ] Prerequisite items are appropriately prioritized
+For Must Haves and Won't Haves:
 
-### Stakeholder Alignment
+```bash
+gh issue comment [issue-number] --repo [owner/repo] \
+  --body "Priority: [level]
 
-Confirm alignment before proceeding:
-
-- [ ] Key stakeholders have reviewed the prioritization
-- [ ] Major disagreements are resolved or documented
-- [ ] Consensus achieved on Must Haves and Won't Haves
-
----
-
-## Decisions and Trade-offs
-
-Document key decisions made during prioritization:
-
-### Decision Template
-
-For each significant decision:
-
-- **What:** Description of the decision
-- **Rationale:** Why this decision was made
-- **Trade-off:** What was sacrificed or deferred
-- **Alternatives considered:** Other options evaluated
-
-### Common Trade-off Patterns
-
-Watch for and document decisions about:
-
-- Feature scope vs. timeline
-- User experience vs. development effort
-- Must Have inflation vs. focused scope
-- Technical debt vs. delivery speed
+Rationale: [user-provided explanation]"
+```
 
 ---
 
-## Action Items
+## Phase 8: Generate Summary
 
-After prioritization, execute these actions:
+Produce final prioritization output.
 
-### Immediate Actions
+### Priority Distribution Summary
 
-- [ ] Update GitHub Projects Priority custom field on all issues
-- [ ] Apply priority labels (priority:must-have, priority:should-have, etc.)
-- [ ] Order backlog by priority in project views
-- [ ] Communicate prioritization decisions to team
-- [ ] Begin work on first Must Have item
+```text
+Priority Distribution:
+- Must Have: [X] items ([%]%)
+- Should Have: [Y] items ([%]%)
+- Could Have: [Z] items ([%]%)
+- Won't Have: [W] items
 
-### Follow-up Actions
+Target Compliance:
+- Must Haves under 60%: [Yes/No]
+- Won't Haves documented: [Yes/No]
+- Dependencies respected: [Yes/No]
+```
 
-- [ ] Schedule re-prioritization review at appropriate interval
-- [ ] Gather user/stakeholder feedback on priorities
-- [ ] Re-assess Won't Haves for future releases
-- [ ] Update priorities based on new information
+### Execution Order
 
----
+```text
+Execution Order (Must Haves):
+1. #[num] - [Item title] - [Sequence rationale]
+2. #[num] - [Item title] - [Sequence rationale]
+3. #[num] - [Item title] - [Sequence rationale]
+```
 
-## Session Notes
+### Next Steps
 
-Capture any additional context:
+Based on what was prioritized, suggest:
 
-- Discussion points not captured elsewhere
-- Minority opinions or dissent to revisit
-- Assumptions made during prioritization
-- Questions to investigate before next session
-
----
-
-## Revision Tracking
-
-When priorities change, document:
-
-- Date of change
-- What changed (item, old priority, new priority)
-- Why the change was made
-- Who approved the change
+- **Epics prioritized** → Start with first Must Have epic, run `/re:create-stories`
+- **Stories prioritized** → Start with first Must Have story, run `/re:create-tasks`
+- **Tasks prioritized** → Begin implementation with Must Have tasks
 
 ---
 
@@ -318,7 +323,7 @@ When priorities change, document:
 
 | Category | Target % | Question to Ask |
 |----------|----------|-----------------|
-| Must Have | ≤60% | "Can we ship without this?" |
+| Must Have | 60% | "Can we ship without this?" |
 | Should Have | ~20% | "Important but not critical?" |
 | Could Have | ~20% | "Nice to have if time permits?" |
 | Won't Have | N/A | "Explicitly out of scope?" |
@@ -330,4 +335,14 @@ Watch for these issues:
 - **>60% Must Haves** - Challenge assumptions, apply stricter criteria
 - **No Won't Haves** - Scope creep risk, explicitly exclude items
 - **Dependency conflicts** - High-priority items depending on low-priority ones
-- **No stakeholder buy-in** - Revisit decisions with key stakeholders
+- **No rationale** - Document why for Must Haves and Won't Haves
+
+### GitHub CLI Quick Reference
+
+| Operation | Command |
+|-----------|---------|
+| List items | `gh project item-list [number] --owner [owner] --format json` |
+| Get fields | `gh project field-list [number] --owner [owner] --format json` |
+| Set priority | `gh project item-edit --id [id] --field-id [fid] --value "[val]"` |
+| Add label | `gh issue edit [num] --add-label "priority:must-have"` |
+| Add comment | `gh issue comment [num] --body "[rationale]"` |
