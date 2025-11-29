@@ -381,8 +381,11 @@ Full traceability: Vision → Epic → Story → Task
 
 ### Reference Files
 
-For detailed task templates:
-- **`${CLAUDE_PLUGIN_ROOT}/skills/task-breakdown/references/task-template.md`** - Complete task template with acceptance criteria formats
+Load references as needed:
+
+| Reference | When to Load | Path |
+|-----------|--------------|------|
+| **task-template.md** | Creating task issue content or defining acceptance criteria | `references/task-template.md` |
 
 ## Next Steps
 
