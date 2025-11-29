@@ -377,15 +377,22 @@ Full traceability: Vision → Epic → Story → Task
 7. **Assign** → (Optional) Assign tasks to team members
 8. **Execute** → Begin work, update task status as progress is made
 
-## Additional Resources
-
-### Reference Files
+## Reference Files
 
 Load references as needed:
 
 | Reference | When to Load | Path |
 |-----------|--------------|------|
 | **task-template.md** | Creating task issue content or defining acceptance criteria | `references/task-template.md` |
+
+## Examples
+
+Working examples that can be copied and adapted:
+
+| Example | Use Case | Path |
+|---------|----------|------|
+| **example-task-issue.md** | Creating a single task with full detail | `examples/example-task-issue.md` |
+| **example-task-set.md** | Viewing related tasks for a story | `examples/example-task-set.md` |
 
 ## Next Steps
 
