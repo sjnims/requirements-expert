@@ -7,7 +7,7 @@ This document shows a complete set of 8 epics for a **Task Management Applicatio
 - MoSCoW prioritization applied
 - Mix of user-facing and infrastructure epics
 
-Use this as a reference when identifying epics for your own product.
+This example demonstrates the structure and organization of a complete epic set.
 
 ---
 
@@ -301,4 +301,4 @@ This epic set demonstrates:
 5. **Clear dependencies** enabling parallel work where possible
 6. **Balanced distribution** staying within MoSCoW guidelines (< 60% Must Have)
 
-Use this pattern when identifying epics for your own product vision.
+This pattern demonstrates how to organize and prioritize epics for a product vision.

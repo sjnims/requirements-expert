@@ -8,7 +8,7 @@ This document shows a complete set of 8 tasks that implement the "Assign task to
 - Right-sized tasks (2-8 hours each)
 - Full traceability to parent story
 
-Use this as a reference when decomposing your own user stories into tasks.
+This example demonstrates how to break down a user story into implementation tasks.
 
 ---
 
@@ -401,4 +401,4 @@ This task set demonstrates:
 5. **Technical context** - Files to modify and patterns to follow included
 6. **Full traceability** - All tasks link back to parent user story
 
-Use this pattern when decomposing your own user stories into executable tasks.
+This pattern demonstrates the expected structure for task decomposition.

@@ -8,7 +8,7 @@ This document shows a complete set of 8 user stories for the **Team Collaboratio
 - MoSCoW prioritization
 - Clear acceptance criteria patterns
 
-Use this as a reference when breaking down an epic into user stories.
+This example demonstrates how to decompose an epic into well-formed user stories.
 
 ---
 
@@ -300,4 +300,4 @@ This story set demonstrates:
 5. **Consistent size** keeping all stories at 1-5 days
 6. **Testable acceptance criteria** for every story
 
-Use this pattern when decomposing your own epics into user stories.
+This pattern demonstrates the expected structure and criteria for user story sets.

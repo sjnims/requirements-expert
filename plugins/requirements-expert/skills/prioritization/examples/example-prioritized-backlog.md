@@ -8,7 +8,7 @@ This document shows a complete prioritized backlog for a **Task Management Appli
 - Sequencing within priority categories
 - Labels and custom fields for GitHub Projects
 
-Use this as a reference when prioritizing your own requirements.
+This example demonstrates the expected structure and rationale for a prioritized backlog.
 
 ---
 
@@ -224,4 +224,4 @@ This prioritized backlog demonstrates:
 5. **GitHub integration** - Labels and custom fields for filtering
 6. **Phased delivery** - Clear path from MVP to full product
 
-Use this pattern when prioritizing your own product backlog.
+This pattern demonstrates the expected output format for prioritized backlogs.

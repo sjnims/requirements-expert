@@ -8,7 +8,7 @@ This document shows the output of a complete MoSCoW prioritization session for a
 - Stakeholder alignment process
 - Final prioritization with rationale
 
-Use this as a reference when conducting your own prioritization sessions.
+This example demonstrates the session format and discussion patterns to follow when conducting prioritization.
 
 ---
 
@@ -360,4 +360,4 @@ This prioritization session demonstrates:
 5. **Clear Won't Haves** - Scope boundaries explicitly stated
 6. **Stakeholder alignment** - Everyone approved the final prioritization
 
-Use this session format when conducting your own prioritization workshops.
+This session format demonstrates the recommended approach for prioritization workshops.
