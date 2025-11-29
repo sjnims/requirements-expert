@@ -56,8 +56,6 @@ exclude-labels:
   - 'invalid'
   - 'wontfix'
   - 'stale'
-  - 'review:deep'
-  - 'review:quick'
 
 # Format for each change entry
 change-template: '- $TITLE ([#$NUMBER]($URL))'
