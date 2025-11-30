@@ -6,6 +6,17 @@ version: 0.2.0
 
 # Prioritization
 
+## Quick Actions & Routing
+
+| User Intent | Action | Resource |
+|-------------|--------|----------|
+| Gathering context | Define scope and constraints | Step 1: Define Context |
+| Classifying priorities | Apply MoSCoW decision tree | MoSCoW Framework section |
+| Validating balance | Check distribution rules | Step 4: Validate and Balance |
+| Updating GitHub | Apply priority fields and labels | Step 6: Update GitHub Projects |
+| Step-by-step workflow | Load complete worksheet | `references/moscow-worksheet.md` |
+| Viewing examples | Load prioritization session | `examples/example-prioritization-session.md` |
+
 ## Overview
 
 Prioritization is the process of determining the relative importance and sequence of requirements at any level—epics, user stories, or tasks. Using the MoSCoW framework (Must Have, Should Have, Could Have, Won't Have), teams can make informed decisions about what to build first, ensuring maximum value delivery within constraints.

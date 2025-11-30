@@ -6,6 +6,17 @@ version: 0.2.0
 
 # Vision Discovery
 
+## Quick Actions & Routing
+
+| User Intent | Action | Resource |
+|-------------|--------|----------|
+| Understanding the problem | Apply 5 Whys technique | Step 1: Understand the Problem Space |
+| Defining target users | Create user personas | Step 2: Identify Target Users |
+| Articulating solution | Use elevator pitch format | Step 3: Define the Solution Vision |
+| Establishing metrics | Apply SMART framework | Step 4: Establish Success Metrics |
+| Documenting vision | Use template | `references/vision-template.md` |
+| Viewing example | Load sample | `examples/sample-vision.md` |
+
 ## Overview
 
 Vision discovery is the critical first step in the requirements lifecycle. A clear, well-articulated product vision provides direction for all subsequent work—epics, user stories, and tasks all flow from and align with the vision. This skill guides the process of discovering and documenting a compelling product vision through structured questioning and best practices.

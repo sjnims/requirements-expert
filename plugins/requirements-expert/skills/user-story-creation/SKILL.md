@@ -6,6 +6,17 @@ version: 0.2.0
 
 # User Story Creation
 
+## Quick Actions & Routing
+
+| User Intent | Action | Resource |
+|-------------|--------|----------|
+| Reviewing epic first | Understand scope and value | Step 1: Review the Epic |
+| Drafting stories | Map user journeys | Steps 2-3: Identify Journeys and Draft Stories |
+| Validating stories | Apply INVEST criteria | `references/invest-criteria.md` |
+| Story is too large | Apply splitting techniques | `references/splitting-techniques.md` |
+| Creating story issues | Use template | `references/story-template.md` |
+| Viewing examples | Load sample story set | `examples/example-story-set.md` |
+
 ## Overview
 
 User story creation transforms epics into specific, actionable requirements that describe functionality from a user's perspective. Well-written user stories follow the INVEST criteria and provide clear value while remaining small enough to be completed in a single iteration. This skill guides the process of breaking down epics into high-quality user stories.

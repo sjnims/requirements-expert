@@ -6,6 +6,17 @@ version: 0.2.0
 
 # Task Breakdown
 
+## Quick Actions & Routing
+
+| User Intent | Action | Resource |
+|-------------|--------|----------|
+| Reviewing story first | Understand user goal and value | Step 1: Review the User Story |
+| Identifying tasks | Map implementation layers | Step 2: Identify Implementation Layers |
+| Applying task patterns | Use CRUD/feature/integration patterns | Step 3: Apply Common Task Patterns |
+| Defining acceptance criteria | Use testable statement format | Step 4: Define Acceptance Criteria |
+| Creating task issues | Use template | `references/task-template.md` |
+| Viewing examples | Load sample task set | `examples/example-task-set.md` |
+
 ## Overview
 
 Task breakdown transforms user stories into concrete, executable work items that can be assigned, tracked, and completed. Tasks represent the actual implementation steps needed to deliver a user story, each with clear acceptance criteria. This skill guides the process of decomposing stories into well-defined tasks suitable for GitHub issue tracking.

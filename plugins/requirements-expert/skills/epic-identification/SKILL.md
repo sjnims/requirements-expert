@@ -7,6 +7,17 @@ version: 0.2.0
 
 # Epic Identification
 
+## Quick Actions & Routing
+
+| User Intent | Action | Resource |
+|-------------|--------|----------|
+| Reviewing vision first | Understand scope and capabilities | Step 1: Review the Vision |
+| Identifying capabilities | Apply discovery techniques | `references/discovery-techniques.md` |
+| Naming epics | Use epic naming patterns | Step 4: Name and Describe Each Epic |
+| Checking completeness | Perform gap analysis | Step 5: Validate Completeness |
+| Creating epic issues | Use template | `references/epic-template.md` |
+| Viewing examples | Load sample epic set | `examples/example-epic-set.md` |
+
 ## Overview
 
 Systematically decompose a product vision into well-defined epics—major capabilities or features that can be further broken down into user stories and tasks. Epics represent significant bodies of work that are too large for a single iteration but directly contribute to achieving the vision.
