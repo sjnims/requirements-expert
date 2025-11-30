@@ -336,10 +336,10 @@ Load references as needed:
 
 Review examples for concrete patterns:
 
-| Example | What It Shows | Path |
-|---------|---------------|------|
-| **example-prioritized-backlog.md** | Load when needing output format reference for backlog structure, rationale documentation, or GitHub integration | `examples/example-prioritized-backlog.md` |
-| **example-prioritization-session.md** | Load when facilitating stakeholder sessions or needing trade-off discussion patterns | `examples/example-prioritization-session.md` |
+| Example | Use Case | Path |
+|---------|----------|------|
+| **example-prioritized-backlog.md** | Viewing backlog structure, rationale documentation, or GitHub integration format | `examples/example-prioritized-backlog.md` |
+| **example-prioritization-session.md** | Facilitating stakeholder sessions or trade-off discussions | `examples/example-prioritization-session.md` |
 
 ## Integration with Requirements Lifecycle
 
