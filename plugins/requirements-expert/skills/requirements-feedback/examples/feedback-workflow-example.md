@@ -267,86 +267,14 @@ cc: @sarah-chen @marcus-johnson @emily-rodriguez @david-kim
 
 ## GitHub Comment Templates
 
-Use these templates for consistent feedback documentation:
+For ready-to-use templates for documenting feedback, see `references/feedback-templates.md`:
 
-### Feedback Collection Template
+- **Feedback Collection Template** - Document feedback received from stakeholders
+- **Feedback Incorporated Template** - Communicate how feedback was addressed
+- **Feedback Rejection Template** - Explain when feedback cannot be incorporated
+- **Feedback Review Meeting Template** - Structure feedback review sessions
 
-```markdown
-## [Level] Feedback - [Type] (YYYY-MM-DD)
-
-**Participants:** [Names and roles]
-**Facilitator:** [Name]
-
-### Key Feedback Themes
-
-#### 1. [Theme Name] ([Source])
-- [Specific feedback point]
-- [Specific feedback point]
-- **Impact:** [High/Medium/Low] - [Brief explanation]
-
-### Decisions Needed
-
-- [ ] [Decision item 1]
-- [ ] [Decision item 2]
-
-### Next Steps
-
-1. [Action item]
-2. [Action item]
-
-cc: @[stakeholder1] @[stakeholder2]
-```
-
-### Feedback Incorporated Template
-
-```markdown
-## [Level] Updated - Feedback Incorporated (YYYY-MM-DD)
-
-Thank you for the valuable feedback! Here's how it was incorporated:
-
-### Changes Made
-
-**[Section 1]:**
-- [Change description]
-
-**[Section 2]:**
-- [Change description]
-
-### Deferred Decisions
-
-- **[Item]:** [Reason for deferral, when it will be revisited]
-
-### What's Next
-
-1. [Next step]
-2. [Next step]
-
-cc: @[stakeholder1] @[stakeholder2]
-```
-
-### Feedback Rejection Template
-
-```markdown
-## Feedback Response - [Item] (YYYY-MM-DD)
-
-Thank you for the suggestion about [topic].
-
-**Decision:** Not incorporated at this time
-
-**Rationale:**
-- [Reason 1]
-- [Reason 2]
-
-**Alternative approach:**
-[If applicable, what we're doing instead]
-
-**Revisit:**
-[When/if this will be reconsidered]
-
-Happy to discuss further if you have questions.
-
-cc: @[feedback-provider]
-```
+The example above uses these templates in Step 3 (documenting feedback) and Step 6 (communicating changes).
 
 ---
 
