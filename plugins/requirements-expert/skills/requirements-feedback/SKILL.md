@@ -82,7 +82,7 @@ Each level of the requirements hierarchy has distinct feedback needs. For detail
 - Add clarifications when questions arise
 - Document decisions made during implementation
 
-### Document What You Learn
+### Document Learnings
 
 - Add comments to issues with findings from user research
 - Link to test results or analytics that inform requirements
@@ -104,7 +104,7 @@ Each level of the requirements hierarchy has distinct feedback needs. For detail
 - Make it safe to say "this requirement doesn't make sense"
 - Reward people who catch problems early
 - Avoid blame when requirements change
-- Ask open questions: "What are we missing?"
+- Ask open questions: "What is missing?"
 
 ### Act on Feedback Quickly
 
@@ -132,7 +132,7 @@ Each level of the requirements hierarchy has distinct feedback needs. For detail
 - Get outside perspective regularly
 - Test assumptions with actual users
 - Observe real usage, not just opinions
-- Don't wait for "finished" to get feedback
+- Gather feedback early, before reaching completion
 
 ## Common Pitfalls to Avoid
 

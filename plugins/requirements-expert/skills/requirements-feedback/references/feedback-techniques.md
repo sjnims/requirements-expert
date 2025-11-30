@@ -18,7 +18,7 @@ Detailed methods and guidance for collecting feedback from different sources thr
 - **Vision validation:** Does the problem resonate with target users?
 - **Epic prioritization:** What capabilities matter most to users?
 - **Story refinement:** Does the proposed solution work for users?
-- **Post-launch:** Are we delivering expected value?
+- **Post-launch:** Is expected value being delivered?
 
 ### Incorporating Results
 
@@ -123,7 +123,7 @@ Detailed methods and guidance for collecting feedback from different sources thr
 
 ### Preparation
 
-- Define what you want to learn before gathering feedback
+- Define learning objectives before gathering feedback
 - Prepare specific questions or hypotheses to validate
 - Identify the right participants or data sources
 - Allocate adequate time for feedback collection and analysis
