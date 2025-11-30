@@ -6,17 +6,7 @@ version: 0.2.0
 
 # Requirements Feedback & Continuous Documentation
 
-## Quick Actions
-
-Most common scenarios:
-
-- User wants to collect feedback → Load `references/feedback-techniques.md`
-- User has feedback to incorporate → Walk through 7-step workflow in Quick Reference section below
-- User asks about feedback for Vision/Epic/Story/Task → Load `references/stage-feedback-guide.md`
-
-## Routing
-
-For all routing scenarios:
+## Quick Actions & Routing
 
 | User Intent | Action | Resource |
 |-------------|--------|----------|
@@ -25,12 +15,6 @@ For all routing scenarios:
 | Running a review | Load checklist | `references/feedback-checklist.md` |
 | Incorporating feedback | Use 7-step workflow | Quick Reference section below |
 | Complete example | Load example | `examples/feedback-workflow-example.md` |
-
-## Purpose
-
-- Guide feedback collection throughout the Vision → Epic → Story → Task lifecycle
-- Ensure requirements stay aligned with user needs through continuous iteration
-- Provide templates and checklists for structured feedback sessions
 
 ## Command Integration
 
@@ -189,10 +173,6 @@ Working examples that can be copied and adapted:
 | Example | Use Case | Path |
 |---------|----------|------|
 | **feedback-workflow-example.md** | Complete end-to-end feedback collection and incorporation cycle | `examples/feedback-workflow-example.md` |
-
----
-
-Requirements feedback is not a phase—it's an ongoing practice that keeps requirements aligned with reality and ensures continuous improvement throughout the product lifecycle.
 
 ## Related Skills
 
