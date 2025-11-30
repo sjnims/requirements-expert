@@ -33,6 +33,8 @@ For vision-level feedback, involve:
 
 ## Step 2: Collect Feedback
 
+For additional collection methods (user research, stakeholder reviews, team feedback, automated feedback), see `references/feedback-techniques.md`.
+
 ### Feedback Session Notes
 
 **Date:** 2025-01-28
@@ -125,6 +127,8 @@ cc: @sarah-chen @marcus-johnson @emily-rodriguez @david-kim
 ---
 
 ## Step 4: Analyze and Decide
+
+For comprehensive validation checklists at each requirements level, see `references/feedback-checklist.md`.
 
 ### Feedback Analysis
 
