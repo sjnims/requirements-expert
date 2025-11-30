@@ -28,13 +28,9 @@ Guide users through the feedback workflow:
 
 Adapt based on where the user is in the process.
 
-## Overview
-
-Requirements are not static—they evolve as teams learn more about users, technology, and the market. This skill guides the practice of gathering feedback at each stage of the requirements lifecycle and using that feedback to continuously refine and improve requirements. Establishing effective feedback loops ensures requirements remain accurate, valuable, and aligned with user needs.
-
 ## Purpose
 
-Continuous requirements feedback:
+Requirements evolve as teams learn more about users, technology, and the market. Continuous feedback:
 
 - Validates assumptions early and often
 - Catches misunderstandings before they become expensive
@@ -56,23 +52,12 @@ Each level of the requirements hierarchy has distinct feedback needs. For detail
 
 ## The Build-Measure-Learn Loop
 
-**Build:** Implement requirements (epic → stories → tasks)
-
-**Measure:** Collect data and feedback
-
-- User testing and interviews
-- Usage analytics
-- Business metrics
-- Team retrospectives
-
-**Learn:** Extract insights and refine requirements
-
-- What worked? (do more)
-- What didn't? (change or remove)
-- What's missing? (add)
-- What changed? (adapt)
-
-**Repeat:** Update requirements and iterate
+| Phase | Action | Examples |
+|-------|--------|----------|
+| **Build** | Implement requirements | Epic → Stories → Tasks |
+| **Measure** | Collect data and feedback | User testing, analytics, business metrics, retrospectives |
+| **Learn** | Extract insights and refine | What worked? What didn't? What's missing? What changed? |
+| **Repeat** | Update requirements | Iterate with refined understanding |
 
 ## Continuous Documentation Practices
 
