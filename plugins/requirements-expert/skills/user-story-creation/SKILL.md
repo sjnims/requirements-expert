@@ -17,6 +17,10 @@ version: 0.2.0
 | Creating story issues | Use template | `references/story-template.md` |
 | Viewing examples | Load sample story set | `examples/example-story-set.md` |
 
+## Command Integration
+
+The `/re:create-stories` command guides user story creation in GitHub Projects. This skill provides the methodology for writing effective stories—including INVEST criteria validation and splitting techniques for oversized stories. Load this skill for deeper understanding of story creation concepts or when you need guidance beyond what the command provides.
+
 ## Overview
 
 User story creation transforms epics into specific, actionable requirements that describe functionality from a user's perspective. Well-written user stories follow the INVEST criteria and provide clear value while remaining small enough to be completed in a single iteration. This skill guides the process of breaking down epics into high-quality user stories.

@@ -17,6 +17,10 @@ version: 0.2.0
 | Creating task issues | Use template | `references/task-template.md` |
 | Viewing examples | Load sample task set | `examples/example-task-set.md` |
 
+## Command Integration
+
+The `/re:create-tasks` command guides task creation in GitHub Projects. This skill provides the methodology for breaking down stories into tasks—including task patterns, acceptance criteria templates, and layer-by-layer decomposition techniques. Load this skill for deeper understanding of task breakdown concepts or when you need guidance beyond what the command provides.
+
 ## Overview
 
 Task breakdown transforms user stories into concrete, executable work items that can be assigned, tracked, and completed. Tasks represent the actual implementation steps needed to deliver a user story, each with clear acceptance criteria. This skill guides the process of decomposing stories into well-defined tasks suitable for GitHub issue tracking.

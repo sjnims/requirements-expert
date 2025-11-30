@@ -17,6 +17,10 @@ version: 0.2.0
 | Step-by-step workflow | Load complete worksheet | `references/moscow-worksheet.md` |
 | Viewing examples | Load prioritization session | `examples/example-prioritization-session.md` |
 
+## Command Integration
+
+The `/re:prioritize` command applies MoSCoW priorities to requirements in GitHub Projects. This skill provides the MoSCoW framework, decision criteria, and prioritization worksheets that the command uses. Load this skill for deeper understanding of prioritization concepts or when you need guidance beyond what the command provides.
+
 ## Overview
 
 Prioritization is the process of determining the relative importance and sequence of requirements at any level—epics, user stories, or tasks. Using the MoSCoW framework (Must Have, Should Have, Could Have, Won't Have), teams can make informed decisions about what to build first, ensuring maximum value delivery within constraints.

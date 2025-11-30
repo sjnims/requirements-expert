@@ -18,6 +18,10 @@ version: 0.2.0
 | Creating epic issues | Use template | `references/epic-template.md` |
 | Viewing examples | Load sample epic set | `examples/example-epic-set.md` |
 
+## Command Integration
+
+The `/re:identify-epics` command guides epic creation in GitHub Projects. This skill provides the methodology for identifying and defining epics—including discovery techniques (user journey mapping, capability decomposition), validation criteria, and common patterns. Load this skill for technique guidance beyond what the command provides.
+
 ## Overview
 
 Systematically decompose a product vision into well-defined epics—major capabilities or features that can be further broken down into user stories and tasks. Epics represent significant bodies of work that are too large for a single iteration but directly contribute to achieving the vision.

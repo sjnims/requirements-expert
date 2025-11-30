@@ -17,6 +17,10 @@ version: 0.2.0
 | Documenting vision | Use template | `references/vision-template.md` |
 | Viewing example | Load sample | `examples/sample-vision.md` |
 
+## Command Integration
+
+The `/re:discover-vision` command orchestrates the vision creation workflow. This skill provides the methodology, templates, and techniques (like 5 Whys) that the command uses. Load this skill for deeper understanding of vision discovery concepts or when you need guidance beyond what the command provides.
+
 ## Overview
 
 Vision discovery is the critical first step in the requirements lifecycle. A clear, well-articulated product vision provides direction for all subsequent work—epics, user stories, and tasks all flow from and align with the vision. This skill guides the process of discovering and documenting a compelling product vision through structured questioning and best practices.
