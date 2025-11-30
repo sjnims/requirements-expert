@@ -200,6 +200,38 @@ Vision is not set in stone:
 - Use feedback from epic and story creation to improve clarity
 - Treat vision as a living document
 
+## Common Pitfalls to Avoid
+
+### Too Vague
+
+❌ "Build a platform for users to interact"
+✅ "Enable marketing managers to track campaign ROI across channels in real-time"
+
+### Too Prescriptive
+
+❌ "Build a React app with a dashboard showing charts"
+✅ "Provide visibility into campaign performance to enable data-driven decisions"
+
+### Scope Creep
+
+❌ Vision that includes everything: e-commerce, social, analytics, AI, blockchain...
+✅ Focused vision with clear boundaries: "Campaign ROI tracking, NOT creative design or email delivery"
+
+### Unmeasurable Success
+
+❌ "Be the best product in the market"
+✅ "Achieve 10,000 active users with 70%+ weekly retention within 12 months"
+
+## Quick Reference: Vision Discovery Flow
+
+1. **Problem Space** → Understand what problem exists and why it matters
+2. **Target Users** → Define who experiences the problem and will use the solution
+3. **Solution Vision** → Articulate what the solution is and its core value
+4. **Success Metrics** → Establish measurable success criteria
+5. **Document** → Create vision issue in GitHub Projects
+6. **Validate** → Review with stakeholders and refine
+7. **Proceed** → Move to epic identification once vision is solid
+
 ## Integration with GitHub Projects
 
 Create the vision as a GitHub issue in the relevant GitHub Project:
@@ -240,38 +272,6 @@ This hierarchy enables:
 
 All epics will be created as child issues of this vision issue, establishing clear traceability throughout the requirements lifecycle.
 
-## Common Pitfalls to Avoid
-
-### Too Vague
-
-❌ "Build a platform for users to interact"
-✅ "Enable marketing managers to track campaign ROI across channels in real-time"
-
-### Too Prescriptive
-
-❌ "Build a React app with a dashboard showing charts"
-✅ "Provide visibility into campaign performance to enable data-driven decisions"
-
-### Scope Creep
-
-❌ Vision that includes everything: e-commerce, social, analytics, AI, blockchain...
-✅ Focused vision with clear boundaries: "Campaign ROI tracking, NOT creative design or email delivery"
-
-### Unmeasurable Success
-
-❌ "Be the best product in the market"
-✅ "Achieve 10,000 active users with 70%+ weekly retention within 12 months"
-
-## Quick Reference: Vision Discovery Flow
-
-1. **Problem Space** → Understand what problem exists and why it matters
-2. **Target Users** → Define who experiences the problem and will use the solution
-3. **Solution Vision** → Articulate what the solution is and its core value
-4. **Success Metrics** → Establish measurable success criteria
-5. **Document** → Create vision issue in GitHub Projects
-6. **Validate** → Review with stakeholders and refine
-7. **Proceed** → Move to epic identification once vision is solid
-
 ## Reference Files
 
 For detailed vision templates:
@@ -287,18 +287,6 @@ Working examples that can be copied and adapted:
 | Example | Use Case | Path |
 |---------|----------|------|
 | **sample-vision.md** | Viewing a complete vision document | `examples/sample-vision.md` |
-
-## Next Steps
-
-After completing vision discovery:
-
-1. Create the vision issue in GitHub Projects
-2. Share with stakeholders for feedback
-3. Proceed to the **epic-identification** skill to break the vision into epics
-4. Use the **requirements-feedback** skill to gather stakeholder feedback on the vision
-5. Reference the vision throughout all subsequent requirements work
-
-The vision is the foundation—invest time to get it right before moving to epics and stories.
 
 ## Related Skills
 

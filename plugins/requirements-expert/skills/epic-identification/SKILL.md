@@ -288,26 +288,6 @@ Epics will likely be refined:
 - Scope boundaries may shift during user story creation
 - This is normal—embrace learning and adaptation
 
-## Integration with Requirements Lifecycle
-
-### Before Epic Identification
-
-**Vision exists** (created via vision-discovery skill)
-- Problem, users, solution, success metrics defined
-- Scope boundaries established
-
-### During Epic Identification
-
-**Create epic issues** in GitHub Projects
-- Each epic is a child of the vision issue
-- Epics organized and prioritized
-
-### After Epic Identification
-
-**Proceed to user story creation** (user-story-creation skill)
-- Select an epic and break it down into stories
-- Iterate epic-by-epic until all epics have stories
-
 ## Common Pitfalls to Avoid
 
 Watch for these epic identification anti-patterns:
@@ -333,6 +313,26 @@ For detailed examples and remediation guidance, see `references/common-pitfalls.
 | 8 | Create Issues | Added to GitHub Projects as children of vision |
 | 9 | Proceed | Move to user story creation for each epic |
 
+## Integration with Requirements Lifecycle
+
+### Before Epic Identification
+
+**Vision exists** (created via vision-discovery skill)
+- Problem, users, solution, success metrics defined
+- Scope boundaries established
+
+### During Epic Identification
+
+**Create epic issues** in GitHub Projects
+- Each epic is a child of the vision issue
+- Epics organized and prioritized
+
+### After Epic Identification
+
+**Proceed to user story creation** (user-story-creation skill)
+- Select an epic and break it down into stories
+- Iterate epic-by-epic until all epics have stories
+
 ## Reference Files
 
 Load references based on context:
@@ -352,18 +352,6 @@ Working examples that can be copied and adapted:
 |---------|----------|------|
 | **example-epic-issue.md** | Creating a single epic issue with full detail | `examples/example-epic-issue.md` |
 | **example-epic-set.md** | Viewing a complete set of 8 epics for a sample product | `examples/example-epic-set.md` |
-
-## Next Steps
-
-After completing epic identification:
-
-1. Create epic issues in GitHub Projects (as children of vision issue)
-2. Use the **prioritization** skill to apply MoSCoW priorities to epics
-3. Select highest-priority epic and proceed to the **user-story-creation** skill
-4. Iterate through all epics, creating user stories for each
-5. Use the **requirements-feedback** skill to validate epics with stakeholders
-
-Epics provide the roadmap from vision to execution—invest time to identify them comprehensively and define them clearly.
 
 ## Related Skills
 

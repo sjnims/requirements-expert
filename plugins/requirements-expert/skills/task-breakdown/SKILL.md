@@ -310,6 +310,17 @@ Note what must be done first:
 - Backend API before frontend integration
 - Core functionality before tests (usually)
 
+## Quick Reference: Task Breakdown Flow
+
+1. **Review Story** → Understand user goal, value, acceptance criteria
+2. **Identify Layers** → Frontend, backend, database, testing, docs, infrastructure
+3. **Apply Patterns** → Use common task patterns as starting points
+4. **Define Acceptance Criteria** → Specify testable success conditions for each task
+5. **Sequence** → Order tasks, note dependencies
+6. **Create Issues** → Add to GitHub Projects as children of story
+7. **Assign** → (Optional) Assign tasks to team members
+8. **Execute** → Begin work, update task status as progress is made
+
 ## Integration with GitHub Issues (GitHub Projects)
 
 ### Task Issue Format
@@ -338,17 +349,6 @@ Tasks enable granular progress tracking:
 
 Full traceability: Vision → Epic → Story → Task
 
-## Quick Reference: Task Breakdown Flow
-
-1. **Review Story** → Understand user goal, value, acceptance criteria
-2. **Identify Layers** → Frontend, backend, database, testing, docs, infrastructure
-3. **Apply Patterns** → Use common task patterns as starting points
-4. **Define Acceptance Criteria** → Specify testable success conditions for each task
-5. **Sequence** → Order tasks, note dependencies
-6. **Create Issues** → Add to GitHub Projects as children of story
-7. **Assign** → (Optional) Assign tasks to team members
-8. **Execute** → Begin work, update task status as progress is made
-
 ## Reference Files
 
 Load references as needed:
@@ -365,20 +365,6 @@ Working examples that can be copied and adapted:
 |---------|----------|------|
 | **example-task-issue.md** | Creating a single task with full detail | `examples/example-task-issue.md` |
 | **example-task-set.md** | Viewing related tasks for a story | `examples/example-task-set.md` |
-
-## Next Steps
-
-After creating tasks:
-
-1. Create task issues in GitHub Projects (as children of story issue)
-2. Use the **prioritization** skill to apply MoSCoW priorities to tasks
-3. Assign tasks to team members (if applicable)
-4. Begin execution—implement, test, document
-5. Update task status as work progresses
-6. Use the **requirements-feedback** skill to gather feedback during implementation
-7. When all tasks complete, story is complete
-
-Tasks are where vision becomes reality—invest time to make them clear, testable, and actionable.
 
 ## Related Skills
 

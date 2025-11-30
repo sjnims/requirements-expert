@@ -320,9 +320,7 @@ For detailed mitigation strategies, see `references/best-practices.md`.
 8. **Execute** → Build in priority order (Must → Should → Could)
 9. **Revisit** → Re-prioritize as needed based on learning
 
-## Additional Resources
-
-### Reference Files
+## Reference Files
 
 Load references as needed:
 
@@ -332,9 +330,9 @@ Load references as needed:
 | **best-practices.md** | Load when reviewing prioritization decisions, resolving disputes, or validating distribution balance | `references/best-practices.md` |
 | **prioritization-examples.md** | Load when needing level-specific examples for epics, stories, or tasks | `references/prioritization-examples.md` |
 
-### Example Files
+## Examples
 
-Review examples for concrete patterns:
+Working examples that can be copied and adapted:
 
 | Example | Use Case | Path |
 |---------|----------|------|

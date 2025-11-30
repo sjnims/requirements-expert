@@ -334,18 +334,6 @@ Working examples that can be copied and adapted:
 | **example-story-issue.md** | Creating a single story with full detail | `examples/example-story-issue.md` |
 | **example-story-set.md** | Viewing related stories for an epic | `examples/example-story-set.md` |
 
-## Next Steps
-
-After creating user stories:
-
-1. Create story issues in GitHub Projects (as children of epic issue)
-2. Use the **prioritization** skill to apply MoSCoW priorities to stories
-3. Select highest-priority story and proceed to the **task-breakdown** skill
-4. Iterate through all stories, creating tasks for each
-5. Use the **requirements-feedback** skill to validate stories with stakeholders
-
-User stories bridge epics and executable work. Invest time to make them clear, valuable, and testable.
-
 ## Related Skills
 
 Load these skills when story work reveals needs beyond this skill's scope:
