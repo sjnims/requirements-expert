@@ -205,6 +205,20 @@ At each transition:
 
 Requirements feedback is not a phase—it's an ongoing practice that keeps requirements aligned with reality and ensures continuous improvement throughout the product lifecycle.
 
+## Command Integration
+
+This skill complements the `/re:*` commands. Use the appropriate tool for each scenario:
+
+| Scenario | Recommended Tool |
+|----------|------------------|
+| Validate structure and INVEST compliance | `/re:review` command |
+| Check project status and hierarchy | `/re:status` command |
+| Collect stakeholder feedback | This skill + `references/feedback-techniques.md` |
+| Run a feedback review meeting | This skill + `references/feedback-checklist.md` |
+| Incorporate feedback into requirements | This skill + Quick Reference workflow |
+
+**Workflow:** Run `/re:review` for automated validation, then use this skill for human feedback collection and incorporation.
+
 ## Related Skills
 
 | Skill | Relationship |
