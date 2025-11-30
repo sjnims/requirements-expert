@@ -16,6 +16,7 @@ Then determine their current need:
 2. **Stage-specific guidance** (user asks about feedback for a specific level) - Load `references/stage-feedback-guide.md`
 3. **Running a review** (user wants to validate or check requirements) - Load `references/feedback-checklist.md`
 4. **Incorporating feedback** (user has feedback to act on) - Follow the 7-step Quick Reference workflow below
+5. **See a complete example** (user wants to see how feedback workflow works end-to-end) - Load `examples/feedback-workflow-example.md`
 
 Guide users through the feedback workflow:
 
@@ -187,6 +188,14 @@ Load references as needed:
 | **stage-feedback-guide.md** | Detailed guidance for feedback at each requirements level (Vision, Epic, Story, Task) | `references/stage-feedback-guide.md` |
 | **feedback-techniques.md** | Methods for user research, stakeholder reviews, team feedback, and automated feedback | `references/feedback-techniques.md` |
 | **feedback-checklist.md** | Conducting feedback reviews or validating requirements at any level | `references/feedback-checklist.md` |
+
+## Examples
+
+Working examples that can be copied and adapted:
+
+| Example | Use Case | Path |
+|---------|----------|------|
+| **feedback-workflow-example.md** | Complete end-to-end feedback collection and incorporation cycle | `examples/feedback-workflow-example.md` |
 
 ## Integration with Requirements Lifecycle
 
