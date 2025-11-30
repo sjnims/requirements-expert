@@ -8,20 +8,24 @@ version: 0.2.0
 
 ## When This Skill Loads
 
-Determine the user's current need:
+First, identify which requirement level the user is working with (Vision, Epic, Story, or Task).
 
-1. **Collecting feedback** - Load `references/feedback-techniques.md` for methods
-2. **Stage-specific guidance** - Load `references/stage-feedback-guide.md` for detailed questions
-3. **Running a review** - Load `references/feedback-checklist.md` for structured checklist
-4. **Incorporating feedback** - Follow the Quick Reference workflow in this file
+Then determine their current need:
 
-Guide users through:
+1. **Collecting feedback** (user asks about methods, sources, techniques) - Load `references/feedback-techniques.md`
+2. **Stage-specific guidance** (user asks about feedback for a specific level) - Load `references/stage-feedback-guide.md`
+3. **Running a review** (user wants to validate or check requirements) - Load `references/feedback-checklist.md`
+4. **Incorporating feedback** (user has feedback to act on) - Follow the 7-step Quick Reference workflow below
 
-- Identifying appropriate feedback sources for their requirement level
-- Collecting feedback using proper methods
-- Documenting feedback in GitHub issue comments
-- Updating requirements based on validated learnings
-- Communicating changes to stakeholders
+Guide users through the feedback workflow:
+
+1. Identify appropriate feedback sources for their requirement level
+2. Collect feedback using proper methods (from references)
+3. Document feedback in GitHub issue comments
+4. Update requirements based on validated learnings
+5. Communicate changes to stakeholders
+
+Adapt based on where the user is in the process.
 
 ## Overview
 
