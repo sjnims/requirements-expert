@@ -37,6 +37,20 @@ Requirements evolve as teams learn more about users, technology, and the market.
 - Improves quality through iteration
 - Builds shared understanding across team and stakeholders
 
+## Command Integration
+
+This skill complements the `/re:*` commands. Use the appropriate tool for each scenario:
+
+| Scenario | Recommended Tool |
+|----------|------------------|
+| Validate structure and INVEST compliance | `/re:review` command |
+| Check project status and hierarchy | `/re:status` command |
+| Collect stakeholder feedback | This skill + `references/feedback-techniques.md` |
+| Run a feedback review meeting | This skill + `references/feedback-checklist.md` |
+| Incorporate feedback into requirements | This skill + Quick Reference workflow |
+
+**Workflow:** Run `/re:review` for automated validation, then use this skill for human feedback collection and incorporation.
+
 ## Feedback at Each Stage
 
 Each level of the requirements hierarchy has distinct feedback needs. For detailed guidance on who to involve, what questions to ask, and how to incorporate feedback at each level, see `references/stage-feedback-guide.md`.
@@ -202,20 +216,6 @@ At each transition:
 ---
 
 Requirements feedback is not a phase—it's an ongoing practice that keeps requirements aligned with reality and ensures continuous improvement throughout the product lifecycle.
-
-## Command Integration
-
-This skill complements the `/re:*` commands. Use the appropriate tool for each scenario:
-
-| Scenario | Recommended Tool |
-|----------|------------------|
-| Validate structure and INVEST compliance | `/re:review` command |
-| Check project status and hierarchy | `/re:status` command |
-| Collect stakeholder feedback | This skill + `references/feedback-techniques.md` |
-| Run a feedback review meeting | This skill + `references/feedback-checklist.md` |
-| Incorporate feedback into requirements | This skill + Quick Reference workflow |
-
-**Workflow:** Run `/re:review` for automated validation, then use this skill for human feedback collection and incorporation.
 
 ## Related Skills
 
