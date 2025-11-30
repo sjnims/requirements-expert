@@ -185,6 +185,7 @@ Load references as needed:
 | **stage-feedback-guide.md** | Detailed guidance for feedback at each requirements level (Vision, Epic, Story, Task) | `references/stage-feedback-guide.md` |
 | **feedback-techniques.md** | Methods for user research, stakeholder reviews, team feedback, and automated feedback | `references/feedback-techniques.md` |
 | **feedback-checklist.md** | Conducting feedback reviews or validating requirements at any level | `references/feedback-checklist.md` |
+| **feedback-templates.md** | GitHub comment templates for documenting feedback | `references/feedback-templates.md` |
 
 ## Examples
 
