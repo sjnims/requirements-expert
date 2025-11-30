@@ -24,6 +24,22 @@ The `/re:review` and `/re:status` commands handle automated validation. This ski
 
 Requirements feedback is the systematic process of gathering, analyzing, and incorporating input from users, stakeholders, and team members throughout the requirements lifecycle. Unlike static documentation, requirements in GitHub Projects are living documents that evolve as understanding deepens. This skill guides the collection and integration of feedback to continuously refine vision, epics, user stories, and tasks—ensuring requirements stay aligned with real-world needs and learnings.
 
+## Purpose
+
+Feedback serves as the quality assurance layer across the requirements hierarchy:
+
+- **Vision level**: Validates problem understanding and strategic alignment
+- **Epic level**: Confirms capability scope and feasibility
+- **Story level**: Refines user value and acceptance criteria
+- **Task level**: Surfaces implementation insights and blockers
+
+Effective feedback:
+
+- Catches misunderstandings early before costly rework
+- Incorporates real-world learnings into requirements
+- Keeps requirements aligned with evolving user needs
+- Enables data-driven refinement of priorities and scope
+
 ## Feedback at Each Stage
 
 Each level of the requirements hierarchy has distinct feedback needs. For detailed guidance on who to involve, what questions to ask, and how to incorporate feedback at each level, see `references/stage-feedback-guide.md`.
