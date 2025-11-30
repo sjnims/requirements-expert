@@ -6,27 +6,25 @@ version: 0.2.0
 
 # Requirements Feedback & Continuous Documentation
 
-## When This Skill Loads
+## Quick Actions
 
-First, identify which requirement level the user is working with (Vision, Epic, Story, or Task).
+Most common scenarios:
 
-Then determine their current need:
+- User wants to collect feedback → Load `references/feedback-techniques.md`
+- User has feedback to incorporate → Walk through 7-step workflow in Quick Reference section below
+- User asks about feedback for Vision/Epic/Story/Task → Load `references/stage-feedback-guide.md`
 
-1. **Collecting feedback** (user asks about methods, sources, techniques) - Load `references/feedback-techniques.md`
-2. **Stage-specific guidance** (user asks about feedback for a specific level) - Load `references/stage-feedback-guide.md`
-3. **Running a review** (user wants to validate or check requirements) - Load `references/feedback-checklist.md`
-4. **Incorporating feedback** (user has feedback to act on) - Follow the 7-step Quick Reference workflow below
-5. **See a complete example** (user wants to see how feedback workflow works end-to-end) - Load `examples/feedback-workflow-example.md`
+## Routing
 
-Guide users through the feedback workflow:
+For all routing scenarios:
 
-1. Identify appropriate feedback sources for their requirement level
-2. Collect feedback using proper methods (from references)
-3. Document feedback in GitHub issue comments
-4. Update requirements based on validated learnings
-5. Communicate changes to stakeholders
-
-Adapt based on where the user is in the process.
+| User Intent | Action | Resource |
+|-------------|--------|----------|
+| Collecting feedback methods | Load techniques reference | `references/feedback-techniques.md` |
+| Stage-specific guidance | Load stage guide | `references/stage-feedback-guide.md` |
+| Running a review | Load checklist | `references/feedback-checklist.md` |
+| Incorporating feedback | Use 7-step workflow | Quick Reference section below |
+| Complete example | Load example | `examples/feedback-workflow-example.md` |
 
 ## Purpose
 
