@@ -382,8 +382,10 @@ Tasks are where vision becomes reality—invest time to make them clear, testabl
 
 ## Related Skills
 
-| Skill | Relationship |
-|-------|-------------|
-| **user-story-creation** | Prerequisite—create stories before breaking down into tasks |
-| **prioritization** | Use after task creation to apply MoSCoW priorities |
-| **requirements-feedback** | Use to gather implementation feedback and refine requirements |
+Load these skills when task work reveals needs beyond this skill's scope:
+
+| Task Context | Load Skill | Routing Trigger |
+|--------------|------------|-----------------|
+| No stories exist or story is unclear | `user-story-creation` | User needs to create or refine user stories |
+| Task priorities need to be established | `prioritization` | User needs to apply MoSCoW framework to tasks |
+| Tasks reveal implementation issues | `requirements-feedback` | User needs to gather feedback or refine requirements |

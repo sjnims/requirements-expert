@@ -302,7 +302,9 @@ The vision is the foundation—invest time to get it right before moving to epic
 
 ## Related Skills
 
-| Skill | Relationship |
-|-------|-------------|
-| **epic-identification** | Next step—break vision into major capabilities (epics) |
-| **requirements-feedback** | Use to validate vision with stakeholders and users |
+Load these skills when vision work reveals needs beyond this skill's scope:
+
+| Vision Context | Load Skill | Routing Trigger |
+|----------------|------------|-----------------|
+| Vision is complete and user wants to break it down | `epic-identification` | User is ready to identify major capabilities from vision |
+| Vision needs stakeholder validation | `requirements-feedback` | User needs to gather input on vision elements |

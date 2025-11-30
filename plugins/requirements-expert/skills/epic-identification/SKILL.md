@@ -367,9 +367,11 @@ Epics provide the roadmap from vision to execution—invest time to identify the
 
 ## Related Skills
 
-| Skill | Relationship |
-|-------|-------------|
-| **vision-discovery** | Prerequisite—vision must exist before identifying epics |
-| **user-story-creation** | Next step—break epics into user stories |
-| **prioritization** | Use to apply MoSCoW framework to epic priorities |
-| **requirements-feedback** | Use to validate epics with stakeholders |
+Load these skills when epic work reveals needs beyond this skill's scope:
+
+| Epic Context | Load Skill | Routing Trigger |
+|--------------|------------|-----------------|
+| No vision exists or vision needs revision | `vision-discovery` | User needs to create or refine the product vision |
+| Epics are complete and user wants stories | `user-story-creation` | User is ready to break an epic into user stories |
+| Epic priorities need to be established | `prioritization` | User needs to apply MoSCoW framework to epics |
+| Epics need stakeholder validation | `requirements-feedback` | User needs to gather input on epic scope or priorities |

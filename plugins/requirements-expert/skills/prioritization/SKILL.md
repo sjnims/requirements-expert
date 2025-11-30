@@ -359,9 +359,11 @@ Prioritization is an ongoing activity throughout the requirements lifecycle—us
 
 ## Related Skills
 
-| Skill | Relationship |
-|-------|-------------|
-| **epic-identification** | Apply prioritization after identifying epics |
-| **user-story-creation** | Apply prioritization after creating stories |
-| **task-breakdown** | Apply prioritization after breaking down tasks |
-| **requirements-feedback** | Use feedback to inform priority adjustments |
+Load these skills when prioritization reveals needs beyond this skill's scope:
+
+| Prioritization Context | Load Skill | Routing Trigger |
+|------------------------|------------|-----------------|
+| Epics need identification or refinement | `epic-identification` | User needs to create or adjust epic scope |
+| Stories need creation or refinement | `user-story-creation` | User needs to create or adjust user stories |
+| Tasks need breakdown or refinement | `task-breakdown` | User needs to create or adjust tasks |
+| Priorities need validation with stakeholders | `requirements-feedback` | User needs to gather feedback on priority decisions |

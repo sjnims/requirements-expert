@@ -348,9 +348,11 @@ User stories bridge epics and executable work. Invest time to make them clear, v
 
 ## Related Skills
 
-| Skill | Relationship |
-|-------|-------------|
-| **epic-identification** | Prerequisite—epics must exist before creating stories |
-| **task-breakdown** | Next step—break stories into implementable tasks |
-| **prioritization** | Use to apply MoSCoW framework to story priorities |
-| **requirements-feedback** | Use to validate stories with users and stakeholders |
+Load these skills when story work reveals needs beyond this skill's scope:
+
+| Story Context | Load Skill | Routing Trigger |
+|---------------|------------|-----------------|
+| No epics exist or epic scope is unclear | `epic-identification` | User needs to create or refine epics |
+| Stories are complete and user wants tasks | `task-breakdown` | User is ready to break a story into implementation tasks |
+| Story priorities need to be established | `prioritization` | User needs to apply MoSCoW framework to stories |
+| Stories need user or stakeholder validation | `requirements-feedback` | User needs to gather input on story scope or acceptance criteria |
