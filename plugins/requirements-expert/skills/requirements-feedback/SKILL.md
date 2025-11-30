@@ -20,6 +20,10 @@ version: 0.2.0
 
 The `/re:review` and `/re:status` commands handle automated validation. This skill complements them with human feedback collection and incorporation workflows.
 
+## Overview
+
+Requirements feedback is the systematic process of gathering, analyzing, and incorporating input from users, stakeholders, and team members throughout the requirements lifecycle. Unlike static documentation, requirements in GitHub Projects are living documents that evolve as understanding deepens. This skill guides the collection and integration of feedback to continuously refine vision, epics, user stories, and tasks—ensuring requirements stay aligned with real-world needs and learnings.
+
 ## Feedback at Each Stage
 
 Each level of the requirements hierarchy has distinct feedback needs. For detailed guidance on who to involve, what questions to ask, and how to incorporate feedback at each level, see `references/stage-feedback-guide.md`.
