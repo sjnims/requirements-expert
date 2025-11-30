@@ -295,40 +295,14 @@ Epics will likely be refined:
 
 ## Common Pitfalls to Avoid
 
-### ❌ Wrong Granularity
+Watch for these epic identification anti-patterns:
 
-**Too Many Epics** (more than 15-20):
-- ❌ "Add login button" → This is a task, not an epic
-- ❌ "Create password reset form" → This is a user story, not an epic
-- ✅ Combine related items into cohesive epics
-- ✅ Large products may need epic grouping into themes/initiatives
+- **Wrong granularity**: Too many epics (>15) or too few (<5)
+- **Implementation-focused names**: "API Development" instead of "Third-party Integration Support"
+- **Vague names**: "Phase 1" instead of specific capability names
+- **Missing infrastructure**: Forgetting authentication, data migration, compliance needs
 
-**Too Few Epics** (fewer than 5):
-- ❌ Insufficient breakdown of vision
-- ✅ Consider all user types, journeys, and infrastructure needs
-- ✅ Decompose vision into more specific capabilities
-
-### ❌ Implementation-Focused Names
-
-❌ **DO NOT** use technical/implementation language:
-- ❌ "API Development" → ✅ "Third-party Integration Support"
-- ❌ "Database Schema" → ✅ "Data Storage & Management"
-- ❌ "Build React components" → ✅ "Analytics Dashboard"
-
-### ❌ Vague or Outcome-Focused Names
-
-❌ **DO NOT** use non-descriptive names:
-- ❌ "Phase 1" → ✅ Specific capability name
-- ❌ "Make users happy" → ✅ "User Onboarding Experience"
-- ❌ "Build the backend" → ✅ Split into specific capabilities
-
-### ❌ Missing Infrastructure Epics
-
-❌ **DO NOT** forget necessary enablers:
-- ❌ Forgetting authentication/authorization
-- ❌ Missing data migration requirements
-- ❌ Overlooking compliance/security needs
-- ❌ Ignoring performance optimization (if critical to UX)
+For detailed examples and remediation guidance, see `references/common-pitfalls.md`.
 
 ## Quick Reference: Epic Identification Flow
 
@@ -353,6 +327,7 @@ Load references based on context:
 | **discovery-techniques.md** | Applying multiple discovery methods or user needs technique guidance | `references/discovery-techniques.md` |
 | **epic-template.md** | Creating epic issue content or user requests templates | `references/epic-template.md` |
 | **common-patterns.md** | User's domain is identified for pattern suggestions | `references/common-patterns.md` |
+| **common-pitfalls.md** | Reviewing epics for quality or troubleshooting epic definition issues | `references/common-pitfalls.md` |
 
 ## Examples
 

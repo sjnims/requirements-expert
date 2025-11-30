@@ -258,53 +258,15 @@ See `references/moscow-worksheet.md` for the complete GitHub update workflow.
 
 ## Prioritization at Different Levels
 
-### Prioritizing Epics
+Apply MoSCoW at each level of the requirements hierarchy:
 
-**Context:** Determining which major capabilities to build first
+| Level | Focus | Key Consideration |
+|-------|-------|-------------------|
+| **Epics** | Major capabilities | Foundation vs. enhancement, strategic alignment |
+| **Stories** | Features within epic | Happy path first, core before polish |
+| **Tasks** | Implementation steps | Technical dependencies, vertical slices |
 
-**Considerations:**
-- Strategic alignment with vision
-- Foundation vs. enhancement (build foundation first)
-- User journey completeness (can users accomplish goals?)
-- Market differentiation (what differentiates the product?)
-
-**Example:**
-- Must Have: User Authentication, Core Workflow, Payment Processing
-- Should Have: Advanced Analytics, Team Collaboration
-- Could Have: Custom Branding, API Access
-- Won't Have: Mobile App (Web-first strategy)
-
-### Prioritizing User Stories
-
-**Context:** Determining which stories within an epic to implement first
-
-**Considerations:**
-- Happy path before edge cases
-- Core functionality before enhancements
-- Foundation before polish
-- High-frequency use cases before rare ones
-
-**Example (within "Campaign Management" epic):**
-- Must Have: Create campaign, View campaign list, Edit campaign basics
-- Should Have: Duplicate campaign, Archive campaign, Bulk operations
-- Could Have: Campaign templates, Custom fields
-- Won't Have: Campaign scheduling (separate epic)
-
-### Prioritizing Tasks
-
-**Context:** Determining sequence of implementation tasks within a story
-
-**Considerations:**
-- Technical dependencies (backend before frontend)
-- Iterative progress (working slice early, then enhance)
-- Testing alongside feature work (not all at end)
-- Documentation concurrent with implementation
-
-**Example (within "Filter campaigns by date" story):**
-- Must Have: Backend date filtering logic, Basic UI with date pickers, Integration
-- Should Have: Validation and error handling, Unit tests
-- Could Have: Date range presets (Last 7 days, Last 30 days)
-- Won't Have: Save filter preferences (separate story)
+For detailed examples and level-specific patterns, see `references/prioritization-examples.md`.
 
 ## Best Practices
 
@@ -353,6 +315,7 @@ Load references as needed:
 |-----------|--------------|------|
 | **moscow-worksheet.md** | Load when executing a multi-phase prioritization session or needing step-by-step workflow guidance | `references/moscow-worksheet.md` |
 | **best-practices.md** | Load when reviewing prioritization decisions, resolving disputes, or validating distribution balance | `references/best-practices.md` |
+| **prioritization-examples.md** | Load when needing level-specific examples for epics, stories, or tasks | `references/prioritization-examples.md` |
 
 ### Example Files
 
