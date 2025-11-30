@@ -77,10 +77,13 @@ Each level of the requirements hierarchy has distinct feedback needs. For detail
 
 ### Keep Requirements Up to Date
 
-- Requirements in GitHub issues (in GitHub Projects) are living documents, not static specs
+Living document principles:
+
+- Requirements in GitHub issues are living documents, not static specs
 - Update issues as understanding evolves
 - Add clarifications when questions arise
 - Document decisions made during implementation
+- Link to discussions or PRs that informed changes
 
 ### Document Learnings
 
@@ -170,9 +173,10 @@ Each level of the requirements hierarchy has distinct feedback needs. For detail
 
 ### Documenting Changes
 
-- GitHub tracks all changes to issues via edit history
-- Add comment when making significant updates explaining what changed and why
-- Reference feedback sources and link to related issues, test results, or PRs
+- GitHub tracks all changes via edit history
+- Add comment on significant updates explaining what changed and why
+- Reference feedback sources (user quotes, data, discussions)
+- Link to related issues, test results, or PRs
 
 ## Reference Files
 
@@ -197,7 +201,11 @@ At each transition:
 3. Use refined requirements to inform next level
 4. Repeat
 
-**Post-Implementation:** Gather usage data and user feedback, update requirements based on learnings, and inform future work.
+**Post-Implementation:**
+
+- Gather usage data and user feedback
+- Update requirements based on learnings
+- Inform future work with validated insights
 
 ---
 
