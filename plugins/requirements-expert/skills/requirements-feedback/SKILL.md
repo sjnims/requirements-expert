@@ -190,25 +190,6 @@ Working examples that can be copied and adapted:
 |---------|----------|------|
 | **feedback-workflow-example.md** | Complete end-to-end feedback collection and incorporation cycle | `examples/feedback-workflow-example.md` |
 
-## Integration with Requirements Lifecycle
-
-Feedback loops operate throughout the entire lifecycle:
-
-> Vision → Epics → Stories → Tasks
-
-At each transition:
-
-1. Gather feedback on current level
-2. Incorporate learnings
-3. Use refined requirements to inform next level
-4. Repeat
-
-**Post-Implementation:**
-
-- Gather usage data and user feedback
-- Update requirements based on learnings
-- Inform future work with validated insights
-
 ---
 
 Requirements feedback is not a phase—it's an ongoing practice that keeps requirements aligned with reality and ensures continuous improvement throughout the product lifecycle.
