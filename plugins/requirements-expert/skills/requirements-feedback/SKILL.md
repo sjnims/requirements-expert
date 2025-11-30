@@ -196,10 +196,12 @@ Requirements feedback is not a phase—it's an ongoing practice that keeps requi
 
 ## Related Skills
 
-| Skill | Relationship |
-|-------|-------------|
-| **vision-discovery** | Gather feedback to validate and refine vision |
-| **epic-identification** | Gather feedback to validate epic completeness and scope |
-| **user-story-creation** | Gather feedback to validate story value and acceptance criteria |
-| **task-breakdown** | Gather implementation feedback to refine tasks |
-| **prioritization** | Use feedback insights to adjust priorities |
+Load these skills when chaining between requirements stages:
+
+| When working on... | Also consider loading... |
+|--------------------|--------------------------|
+| Vision feedback | `vision-discovery` - for comprehensive vision creation guidance |
+| Epic feedback | `epic-identification` - for epic scoping and dependency mapping |
+| Story feedback | `user-story-creation` - for INVEST criteria and acceptance criteria |
+| Task feedback | `task-breakdown` - for implementation layer organization |
+| Priority changes from feedback | `prioritization` - for MoSCoW framework application |
