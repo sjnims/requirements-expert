@@ -378,44 +378,14 @@ Use this checklist to ensure comprehensive feedback collection and incorporation
 
 ---
 
-## Template: Feedback Review Meeting
+## Templates
 
-**Meeting:** [Vision/Epic/Story] Feedback Review
-**Date:** [YYYY-MM-DD]
-**Attendees:** [Names and roles]
-**Duration:** [60-90 minutes]
+For GitHub comment templates to document feedback, see `feedback-templates.md`:
 
-**Agenda:**
-
-1. **Review Current State** (10 min)
-   - Present current requirements
-   - Highlight recent changes
-   - Share context
-
-2. **Collect Feedback** (30 min)
-   - Go through feedback questions for this level
-   - Capture all input (no debate yet)
-   - Use checklist above
-
-3. **Discussion** (20 min)
-   - Discuss key themes and patterns
-   - Validate or invalidate assumptions
-   - Identify areas of disagreement
-
-4. **Decisions** (15 min)
-   - Determine what changes to make
-   - Assign action items
-   - Set next review date
-
-5. **Wrap-up** (5 min)
-   - Summarize decisions
-   - Confirm action items and owners
-   - Thank participants
-
-**Follow-up:**
-- [ ] Update GitHub issues within 48 hours - in GitHub Projects
-- [ ] Communicate changes to broader team
-- [ ] Schedule next review
+- **Feedback Collection Template** - Document feedback received from stakeholders
+- **Feedback Incorporated Template** - Communicate how feedback was addressed
+- **Feedback Rejection Template** - Explain when feedback cannot be incorporated
+- **Feedback Review Meeting Template** - Structure feedback review meetings
 
 ---
 
