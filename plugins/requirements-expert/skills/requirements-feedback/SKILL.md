@@ -1,6 +1,6 @@
 ---
 name: requirements-feedback
-description: This skill should be used when the user asks about "feedback loops", "iterate on requirements", "continuous documentation", "refine requirements", "update requirements", "requirements changed", "stakeholder review", "validate requirements", "incorporate feedback", "gather feedback", "requirements review meeting", "backlog refinement feedback", "user research findings", "sprint retrospective feedback", or when they need guidance on collecting and incorporating feedback throughout the requirements lifecycle.
+description: This skill should be used when the user asks about "feedback loops", "iterate on requirements", "continuous documentation", "refine requirements", "update requirements", "requirements changed", "stakeholder review", "validate requirements", "incorporate feedback", "gather feedback", "requirements review meeting", "backlog refinement feedback", "user research findings", "sprint retrospective feedback", "help me gather feedback", "run a feedback session", "get input on my vision", "get input on my epics", "get input on my stories", "collect user feedback", "document feedback from meeting", "review requirements with stakeholders", or when they need guidance on collecting and incorporating feedback throughout the requirements lifecycle.
 version: 0.2.0
 ---
 
