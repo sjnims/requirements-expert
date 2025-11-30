@@ -28,14 +28,9 @@ For all routing scenarios:
 
 ## Purpose
 
-Requirements evolve as teams learn more about users, technology, and the market. Continuous feedback:
-
-- Validates assumptions early and often
-- Catches misunderstandings before they become expensive
-- Adapts to new information and changing conditions
-- Keeps requirements aligned with user needs
-- Improves quality through iteration
-- Builds shared understanding across team and stakeholders
+- Guide feedback collection throughout the Vision → Epic → Story → Task lifecycle
+- Ensure requirements stay aligned with user needs through continuous iteration
+- Provide templates and checklists for structured feedback sessions
 
 ## Command Integration
 
