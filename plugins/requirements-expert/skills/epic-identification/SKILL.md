@@ -24,16 +24,9 @@ Well-defined epics:
 - Provide clear scope boundaries for teams
 - Facilitate prioritization of major capabilities
 
-## When to Use This Skill
+## Prerequisite
 
-Use epic identification when:
-- Vision document exists and needs to be broken down
-- User asks what major features or capabilities are needed
-- Planning a product roadmap from a vision
-- Validating that all necessary epics have been identified
-- Refining or adding to an existing set of epics
-
-**Prerequisite:** Vision must exist before identifying epics. If no vision exists, use the **vision-discovery** skill first.
+Vision must exist before identifying epics. If no vision exists, use the **vision-discovery** skill first.
 
 ## Epic Identification Process
 

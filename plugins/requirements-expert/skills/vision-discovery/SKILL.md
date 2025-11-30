@@ -20,15 +20,6 @@ A product vision defines:
 
 The vision serves as a north star for all product decisions, helping teams stay aligned and prioritize work that delivers the most value.
 
-## When to Use This Skill
-
-Use vision discovery when:
-- Starting a new product or feature from scratch
-- The user has a vague idea but needs help articulating it clearly
-- Existing vision is unclear, outdated, or poorly defined
-- Team lacks alignment on product direction
-- Before identifying epics (vision must exist first)
-
 ## Vision Discovery Process
 
 ### Step 1: Understand the Problem Space

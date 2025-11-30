@@ -24,16 +24,9 @@ Well-defined tasks:
 - Track progress toward story completion
 - Enable accurate status reporting
 
-## When to Use This Skill
+## Prerequisite
 
-Use task breakdown when:
-- A user story exists and needs to be implemented
-- User asks for specific work items or tasks
-- Planning a sprint and need granular work breakdown
-- Creating GitHub issues in a GitHub Project for tracking work
-- Defining clear acceptance criteria for work items
-
-**Prerequisite:** User story must exist before creating tasks. If no story exists, use the **user-story-creation** skill first.
+User story must exist before creating tasks. If no story exists, use the **user-story-creation** skill first.
 
 ## Task Characteristics
 
