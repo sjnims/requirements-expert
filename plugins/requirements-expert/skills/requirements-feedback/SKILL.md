@@ -166,12 +166,12 @@ Working examples that can be copied and adapted:
 
 ## Related Skills
 
-Load these skills when chaining between requirements stages:
+Load these skills when feedback reveals needs beyond this skill's scope:
 
-| When working on... | Also consider loading... |
-|--------------------|--------------------------|
-| Vision feedback | `vision-discovery` - for comprehensive vision creation guidance |
-| Epic feedback | `epic-identification` - for epic scoping and dependency mapping |
-| Story feedback | `user-story-creation` - for INVEST criteria and acceptance criteria |
-| Task feedback | `task-breakdown` - for implementation layer organization |
-| Priority changes from feedback | `prioritization` - for MoSCoW framework application |
+| Feedback Context | Load Skill | Routing Trigger |
+|------------------|------------|-----------------|
+| Vision feedback reveals gaps in vision definition | `vision-discovery` | User needs to revise or create vision elements |
+| Epic feedback reveals scoping issues | `epic-identification` | User needs to adjust epic boundaries or dependencies |
+| Story feedback reveals INVEST violations | `user-story-creation` | User needs to rewrite stories to meet criteria |
+| Task feedback reveals breakdown issues | `task-breakdown` | User needs to reorganize task structure |
+| Feedback changes priorities | `prioritization` | User needs to re-apply MoSCoW framework |
