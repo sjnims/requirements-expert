@@ -211,8 +211,6 @@ Next Steps:
 2. Run `/re:create-tasks` to break down highest-priority story
 3. Review stories and refine acceptance criteria
 4. Use `/re:status` to see progress
-
-Pro tip: Tackle stories one at a time - implement, test, ship, repeat!
 ```
 
 ## Error Handling

@@ -186,8 +186,6 @@ Next Steps:
 2. Share with stakeholders for feedback
 3. Run `/re:identify-epics` to identify major capabilities
 4. Use `/re:review` to validate the vision
-
-Pro tip: The vision is a living document - update it as you learn more!
 ```
 
 ### Step 7: Offer to Continue

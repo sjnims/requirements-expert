@@ -165,8 +165,6 @@ Display:
 - Begin implementation with Must Have tasks
 - Follow dependency order within priority level
 - Update task status in GitHub Projects as you progress
-
-Pro tip: Re-prioritize regularly as you learn more!
 ```
 
 ### Step 9: Offer Next Action
