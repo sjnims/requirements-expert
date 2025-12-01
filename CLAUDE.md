@@ -37,6 +37,12 @@ markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix
 - `.claude-plugin/marketplace.json`
 - All 6 `plugins/requirements-expert/skills/*/SKILL.md` frontmatter
 
+**Check Version Consistency**:
+```bash
+grep -r '"version"' plugins/requirements-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
+grep -r '^version:' plugins/requirements-expert/skills/*/SKILL.md
+```
+
 ## Architecture
 
 ### Repository Structure
