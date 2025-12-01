@@ -73,9 +73,19 @@ Use AskUserQuestion:
 - multiSelect: true
 
 Then ask:
-- Question: "Any additional stories to add?"
-- Header: "Add Stories"
-- Options: Custom text input
+
+Use AskUserQuestion:
+- question: "Would you like to add any additional stories?"
+- header: "Add Stories"
+- multiSelect: false
+- options:
+  - label: "Yes, add more", description: "I have additional user stories to include"
+  - label: "No, continue", description: "Proceed with the selected stories"
+  - label: "Let me think", description: "Review the list before deciding"
+
+Note: Users can select "Other" to directly describe additional stories.
+
+If user selects "Yes, add more", prompt for story details. If "Let me think", display the current selection and ask again.
 
 ### Step 4: INVEST Criteria Check
 

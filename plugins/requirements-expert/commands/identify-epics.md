@@ -67,9 +67,19 @@ Use AskUserQuestion to refine the epic list:
 - Options: One option per suggested epic (label = epic name, description = brief desc)
 
 **Question 2:**
-- Question: "Are there any additional epics we should add?"
-- Header: "Additional Epics"
-- Options: Custom text input
+
+Use AskUserQuestion:
+- question: "Would you like to add any additional epics?"
+- header: "Add Epics"
+- multiSelect: false
+- options:
+  - label: "Yes, add more", description: "I have additional epics to include"
+  - label: "No, continue", description: "Proceed with the selected epics"
+  - label: "Let me think", description: "Review the list before deciding"
+
+Note: Users can select "Other" to directly describe additional epics.
+
+If user selects "Yes, add more", prompt for epic details. If "Let me think", display the current selection and ask again.
 
 ### Step 4: Validate Epic Count
 

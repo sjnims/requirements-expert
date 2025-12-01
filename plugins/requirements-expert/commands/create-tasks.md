@@ -97,9 +97,19 @@ Use AskUserQuestion:
 - multiSelect: true
 
 Then ask:
-- Question: "Any additional tasks to add?"
-- Header: "Add Tasks"
-- Options: Custom text input
+
+Use AskUserQuestion:
+- question: "Would you like to add any additional tasks?"
+- header: "Add Tasks"
+- multiSelect: false
+- options:
+  - label: "Yes, add more", description: "I have additional tasks to include"
+  - label: "No, continue", description: "Proceed with the selected tasks"
+  - label: "Let me think", description: "Review the list before deciding"
+
+Note: Users can select "Other" to directly describe additional tasks.
+
+If user selects "Yes, add more", prompt for task details. If "Let me think", display the current selection and ask again.
 
 ### Step 4: Define Acceptance Criteria
 
