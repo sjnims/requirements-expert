@@ -39,8 +39,8 @@ markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix
 
 **Check Version Consistency**:
 ```bash
-grep -r '"version"' plugins/requirements-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
-grep -r '^version:' plugins/requirements-expert/skills/*/SKILL.md
+rg '"version"' plugins/requirements-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
+rg '^version:' plugins/requirements-expert/skills/*/SKILL.md
 ```
 
 ## Architecture
@@ -52,11 +52,11 @@ This repository uses a **marketplace-at-root** structure where the repository ac
 ```
 /                                    # Repository root (marketplace)
 ├── .claude-plugin/
-│   └── marketplace.json             # Marketplace manifest (v0.2.0)
+│   └── marketplace.json             # Marketplace manifest (v0.3.0)
 ├── plugins/
 │   └── requirements-expert/         # PLUGIN ROOT (publishable unit)
 │       ├── .claude-plugin/
-│       │   └── plugin.json          # Plugin manifest (v0.2.0)
+│       │   └── plugin.json          # Plugin manifest (v0.3.0)
 │       ├── commands/                # 8 slash commands (*.md)
 │       ├── skills/                  # 6 knowledge modules (*/SKILL.md)
 │       ├── agents/                  # 2 specialized agents (*.md)
