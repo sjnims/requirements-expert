@@ -11,8 +11,8 @@ version: 0.2.0
 | User Intent | Action | Resource |
 |-------------|--------|----------|
 | Reviewing story first | Understand user goal and value | Step 1: Review the User Story |
-| Identifying tasks | Map implementation layers | Step 2: Identify Implementation Layers |
-| Applying task patterns | Use CRUD/feature/integration patterns | Step 3: Apply Common Task Patterns |
+| Identifying tasks | Map implementation layers | `references/task-layers.md` |
+| Applying task patterns | Use CRUD/feature/integration patterns | `references/task-patterns.md` |
 | Defining acceptance criteria | Use testable statement format | Step 4: Define Acceptance Criteria |
 | Creating task issues | Use template | `references/task-template.md` |
 | Viewing examples | Load sample task set | `examples/example-task-set.md` |
@@ -84,77 +84,34 @@ Understand the story being implemented:
 
 ### Step 2: Identify Implementation Layers
 
-Break down work by typical software layers:
+Break down work by typical software layers. See `references/task-layers.md` for detailed guidance, examples, and checklists for each layer.
 
-**Frontend/UI Tasks:**
-- Component creation
-- UI layout and styling
-- User interactions and events
-- Client-side validation
-- State management
+**Common Layers:**
 
-**Backend/API Tasks:**
-- API endpoint implementation
-- Business logic
-- Data validation
-- Error handling
-- Integration with services
-
-**Data/Database Tasks:**
-- Schema changes
-- Migrations
-- Data access layer
-- Queries and optimization
-
-**Testing Tasks:**
-- Unit tests
-- Integration tests
-- E2E tests
-- Manual test scenarios
-
-**Documentation Tasks:**
-- API documentation
-- User-facing documentation
-- Code comments
-- README updates
-
-**DevOps/Infrastructure Tasks:**
-- Configuration changes
-- Deployment scripts
-- Environment setup
-- Monitoring/logging
-
-**Research/Spike Tasks:**
-- Evaluate libraries or tools
-- Prototype approaches
-- Performance testing
-- Feasibility studies
+| Layer | Focus |
+|-------|-------|
+| Frontend/UI | Components, styling, interactions, state |
+| Backend/API | Endpoints, business logic, validation |
+| Data/Database | Schema, migrations, queries, indexes |
+| Testing | Unit, integration, E2E, manual |
+| Documentation | API docs, user guides, code comments |
+| DevOps | Configuration, deployment, monitoring |
+| Research/Spike | Evaluation, prototypes, feasibility |
 
 ### Step 3: Apply Common Task Patterns
 
-Use these patterns as starting points:
+Use proven patterns as starting points for task breakdown. See `references/task-patterns.md` for detailed guidance, examples, and checklists.
 
-**CRUD Operations:**
-- Implement Create functionality
-- Implement Read/List functionality
-- Implement Update functionality
-- Implement Delete functionality
-- Add validation for each operation
+**Common Patterns:**
 
-**Feature Implementation:**
-- Design and create UI components
-- Implement backend API
-- Connect frontend to backend
-- Add error handling
-- Write tests
-- Update documentation
-
-**Integration:**
-- Research third-party API/service
-- Implement authentication/connection
-- Implement data mapping/transformation
-- Handle errors and edge cases
-- Test integration end-to-end
+| Pattern | When to Use |
+|---------|-------------|
+| CRUD Operations | Building entity management (create, read, update, delete) |
+| Feature Implementation | Adding new user-facing capabilities |
+| Integration | Connecting to external services or APIs |
+| Refactoring | Improving code structure without changing behavior |
+| Bug Fix | Fixing production issues |
+| Migration | Moving to new systems or technologies |
 
 ### Step 4: Define Acceptance Criteria
 
@@ -355,6 +312,8 @@ Load references as needed:
 
 | Reference | When to Load | Path |
 |-----------|--------------|------|
+| **task-layers.md** | Breaking down stories by implementation layer | `references/task-layers.md` |
+| **task-patterns.md** | Applying common task patterns (CRUD, feature, integration) | `references/task-patterns.md` |
 | **task-template.md** | Creating task issue content or defining acceptance criteria | `references/task-template.md` |
 
 ## Examples
