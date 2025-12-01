@@ -143,7 +143,9 @@ Create clear, descriptive titles and summaries:
 - ❌ "Make users happy" (outcome, not capability)
 - ❌ "Phase 1" (not descriptive)
 
-### Epic Issue Template (Minimal)
+### Epic Issue Template (Quick Reference)
+
+_For comprehensive templates with domain-specific examples, see `references/epic-template.md`._
 
 ```markdown
 ## Epic Overview
@@ -159,8 +161,6 @@ Create clear, descriptive titles and summaries:
 ## Success Criteria
 - [ ] [Measurable outcomes]
 ```
-
-See `references/epic-template.md` for comprehensive templates and domain-specific examples.
 
 ### Step 5: Validate Completeness
 

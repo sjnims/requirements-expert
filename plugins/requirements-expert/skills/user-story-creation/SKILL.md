@@ -92,9 +92,9 @@ Apply these guidelines:
 - **Title**: "Filter campaigns by date range"
 - **Description**: Detailed explanation of functionality and value
 
-## INVEST Criteria
+## INVEST Criteria (Quick Reference)
 
-Validate every user story against INVEST criteria:
+_Validate every user story against these criteria. For detailed guidance with examples, see `references/invest-criteria.md`._
 
 | Letter | Criterion | Question |
 |--------|-----------|----------|
@@ -104,8 +104,6 @@ Validate every user story against INVEST criteria:
 | **E** | Estimable | Can the team estimate the effort? |
 | **S** | Small | Can it be completed in 1-5 days? |
 | **T** | Testable | Are there specific acceptance criteria? |
-
-For detailed guidance on each criterion with examples, see `references/invest-criteria.md`.
 
 ## Story Creation Process
 
