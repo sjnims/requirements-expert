@@ -83,7 +83,13 @@ Check the total number of epics:
 For each selected/added epic:
 
 1. **Compile Epic Description:**
-   Use template from epic-identification skill's `${CLAUDE_PLUGIN_ROOT}/skills/epic-identification/references/epic-template.md`:
+   First, read the comprehensive template using the Read tool:
+
+   ```
+   plugins/requirements-expert/skills/epic-identification/references/epic-template.md
+   ```
+
+   Follow that template structure:
    ```markdown
    ## Epic: [Epic Name]
 

@@ -1,7 +1,7 @@
 ---
 name: re:discover-vision
 description: Guide user through interactive vision discovery and create vision issue in GitHub Projects
-allowed-tools: [AskUserQuestion, Bash(gh:*)]
+allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 ---
 
 # Discover Product Vision
@@ -63,7 +63,13 @@ Use AskUserQuestion to guide through vision discovery. Ask questions from the vi
 
 ### Step 4: Compile Vision Document
 
-Using the answers, create a vision document following the template from vision-discovery skill's `${CLAUDE_PLUGIN_ROOT}/skills/vision-discovery/references/vision-template.md`.
+Using the answers, create a vision document. First, read the comprehensive template using the Read tool:
+
+```
+plugins/requirements-expert/skills/vision-discovery/references/vision-template.md
+```
+
+Follow that template structure when creating the vision document.
 
 Structure the vision as:
 ```markdown
