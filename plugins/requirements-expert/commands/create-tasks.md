@@ -193,7 +193,7 @@ After creating all tasks, identify dependencies:
 
 Display task execution order:
 ```
-📋 Task Sequence:
+Task Sequence:
 
 **Phase 1 (Can start immediately):**
 - #[num] - [Task requiring no dependencies]
@@ -211,7 +211,7 @@ Display task execution order:
 
 Display:
 ```
-✅ Created [N] tasks for story #[story-num]!
+Created [N] tasks for story #[story-num]!
 
 Tasks:
 - #[num] - [Task 1] (frontend)

@@ -174,7 +174,7 @@ Structure the vision as:
 
 Display:
 ```
-✅ Vision created successfully!
+Vision created successfully!
 
 Issue: #[number] - Product Vision: [Product Name]
 URL: [issue-url]

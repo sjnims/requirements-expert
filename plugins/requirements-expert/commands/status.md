@@ -64,7 +64,7 @@ Display a comprehensive overview of the requirements project including counts, p
 Display comprehensive status:
 
 ```
-# 📊 Requirements Project Status
+# Requirements Project Status
 
 **Project:** [Project Name]
 **URL:** [Project URL]
@@ -72,7 +72,7 @@ Display comprehensive status:
 
 ---
 
-## 📈 Overview
+## Overview
 
 | Level | Total | Not Started | In Progress | Completed | % Complete |
 |-------|-------|-------------|-------------|-----------|------------|
@@ -86,7 +86,7 @@ Display comprehensive status:
 
 ---
 
-## 🎯 Priority Breakdown
+## Priority Breakdown
 
 **Must Have:**
 - Epics: [N] | Stories: [N] | Tasks: [N]
@@ -105,7 +105,7 @@ Display comprehensive status:
 
 ---
 
-## 🎯 Current Focus
+## Current Focus
 
 **Active Work (In Progress):**
 - #[num] - [Epic/Story/Task title] (type: [type])
@@ -119,7 +119,7 @@ Display comprehensive status:
 
 ---
 
-## 🏗️ Epic Status Detail
+## Epic Status Detail
 
 [For each epic, show progress]
 
@@ -134,17 +134,17 @@ Display comprehensive status:
 
 ---
 
-## ✅ Validation Status
+## Validation Status
 
 **Last Validation:** [Date or "Never"]
 
 **Quick Health Check:**
-- [ ] Vision exists: [✓/✗]
-- [ ] All epics linked to vision: [✓/✗]
-- [ ] All stories linked to epics: [✓/✗]
-- [ ] All tasks linked to stories: [✓/✗]
-- [ ] Priority distribution balanced: [✓/⚠️/✗]
-- [ ] No orphaned issues: [✓/✗]
+- Vision exists: [Pass/Fail]
+- All epics linked to vision: [Pass/Fail]
+- All stories linked to epics: [Pass/Fail]
+- All tasks linked to stories: [Pass/Fail]
+- Priority distribution balanced: [Pass/Warning/Fail]
+- No orphaned issues: [Pass/Fail]
 
 **Issues Found:** [N critical, N warnings]
 
@@ -152,7 +152,7 @@ Display comprehensive status:
 
 ---
 
-## 🚀 Velocity & Trends
+## Velocity & Trends
 
 **Recent Activity (Last 7 days):**
 - Tasks completed: [N]
@@ -167,14 +167,14 @@ Display comprehensive status:
 
 ---
 
-## 📊 Coverage Analysis
+## Coverage Analysis
 
 **Vision → Epics:**
-- Vision coverage: [All vision elements covered by epics? ✓/✗]
+- Vision coverage: [All vision elements covered by epics? Yes/No]
 
 **Epics → Stories:**
 [For each epic]
-- Epic #[num]: [Has stories? ✓/✗] ([N] stories)
+- Epic #[num]: [Has stories? Yes/No] ([N] stories)
 
 **Stories → Tasks:**
 [Sample or summary]
@@ -183,7 +183,7 @@ Display comprehensive status:
 
 ---
 
-## 💡 Recommendations
+## Recommendations
 
 [Based on status, provide actionable suggestions]
 
@@ -204,7 +204,7 @@ Display comprehensive status:
 
 ---
 
-## 🔗 Quick Links
+## Quick Links
 
 - **GitHub Project:** [URL]
 - **Vision Issue:** #[num]
@@ -216,7 +216,7 @@ Display comprehensive status:
 
 ---
 
-## 📅 Suggested Actions
+## Suggested Actions
 
 Based on current status:
 
@@ -239,7 +239,7 @@ Based on the status, provide specific next steps:
 
 **If just starting (no vision):**
 ```
-🚀 Getting Started
+Getting Started
 
 Your requirements project is newly initialized!
 
@@ -254,7 +254,7 @@ Estimated time to complete vision + epics: 1-2 hours
 
 **If vision exists but few epics:**
 ```
-📝 Vision Defined - Define Epics Next
+Vision Defined - Define Epics Next
 
 You have a solid vision. Time to break it down!
 
@@ -266,7 +266,7 @@ Next Steps:
 
 **If epics exist but few stories:**
 ```
-🎯 Epics Identified - Create Stories
+Epics Identified - Create Stories
 
 You have [N] epics. Let's create user stories!
 
@@ -280,7 +280,7 @@ Next Steps:
 
 **If well underway:**
 ```
-💪 In Full Swing - Keep the Momentum!
+In Full Swing - Keep the Momentum
 
 Progress: [X]% complete
 
@@ -294,7 +294,7 @@ Next Steps:
 
 **If near complete:**
 ```
-🎉 Almost There!
+Almost There
 
 You're [X]% complete - great progress!
 

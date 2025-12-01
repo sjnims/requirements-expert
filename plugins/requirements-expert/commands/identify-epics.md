@@ -147,7 +147,7 @@ For each selected/added epic:
 
 After creating all epics, ask:
 ```
-✅ Created [N] epics successfully!
+Created [N] epics successfully!
 
 Epics:
 - #[num] - [Epic 1 name]
@@ -173,7 +173,7 @@ If "No": Show next steps
 
 Display:
 ```
-✅ Epic identification complete!
+Epic identification complete!
 
 Created [N] epics linked to Vision (#[vision-num])
 

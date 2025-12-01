@@ -28,57 +28,72 @@ Load the **requirements-validator** agent OR implement validation logic directly
 ### Step 2: Completeness Check
 
 **Vision Level:**
-- [ ] Problem statement exists and is clear
-- [ ] Target users are defined
-- [ ] Solution overview exists
-- [ ] Success metrics are defined
-- [ ] Scope boundaries are set
+
+Verify:
+- Problem statement exists and is clear
+- Target users are defined
+- Solution overview exists
+- Success metrics are defined
+- Scope boundaries are set
 
 **Epic Level:**
-- [ ] Each epic has clear description
-- [ ] User value is articulated
-- [ ] Scope (included/excluded) is defined
-- [ ] Success criteria exist
-- [ ] All vision elements are covered by epics
+
+Verify:
+- Each epic has clear description
+- User value is articulated
+- Scope (included/excluded) is defined
+- Success criteria exist
+- All vision elements are covered by epics
 
 **Story Level:**
-- [ ] Each story follows "As a... I want... So that..." format
-- [ ] Acceptance criteria are present (minimum 3-5)
-- [ ] Stories are small enough (1-5 days estimate)
-- [ ] All epic scope is covered by stories
+
+Verify:
+- Each story follows "As a... I want... So that..." format
+- Acceptance criteria are present (minimum 3-5)
+- Stories are small enough (1-5 days estimate)
+- All epic scope is covered by stories
 
 **Task Level:**
-- [ ] Each task has clear, action-oriented title
-- [ ] Acceptance criteria are specific and testable (minimum 3-5)
-- [ ] Tasks are right-sized (2-8 hours)
-- [ ] All story acceptance criteria are covered by tasks
+
+Verify:
+- Each task has clear, action-oriented title
+- Acceptance criteria are specific and testable (minimum 3-5)
+- Tasks are right-sized (2-8 hours)
+- All story acceptance criteria are covered by tasks
 
 ### Step 3: Consistency Check
 
 **Traceability:**
-- [ ] Every epic links to vision
-- [ ] Every story links to an epic
-- [ ] Every task links to a story
-- [ ] No orphaned issues (items without parents)
+
+Verify:
+- Every epic links to vision
+- Every story links to an epic
+- Every task links to a story
+- No orphaned issues (items without parents)
 
 **Naming & IDs:**
-- [ ] Consistent terminology across levels
-- [ ] No duplicate or conflicting requirements
-- [ ] Labels are applied consistently
+
+Verify:
+- Consistent terminology across levels
+- No duplicate or conflicting requirements
+- Labels are applied consistently
 
 **Priority Alignment:**
-- [ ] Child priorities don't exceed parent priorities
-- [ ] Dependencies respect priority order
+
+Verify:
+- Child priorities don't exceed parent priorities
+- Dependencies respect priority order
 
 ### Step 4: Quality Check (INVEST for Stories)
 
 For each user story, verify INVEST criteria:
-- [ ] **Independent**: Can be completed without depending on others
-- [ ] **Negotiable**: Details open for discussion
-- [ ] **Valuable**: Delivers clear user value
-- [ ] **Estimable**: Team can estimate size
-- [ ] **Small**: Fits in single iteration
-- [ ] **Testable**: Clear acceptance criteria
+
+- **Independent**: Can be completed without depending on others
+- **Negotiable**: Details open for discussion
+- **Valuable**: Delivers clear user value
+- **Estimable**: Team can estimate size
+- **Small**: Fits in single iteration
+- **Testable**: Clear acceptance criteria
 
 ### Step 5: Validation Report
 
@@ -94,12 +109,12 @@ Generate comprehensive report:
 
 | Level | Count | Complete | Issues |
 |-------|-------|----------|--------|
-| Vision | [N] | [✓/✗] | [N] |
-| Epics | [N] | [✓/✗] | [N] |
-| Stories | [N] | [✓/✗] | [N] |
-| Tasks | [N] | [✓/✗] | [N] |
+| Vision | [N] | [Yes/No] | [N] |
+| Epics | [N] | [Yes/No] | [N] |
+| Stories | [N] | [Yes/No] | [N] |
+| Tasks | [N] | [Yes/No] | [N] |
 
-**Overall Status:** [✓ Pass / ⚠️ Warning / ✗ Fail]
+**Overall Status:** [Pass / Warning / Fail]
 
 ---
 
@@ -108,17 +123,17 @@ Generate comprehensive report:
 [List any critical issues that prevent requirements from being actionable]
 
 ### Missing Vision
-- [ ] No vision issue found - run `/re:discover-vision`
+- No vision issue found - run `/re:discover-vision`
 
 ### Broken Traceability
-- [ ] Epic #[num] has no parent vision
-- [ ] Story #[num] has no parent epic
-- [ ] Task #[num] has no parent story
+- Epic #[num] has no parent vision
+- Story #[num] has no parent epic
+- Task #[num] has no parent story
 
 ### Incomplete Requirements
-- [ ] Epic #[num] missing scope definition
-- [ ] Story #[num] has no acceptance criteria
-- [ ] Task #[num] missing acceptance criteria
+- Epic #[num] missing scope definition
+- Story #[num] has no acceptance criteria
+- Task #[num] missing acceptance criteria
 
 ---
 
@@ -127,19 +142,19 @@ Generate comprehensive report:
 [List issues that should be fixed but don't block progress]
 
 ### Quality Issues
-- [ ] Story #[num] too large (>5 days) - consider splitting
-- [ ] Task #[num] too vague - needs clearer description
-- [ ] Epic #[num] overlaps with Epic #[num2]
+- Story #[num] too large (>5 days) - consider splitting
+- Task #[num] too vague - needs clearer description
+- Epic #[num] overlaps with Epic #[num2]
 
 ### INVEST Violations
-- [ ] Story #[num] not independent (depends on #[num2])
-- [ ] Story #[num] not valuable (too technical, no user benefit)
-- [ ] Story #[num] not testable (vague acceptance criteria)
+- Story #[num] not independent (depends on #[num2])
+- Story #[num] not valuable (too technical, no user benefit)
+- Story #[num] not testable (vague acceptance criteria)
 
 ### Priority Issues
-- [ ] Must Have items exceed 60% - review priorities
-- [ ] No Won't Haves defined - consider scope boundaries
-- [ ] Child priority higher than parent
+- Must Have items exceed 60% - review priorities
+- No Won't Haves defined - consider scope boundaries
+- Child priority higher than parent
 
 ---
 
@@ -176,7 +191,7 @@ Based on validation results:
 3. Refine as you learn
 
 **If All Pass:**
-✅ Requirements are solid! Ready for implementation.
+Requirements are solid! Ready for implementation.
 
 ---
 
@@ -184,7 +199,7 @@ Based on validation results:
 
 ### Vision Validation
 [Detailed findings for vision]
-- Status: [✓ Pass / ⚠️ Warning / ✗ Fail]
+- Status: [Pass / Warning / Fail]
 - Issues: [List]
 
 ### Epic Validation
@@ -231,7 +246,7 @@ Which would you like to address first?
 
 Display:
 ```
-✅ Requirements review complete!
+Requirements review complete!
 
 **Status:** [Overall status]
 **Critical Issues:** [N]

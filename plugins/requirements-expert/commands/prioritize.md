@@ -97,7 +97,7 @@ Priority Distribution:
 
 If distribution is problematic, ask:
 ```
-⚠️ Distribution check: [X]% of items are "Must Have"
+Warning - Distribution check: [X]% of items are "Must Have"
 
 Recommendation: Aim for <60% Must Haves to maintain focus and flexibility.
 
@@ -137,7 +137,7 @@ Present suggested sequence and ask for confirmation.
 
 Display:
 ```
-✅ Prioritization complete!
+Prioritization complete!
 
 **Summary:**
 - Must Have: [X] items

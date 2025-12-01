@@ -215,7 +215,7 @@ Initialize a GitHub Project for requirements management. This command is **idemp
 
 12. **Display Success Message:**
     ```
-    ✅ GitHub Project initialized successfully!
+    GitHub Project initialized successfully!
 
     Project: [Project Name]
     URL: [Project URL]

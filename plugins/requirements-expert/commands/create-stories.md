@@ -199,7 +199,7 @@ Use AskUserQuestion:
 
 Display:
 ```
-✅ Created [N] user stories for epic #[epic-num]!
+Created [N] user stories for epic #[epic-num]!
 
 Stories:
 - #[num] - [Story 1 title]
