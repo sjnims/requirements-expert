@@ -1,6 +1,6 @@
 ---
 name: re:identify-epics
-description: Identify major capabilities (epics) from vision and create epic issues in GitHub Projects
+description: Identify epics from vision, create issues
 allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 ---
 

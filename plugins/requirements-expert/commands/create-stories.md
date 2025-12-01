@@ -1,6 +1,6 @@
 ---
 name: re:create-stories
-description: Break down an epic into user stories following INVEST criteria and create story issues in GitHub Projects
+description: Break epic into INVEST-compliant stories
 allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 ---
 

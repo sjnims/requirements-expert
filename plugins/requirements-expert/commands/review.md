@@ -1,6 +1,6 @@
 ---
 name: re:review
-description: Validate requirements for completeness, consistency, quality, and traceability
+description: Validate requirements quality and traceability
 allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 ---
 
