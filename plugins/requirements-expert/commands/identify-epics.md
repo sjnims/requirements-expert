@@ -182,8 +182,6 @@ Next Steps:
 2. Review epic issues and add details as needed
 3. Run `/re:create-stories` to break down highest-priority epic
 4. Use `/re:status` to see project overview
-
-Pro tip: Start with one epic, create stories for it, then move to the next!
 ```
 
 ## Error Handling

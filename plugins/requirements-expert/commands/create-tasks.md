@@ -205,8 +205,6 @@ Display task execution order:
 **Phase 3 (Integration & Testing):**
 - #[num] - Integration tests
 - #[num] - Documentation
-
-Tip: Mark tasks as "In Progress" in GitHub Projects as you work on them!
 ```
 
 ### Step 8: Success Message & Assignment
@@ -233,8 +231,6 @@ Next Steps:
 3. Start with Phase 1 tasks (no dependencies)
 4. Update task status as you progress
 5. When all tasks complete, story is complete!
-
-Pro tip: Use `gh issue list --label type:task --assignee @me` to see your assigned tasks!
 ```
 
 ### Step 9: Continue or Stop
