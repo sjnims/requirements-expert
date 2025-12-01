@@ -1,7 +1,7 @@
 ---
 name: re:review
 description: Validate requirements for completeness, consistency, quality, and traceability
-allowed-tools: [Bash, Read]
+allowed-tools: [AskUserQuestion, Bash, Read]
 ---
 
 # Review & Validate Requirements
