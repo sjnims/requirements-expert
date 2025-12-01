@@ -111,17 +111,23 @@ Generate a comprehensive validation report with these sections:
 
 **Critical Issues (Must Fix):**
 
-- Missing vision (if none exists)
-- Broken traceability (orphaned epics, stories, or tasks)
-- Incomplete requirements (missing scope, acceptance criteria)
-- Reference specific issue numbers
+List any critical issues found, such as:
+
+- Missing vision (no vision issue exists)
+- Broken traceability (orphaned epics, stories, or tasks without parents)
+- Incomplete requirements (missing scope definitions, acceptance criteria)
+
+Reference specific issue numbers for each issue found.
 
 **Warnings (Should Address):**
 
+List any warnings found, such as:
+
 - Quality issues (oversized stories, vague tasks, overlapping epics)
 - INVEST violations (not independent, not valuable, not testable)
-- Priority imbalances (>60% Must Have, missing Won't Have, child > parent priority)
-- Reference specific issue numbers
+- Priority imbalances (>60% Must Have, missing Won't Have, child priority > parent)
+
+Reference specific issue numbers for each warning.
 
 **Recommendations:**
 

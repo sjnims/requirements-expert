@@ -115,11 +115,35 @@ Generate a comprehensive status dashboard with these sections:
 
 Based on project state, provide tailored guidance:
 
-- **Just starting (no vision):** Guide to `/re:discover-vision`, explain the workflow ahead
-- **Vision exists, few epics:** Guide to `/re:identify-epics`, then prioritization
-- **Epics exist, few stories:** Focus on highest priority epic, guide to `/re:create-stories`
-- **Well underway:** Encourage completing in-progress work, suggest regular status checks and reviews
-- **Near complete:** Celebrate progress, show remaining work, encourage finishing
+**Just starting (no vision):**
+
+- Guide to `/re:discover-vision`
+- Explain the full workflow ahead (vision → epics → stories → tasks)
+- Set expectations for time investment
+
+**Vision exists, few epics:**
+
+- Guide to `/re:identify-epics` (aim for 5-12 major capabilities)
+- Emphasize prioritization as next step
+- Prepare to focus on highest priority epic for stories
+
+**Epics exist, few stories:**
+
+- Identify the highest priority epic to focus on
+- Guide to `/re:create-stories` for that epic
+- Note the progression: stories → prioritization → tasks
+
+**Well underway:**
+
+- Encourage completing in-progress items before starting new work
+- Suggest running `/re:status` regularly to track progress
+- Recommend `/re:review` weekly for quality checks
+
+**Near complete:**
+
+- Celebrate progress and acknowledge remaining work
+- Show specific counts: remaining epics, stories, tasks
+- Encourage finishing strong
 
 ### Step 5: Export Option
 
