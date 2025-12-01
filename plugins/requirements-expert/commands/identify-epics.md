@@ -165,7 +165,7 @@ Use AskUserQuestion:
   - "No, I'll prioritize later" (description: "Skip prioritization for now")
 - multiSelect: false
 
-If "Yes": Execute `/re:prioritize` command
+If "Yes": Use the SlashCommand tool to invoke `/re:prioritize`
 
 If "No": Show next steps
 

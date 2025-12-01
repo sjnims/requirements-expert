@@ -201,7 +201,7 @@ Use AskUserQuestion:
 - multiSelect: false
 
 If user selects "Yes":
-- Execute `/re:identify-epics` command
+- Use the SlashCommand tool to invoke `/re:identify-epics`
 
 ## Error Handling
 
