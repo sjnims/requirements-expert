@@ -32,34 +32,92 @@ Load the **vision-discovery** skill to access methodology and question templates
 Use AskUserQuestion to guide through vision discovery. Ask questions from the vision-discovery skill:
 
 **Problem Space Questions (First Question):**
-- Question: "What problem are you trying to solve?"
-- Header: "Problem"
-- Options: Let user provide custom text (multiSelect: false)
 
-**After receiving problem answer, ask:**
-- Question: "Who experiences this problem? Describe your target users."
-- Header: "Users"
-- Options: Custom text input
+Use AskUserQuestion:
+- question: "What type of problem are you solving?"
+- header: "Problem Type"
+- multiSelect: false
+- options:
+  - label: "Efficiency problem", description: "Users spend too much time or effort on a task"
+  - label: "Quality problem", description: "Current solutions produce poor or inconsistent results"
+  - label: "Access problem", description: "Users cannot easily access something they need"
+  - label: "Cost problem", description: "Current solutions are too expensive"
 
-**Then ask:**
-- Question: "How do they currently address this problem? What workarounds or competitors exist?"
-- Header: "Current State"
-- Options: Custom text input
+Note: Users can select "Other" to describe a different problem type.
 
-**Then ask:**
-- Question: "In one sentence, what does your solution do?"
-- Header: "Solution"
-- Options: Custom text input
+After the user selects a problem type, ask a follow-up to get specifics about the problem.
 
-**Then ask:**
-- Question: "What makes your solution different or better than alternatives?"
-- Header: "Differentiator"
-- Options: Custom text input
+**Target Users Question:**
 
-**Finally ask:**
-- Question: "How will you measure success? What are 2-3 key metrics?"
-- Header: "Success Metrics"
-- Options: Custom text input
+Use AskUserQuestion:
+- question: "Who primarily experiences this problem?"
+- header: "Target Users"
+- multiSelect: false
+- options:
+  - label: "Technical users", description: "Developers, engineers, system administrators"
+  - label: "Business users", description: "Product managers, analysts, executives"
+  - label: "End consumers", description: "General public, customers"
+  - label: "Internal team", description: "Employees within the organization"
+
+Note: Users can select "Other" to describe different user types.
+
+**Current State Question:**
+
+Use AskUserQuestion:
+- question: "How do users currently address this problem?"
+- header: "Current State"
+- multiSelect: false
+- options:
+  - label: "Manual workarounds", description: "Spreadsheets, documents, manual processes"
+  - label: "Competitor products", description: "Existing commercial solutions"
+  - label: "Internal tools", description: "Custom-built internal solutions"
+  - label: "They don't", description: "Problem is currently unaddressed"
+
+Note: Users can select "Other" to describe different current approaches.
+
+**Solution Question:**
+
+Use AskUserQuestion:
+- question: "What category best describes your solution?"
+- header: "Solution Type"
+- multiSelect: false
+- options:
+  - label: "Automation tool", description: "Automates manual or repetitive tasks"
+  - label: "Platform/service", description: "Provides a new platform or service"
+  - label: "Integration", description: "Connects existing systems or data"
+  - label: "Enhancement", description: "Improves an existing product or process"
+
+Note: Users can select "Other" to describe a different solution category.
+
+After the user selects a category, ask a follow-up to get the one-sentence solution description.
+
+**Differentiator Question:**
+
+Use AskUserQuestion:
+- question: "What is your primary differentiator?"
+- header: "Differentiator"
+- multiSelect: false
+- options:
+  - label: "Speed/Performance", description: "Faster or more efficient than alternatives"
+  - label: "Simplicity", description: "Easier to use or understand"
+  - label: "Cost", description: "More affordable or better value"
+  - label: "Features", description: "Unique capabilities not available elsewhere"
+
+Note: Users can select "Other" to describe a different differentiator.
+
+**Success Metrics Question:**
+
+Use AskUserQuestion:
+- question: "How will you primarily measure success?"
+- header: "Metrics"
+- multiSelect: false
+- options:
+  - label: "User adoption", description: "Number of users, signups, active usage"
+  - label: "Efficiency gains", description: "Time saved, tasks completed faster"
+  - label: "Revenue/Cost", description: "Revenue generated or costs reduced"
+  - label: "Quality metrics", description: "Error rates, satisfaction scores"
+
+Note: Users can select "Other" to describe different success metrics.
 
 ### Step 4: Compile Vision Document
 
