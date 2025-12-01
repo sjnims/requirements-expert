@@ -10,10 +10,10 @@ version: 0.2.0
 
 | User Intent | Action | Resource |
 |-------------|--------|----------|
-| Understanding the problem | Apply 5 Whys technique | Step 1: Understand the Problem Space |
+| Understanding the problem | Apply 5 Whys technique | `references/5-whys-technique.md` |
 | Defining target users | Create user personas | Step 2: Identify Target Users |
 | Articulating solution | Use elevator pitch format | Step 3: Define the Solution Vision |
-| Establishing metrics | Apply SMART framework | Step 4: Establish Success Metrics |
+| Establishing metrics | Apply SMART framework | `references/success-metrics-examples.md` |
 | Documenting vision | Use template | `references/vision-template.md` |
 | Viewing example | Load sample | `examples/sample-vision.md` |
 
@@ -274,11 +274,13 @@ All epics will be created as child issues of this vision issue, establishing cle
 
 ## Reference Files
 
-For detailed vision templates:
+For detailed guidance and templates:
 
 | Reference | When to Load | Path |
 |-----------|--------------|------|
 | **vision-template.md** | Creating vision issue content or documenting vision | `references/vision-template.md` |
+| **5-whys-technique.md** | Conducting root cause analysis during problem discovery | `references/5-whys-technique.md` |
+| **success-metrics-examples.md** | Defining SMART success metrics for the vision | `references/success-metrics-examples.md` |
 
 ## Examples
 
