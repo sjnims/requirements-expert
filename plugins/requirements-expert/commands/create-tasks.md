@@ -129,7 +129,13 @@ Check each task:
 For each task:
 
 1. **Compile Task Description:**
-   Use template from task-breakdown skill's references `${CLAUDE_PLUGIN_ROOT}/skills/task-breakdown/references/task-template.md`:
+   First, read the comprehensive template using the Read tool:
+
+   ```
+   plugins/requirements-expert/skills/task-breakdown/references/task-template.md
+   ```
+
+   Follow that template structure:
    ```markdown
    ## Task: [Action-oriented title]
 

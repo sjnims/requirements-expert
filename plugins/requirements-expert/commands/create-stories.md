@@ -117,7 +117,13 @@ For each story, present suggested acceptance criteria and ask user to confirm/re
 For each finalized story:
 
 1. **Compile Story Description:**
-   Use template from user-story-creation skill's references: `${CLAUDE_PLUGIN_ROOT}/skills/user-story-creation/references/story-template.md`:
+   First, read the comprehensive template using the Read tool:
+
+   ```
+   plugins/requirements-expert/skills/user-story-creation/references/story-template.md
+   ```
+
+   Follow that template structure:
    ```markdown
    ## User Story: [Short title]
 
