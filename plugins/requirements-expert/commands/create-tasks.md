@@ -250,7 +250,7 @@ Use AskUserQuestion:
 
 **Handle response:**
 - "Create tasks for another story": Restart from Step 1
-- "Check project status": Execute `/re:status`
+- "Check project status": Use the SlashCommand tool to invoke `/re:status`
 - "Done for now": Exit
 
 ## Error Handling

@@ -191,8 +191,8 @@ Use AskUserQuestion:
 
 **Handle response:**
 - "Create stories for another epic": Restart from Step 1
-- "Prioritize stories": Execute `/re:prioritize`
-- "Create tasks for a story": Execute `/re:create-tasks`
+- "Prioritize stories": Use the SlashCommand tool to invoke `/re:prioritize`
+- "Create tasks for a story": Use the SlashCommand tool to invoke `/re:create-tasks`
 - "Done for now": Show success message
 
 ### Step 9: Success Message
