@@ -40,6 +40,106 @@ Effective feedback:
 - Keeps requirements aligned with evolving user needs
 - Enables data-driven refinement of priorities and scope
 
+## Feedback Collection Process
+
+### Step 1: Collect Feedback
+
+**Key Actions:**
+
+- Gather insights from users, stakeholders, and team members
+- Use appropriate techniques for each audience (see `references/feedback-techniques.md`)
+- Document feedback systematically with source, date, and context
+
+**Guidelines:**
+
+- Match technique to audience: interviews for stakeholders, testing for users
+- Capture both explicit feedback and observed behaviors
+- Reference "Feedback at Each Stage" below for level-specific guidance
+
+### Step 2: Analyze Feedback
+
+**Key Actions:**
+
+- Identify patterns and themes across multiple feedback sources
+- Validate assumptions against collected data
+- Extract actionable insights from raw feedback
+
+**Guidelines:**
+
+- Look for recurring themes—single data points may be outliers
+- Separate signal from noise; not all feedback requires action
+- Note conflicting feedback for stakeholder discussion
+
+### Step 3: Decide
+
+**Key Actions:**
+
+- Prioritize feedback items by impact and alignment with vision
+- Determine which changes to make to requirements
+- Document decisions and rationale
+
+**Guidelines:**
+
+- Use impact/effort analysis for prioritization
+- Involve stakeholders in decisions affecting scope or priority
+- Some feedback may be deferred to future iterations—document explicitly
+
+### Step 4: Update
+
+**Key Actions:**
+
+- Modify GitHub issues (vision, epics, stories, tasks) based on decisions
+- Update acceptance criteria to reflect new understanding
+- Adjust priorities if feedback changes relative importance
+
+**Guidelines:**
+
+- Add comments explaining what changed and why
+- Keep changes traceable via GitHub's edit history
+- Tag relevant team members on significant updates
+
+### Step 5: Communicate
+
+**Key Actions:**
+
+- Inform stakeholders and team of changes made
+- Explain how specific feedback was incorporated
+- Acknowledge feedback providers
+
+**Guidelines:**
+
+- Close the loop—tell people how their input was used
+- Explain decisions even when feedback wasn't incorporated
+- Use GitHub comments to keep communication in context
+
+### Step 6: Validate
+
+**Key Actions:**
+
+- Verify changes actually address the original feedback
+- Check for unintended consequences of updates
+- Confirm with feedback source when appropriate
+
+**Guidelines:**
+
+- Quick review with original feedback provider builds trust
+- Watch for ripple effects on related requirements
+- Iterate if validation reveals issues
+
+### Step 7: Repeat
+
+**Key Actions:**
+
+- Schedule regular feedback cycles throughout the project
+- Build feedback collection into standard workflows
+- Continuously refine based on ongoing learnings
+
+**Guidelines:**
+
+- Don't wait for perfect timing—continuous feedback beats batched reviews
+- Adjust feedback frequency based on project phase
+- Feedback is an ongoing activity, not a one-time event
+
 ## Feedback at Each Stage
 
 Each level of the requirements hierarchy has distinct feedback needs. For detailed guidance on who to involve, what questions to ask, and how to incorporate feedback at each level, see `references/stage-feedback-guide.md`.
