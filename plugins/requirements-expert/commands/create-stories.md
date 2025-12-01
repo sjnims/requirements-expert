@@ -1,7 +1,7 @@
 ---
 name: re:create-stories
 description: Break down an epic into user stories following INVEST criteria and create story issues in GitHub Projects
-allowed-tools: [AskUserQuestion, Bash, Read]
+allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 ---
 
 # Create User Stories

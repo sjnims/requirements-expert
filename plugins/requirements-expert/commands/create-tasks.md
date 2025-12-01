@@ -1,7 +1,7 @@
 ---
 name: re:create-tasks
 description: Break down a user story into implementation tasks with acceptance criteria and create GitHub issues in a GitHub Project.
-allowed-tools: [AskUserQuestion, Bash, Read]
+allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 ---
 
 # Create Tasks

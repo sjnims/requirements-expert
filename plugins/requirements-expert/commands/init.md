@@ -1,7 +1,7 @@
 ---
 name: re:init
 description: Initialize a GitHub Project for requirements management with custom fields and views
-allowed-tools: [Bash, AskUserQuestion]
+allowed-tools: [Bash(gh:*), AskUserQuestion]
 ---
 
 # Initialize Requirements Project

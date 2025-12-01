@@ -204,7 +204,7 @@ Only four priority levels (no custom priorities):
    ---
    name: new-command
    description: Brief description of what this command does
-   allowed-tools: [Bash, AskUserQuestion, Read]
+   allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
    ---
    ```
 3. Write instructions **FOR Claude** (not TO the user)
@@ -630,7 +630,7 @@ Each command is a markdown file with YAML frontmatter:
 ---
 name: command-name
 description: Brief description
-allowed-tools: [Bash, AskUserQuestion, Read]
+allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 ---
 ```
 
@@ -836,6 +836,25 @@ When developing new features for this plugin:
 ## Critical PR Review Patterns
 
 Key patterns to follow when reviewing PRs or writing code:
+
+### Command Tool Permissions (CRITICAL)
+
+All commands should follow the principle of least privilege:
+
+**Bash tool restrictions**:
+- ✅ Use: `Bash(gh:*)` - commands only use GitHub CLI
+- ❌ Never: Unrestricted `Bash` - violates least privilege principle
+
+**Standard allowed-tools pattern**:
+```yaml
+allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
+```
+
+**Why `Bash(gh:*)`?**
+- All plugin commands only execute `gh` CLI operations
+- Reduces attack surface if command files are compromised
+- Makes permission requirements explicit and auditable
+- Follows Claude Code best practice: "Limit scope"
 
 ### GitHub CLI Usage Patterns (CRITICAL)
 

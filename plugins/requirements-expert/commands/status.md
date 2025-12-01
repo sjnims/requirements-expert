@@ -1,7 +1,7 @@
 ---
 name: re:status
 description: Show comprehensive overview of requirements project status, progress, and health
-allowed-tools: [AskUserQuestion, Bash, Read, Write]
+allowed-tools: [AskUserQuestion, Bash(gh:*), Read, Write]
 ---
 
 # Requirements Project Status
