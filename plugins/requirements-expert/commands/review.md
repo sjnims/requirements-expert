@@ -97,176 +97,73 @@ For each user story, verify INVEST criteria:
 
 ### Step 5: Validation Report
 
-Generate comprehensive report:
+Generate a comprehensive validation report with these sections:
 
-```
-# Requirements Validation Report
+**Header:**
 
-**Generated:** [Date/Time]
-**Project:** [Project Name]
+- Generation timestamp and project name
 
-## Summary
+**Summary:**
 
-| Level | Count | Complete | Issues |
-|-------|-------|----------|--------|
-| Vision | [N] | [Yes/No] | [N] |
-| Epics | [N] | [Yes/No] | [N] |
-| Stories | [N] | [Yes/No] | [N] |
-| Tasks | [N] | [Yes/No] | [N] |
+- Table showing counts by level (Vision, Epic, Story, Task)
+- Completion status and issue count per level
+- Overall status: Pass / Warning / Fail
 
-**Overall Status:** [Pass / Warning / Fail]
+**Critical Issues (Must Fix):**
 
----
+List any critical issues found, such as:
 
-## Critical Issues (Must Fix)
+- Missing vision (no vision issue exists)
+- Broken traceability (orphaned epics, stories, or tasks without parents)
+- Incomplete requirements (missing scope definitions, acceptance criteria)
 
-[List any critical issues that prevent requirements from being actionable]
+Reference specific issue numbers for each issue found.
 
-### Missing Vision
-- No vision issue found - run `/re:discover-vision`
+**Warnings (Should Address):**
 
-### Broken Traceability
-- Epic #[num] has no parent vision
-- Story #[num] has no parent epic
-- Task #[num] has no parent story
+List any warnings found, such as:
 
-### Incomplete Requirements
-- Epic #[num] missing scope definition
-- Story #[num] has no acceptance criteria
-- Task #[num] missing acceptance criteria
+- Quality issues (oversized stories, vague tasks, overlapping epics)
+- INVEST violations (not independent, not valuable, not testable)
+- Priority imbalances (>60% Must Have, missing Won't Have, child priority > parent)
 
----
+Reference specific issue numbers for each warning.
 
-## Warnings (Should Address)
+**Recommendations:**
 
-[List issues that should be fixed but don't block progress]
+- Actionable fixes grouped by type (add content, split items, clarify, fix traceability)
+- Reference specific issue numbers with suggested actions
 
-### Quality Issues
-- Story #[num] too large (>5 days) - consider splitting
-- Task #[num] too vague - needs clearer description
-- Epic #[num] overlaps with Epic #[num2]
+**Next Steps:**
 
-### INVEST Violations
-- Story #[num] not independent (depends on #[num2])
-- Story #[num] not valuable (too technical, no user benefit)
-- Story #[num] not testable (vague acceptance criteria)
+- Context-appropriate actions based on validation results
+- Different guidance for critical issues, warnings only, or all pass
 
-### Priority Issues
-- Must Have items exceed 60% - review priorities
-- No Won't Haves defined - consider scope boundaries
-- Child priority higher than parent
+**Validation Details:**
 
----
-
-## Recommendations
-
-[Actionable suggestions for improvement]
-
-1. **Add Missing Content:**
-   - Update Epic #[num] with success criteria
-   - Add acceptance criteria to Story #[num]
-
-2. **Split Large Items:**
-   - Story #[num] - suggest splitting into [X] stories
-
-3. **Clarify Vague Items:**
-   - Task #[num] - add specific technical notes
-
-4. **Fix Traceability:**
-   - Link Story #[num] to Epic #[num2]
-
----
-
-## Next Steps
-
-Based on validation results:
-
-**If Critical Issues Found:**
-1. Fix critical issues before proceeding
-2. Re-run `/re:review` after fixes
-
-**If Only Warnings:**
-1. Address high-priority warnings
-2. Proceed with implementation
-3. Refine as you learn
-
-**If All Pass:**
-Requirements are solid! Ready for implementation.
-
----
-
-## Validation Details
-
-### Vision Validation
-[Detailed findings for vision]
-- Status: [Pass / Warning / Fail]
-- Issues: [List]
-
-### Epic Validation
-[Detailed findings for epics]
-- Epics validated: [N]
-- Pass: [N], Warnings: [N], Fail: [N]
-- Issues: [List]
-
-### Story Validation
-[Detailed findings for stories]
-- Stories validated: [N]
-- INVEST compliance: [%]%
-- Issues: [List]
-
-### Task Validation
-[Detailed findings for tasks]
-- Tasks validated: [N]
-- Avg acceptance criteria per task: [N]
-- Issues: [List]
-```
+- Per-level breakdown (Vision, Epic, Story, Task)
+- Status and specific issues for each level
 
 ### Step 6: Offer to Fix Issues
 
-After presenting report, offer to help fix issues:
+After presenting report, offer to help fix issues. Options include:
 
-```
-Would you like help fixing any of these issues?
-
-I can:
 - Update issues with missing content
 - Split large stories/tasks
 - Add missing acceptance criteria
 - Fix broken traceability links
 
-Which would you like to address first?
-```
-
-**If user wants help:**
-- For each issue, provide specific guidance or make updates
-- Update GitHub issues in GitHub Project as needed
-- Re-run validation after fixes
+If user wants help, provide specific guidance or make updates via GitHub CLI, then re-run validation after fixes.
 
 ### Step 7: Success Message
 
-Display:
-```
-Requirements review complete!
+Display summary with:
 
-**Status:** [Overall status]
-**Critical Issues:** [N]
-**Warnings:** [N]
-
-[If issues found:]
-Address critical issues before proceeding with implementation.
-Use the validation report above to guide fixes.
-
-[If no issues:]
-Requirements look good! You're ready to start implementation.
-
-**Recommendations:**
-- Re-run `/re:review` periodically (weekly/monthly)
-- Update requirements as you learn during implementation
-- Use feedback from testing to refine acceptance criteria
-
-**Next Steps:**
-[Based on validation status, suggest appropriate next actions]
-```
+- Overall status and issue counts
+- If issues found: guidance to address critical issues first
+- If no issues: confirmation that requirements are ready
+- Recommendations for ongoing maintenance (periodic reviews, iterative refinement)
+- Context-appropriate next steps
 
 ## Error Handling
 
