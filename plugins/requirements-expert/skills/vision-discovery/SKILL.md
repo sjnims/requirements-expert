@@ -41,12 +41,12 @@ The vision serves as a north star for all product decisions, helping teams stay 
 
 Begin by exploring the problem being solved. Ask probing questions to uncover the root issue:
 
-**Essential Questions:**
-- What problem are you trying to solve?
-- Who experiences this problem?
-- How do they currently address it (workarounds, competitors, manual processes)?
-- Why is the current situation unsatisfactory?
-- What happens if this problem remains unsolved?
+**Key Actions:**
+- Explore the problem being solved and why it matters
+- Identify who experiences this problem
+- Document current workarounds, competitors, and manual processes
+- Understand why the current situation is unsatisfactory
+- Assess consequences if the problem remains unsolved
 
 **Technique:** Use the "5 Whys" technique to dig deeper into root causes. When the user describes a problem, ask "why is that a problem?" repeatedly to uncover underlying issues.
 
@@ -62,12 +62,12 @@ Begin by exploring the problem being solved. Ask probing questions to uncover th
 
 Clearly define who will use and benefit from the solution:
 
-**Essential Questions:**
-- Who is the primary user/customer?
-- Are there secondary users (admins, support staff, etc.)?
-- What are their key characteristics (role, expertise level, context)?
-- What are their goals and motivations?
-- What pain points do they experience?
+**Key Actions:**
+- Identify the primary user or customer
+- Determine secondary users (admins, support staff, etc.)
+- Define key characteristics (role, expertise level, context)
+- Understand user goals and motivations
+- Document pain points users experience
 
 **Technique:** Create user personas with specific, concrete details. Interview or research actual users when possible. Prioritize users by frequency of use and criticality of their needs.
 
@@ -83,11 +83,11 @@ Clearly define who will use and benefit from the solution:
 
 Articulate what the solution is and how it addresses the problem:
 
-**Essential Questions:**
-- In one sentence, what does this product do?
-- What makes this solution different or better than alternatives?
-- What are the 2-3 core capabilities that define this product?
-- What is explicitly NOT part of this vision (scope boundaries)?
+**Key Actions:**
+- Articulate what the product does in one sentence
+- Define what makes this solution different or better than alternatives
+- Identify the 2-3 core capabilities that define this product
+- Establish scope boundaries (what is explicitly NOT part of this vision)
 
 **Technique:** Use the "elevator pitch" format: "For [target users] who [need/problem], [product name] is a [category] that [key benefit]. Unlike [alternatives], our product [unique differentiator]."
 
@@ -103,11 +103,11 @@ Articulate what the solution is and how it addresses the problem:
 
 Define how success will be measured:
 
-**Essential Questions:**
-- How will we know if this product is successful?
-- What metrics matter most (usage, revenue, satisfaction, efficiency)?
-- What does "good" look like in 6 months? 1 year?
-- What user behaviors indicate value delivery?
+**Key Actions:**
+- Define how product success will be measured
+- Determine which metrics matter most (usage, revenue, satisfaction, efficiency)
+- Establish what "good" looks like in 6 months and 1 year
+- Identify user behaviors that indicate value delivery
 
 **Technique:** Apply the SMART framework (Specific, Measurable, Achievable, Relevant, Time-bound). Focus on leading indicators of value rather than vanity metrics. Distinguish between adoption metrics, engagement metrics, and outcome metrics.
 
@@ -123,12 +123,12 @@ Define how success will be measured:
 
 Create a structured vision document in GitHub Projects as an issue with Type: Vision. Use the template structure from `references/vision-template.md`.
 
-**Essential Questions:**
-- Have all previous steps been completed with clear outputs?
-- Is the problem statement specific and well-articulated?
-- Are target users clearly defined with concrete characteristics?
-- Is the solution vision differentiated and bounded?
-- Are success metrics specific and measurable?
+**Key Actions:**
+- Verify all previous steps have been completed with clear outputs
+- Confirm the problem statement is specific and well-articulated
+- Ensure target users are clearly defined with concrete characteristics
+- Validate the solution vision is differentiated and bounded
+- Check that success metrics are specific and measurable
 
 **Technique:** Use the vision template structure. Synthesize outputs from Steps 1-4 into a cohesive document. Keep it concise (500-1,000 words total). Review with stakeholders before finalizing.
 
