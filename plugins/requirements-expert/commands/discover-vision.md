@@ -1,7 +1,7 @@
 ---
 name: re:discover-vision
 description: Guide user through interactive vision discovery and create vision issue in GitHub Projects
-allowed-tools: [AskUserQuestion, Bash]
+allowed-tools: [AskUserQuestion, Bash(gh:*)]
 ---
 
 # Discover Product Vision

@@ -1,7 +1,7 @@
 ---
 name: re:prioritize
 description: Prioritize requirements (epics, stories, or tasks) using MoSCoW framework (Must/Should/Could/Won't Have)
-allowed-tools: [AskUserQuestion, Bash, Read]
+allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 ---
 
 # Prioritize Requirements
