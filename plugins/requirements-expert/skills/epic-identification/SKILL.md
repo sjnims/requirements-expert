@@ -2,7 +2,7 @@
 name: epic-identification
 description: |
   This skill should be used when the user asks to "identify epics", "break down vision into epics", "find major features", "discover capability areas", "decompose vision", "group requirements into themes", "define high-level features", "what epics do I need", "turn vision into work items", or "split project into epics". Provides methodology for deriving epics from a vision statement using user journey mapping, capability decomposition, and stakeholder analysis.
-version: 0.2.0
+version: 0.3.0
 ---
 
 # Epic Identification
