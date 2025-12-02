@@ -334,26 +334,27 @@ actionlint .github/workflows/markdownlint.yml
 
 ### CI/CD Workflows
 
-The repository includes 9 GitHub Actions workflows:
+The repository includes 10 GitHub Actions workflows:
 
 **Primary CI** (runs on every PR):
 1. **markdownlint.yml** (~30-40s) - Enforces markdown style (ATX headers, dash lists, 2-space indentation)
 2. **links.yml** (~1-2min) - Validates all links (excluding `.lycheeignore`)
 3. **validate-workflows.yml** (~20-30s) - Validates workflow YAML syntax using actionlint
 
-**Claude Code Workflow**:
-4. **claude.yml** - Claude Code integration for issue triage and PR assistance
+**Claude Code Workflows**:
+4. **claude.yml** - Interactive Claude Code for `@claude` mentions
+5. **claude-pr-review.yml** - Automated PR review on all PRs (opened, synchronize, ready_for_review)
 
 **Automation Workflows**:
-5. **labeler.yml** - Auto-labels PRs based on changed files
-6. **sync-labels.yml** - Syncs labels from labels.yml to repository
+6. **labeler.yml** - Auto-labels PRs based on changed files
+7. **sync-labels.yml** - Syncs labels from labels.yml to repository
 
 **Dependency Management Workflows**:
-7. **dependabot-auto-merge.yml** - Auto-merges non-breaking Dependabot PRs
+8. **dependabot-auto-merge.yml** - Auto-merges non-breaking Dependabot PRs
 
 **Utility Workflows**:
-8. **greet.yml** - Welcomes first-time contributors
-9. **stale.yml** - Marks inactive issues/PRs as stale
+9. **greet.yml** - Welcomes first-time contributors
+10. **stale.yml** - Marks inactive issues/PRs as stale
 
 **If markdownlint fails**:
 ```bash

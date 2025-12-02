@@ -1,0 +1,82 @@
+name: Claude PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+
+# Cancel any in-progress review for the same PR when new commits are pushed
+concurrency:
+  group: pr-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    # Skip bots and draft PRs
+    if: |
+      github.actor != 'dependabot[bot]' &&
+      github.actor != 'claude[bot]' &&
+      github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Review PR with Claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          track_progress: true
+          prompt: |
+            Review this pull request for the requirements-expert Claude Code plugin.
+
+            ## Context
+            - Repository: ${{ github.repository }}
+            - PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}
+            - Author: ${{ github.event.pull_request.user.login }}
+
+            ## Instructions
+            1. Get the PR diff to understand what changed
+            2. Review the changes against the criteria below
+            3. Post a summary comment with your findings
+
+            ## Review Criteria
+
+            ### Plugin Components (if changed)
+            - **Commands** (`commands/*.md`): Verify YAML frontmatter has name, description, allowed-tools. Check for imperative voice ("Do X" not "You should do X").
+            - **Skills** (`skills/*/SKILL.md`): Check trigger phrases in description, version in frontmatter, progressive disclosure pattern.
+            - **Agents** (`agents/*.md`): Verify <example> blocks for triggering, appropriate tool restrictions.
+            - **Hooks** (`hooks/hooks.json`): Validate event types and matcher patterns.
+
+            ### Markdown Quality
+            - ATX-style headers (`#` not underlines)
+            - Dash-style lists (`-` not `*` or `+`)
+            - 2-space indentation for nested lists
+            - Fenced code blocks (not indented)
+
+            ### GitHub CLI Patterns (if applicable)
+            - Projects use `--owner` not `--repo` (projects are owner-scoped)
+            - Use project number (integer) not GraphQL ID
+
+            ### Documentation
+            - README.md updates if user-facing changes
+            - CLAUDE.md updates if development process changes
+
+            ## Output Format
+            Post a PR comment with your review. Structure it as:
+            1. **Summary**: One-line assessment (looks good / needs changes / has concerns)
+            2. **What's Good**: Positive aspects of the PR
+            3. **Suggestions**: Improvements or issues found (if any)
+            4. **Checklist Verification**: Confirm key items are addressed
+
+            Be constructive and helpful. Focus on significant issues, not nitpicks.
+            If the PR looks good, say so briefly - don't invent problems.
+          claude_args: |
+            --allowedTools Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr comment:*),Read,Glob
