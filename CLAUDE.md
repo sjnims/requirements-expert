@@ -348,7 +348,7 @@ The repository includes 12 GitHub Actions workflows:
 7. **version-check.yml** (~30-60s) - Validates version consistency across plugin files (path-filtered)
 
 **Automation Workflows**:
-8. **labeler.yml** - Auto-labels PRs based on changed files
+8. **semantic-labeler.yml** - Claude-powered semantic labeling for issues and PRs
 9. **sync-labels.yml** - Syncs labels from labels.yml to repository
 
 **Dependency Management Workflows**:
