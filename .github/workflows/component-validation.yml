@@ -1,0 +1,142 @@
+name: Plugin Component Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+    paths:
+      - "plugins/requirements-expert/commands/**"
+      - "plugins/requirements-expert/skills/**"
+      - "plugins/requirements-expert/agents/**"
+      - "plugins/requirements-expert/hooks/**"
+
+# Cancel any in-progress validation for the same PR when new commits are pushed
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    # Skip bots and draft PRs
+    if: |
+      github.actor != 'dependabot[bot]' &&
+      github.actor != 'claude[bot]' &&
+      github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
+        with:
+          fetch-depth: 1
+
+      - name: Validate plugin components
+        uses: anthropics/claude-code-action@6337623ebba10cf8c8214b507993f8062fd4ccfb # v1.0.22
+        id: validate
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Validate the plugin components in this repository for structural correctness and quality.
+
+            ## Context
+            - Repository: ${{ github.repository }}
+            - PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}
+
+            ## Instructions
+
+            1. First, read the plugin version from `plugins/requirements-expert/.claude-plugin/plugin.json`
+            2. Then validate each component type against the rules below
+            3. Return structured JSON with validation results
+
+            ## Validation Rules
+
+            ### Commands (`plugins/requirements-expert/commands/*.md`)
+
+            For each command file, verify:
+            - [ ] YAML frontmatter exists with `name`, `description`, `allowed-tools` fields
+            - [ ] `description` is 60 characters or fewer
+            - [ ] `allowed-tools` uses `Bash(gh:*)` not unrestricted `Bash` (security requirement)
+            - [ ] Body uses imperative form ("Do X", "Create Y") not second person ("You should X")
+            - [ ] No draft files exist (`*-SUGGESTED.md`, `*-BACKUP.md`, `*-OLD.md`)
+
+            ### Skills (`plugins/requirements-expert/skills/*/SKILL.md`)
+
+            For each skill SKILL.md file, verify:
+            - [ ] YAML frontmatter exists with `name`, `description`, `version` fields
+            - [ ] `description` uses third-person with trigger phrases (starts with "This skill should be used when...")
+            - [ ] `version` matches the plugin.json version
+            - [ ] Body length is reasonable (core concepts, not exhaustive documentation)
+
+            ### Agents (`plugins/requirements-expert/agents/*.md`)
+
+            For each agent file, verify:
+            - [ ] YAML frontmatter exists with `name`, `description`, `model`, `color`, `tools` fields
+            - [ ] `description` includes `<example>` blocks (at least 2, ideally 3-4)
+            - [ ] Each `<example>` block has proper structure (Context, user, assistant, commentary)
+            - [ ] `tools` list is present and appropriate for the agent's purpose
+
+            ### Hooks (`plugins/requirements-expert/hooks/hooks.json`)
+
+            Verify:
+            - [ ] File is valid JSON
+            - [ ] Event types are valid: UserPromptSubmit, PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, PreCompact, Notification
+            - [ ] Matcher patterns are valid regex (test by attempting to compile)
+
+            ## Output Format
+
+            Return ONLY valid JSON matching this schema:
+            ```json
+            {
+              "commands_valid": true/false,
+              "commands_issues": ["issue 1", "issue 2"],
+              "skills_valid": true/false,
+              "skills_issues": ["issue 1", "issue 2"],
+              "agents_valid": true/false,
+              "agents_issues": ["issue 1", "issue 2"],
+              "hooks_valid": true/false,
+              "hooks_issues": ["issue 1", "issue 2"],
+              "all_valid": true/false,
+              "summary": "Brief overall summary"
+            }
+            ```
+
+            Set `all_valid` to true only if all categories are valid.
+            Include specific file names and line numbers in issues when possible.
+          claude_args: |
+            --allowed-tools Read,Glob,Grep
+            --json-schema '{"type":"object","properties":{"commands_valid":{"type":"boolean"},"commands_issues":{"type":"array","items":{"type":"string"}},"skills_valid":{"type":"boolean"},"skills_issues":{"type":"array","items":{"type":"string"}},"agents_valid":{"type":"boolean"},"agents_issues":{"type":"array","items":{"type":"string"}},"hooks_valid":{"type":"boolean"},"hooks_issues":{"type":"array","items":{"type":"string"}},"all_valid":{"type":"boolean"},"summary":{"type":"string"}},"required":["all_valid"]}'
+
+      - name: Check validation result
+        if: always() && steps.validate.outputs.structured_output != ''
+        env:
+          VALIDATION_OUTPUT: ${{ steps.validate.outputs.structured_output }}
+        run: |
+          {
+            echo "## Validation Results"
+            echo '```json'
+            echo "$VALIDATION_OUTPUT"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          # Check if validation passed
+          all_valid=$(echo "$VALIDATION_OUTPUT" | jq -r '.all_valid')
+          if [ "$all_valid" != "true" ]; then
+            {
+              echo ""
+              echo "### Issues Found"
+              echo "$VALIDATION_OUTPUT" | jq -r '.commands_issues[]? // empty | "- **Commands**: " + .'
+              echo "$VALIDATION_OUTPUT" | jq -r '.skills_issues[]? // empty | "- **Skills**: " + .'
+              echo "$VALIDATION_OUTPUT" | jq -r '.agents_issues[]? // empty | "- **Agents**: " + .'
+              echo "$VALIDATION_OUTPUT" | jq -r '.hooks_issues[]? // empty | "- **Hooks**: " + .'
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo ""
+            echo "Component validation failed. Please fix the issues above."
+            exit 1
+          fi
+
+          echo ""
+          echo "All plugin components are valid."
