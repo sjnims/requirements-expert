@@ -1,9 +1,10 @@
 name: Claude Automated PR Review
 
 on:
-  # Use pull_request_target to enable reviews on fork PRs with write permissions
-  # Safe because we only read/review code via gh pr diff, not execute it
-  pull_request_target:
+  # Using pull_request (not pull_request_target) for security:
+  # - pull_request_target exposes secrets to fork PRs, creating exfiltration risk
+  # - For fork PRs needing review, maintainers can manually @claude via claude.yml
+  pull_request:
     types: [opened, synchronize, ready_for_review]
 
 # Cancel any in-progress review for the same PR when new commits are pushed
