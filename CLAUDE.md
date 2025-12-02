@@ -342,8 +342,8 @@ The repository includes 10 GitHub Actions workflows:
 3. **validate-workflows.yml** (~20-30s) - Validates workflow YAML syntax using actionlint
 
 **Claude Code Workflows**:
-4. **claude.yml** - Interactive Claude Code for `@claude` mentions
-5. **claude-pr-review.yml** - Automated PR review on all PRs (opened, synchronize, ready_for_review)
+4. **claude.yml** - Interactive Claude Code for `@claude` mentions (manual trigger)
+5. **claude-pr-review.yml** - Automated PR review on all non-draft PRs (automatic trigger)
 
 **Automation Workflows**:
 6. **labeler.yml** - Auto-labels PRs based on changed files

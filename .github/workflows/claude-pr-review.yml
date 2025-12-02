@@ -1,4 +1,4 @@
-name: Claude PR Review
+name: Claude Automated PR Review
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
 
 # Cancel any in-progress review for the same PR when new commits are pushed
 concurrency:
-  group: pr-review-${{ github.event.pull_request.number }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
@@ -25,12 +25,12 @@ jobs:
       actions: read
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Review PR with Claude
-        uses: anthropics/claude-code-action@v1
+        uses: anthropics/claude-code-action@6337623ebba10cf8c8214b507993f8062fd4ccfb # v1.0.22
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           track_progress: true
@@ -79,4 +79,4 @@ jobs:
             Be constructive and helpful. Focus on significant issues, not nitpicks.
             If the PR looks good, say so briefly - don't invent problems.
           claude_args: |
-            --allowedTools Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr comment:*),Read,Glob
+            --allowed-tools Bash(gh pr:*),Read,Glob,Grep
