@@ -135,19 +135,20 @@ jobs:
               echo ""
               echo "### Issues Found"
               # Group issues by component type for cleaner output
-              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '.commands_issues | length')" -gt 0 ]; then
+              # Use // 0 to handle null/missing arrays gracefully
+              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '(.commands_issues | length) // 0')" -gt 0 ]; then
                 echo "**Commands:**"
                 echo "$VALIDATION_OUTPUT" | jq -r '.commands_issues[] | "- " + .'
               fi
-              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '.skills_issues | length')" -gt 0 ]; then
+              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '(.skills_issues | length) // 0')" -gt 0 ]; then
                 echo "**Skills:**"
                 echo "$VALIDATION_OUTPUT" | jq -r '.skills_issues[] | "- " + .'
               fi
-              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '.agents_issues | length')" -gt 0 ]; then
+              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '(.agents_issues | length) // 0')" -gt 0 ]; then
                 echo "**Agents:**"
                 echo "$VALIDATION_OUTPUT" | jq -r '.agents_issues[] | "- " + .'
               fi
-              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '.hooks_issues | length')" -gt 0 ]; then
+              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '(.hooks_issues | length) // 0')" -gt 0 ]; then
                 echo "**Hooks:**"
                 echo "$VALIDATION_OUTPUT" | jq -r '.hooks_issues[] | "- " + .'
               fi
