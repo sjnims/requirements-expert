@@ -17,10 +17,12 @@ concurrency:
 jobs:
   label-issue:
     name: Label Issue
-    if: github.event_name == 'issues'
+    # Skip bot-created issues to prevent potential loops
+    if: |
+      github.event_name == 'issues' &&
+      github.actor != 'dependabot[bot]' &&
+      github.actor != 'claude[bot]'
     runs-on: ubuntu-latest
-    # Skip bots
-    # Note: github.actor is 'github-actions[bot]' for automated issues
     permissions:
       contents: read
       issues: write
@@ -192,5 +194,6 @@ jobs:
             ```
 
             After applying labels, briefly explain your reasoning.
+          # PR job needs Read,Glob to analyze file changes for accurate component detection
           claude_args: |
             --allowed-tools Bash(gh pr:*),Read,Glob
