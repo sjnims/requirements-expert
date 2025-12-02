@@ -1,7 +1,9 @@
 name: CI Failure Analysis
 
 # Automatically analyze failed CI runs and provide actionable fix suggestions
-# Triggers when Markdown Lint, Link Checker, or Validate Workflows fail
+# Triggers when Markdown Lint, Check Links, or Validate Workflows fail
+#
+# Testing: Intentionally fail markdownlint (e.g., change - to * in any .md file)
 
 on:
   workflow_run:
@@ -111,7 +113,7 @@ jobs:
             Use this format for the comment:
 
             ```markdown
-            ## :x: CI Failure Analysis: {Workflow Name}
+            ## ❌ CI Failure Analysis: {Workflow Name}
 
             **Run**: [#{run_id}]({run_url})
             **Commit**: `{sha:7}`
@@ -145,7 +147,7 @@ jobs:
             - Show corrected YAML syntax
 
             ---
-            :robot: Analyzed by [Claude](https://claude.ai/code)
+            🤖 Analyzed by [Claude](https://claude.ai/code)
             ```
 
             Post the comment using:
