@@ -48,7 +48,7 @@ jobs:
 
             ## Instructions
 
-            1. First, read the plugin version from `plugins/requirements-expert/.claude-plugin/plugin.json`
+            1. First, read the plugin version from `plugins/requirements-expert/.claude-plugin/plugin.json` (needed for skill version validation)
             2. Then validate each component type against the rules below
             3. Return structured JSON with validation results
 
@@ -75,8 +75,8 @@ jobs:
 
             For each agent file, verify:
             - [ ] YAML frontmatter exists with `name`, `description`, `model`, `color`, `tools` fields
-            - [ ] `description` includes `<example>` blocks (at least 2, ideally 3-4)
-            - [ ] Each `<example>` block has proper structure (Context, user, assistant, commentary)
+            - [ ] `description` field includes `<example>` blocks (at least 2, ideally 3-4)
+            - [ ] Each `<example>` block has proper structure (Context line, `user:` and `assistant:` dialogue lines, and `<commentary>` XML tags)
             - [ ] `tools` list is present and appropriate for the agent's purpose
 
             ### Hooks (`plugins/requirements-expert/hooks/hooks.json`)
@@ -122,16 +122,35 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
-          # Check if validation passed
-          all_valid=$(echo "$VALIDATION_OUTPUT" | jq -r '.all_valid')
+          # Validate JSON output before processing
+          if ! all_valid=$(echo "$VALIDATION_OUTPUT" | jq -r '.all_valid' 2>/dev/null); then
+            echo "Error: Invalid JSON output from validation step"
+            echo "Raw output:"
+            echo "$VALIDATION_OUTPUT"
+            exit 1
+          fi
+
           if [ "$all_valid" != "true" ]; then
             {
               echo ""
               echo "### Issues Found"
-              echo "$VALIDATION_OUTPUT" | jq -r '.commands_issues[]? // empty | "- **Commands**: " + .'
-              echo "$VALIDATION_OUTPUT" | jq -r '.skills_issues[]? // empty | "- **Skills**: " + .'
-              echo "$VALIDATION_OUTPUT" | jq -r '.agents_issues[]? // empty | "- **Agents**: " + .'
-              echo "$VALIDATION_OUTPUT" | jq -r '.hooks_issues[]? // empty | "- **Hooks**: " + .'
+              # Group issues by component type for cleaner output
+              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '.commands_issues | length')" -gt 0 ]; then
+                echo "**Commands:**"
+                echo "$VALIDATION_OUTPUT" | jq -r '.commands_issues[] | "- " + .'
+              fi
+              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '.skills_issues | length')" -gt 0 ]; then
+                echo "**Skills:**"
+                echo "$VALIDATION_OUTPUT" | jq -r '.skills_issues[] | "- " + .'
+              fi
+              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '.agents_issues | length')" -gt 0 ]; then
+                echo "**Agents:**"
+                echo "$VALIDATION_OUTPUT" | jq -r '.agents_issues[] | "- " + .'
+              fi
+              if [ "$(echo "$VALIDATION_OUTPUT" | jq -r '.hooks_issues | length')" -gt 0 ]; then
+                echo "**Hooks:**"
+                echo "$VALIDATION_OUTPUT" | jq -r '.hooks_issues[] | "- " + .'
+              fi
             } >> "$GITHUB_STEP_SUMMARY"
             echo ""
             echo "Component validation failed. Please fix the issues above."
