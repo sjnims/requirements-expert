@@ -334,7 +334,7 @@ actionlint .github/workflows/markdownlint.yml
 
 ### CI/CD Workflows
 
-The repository includes 13 GitHub Actions workflows:
+The repository includes 14 GitHub Actions workflows:
 
 **Primary CI** (runs on every PR):
 1. **markdownlint.yml** (~30-40s) - Enforces markdown style (ATX headers, dash lists, 2-space indentation)
@@ -351,13 +351,14 @@ The repository includes 13 GitHub Actions workflows:
 **Automation Workflows**:
 9. **semantic-labeler.yml** - Claude-powered semantic labeling for issues and PRs
 10. **sync-labels.yml** - Syncs labels from labels.yml to repository
+11. **weekly-maintenance.yml** - Weekly repository health audit creating maintenance report issues (scheduled Monday 9:00 UTC)
 
 **Dependency Management Workflows**:
-11. **dependabot-auto-merge.yml** - Auto-merges non-breaking Dependabot PRs
+12. **dependabot-auto-merge.yml** - Auto-merges non-breaking Dependabot PRs
 
 **Utility Workflows**:
-12. **greet.yml** - Welcomes first-time contributors
-13. **stale.yml** - Marks inactive issues/PRs as stale
+13. **greet.yml** - Welcomes first-time contributors
+14. **stale.yml** - Marks inactive issues/PRs as stale
 
 **If markdownlint fails**:
 ```bash
