@@ -158,5 +158,7 @@ jobs:
             exit 1
           fi
 
-          echo ""
-          echo "All plugin components are valid."
+          {
+            echo ""
+            echo "All plugin components are valid."
+          } >> "$GITHUB_STEP_SUMMARY"
