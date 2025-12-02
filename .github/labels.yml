@@ -27,6 +27,14 @@
   color: "d876e3"
   description: "Further information is requested (issues and discussions)"
 
+- name: "refactor"
+  color: "fef65b"
+  description: "Code restructuring without behavior change"
+
+- name: "chore"
+  color: "c5def5"
+  description: "Maintenance tasks (dependencies, CI, tooling)"
+
 - name: "wontfix"
   color: "ffffff"
   description: "This will not be worked on"

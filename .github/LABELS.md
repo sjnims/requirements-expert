@@ -13,7 +13,7 @@ This directory contains the canonical label configuration for the repository.
 ### Type Labels
 
 Default GitHub labels for issue/PR classification:
-- `bug`, `documentation`, `duplicate`, `enhancement`, `invalid`, `question`, `wontfix`
+- `bug`, `documentation`, `duplicate`, `enhancement`, `invalid`, `question`, `refactor`, `chore`, `wontfix`
 
 ### Component Labels
 
