@@ -334,7 +334,7 @@ actionlint .github/workflows/markdownlint.yml
 
 ### CI/CD Workflows
 
-The repository includes 11 GitHub Actions workflows:
+The repository includes 12 GitHub Actions workflows:
 
 **Primary CI** (runs on every PR):
 1. **markdownlint.yml** (~30-40s) - Enforces markdown style (ATX headers, dash lists, 2-space indentation)
@@ -345,17 +345,18 @@ The repository includes 11 GitHub Actions workflows:
 4. **claude.yml** - Interactive Claude Code for `@claude` mentions (manual trigger)
 5. **claude-pr-review.yml** - Automated PR review on all non-draft PRs (automatic trigger)
 6. **component-validation.yml** - Deep validation of plugin components on PR changes (path-filtered)
+7. **version-check.yml** (~30-60s) - Validates version consistency across plugin files (path-filtered)
 
 **Automation Workflows**:
-7. **labeler.yml** - Auto-labels PRs based on changed files
-8. **sync-labels.yml** - Syncs labels from labels.yml to repository
+8. **labeler.yml** - Auto-labels PRs based on changed files
+9. **sync-labels.yml** - Syncs labels from labels.yml to repository
 
 **Dependency Management Workflows**:
-9. **dependabot-auto-merge.yml** - Auto-merges non-breaking Dependabot PRs
+10. **dependabot-auto-merge.yml** - Auto-merges non-breaking Dependabot PRs
 
 **Utility Workflows**:
-10. **greet.yml** - Welcomes first-time contributors
-11. **stale.yml** - Marks inactive issues/PRs as stale
+11. **greet.yml** - Welcomes first-time contributors
+12. **stale.yml** - Marks inactive issues/PRs as stale
 
 **If markdownlint fails**:
 ```bash

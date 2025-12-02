@@ -1,0 +1,109 @@
+name: Version Consistency Check
+
+on:
+  pull_request:
+    paths:
+      - "plugins/requirements-expert/.claude-plugin/plugin.json"
+      - ".claude-plugin/marketplace.json"
+      - "plugins/requirements-expert/skills/**/SKILL.md"
+  workflow_dispatch: # Manual trigger for pre-release checks
+
+# Cancel any in-progress check for the same PR when new commits are pushed
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-versions:
+    # Skip bots
+    if: |
+      github.actor != 'dependabot[bot]' &&
+      github.actor != 'claude[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
+        with:
+          fetch-depth: 1
+
+      - name: Check version consistency
+        uses: anthropics/claude-code-action@6337623ebba10cf8c8214b507993f8062fd4ccfb # v1.0.22
+        id: version-check
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Check version consistency across all plugin version files.
+
+            ## Files to Check
+
+            1. `plugins/requirements-expert/.claude-plugin/plugin.json` - Extract `version` field (source of truth)
+            2. `.claude-plugin/marketplace.json` - Extract BOTH:
+               - `metadata.version` field
+               - `plugins[0].version` field
+            3. All skill SKILL.md files in `plugins/requirements-expert/skills/*/SKILL.md` - Extract `version:` from YAML frontmatter
+
+            ## Instructions
+
+            1. Read plugin.json and extract the version (this is the expected version)
+            2. Read marketplace.json and extract both version fields
+            3. Read all 6 skill SKILL.md files and extract version from frontmatter
+            4. Compare all versions against the plugin.json version
+            5. Return structured JSON with results
+
+            ## Expected Files
+
+            - plugins/requirements-expert/skills/vision-discovery/SKILL.md
+            - plugins/requirements-expert/skills/epic-identification/SKILL.md
+            - plugins/requirements-expert/skills/user-story-creation/SKILL.md
+            - plugins/requirements-expert/skills/task-breakdown/SKILL.md
+            - plugins/requirements-expert/skills/prioritization/SKILL.md
+            - plugins/requirements-expert/skills/requirements-feedback/SKILL.md
+          claude_args: |
+            --allowed-tools Read,Glob
+            --json-schema '{"type":"object","properties":{"plugin_json_version":{"type":"string","description":"Version from plugin.json"},"marketplace_metadata_version":{"type":"string","description":"Version from marketplace.json metadata.version"},"marketplace_plugin_version":{"type":"string","description":"Version from marketplace.json plugins[0].version"},"skill_versions":{"type":"object","description":"Map of skill name to version","additionalProperties":{"type":"string"}},"all_match":{"type":"boolean","description":"True if all versions match plugin.json"},"expected_version":{"type":"string","description":"The expected version (from plugin.json)"},"mismatches":{"type":"array","description":"List of files with mismatched versions","items":{"type":"string"}}},"required":["plugin_json_version","all_match","expected_version","mismatches"]}'
+
+      - name: Report version status
+        if: always() && steps.version-check.outputs.structured_output != ''
+        env:
+          VERSION_OUTPUT: ${{ steps.version-check.outputs.structured_output }}
+        run: |
+          {
+            echo "## Version Consistency Check Results"
+            echo '```json'
+            echo "$VERSION_OUTPUT" | jq .
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail if mismatched
+        if: always() && steps.version-check.outputs.structured_output != ''
+        env:
+          VERSION_OUTPUT: ${{ steps.version-check.outputs.structured_output }}
+        run: |
+          # Validate JSON output before processing
+          if ! all_match=$(echo "$VERSION_OUTPUT" | jq -r '.all_match' 2>/dev/null); then
+            echo "Error: Invalid JSON output from version check step"
+            echo "Raw output:"
+            echo "$VERSION_OUTPUT"
+            exit 1
+          fi
+
+          if [ "$all_match" != "true" ]; then
+            expected=$(echo "$VERSION_OUTPUT" | jq -r '.expected_version')
+            echo "❌ Version mismatch detected!"
+            echo ""
+            echo "Expected version: $expected"
+            echo ""
+            echo "Mismatches:"
+            echo "$VERSION_OUTPUT" | jq -r '.mismatches[]' | while read -r mismatch; do
+              echo "  - $mismatch"
+            done
+            echo ""
+            echo "Please update all version files to match plugin.json version ($expected)"
+            exit 1
+          fi
+
+          expected=$(echo "$VERSION_OUTPUT" | jq -r '.expected_version')
+          echo "✅ All versions match: $expected"
