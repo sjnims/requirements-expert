@@ -175,7 +175,7 @@ Use AskUserQuestion:
 - Options:
   - "Prioritize another level" (description: "Prioritize epics/stories/tasks")
   - "Show status" (description: "See overall progress")
-  - "Continue highest priority" (description: "Create stories/tasks for top priority item")
+  - "Start top priority" (description: "Create stories/tasks for top priority item")
   - "Exit" (description: "Stop here")
 - multiSelect: false
 - **Handle response appropriately**
