@@ -21,7 +21,6 @@ Initialize a GitHub Project for requirements management. This command is **idemp
    - If command fails: "Not authenticated with GitHub. Run: `gh auth login`"
    - Check output for required scopes: `repo` and `project`
    - If missing `project` scope: "Refresh authentication with: `gh auth refresh -s project`"
-   - Note: Output could show "Token scopes: 'gist', 'project', 'read:org', 'repo', 'workflow'" format
 
 3. **Detect Repository:**
    - Get repository info: `gh repo view --json nameWithOwner`
@@ -44,7 +43,7 @@ Initialize a GitHub Project for requirements management. This command is **idemp
          description: "Alternative naming for backlog-style requirements tracking"
        - label: "[Repository Name] Roadmap"
          description: "Emphasizes long-term planning and feature roadmap view"
-   - Note: User can select "Other" to provide a custom project name
+   - If user selects "Other", use their custom input as the project name
    - Replace [Repository Name] placeholder with the repository name (the part after the "/" in `nameWithOwner` from step 3). For example, if `nameWithOwner` is "sjnims/requirements-expert", use "requirements-expert"
    - Store the user's choice for project creation
 
@@ -54,8 +53,7 @@ Initialize a GitHub Project for requirements management. This command is **idemp
    - Search the `projects` array for a project where `title` matches the chosen name
    - If found:
      - Inform user: "Found existing project '[title]' at [url]"
-     - Capture project `number` (not `id`) for subsequent commands
-     - Note: Project number is the sequential number (1, 2, 3...) visible in the URL
+     - Extract the `number` field (the sequential integer visible in the project URL, e.g., 1, 2, 3), not the `id` field
      - Skip to step 7 (field creation)
    - If not found:
      - Proceed to create project
@@ -82,8 +80,7 @@ Initialize a GitHub Project for requirements management. This command is **idemp
          - Run: `gh auth status`
          - Display the output
          - Show refresh command: `gh auth refresh -s project`
-         - Explain: "Projects require 'repo' and 'project' scopes"
-         - Note: Projects are owner-scoped (user/org), not repository-scoped
+         - Explain: "Projects require 'repo' and 'project' scopes. Projects are owner-scoped (user/org), not repository-scoped."
          - After showing diagnostics, present the same recovery options again (Retry, Check permissions, or Exit)
        - If "Exit": Exit gracefully with message:
          ```
@@ -166,8 +163,7 @@ Initialize a GitHub Project for requirements management. This command is **idemp
 ## Views Setup (Manual Configuration Required)
 
 11. **Views Setup - Manual Instructions:**
-    - Note: GitHub CLI does not support view creation or configuration
-    - All views must be created manually via the GitHub web interface
+    - GitHub CLI does not support view creation. Provide manual setup instructions.
     - Inform user: "Project views require manual setup in the GitHub web interface"
     - Display project URL: [project-url]
 

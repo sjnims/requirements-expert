@@ -77,7 +77,7 @@ Use AskUserQuestion:
   - label: "Continue", description: "Proceed with the selected epics"
   - label: "Review selection", description: "Review the list before deciding"
 
-Note: Users can select "Other" to directly describe additional epics.
+If user selects "Other", use their custom description for additional epics.
 
 If user selects "Add more", prompt for epic details. If "Review selection", display the current selection and ask again.
 

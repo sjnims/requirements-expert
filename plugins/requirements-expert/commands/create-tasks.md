@@ -107,7 +107,7 @@ Use AskUserQuestion:
   - label: "Continue", description: "Proceed with the selected tasks"
   - label: "Review selection", description: "Review the list before deciding"
 
-Note: Users can select "Other" to directly describe additional tasks.
+If user selects "Other", use their custom description for additional tasks.
 
 If user selects "Add more", prompt for task details. If "Review selection", display the current selection and ask again.
 
