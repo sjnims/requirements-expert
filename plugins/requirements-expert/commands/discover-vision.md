@@ -43,7 +43,7 @@ Use AskUserQuestion:
   - label: "Access problem", description: "Users cannot easily access something they need"
   - label: "Cost problem", description: "Current solutions are too expensive"
 
-Note: Users can select "Other" to describe a different problem type.
+If user selects "Other", use their custom description as the problem type.
 
 After the user selects a problem type, ask a follow-up to get specifics about the problem.
 
@@ -59,7 +59,7 @@ Use AskUserQuestion:
   - label: "End consumers", description: "General public, customers"
   - label: "Internal team", description: "Employees within the organization"
 
-Note: Users can select "Other" to describe different user types.
+If user selects "Other", use their custom description as the target user type.
 
 **Current State Question:**
 
@@ -73,7 +73,7 @@ Use AskUserQuestion:
   - label: "Internal tools", description: "Custom-built internal solutions"
   - label: "They don't", description: "Problem is currently unaddressed"
 
-Note: Users can select "Other" to describe different current approaches.
+If user selects "Other", use their custom description as the current approach.
 
 **Solution Question:**
 
@@ -87,7 +87,7 @@ Use AskUserQuestion:
   - label: "Integration", description: "Connects existing systems or data"
   - label: "Enhancement", description: "Improves an existing product or process"
 
-Note: Users can select "Other" to describe a different solution category.
+If user selects "Other", use their custom description as the solution category.
 
 After the user selects a category, ask a follow-up to get the one-sentence solution description.
 
@@ -103,7 +103,7 @@ Use AskUserQuestion:
   - label: "Cost", description: "More affordable or better value"
   - label: "Features", description: "Unique capabilities not available elsewhere"
 
-Note: Users can select "Other" to describe a different differentiator.
+If user selects "Other", use their custom description as the differentiator.
 
 **Success Metrics Question:**
 
@@ -117,7 +117,7 @@ Use AskUserQuestion:
   - label: "Revenue/Cost", description: "Revenue generated or costs reduced"
   - label: "Quality metrics", description: "Error rates, satisfaction scores"
 
-Note: Users can select "Other" to describe different success metrics.
+If user selects "Other", use their custom description as the success metric.
 
 ### Step 4: Compile Vision Document
 

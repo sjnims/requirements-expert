@@ -83,7 +83,7 @@ Use AskUserQuestion:
   - label: "Continue", description: "Proceed with the selected stories"
   - label: "Review selection", description: "Review the list before deciding"
 
-Note: Users can select "Other" to directly describe additional stories.
+If user selects "Other", use their custom description for additional stories.
 
 If user selects "Add more", prompt for story details. If "Review selection", display the current selection and ask again.
 
