@@ -146,14 +146,48 @@ Reference specific issue numbers for each warning.
 
 ### Step 6: Offer to Fix Issues
 
-After presenting report, offer to help fix issues. Options include:
+After presenting the validation report:
 
-- Update issues with missing content
-- Split large stories/tasks
-- Add missing acceptance criteria
-- Fix broken traceability links
+- If no issues or warnings were found: Proceed directly to Step 7
+- If issues or warnings were found: Use AskUserQuestion below
 
-If user wants help, provide specific guidance or make updates via GitHub CLI, then re-run validation after fixes.
+Use AskUserQuestion:
+
+- Question: "Would you like help fixing these issues?"
+- Header: "Fix Issues"
+- Options:
+  - "Auto-fix" (description: "Automatically fix issues where possible via GitHub CLI")
+  - "Guided fix" (description: "Walk through each issue with suggestions")
+  - "Skip" (description: "Review the report without making changes")
+- multiSelect: false
+
+**If "Auto-fix" selected:**
+
+1. For missing acceptance criteria: Add placeholder acceptance criteria to issues via `gh issue edit`
+2. For broken traceability links: Update issue bodies to add missing parent references
+3. For missing content: Add section headers and placeholder text
+4. After all fixes, re-run validation (Steps 1-5) to confirm fixes
+
+**If "Guided fix" selected:**
+
+For each issue found, use AskUserQuestion:
+
+- Question: "How would you like to address: [brief issue description]?"
+- Header: "Action"
+- Options:
+  - "Fix now" (description: "Apply the suggested fix")
+  - "Skip" (description: "Leave for manual review")
+  - "Dismiss" (description: "Mark as intentional/acceptable")
+- multiSelect: false
+
+If "Fix now": Apply the fix via `gh issue edit` and confirm success.
+If "Skip" or "Dismiss": Move to next issue.
+
+After processing all issues, re-run validation to show updated status.
+
+**If "Skip" selected:**
+
+Proceed directly to Step 7 without making changes.
 
 ### Step 7: Success Message
 
