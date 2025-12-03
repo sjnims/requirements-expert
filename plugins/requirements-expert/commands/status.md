@@ -147,13 +147,32 @@ Based on project state, provide tailored guidance:
 
 ### Step 5: Export Option
 
-Offer to export the status report as:
+Use AskUserQuestion to offer export options:
 
-- Markdown file (status-report-[date].md)
-- Comment on vision issue
-- Both
+- Question: "Would you like to export this status report?"
+- Header: "Export"
+- Options:
+  - "Markdown file" (description: "Save as status-report-[date].md in project root")
+  - "Vision comment" (description: "Add as comment on the Vision issue")
+  - "Both" (description: "Save file and add comment to Vision issue")
+  - "Skip" (description: "Don't export, just display")
+- multiSelect: false
 
-Use AskUserQuestion for the choice, then create file or add comment as requested.
+**If "Markdown file" or "Both" selected:**
+
+1. Generate filename: `status-report-YYYY-MM-DD.md`
+2. Write status report content to file using Write tool
+3. Confirm file created with path
+
+**If "Vision comment" or "Both" selected:**
+
+1. Get vision issue number from project data
+2. Add comment using: `gh issue comment [vision-number] --body "[status report]"`
+3. Confirm comment added with issue URL
+
+**If "Skip" selected:**
+
+Proceed without exporting. Display message: "Status report displayed above. Run `/re:status` again to export later."
 
 ## Error Handling
 
