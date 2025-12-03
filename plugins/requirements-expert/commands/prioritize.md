@@ -55,7 +55,7 @@ Present the items to be prioritized with:
 
 For each item, use AskUserQuestion:
 
-#### For each item
+**For each item:**
 
 - Question: "[Item title] - What priority should this be?"
 - Header: "Priority"
