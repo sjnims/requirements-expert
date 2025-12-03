@@ -95,17 +95,17 @@ If user selects "Add more", prompt for task details. If "Review selection", disp
 
 ### Step 4: Define Acceptance Criteria
 
-For each selected task, define specific acceptance criteria:
+For each selected task, define specific acceptance criteria.
 
-#### Use checklist format
+**Use checklist format:**
 
-```
+```text
 - [ ] Specific, testable outcome 1
 - [ ] Specific, testable outcome 2
 - [ ] Specific, testable outcome 3
 ```
 
-#### Minimum 3-5 criteria per task
+**Minimum 3-5 criteria per task.**
 
 Present suggested criteria for each task and confirm with user.
 
