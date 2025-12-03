@@ -63,30 +63,12 @@ Using task-breakdown skill methodology, identify tasks across implementation lay
 - User-facing docs
 - Code comments
 
-Present suggested tasks:
-```
-Based on the story "[Story Title]", here are suggested implementation tasks:
+Present the suggested tasks organized by implementation layer (Frontend, Backend, Data, Testing, Documentation):
 
-**Frontend:**
-1. Create [component] component
-2. Implement [interaction] functionality
-
-**Backend:**
-3. Implement GET/POST [endpoint] API endpoint
-4. Add validation for [data]
-
-**Data:**
-5. [If needed] Add database indexes for [performance]
-
-**Testing:**
-6. Write unit tests for [module]
-7. Create integration tests for [feature]
-
-**Documentation:**
-8. Document [API/feature] in user guide
-
-Estimated: [X] tasks total
-```
+- List each task with a brief description of what needs to be done
+- Number the tasks for easy reference
+- Include a total count of suggested tasks
+- Note which layers may not be applicable (e.g., "Data" tasks only if schema changes are needed)
 
 ### Step 3: Task Refinement
 
@@ -187,51 +169,26 @@ For each task:
 ### Step 7: Task Sequencing
 
 After creating all tasks, identify dependencies:
+
 - Which tasks must come first?
 - What's the critical path?
 - Can any tasks be done in parallel?
 
-Display task execution order:
-```
-Task Sequence:
+Present the task execution order organized by phase:
 
-**Phase 1 (Can start immediately):**
-- #[num] - [Task requiring no dependencies]
-- #[num] - [Another independent task]
-
-**Phase 2 (After Phase 1):**
-- #[num] - [Task depending on Phase 1]
-
-**Phase 3 (Integration & Testing):**
-- #[num] - Integration tests
-- #[num] - Documentation
-```
+- Phase 1: Tasks that can start immediately with no dependencies
+- Phase 2: Tasks that depend on Phase 1 completion
+- Phase 3: Integration, testing, and documentation tasks
+- List tasks with their issue numbers in each phase
 
 ### Step 8: Success Message & Assignment
 
-Display:
-```
-Created [N] tasks for story #[story-num]!
+Display a success summary that includes:
 
-Tasks:
-- #[num] - [Task 1] (frontend)
-- #[num] - [Task 2] (backend)
-- #[num] - [Task 3] (testing)
-...
-
-All tasks have been:
-- Created as GitHub issues in a GitHub Project
-- Added to the project
-- Linked to parent story #[story-num]
-- Labeled by technical area
-
-Next Steps:
-1. Review tasks in GitHub Projects
-2. Assign tasks to team members (if working with a team)
-3. Start with Phase 1 tasks (no dependencies)
-4. Update task status as you progress
-5. When all tasks complete, story is complete!
-```
+- Confirmation of how many tasks were created and for which story
+- List of all created tasks with their issue numbers, titles, and technical area labels
+- Summary of what was done: issues created in GitHub Project, added to project, linked to parent story, labeled by technical area
+- Next steps: review tasks in GitHub Projects, assign tasks to team members (if working with a team), start with Phase 1 tasks (no dependencies), update task status as you progress, when all tasks complete the story is complete
 
 ### Step 9: Continue or Stop
 

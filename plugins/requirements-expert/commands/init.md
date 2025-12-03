@@ -82,18 +82,11 @@ Initialize a GitHub Project for requirements management. This command is **idemp
          - Show refresh command: `gh auth refresh -s project`
          - Explain: "Projects require 'repo' and 'project' scopes. Projects are owner-scoped (user/org), not repository-scoped."
          - After showing diagnostics, present the same recovery options again (Retry, Check permissions, or Exit)
-       - If "Exit": Exit gracefully with message:
-         ```
-         Project creation failed. Manual steps to resolve:
-
-         1. Check authentication: `gh auth status`
-         2. Verify scopes include 'repo' and 'project'
-         3. Refresh token if needed: `gh auth refresh -s project`
-         4. Ensure you have permission to create projects for owner: [owner]
-         5. Retry the command: `/re:init`
-
-         Error details: [show original error message]
-         ```
+       - If "Exit": Exit gracefully with a message that includes:
+         - Summary: project creation failed
+         - Troubleshooting steps: check authentication, verify scopes include 'repo' and 'project', refresh token if needed, verify permission to create projects for the owner
+         - Command to retry: `/re:init`
+         - Original error details from the failed command
    - If creation succeeds:
      - Inform user: "Created project: [name] at [url]"
      - Capture project `number` for subsequent commands
@@ -210,22 +203,13 @@ Initialize a GitHub Project for requirements management. This command is **idemp
 ## Success Reporting
 
 12. **Display Success Message:**
-    ```
-    GitHub Project initialized successfully!
 
-    Project: [Project Name]
-    URL: [Project URL]
+Display a success summary that includes:
 
-    Custom Fields Created:
-    - Type (Vision, Epic, Story, Task)
-    - Priority (Must Have, Should Have, Could Have, Won't Have)
-    - Status (Not Started, In Progress, Completed)
-
-    Next Steps:
-    1. Run `/re:discover-vision` to create your product vision
-    2. Then `/re:identify-epics` to identify major capabilities
-    3. Use `/re:status` anytime to see project overview
-    ```
+- Confirmation that the GitHub Project was initialized successfully
+- Project name and URL
+- List of custom fields created (Type, Priority, Status) with their available options
+- Next steps: run `/re:discover-vision` to create the product vision, then `/re:identify-epics` to identify major capabilities, and use `/re:status` anytime to see project overview
 
 ## Error Handling
 

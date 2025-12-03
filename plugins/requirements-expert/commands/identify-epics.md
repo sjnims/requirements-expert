@@ -39,22 +39,11 @@ Analyze the vision and suggest potential epics using epic-identification skill m
 - Brief description (1-2 sentences) for each
 - Categorize (User-Facing, Infrastructure, Integration, etc.)
 
-Display:
-```
-Based on your vision, I've identified these potential epics:
+Present the suggested epics organized by category (User-Facing Capabilities, Infrastructure, Integration, etc.):
 
-**User-Facing Capabilities:**
-1. [Epic name] - [Brief description]
-2. [Epic name] - [Brief description]
-
-**Infrastructure:**
-3. [Epic name] - [Brief description]
-
-**Integration:**
-4. [Epic name] - [Brief description]
-
-These are suggestions - you can accept, modify, or add your own.
-```
+- List each epic with a brief 1-2 sentence description
+- Number the epics for easy reference
+- Include a note that these are suggestions and can be accepted, modified, or supplemented with user's own ideas
 
 ### Step 3: Epic Selection & Refinement
 
@@ -145,17 +134,11 @@ For each selected/added epic:
 
 ### Step 6: Initial Prioritization Prompt
 
-After creating all epics, ask:
-```
-Created [N] epics successfully!
+After creating all epics, display a summary that includes:
 
-Epics:
-- #[num] - [Epic 1 name]
-- #[num] - [Epic 2 name]
-...
-
-Would you like to prioritize these epics now using MoSCoW framework?
-```
+- Confirmation of how many epics were created
+- List of all created epics with their issue numbers and names
+- Question asking if the user would like to prioritize these epics using MoSCoW framework
 
 Use AskUserQuestion:
 - Question: "Prioritize epics now?"
@@ -171,18 +154,11 @@ If "Skip": Show next steps
 
 ### Step 7: Success Message & Next Steps
 
-Display:
-```
-Epic identification complete!
+Display a success summary that includes:
 
-Created [N] epics linked to Vision (#[vision-num])
-
-Next Steps:
-1. Run `/re:prioritize` to rank epics by importance
-2. Review epic issues and add details as needed
-3. Run `/re:create-stories` to break down highest-priority epic
-4. Use `/re:status` to see project overview
-```
+- Confirmation that epic identification is complete
+- Count of epics created and reference to the parent vision issue
+- Next steps: run `/re:prioritize` to rank epics by importance, review epic issues and add details as needed, run `/re:create-stories` to break down highest-priority epic, use `/re:status` to see project overview
 
 ## Error Handling
 

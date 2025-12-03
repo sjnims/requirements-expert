@@ -172,21 +172,12 @@ Structure the vision as:
 
 ### Step 6: Success Message & Next Steps
 
-Display:
-```
-Vision created successfully!
+Display a success summary that includes:
 
-Issue: #[number] - Product Vision: [Product Name]
-URL: [issue-url]
-
-Your vision has been documented and added to the project.
-
-Next Steps:
-1. Review the vision issue and add any additional details
-2. Share with stakeholders for feedback
-3. Run `/re:identify-epics` to identify major capabilities
-4. Use `/re:review` to validate the vision
-```
+- Confirmation that the vision was created successfully
+- Issue number and title with URL link
+- Confirmation that the vision has been documented and added to the project
+- Next steps: review the vision issue and add details, share with stakeholders for feedback, run `/re:identify-epics` to identify major capabilities, use `/re:review` to validate the vision
 
 ### Step 7: Offer to Continue
 

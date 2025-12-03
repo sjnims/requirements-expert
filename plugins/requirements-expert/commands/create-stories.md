@@ -47,22 +47,11 @@ I want [goal],
 So that [benefit].
 ```
 
-Present suggestions:
-```
-Based on the epic "[Epic Name]", here are suggested user stories:
+Present the suggested user stories organized by category (Core Functionality, Supporting Features, Edge Cases & Enhancements):
 
-**Core Functionality:**
-1. As a [user], I want [goal], so that [benefit]
-2. As a [user], I want [goal], so that [benefit]
-
-**Supporting Features:**
-3. As a [user], I want [goal], so that [benefit]
-
-**Edge Cases & Enhancements:**
-4. As a [user], I want [goal], so that [benefit]
-
-These cover the main user journeys - would you like to add, remove, or modify any?
-```
+- List each story in the standard "As a [user], I want [goal], so that [benefit]" format
+- Number the stories for easy reference
+- Include a note that these cover the main user journeys and ask if the user would like to add, remove, or modify any
 
 ### Step 3: Story Refinement
 
@@ -197,21 +186,11 @@ Use AskUserQuestion:
 
 ### Step 9: Success Message
 
-Display:
-```
-Created [N] user stories for epic #[epic-num]!
+Display a success summary that includes:
 
-Stories:
-- #[num] - [Story 1 title]
-- #[num] - [Story 2 title]
-...
-
-Next Steps:
-1. Run `/re:prioritize` to rank stories
-2. Run `/re:create-tasks` to break down highest-priority story
-3. Review stories and refine acceptance criteria
-4. Use `/re:status` to see progress
-```
+- Confirmation of how many user stories were created and for which epic
+- List of all created stories with their issue numbers and titles
+- Next steps: run `/re:prioritize` to rank stories, run `/re:create-tasks` to break down highest-priority story, review stories and refine acceptance criteria, use `/re:status` to see progress
 
 ## Error Handling
 

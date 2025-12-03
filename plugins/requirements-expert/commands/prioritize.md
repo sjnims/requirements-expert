@@ -44,24 +44,12 @@ Based on selection:
 
 ### Step 3: Present Items for Prioritization
 
-Display items to be prioritized:
-```
-Let's prioritize these [N] [epics/stories/tasks] using MoSCoW framework:
+Present the items to be prioritized with:
 
-**MoSCoW Categories:**
-- **Must Have**: Critical for success, can't ship without
-- **Should Have**: Important but not critical, can defer if needed
-- **Could Have**: Nice to have, include if time permits
-- **Won't Have**: Explicitly out of scope for now
-
-**Items to prioritize:**
-1. [Item 1 title]
-2. [Item 2 title]
-3. [Item 3 title]
-...
-
-We'll go through each item and assign a priority.
-```
+- Introduction stating how many items will be prioritized and what type (epics/stories/tasks)
+- Explanation of the MoSCoW framework categories: Must Have (critical for success), Should Have (important but deferrable), Could Have (nice to have), Won't Have (explicitly out of scope)
+- Numbered list of all items to prioritize with their titles
+- Note that each item will be assigned a priority interactively
 
 ### Step 4: Interactive Prioritization
 
@@ -81,28 +69,20 @@ For each item, use AskUserQuestion:
 
 ### Step 5: Validate Distribution
 
-After collecting all priorities, check distribution:
+After collecting all priorities, display the priority distribution showing:
 
-```
-Priority Distribution:
-- Must Have: [X] items ([%]%)
-- Should Have: [Y] items ([%]%)
-- Could Have: [Z] items ([%]%)
-- Won't Have: [W] items ([%]%)
-```
+- Count and percentage for each category (Must Have, Should Have, Could Have, Won't Have)
 
-**Check against recommendations from prioritization skill:**
+Check against recommendations from prioritization skill:
+
 - Must Haves should be <60% of total
 - If more than 60% are Must Have: Warn user and ask to review
 
-If distribution is problematic, ask:
-```
-Warning - Distribution check: [X]% of items are "Must Have"
+If distribution is problematic, display a warning that includes:
 
-Recommendation: Aim for <60% Must Haves to maintain focus and flexibility.
-
-Would you like to review and adjust priorities?
-```
+- The percentage of items marked as Must Have
+- Recommendation to aim for <60% Must Haves to maintain focus and flexibility
+- Question asking if they would like to review and adjust priorities
 
 Use AskUserQuestion with Yes/No options. If Yes, restart Step 4.
 
@@ -135,37 +115,15 @@ Present suggested sequence and ask for confirmation.
 
 ### Step 8: Success Message & Summary
 
-Display:
-```
-Prioritization complete!
+Display a success summary that includes:
 
-**Summary:**
-- Must Have: [X] items
-- Should Have: [Y] items
-- Could Have: [Z] items
-- Won't Have: [W] items
-
-**Execution Order (Must Haves):**
-1. #[num] - [Item title]
-2. #[num] - [Item title]
-3. #[num] - [Item title]
-
-**Next Steps:**
-[If Epics were prioritized:]
-- Start with first Must Have epic
-- Run `/re:create-stories` for that epic
-- Focus on completing Must Haves before Should Haves
-
-[If Stories were prioritized:]
-- Start with first Must Have story
-- Run `/re:create-tasks` for that story
-- Complete stories in priority order
-
-[If Tasks were prioritized:]
-- Begin implementation with Must Have tasks
-- Follow dependency order within priority level
-- Update task status in GitHub Projects as you progress
-```
+- Confirmation that prioritization is complete
+- Summary showing count of items in each priority category (Must Have, Should Have, Could Have, Won't Have)
+- Execution order listing Must Have items with their issue numbers and titles
+- Context-appropriate next steps based on what was prioritized:
+  - If epics: start with first Must Have epic, run `/re:create-stories` for that epic, focus on completing Must Haves before Should Haves
+  - If stories: start with first Must Have story, run `/re:create-tasks` for that story, complete stories in priority order
+  - If tasks: begin implementation with Must Have tasks, follow dependency order within priority level, update task status in GitHub Projects as you progress
 
 ### Step 9: Offer Next Action
 
