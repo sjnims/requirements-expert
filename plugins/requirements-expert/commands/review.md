@@ -146,7 +146,12 @@ Reference specific issue numbers for each warning.
 
 ### Step 6: Offer to Fix Issues
 
-After presenting the validation report, if any issues or warnings were found, use AskUserQuestion:
+After presenting the validation report:
+
+- If no issues or warnings were found: Proceed directly to Step 7
+- If issues or warnings were found: Use AskUserQuestion below
+
+Use AskUserQuestion:
 
 - Question: "Would you like help fixing these issues?"
 - Header: "Fix Issues"
