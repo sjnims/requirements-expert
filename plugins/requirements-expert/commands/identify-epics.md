@@ -73,13 +73,13 @@ Use AskUserQuestion:
 - header: "Add Epics"
 - multiSelect: false
 - options:
-  - label: "Yes, add more", description: "I have additional epics to include"
-  - label: "No, continue", description: "Proceed with the selected epics"
-  - label: "Let me think", description: "Review the list before deciding"
+  - label: "Add more", description: "I have additional epics to include"
+  - label: "Continue", description: "Proceed with the selected epics"
+  - label: "Review selection", description: "Review the list before deciding"
 
 Note: Users can select "Other" to directly describe additional epics.
 
-If user selects "Yes, add more", prompt for epic details. If "Let me think", display the current selection and ask again.
+If user selects "Add more", prompt for epic details. If "Review selection", display the current selection and ask again.
 
 ### Step 4: Validate Epic Count
 
@@ -161,13 +161,13 @@ Use AskUserQuestion:
 - Question: "Prioritize epics now?"
 - Header: "Prioritize"
 - Options:
-  - "Yes, prioritize now" (description: "Use MoSCoW framework to prioritize")
-  - "No, I'll prioritize later" (description: "Skip prioritization for now")
+  - "Prioritize now" (description: "Use MoSCoW framework to prioritize")
+  - "Skip" (description: "Skip prioritization for now")
 - multiSelect: false
 
-If "Yes": Use the SlashCommand tool to invoke `/re:prioritize`
+If "Prioritize now": Use the SlashCommand tool to invoke `/re:prioritize`
 
-If "No": Show next steps
+If "Skip": Show next steps
 
 ### Step 7: Success Message & Next Steps
 
