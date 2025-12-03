@@ -103,13 +103,13 @@ Use AskUserQuestion:
 - header: "Add Tasks"
 - multiSelect: false
 - options:
-  - label: "Yes, add more", description: "I have additional tasks to include"
-  - label: "No, continue", description: "Proceed with the selected tasks"
-  - label: "Let me think", description: "Review the list before deciding"
+  - label: "Add more", description: "I have additional tasks to include"
+  - label: "Continue", description: "Proceed with the selected tasks"
+  - label: "Review selection", description: "Review the list before deciding"
 
 Note: Users can select "Other" to directly describe additional tasks.
 
-If user selects "Yes, add more", prompt for task details. If "Let me think", display the current selection and ask again.
+If user selects "Add more", prompt for task details. If "Review selection", display the current selection and ask again.
 
 ### Step 4: Define Acceptance Criteria
 
@@ -239,15 +239,15 @@ Use AskUserQuestion:
 - Question: "What would you like to do next?"
 - Header: "Next Step"
 - Options:
-  - "Create tasks for another story" (description: "Select a different story")
-  - "Check project status" (description: "See overall progress")
-  - "Done for now" (description: "Stop here")
+  - "Select another story" (description: "Select a different story")
+  - "Show status" (description: "See overall progress")
+  - "Exit" (description: "Stop here")
 - multiSelect: false
 
 **Handle response:**
-- "Create tasks for another story": Restart from Step 1
-- "Check project status": Use the SlashCommand tool to invoke `/re:status`
-- "Done for now": Exit
+- "Select another story": Restart from Step 1
+- "Show status": Use the SlashCommand tool to invoke `/re:status`
+- "Exit": Exit
 
 ## Error Handling
 

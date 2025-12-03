@@ -194,11 +194,11 @@ Use AskUserQuestion:
 - Question: "Would you like to continue to identify epics now?"
 - Header: "Continue"
 - Options:
-  - "Yes, identify epics" (description: "Continue to epic identification")
-  - "No, I'll do it later" (description: "Stop here for now")
+  - "Identify epics" (description: "Continue to epic identification")
+  - "Skip" (description: "Stop here for now")
 - multiSelect: false
 
-If user selects "Yes":
+If user selects "Identify epics":
 - Use the SlashCommand tool to invoke `/re:identify-epics`
 
 ## Error Handling

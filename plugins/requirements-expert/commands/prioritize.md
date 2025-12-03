@@ -174,9 +174,9 @@ Use AskUserQuestion:
 - Header: "Next Step"
 - Options:
   - "Prioritize another level" (description: "Prioritize epics/stories/tasks")
-  - "Check project status" (description: "See overall progress")
-  - "Continue with highest priority item" (description: "Create stories/tasks for top priority item")
-  - "Done for now" (description: "Stop here")
+  - "Show status" (description: "See overall progress")
+  - "Continue highest priority" (description: "Create stories/tasks for top priority item")
+  - "Exit" (description: "Stop here")
 - multiSelect: false
 - **Handle response appropriately**
 

@@ -79,13 +79,13 @@ Use AskUserQuestion:
 - header: "Add Stories"
 - multiSelect: false
 - options:
-  - label: "Yes, add more", description: "I have additional user stories to include"
-  - label: "No, continue", description: "Proceed with the selected stories"
-  - label: "Let me think", description: "Review the list before deciding"
+  - label: "Add more", description: "I have additional user stories to include"
+  - label: "Continue", description: "Proceed with the selected stories"
+  - label: "Review selection", description: "Review the list before deciding"
 
 Note: Users can select "Other" to directly describe additional stories.
 
-If user selects "Yes, add more", prompt for story details. If "Let me think", display the current selection and ask again.
+If user selects "Add more", prompt for story details. If "Review selection", display the current selection and ask again.
 
 ### Step 4: INVEST Criteria Check
 
@@ -183,17 +183,17 @@ Use AskUserQuestion:
 - Question: "What would you like to do next?"
 - Header: "Next Step"
 - Options:
-  - "Create stories for another epic" (description: "Select a different epic and create stories")
+  - "Select another epic" (description: "Select a different epic and create stories")
   - "Prioritize stories" (description: "Use MoSCoW to prioritize these stories")
-  - "Create tasks for a story" (description: "Break down a story into tasks")
-  - "Done for now" (description: "Stop here")
+  - "Create tasks" (description: "Break down a story into tasks")
+  - "Exit" (description: "Stop here")
 - multiSelect: false
 
 **Handle response:**
-- "Create stories for another epic": Restart from Step 1
+- "Select another epic": Restart from Step 1
 - "Prioritize stories": Use the SlashCommand tool to invoke `/re:prioritize`
-- "Create tasks for a story": Use the SlashCommand tool to invoke `/re:create-tasks`
-- "Done for now": Show success message
+- "Create tasks": Use the SlashCommand tool to invoke `/re:create-tasks`
+- "Exit": Show success message
 
 ### Step 9: Success Message
 
