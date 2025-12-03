@@ -194,6 +194,35 @@ Only four priority levels (no custom priorities):
 - **Could Have**: ~20% of items
 - **Won't Have**: Explicitly documented exclusions
 
+### 6. Template File Path Pattern
+
+Commands reference template files using repository-relative paths:
+
+```markdown
+plugins/requirements-expert/skills/vision-discovery/references/vision-template.md
+```
+
+**Why not `${CLAUDE_PLUGIN_ROOT}`?**
+
+The `${CLAUDE_PLUGIN_ROOT}` variable only works in JSON configuration files (hooks.json, MCP servers). It does **not** expand in command markdown files due to a known limitation ([anthropics/claude-code#9354](https://github.com/anthropics/claude-code/issues/9354)).
+
+**Current approach:**
+
+- Commands use repository-relative paths starting with `plugins/requirements-expert/`
+- Paths are resolved by the Read tool from the working directory
+- Works correctly for local development and testing
+
+**Affected commands:**
+
+| Command | Template Path |
+|---------|---------------|
+| `re:discover-vision` | `skills/vision-discovery/references/vision-template.md` |
+| `re:identify-epics` | `skills/epic-identification/references/epic-template.md` |
+| `re:create-stories` | `skills/user-story-creation/references/story-template.md` |
+| `re:create-tasks` | `skills/task-breakdown/references/task-template.md` |
+
+**If the limitation is fixed:** Commands could migrate to `${CLAUDE_PLUGIN_ROOT}/skills/.../references/*.md` for true portability across installation contexts.
+
 ## Working with Components
 
 ### Adding a New Command
@@ -681,7 +710,7 @@ When modifying this plugin:
 1. **Don't create local requirement files** - Everything goes in GitHub issues in GitHub Projects
 2. **Don't skip state validation** - Always check what exists before suggesting next action
 3. **Don't use second person in skills** - Use imperative form ("Do X" not "You should do X")
-4. **Don't hardcode paths** - Use `${CLAUDE_PLUGIN_ROOT}` if needed (though not used in this plugin)
+4. **Don't expect `${CLAUDE_PLUGIN_ROOT}` in commands** - It only works in JSON configs (hooks, MCP), not markdown files (see Pattern 6)
 5. **Don't duplicate content** - Between SKILL.md and references/, between README and CLAUDE.md
 6. **Don't make up GitHub issue numbers** - Always query actual state
 7. **Don't suggest commands without prerequisites** - Check vision exists before suggesting epics
