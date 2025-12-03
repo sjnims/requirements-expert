@@ -92,7 +92,7 @@ Estimated: [X] tasks total
 
 Use AskUserQuestion:
 - Question: "Which tasks should we create?"
-- Header: "Task Selection"
+- Header: "Tasks"
 - Options: One per suggested task
 - multiSelect: true
 

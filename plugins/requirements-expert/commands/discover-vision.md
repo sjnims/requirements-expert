@@ -65,7 +65,7 @@ Note: Users can select "Other" to describe different user types.
 
 Use AskUserQuestion:
 - question: "How do users currently address this problem?"
-- header: "Current State"
+- header: "Current"
 - multiSelect: false
 - options:
   - label: "Manual workarounds", description: "Spreadsheets, documents, manual processes"
@@ -79,7 +79,7 @@ Note: Users can select "Other" to describe different current approaches.
 
 Use AskUserQuestion:
 - question: "What category best describes your solution?"
-- header: "Solution Type"
+- header: "Solution"
 - multiSelect: false
 - options:
   - label: "Automation tool", description: "Automates manual or repetitive tasks"
@@ -95,7 +95,7 @@ After the user selects a category, ask a follow-up to get the one-sentence solut
 
 Use AskUserQuestion:
 - question: "What is your primary differentiator?"
-- header: "Differentiator"
+- header: "Advantage"
 - multiSelect: false
 - options:
   - label: "Speed/Performance", description: "Faster or more efficient than alternatives"

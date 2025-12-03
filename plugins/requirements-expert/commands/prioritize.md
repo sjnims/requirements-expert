@@ -16,7 +16,7 @@ Load the **prioritization** skill to access MoSCoW framework methodology.
 
 Use AskUserQuestion:
 - Question: "What would you like to prioritize?"
-- Header: "Prioritization Level"
+- Header: "Level"
 - Options:
   - "Epics" (description: "Prioritize all epics - determine which capabilities to build first")
   - "Stories for an epic" (description: "Prioritize user stories within a specific epic")

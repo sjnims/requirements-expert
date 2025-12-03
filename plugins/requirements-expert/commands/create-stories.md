@@ -68,7 +68,7 @@ These cover the main user journeys - would you like to add, remove, or modify an
 
 Use AskUserQuestion:
 - Question: "Which stories should we include?"
-- Header: "Story Selection"
+- Header: "Stories"
 - Options: One per suggested story (label = short title, description = full story)
 - multiSelect: true
 

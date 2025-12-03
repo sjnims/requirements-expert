@@ -62,7 +62,7 @@ Use AskUserQuestion to refine the epic list:
 
 **Question 1:**
 - Question: "Which of these suggested epics should we include? (Select all that apply)"
-- Header: "Epic Selection"
+- Header: "Epics"
 - multiSelect: true
 - Options: One option per suggested epic (label = epic name, description = brief desc)
 
