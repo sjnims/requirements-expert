@@ -177,7 +177,13 @@ Display a success summary that includes:
 - Confirmation that the vision was created successfully
 - Issue number and title with URL link
 - Confirmation that the vision has been documented and added to the project
-- Next steps: review the vision issue and add details, share with stakeholders for feedback, run `/re:identify-epics` to identify major capabilities, use `/re:review` to validate the vision
+
+**Next steps:**
+
+- Review the vision issue and add details
+- Share with stakeholders for feedback
+- Run `/re:identify-epics` to identify major capabilities
+- Use `/re:review` to validate the vision
 
 ## Error Handling
 
