@@ -107,7 +107,7 @@ jobs:
             Set `all_valid` to true only if all categories are valid.
             Include specific file names and line numbers in issues when possible.
           claude_args: |
-            --allowed-tools Read,Glob,Grep
+            --allowedTools "Read,Glob,Grep"
             --json-schema '{"type":"object","properties":{"commands_valid":{"type":"boolean"},"commands_issues":{"type":"array","items":{"type":"string"}},"skills_valid":{"type":"boolean"},"skills_issues":{"type":"array","items":{"type":"string"}},"agents_valid":{"type":"boolean"},"agents_issues":{"type":"array","items":{"type":"string"}},"hooks_valid":{"type":"boolean"},"hooks_issues":{"type":"array","items":{"type":"string"}},"all_valid":{"type":"boolean"},"summary":{"type":"string"}},"required":["all_valid"]}'
 
       - name: Check validation result
