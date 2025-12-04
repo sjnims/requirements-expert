@@ -2,6 +2,8 @@
 
 This file provides comprehensive testing strategies for contributors creating or modifying plugin commands.
 
+**Exemplar pattern**: The `/re:init` command below demonstrates comprehensive testing across all categories (happy path, idempotency, error handling, edge cases). Apply this same pattern when testing other commands.
+
 ## Quick Test
 
 ```bash
