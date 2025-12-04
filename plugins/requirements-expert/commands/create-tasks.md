@@ -188,23 +188,31 @@ Display a success summary that includes:
 - Confirmation of how many tasks were created and for which story
 - List of all created tasks with their issue numbers, titles, and technical area labels
 - Summary of what was done: issues created in GitHub Project, added to project, linked to parent story, labeled by technical area
-- Next steps: review tasks in GitHub Projects, assign tasks to team members (if working with a team), start with Phase 1 tasks (no dependencies), update task status as you progress, when all tasks complete the story is complete
 
-### Step 9: Continue or Stop
+**Next steps:**
+
+- Review tasks in GitHub Projects
+- Assign tasks to team members (if working with a team)
+- Start with Phase 1 tasks (no dependencies)
+- Update task status as you progress
+- Run `/re:status` to see overall project progress
+- When all tasks complete, the story is complete
+
+### Step 9: Continue or Done
 
 Use AskUserQuestion:
-- Question: "What would you like to do next?"
-- Header: "Next Step"
+
+- Question: "Create tasks for another story?"
+- Header: "Continue"
 - Options:
-  - "Select another story" (description: "Select a different story")
-  - "Show status" (description: "See overall progress")
-  - "Exit" (description: "Stop here")
+  - "Select another story" (description: "Create tasks for a different story")
+  - "Done" (description: "Finish task creation")
 - multiSelect: false
 
 **Handle response:**
+
 - "Select another story": Restart from Step 1
-- "Show status": Use the SlashCommand tool to invoke `/re:status`
-- "Exit": Exit
+- "Done": Exit
 
 ## Error Handling
 
