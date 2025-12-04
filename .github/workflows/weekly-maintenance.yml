@@ -134,4 +134,4 @@ jobs:
             - If a check has no issues, still mention it passed
             - Use the exact run URL provided above in the footer
           claude_args: |
-            --allowed-tools Read,Glob,Grep,Bash(gh issue:*),Bash(gh pr list:*),Bash(git log:*),Bash(date:*)
+            --allowedTools "Read,Glob,Grep,Bash(gh issue:*),Bash(gh pr list:*),Bash(git log:*),Bash(date:*)"

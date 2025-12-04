@@ -160,4 +160,4 @@ jobs:
             After posting (or if no PR found), summarize what you found and what action was taken.
 
           claude_args: |
-            --allowed-tools Bash(gh run:*),Bash(gh pr:*),Read
+            --allowedTools "Bash(gh run:*),Bash(gh pr:*),Read"
