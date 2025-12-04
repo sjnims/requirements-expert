@@ -267,4 +267,6 @@ Use AskUserQuestion:
 - Document rationale for priorities (especially Must Have and Won't Have)
 - Update priorities in both custom fields AND labels for visibility
 - Two-layer metadata (fields + labels) provides both project views and cross-project queries
+- Custom field failures trigger full recovery flow (controls project views)
+- Label failures are non-blocking partial success (avoids excessive prompting, easily fixed manually)
 - Partial failures are tracked separately from complete failures
