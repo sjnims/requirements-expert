@@ -158,17 +158,107 @@ Structure the vision as:
 
 ### Step 5: Create Vision Issue
 
-1. Create issue in GitHub:
-   - Use `gh issue create --repo [repo] --title "Product Vision: [Product Name]" --body "[vision document]" --label "type:vision"`
-   - Capture issue number and URL
+#### 5a. Create Issue in GitHub
 
-2. Add issue to project:
-   - Use `gh project item-add [project-number] --owner [owner] --url [issue-url]`
+Use `gh issue create --repo [repo] --title "Product Vision: [Product Name]" --body "[vision document]" --label "type:vision"`
 
-3. Set custom fields:
-   - Type: Vision
-   - Status: Active
-   - Use `gh project item-edit` commands to set these fields
+**If issue creation fails:**
+
+Capture error output from gh CLI.
+
+Display: "Failed to create vision issue: [error message]"
+
+Use AskUserQuestion for recovery:
+
+- question: "Vision issue creation failed. How would you like to proceed?"
+- header: "Recovery"
+- multiSelect: false
+- options:
+  - label: "Retry"
+    description: "Try creating the vision issue again"
+  - label: "Check permissions"
+    description: "Show diagnostic commands"
+  - label: "Save draft"
+    description: "Output vision document for manual creation"
+  - label: "Exit"
+    description: "Stop without creating"
+
+**Handle response:**
+
+- **Retry**: Re-attempt `gh issue create` with same content. If fails again, present recovery options again.
+- **Check permissions**:
+  - Run: `gh auth status`
+  - Display the output
+  - Explain: "Issue creation requires 'repo' scope."
+  - After showing diagnostics, present the same recovery options again
+- **Save draft**: Display the complete vision markdown document (the compiled vision from Step 4) so user can copy/paste to manually create an issue. Exit gracefully with a message explaining how to create the issue manually.
+- **Exit**: Exit gracefully with a message that includes:
+  - Summary: vision issue creation failed
+  - Troubleshooting steps
+  - Command to retry: `/re:discover-vision`
+  - Original error details
+
+**If issue creation succeeds:**
+
+- Capture issue number and URL
+- Inform user: "Created vision issue #[number]: [title]"
+
+#### 5b. Add Issue to Project
+
+Use `gh project item-add [project-number] --owner [owner] --url [issue-url]`
+
+**If adding to project fails:**
+
+Display: "Vision issue created (#[number]) but failed to add to project: [error message]"
+
+Use AskUserQuestion for recovery:
+
+- question: "Would you like to retry adding to project?"
+- header: "Add to Project"
+- multiSelect: false
+- options:
+  - label: "Retry"
+    description: "Try adding issue to project again"
+  - label: "Skip"
+    description: "Continue without adding (can add manually later)"
+  - label: "Show command"
+    description: "Display command for manual execution"
+
+**Handle response:**
+
+- **Retry**: Re-attempt `gh project item-add`. If fails again, present recovery options again.
+- **Skip**: Continue to Step 6 (the issue exists, just not in project).
+- **Show command**: Display the exact command for manual execution, then continue to Step 6.
+
+**If adding succeeds:**
+
+- Capture project item ID for field updates
+
+#### 5c. Set Custom Fields
+
+Set custom fields on the project item:
+
+- Type: Vision
+- Status: Active
+
+Use `gh project item-edit` commands to set these fields.
+
+**If setting fields fails:**
+
+Display warning: "Note: Could not set custom fields. Vision issue created successfully."
+
+Show manual commands for setting fields:
+
+```bash
+gh project item-edit --id [item-id] --field-id [type-field-id] --single-select-option-id [vision-option-id] --project-id [project-id]
+gh project item-edit --id [item-id] --field-id [status-field-id] --single-select-option-id [active-option-id] --project-id [project-id]
+```
+
+Continue to Step 6 (fields can be set manually in the project UI).
+
+**If setting fields succeeds:**
+
+- Inform user: "Set Type to 'Vision' and Status to 'Active'"
 
 ### Step 6: Success Message & Next Steps
 
@@ -190,7 +280,9 @@ Display a success summary that includes:
 - If GitHub CLI not available: Provide installation instructions
 - If not authenticated: Suggest `gh auth login`
 - If project doesn't exist: Suggest `/re:init`
-- If issue creation fails: Show error and suggest checking permissions
+- If issue creation fails: Use interactive recovery (Retry/Check permissions/Save draft/Exit)
+- If project add fails: Use interactive recovery (Retry/Skip/Show command)
+- If field setting fails: Show warning and manual command, continue to success
 
 ## Notes
 
@@ -199,3 +291,5 @@ Display a success summary that includes:
 - Synthesize user answers into coherent vision document
 - Vision should be concise (500-1000 words)
 - Encourage iteration and refinement
+- Discovery answers are preserved across retry attempts
+- "Save draft" option preserves user's work even if GitHub is inaccessible
