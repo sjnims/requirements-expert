@@ -6,7 +6,7 @@ allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 
 # Prioritize Requirements
 
-Prioritize requirements at any level (epics, stories, or tasks) using the MoSCoW framework. Updates GitHub Project issues with priority labels and custom fields.
+Prioritize requirements at any level (epics, stories, or tasks) using the MoSCoW framework. Updates GitHub Project issues with priority labels and custom fields. This command is **idempotent** - safe to run multiple times without creating duplicates.
 
 ## Instructions
 
@@ -88,18 +88,88 @@ Use AskUserQuestion with Yes/No options. If Yes, restart Step 4.
 
 ### Step 6: Update GitHub Issues in GitHub Project
 
+Initialize batch tracking lists:
+
+- `updated`: Items with priority successfully set (with issue numbers and priority level)
+- `partial`: Items where custom field OR label updated but not both (with details)
+- `failed`: Items that failed completely (with error reasons)
+- `skipped`: Items user chose to skip
+
 For each item, update GitHub:
 
-1. **Update Priority Custom Field:**
-   - Use `gh project item-edit` to set Priority field to selected MoSCoW category
+#### 6a. Update Priority Custom Field
 
-2. **Add Priority Label:**
-   - Use `gh issue edit [issue-number] --add-label "priority:[moscow-level]"`
-   - Labels: `priority:must-have`, `priority:should-have`, `priority:could-have`, `priority:wont-have`
+Use `gh project item-edit` to set Priority field to selected MoSCoW category.
 
-3. **Add Comment with Rationale:**
-   - Ask user for brief rationale for each Must Have and Won't Have
-   - Add comment to issue: "Priority: [level] - Rationale: [user-provided text]"
+**If Custom Field Update Fails:**
+
+Capture error output from gh CLI.
+
+Display: "Failed to update priority field for '#[issue-number] - [item-title]': [error message]"
+
+Use AskUserQuestion for recovery:
+
+- question: "Priority field update failed. How would you like to proceed?"
+- header: "Recovery"
+- multiSelect: false
+- options:
+  - label: "Retry"
+    description: "Try updating this item again"
+  - label: "Skip"
+    description: "Skip this item, continue with remaining"
+  - label: "Check permissions"
+    description: "Show diagnostic commands"
+  - label: "Stop"
+    description: "Stop and show summary of progress"
+
+**Handle response:**
+
+- **Retry**: Re-attempt update. If fails again, present recovery options again.
+- **Skip**: Add to `failed` list with error reason, continue to next item.
+- **Check permissions**:
+  - Run: `gh auth status`
+  - Display the output
+  - Explain: "Project field updates require 'project' scope."
+  - Suggest: `gh auth refresh -s project` if scope is missing
+  - After showing diagnostics, present the same recovery options again
+- **Stop**: Exit loop and proceed to Step 8 (show summary with progress so far)
+
+**Track custom field result** (success or failure) before proceeding to label update.
+
+#### 6b. Add Priority Label
+
+Use `gh issue edit [issue-number] --add-label "priority:[moscow-level]"`
+
+Labels: `priority:must-have`, `priority:should-have`, `priority:could-have`, `priority:wont-have`
+
+**If Label Update Fails (but custom field succeeded):**
+
+Display: "Priority field updated but label failed for #[issue-number]: [error message]"
+
+Continue to next item without blocking (this is a partial success).
+
+Add to `partial` list with details: "Field OK, label failed: [error]"
+
+**If Label Update Fails (and custom field also failed):**
+
+Item is already in `failed` list from step 6a. Continue to next item.
+
+**If Both Succeed:**
+
+Add to `updated` list with issue number and priority level.
+
+#### 6c. Add Comment with Rationale (Optional)
+
+For Must Have and Won't Have items only:
+
+- Ask user for brief rationale
+- Use `gh issue comment [issue-number] --body "Priority: [level] - Rationale: [user-provided text]"`
+
+**If Comment Fails:**
+
+Note the failure but do not block. Display: "Note: Rationale comment failed for #[issue-number]"
+
+Continue to next item. This does not affect the item's status in tracking lists.
 
 ### Step 7: Sequence Within Categories
 
@@ -115,15 +185,52 @@ Present suggested sequence and ask for confirmation.
 
 ### Step 8: Success Message & Summary
 
-Display a success summary that includes:
+After processing all items, display a batch summary:
 
-- Confirmation that prioritization is complete
-- Summary showing count of items in each priority category (Must Have, Should Have, Could Have, Won't Have)
-- Execution order listing Must Have items with their issue numbers and titles
-- Context-appropriate next steps based on what was prioritized:
-  - If epics: start with first Must Have epic, run `/re:create-stories` for that epic, focus on completing Must Haves before Should Haves
-  - If stories: start with first Must Have story, run `/re:create-tasks` for that story, complete stories in priority order
-  - If tasks: begin implementation with Must Have tasks, follow dependency order within priority level, update task status in GitHub Projects as you progress
+**Prioritization complete!**
+
+**Updated:** [N] items
+
+- #[num] - [Item title] → Must Have
+- #[num] - [Item title] → Should Have
+- #[num] - [Item title] → Could Have
+- #[num] - [Item title] → Won't Have
+
+**Partial updates:** [N] items (only if > 0)
+
+- #[num] - [Item title]: Field OK, label failed
+- #[num] - [Item title]: Label OK, field failed
+
+**Failed:** [N] items (only if > 0)
+
+- #[num] - [Item title]: [error reason]
+
+**Skipped:** [N] items (only if > 0)
+
+- #[num] - [Item title]: User skipped
+
+**Priority Distribution:**
+
+- Must Have: [X] items ([%])
+- Should Have: [Y] items ([%])
+- Could Have: [Z] items ([%])
+- Won't Have: [W] items ([%])
+
+**Execution order:**
+
+1. #[num] - [Must Have item 1]
+2. #[num] - [Must Have item 2]
+3. ...
+
+**Next steps (context-appropriate):**
+
+- If epics: Start with first Must Have epic, run `/re:create-stories` for that epic, focus on completing Must Haves before Should Haves
+- If stories: Start with first Must Have story, run `/re:create-tasks` for that story, complete stories in priority order
+- If tasks: Begin implementation with Must Have tasks, follow dependency order within priority level, update task status in GitHub Projects as you progress
+
+**If any items failed or had partial updates:**
+
+Note: [N] items had issues. Run `/re:prioritize` again to retry failed items. Partial updates can be fixed manually with `gh issue edit --add-label` or `gh project item-edit`.
 
 ### Step 9: Offer Next Action
 
@@ -144,9 +251,14 @@ Use AskUserQuestion:
 - If all items are Must Have: Provide guidance on right-sizing
 - If no items are Must Have: Confirm this is intentional
 - If priorities conflict with dependencies: Highlight and suggest resolution
+- If custom field update fails: Use interactive recovery (Retry/Skip/Check permissions/Stop)
+- If label update fails: Note partial success, continue without blocking
+- If rationale comment fails: Note failure, continue without blocking
+- If batch partially completes: Show summary with updated/partial/failed counts
 
 ## Notes
 
+- This command is idempotent: safe to run multiple times
 - Use prioritization skill for MoSCoW framework details
 - Must Haves should be <60% of total items
 - "Won't Have" is important - makes exclusions explicit
@@ -154,3 +266,5 @@ Use AskUserQuestion:
 - Dependencies should influence sequencing
 - Document rationale for priorities (especially Must Have and Won't Have)
 - Update priorities in both custom fields AND labels for visibility
+- Two-layer metadata (fields + labels) provides both project views and cross-project queries
+- Partial failures are tracked separately from complete failures
