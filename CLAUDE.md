@@ -10,6 +10,8 @@ The requirements-expert plugin is a **Claude Code plugin** that guides users thr
 
 ## Quick Reference
 
+**Current Version**: v0.3.0 (see [CHANGELOG.md](CHANGELOG.md) for release history)
+
 **Plugin Root**: `plugins/requirements-expert/` (not repository root)
 
 **Test Locally**:
@@ -33,13 +35,15 @@ markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix
 **GitHub CLI is critical**: All operations use `gh` commands via Bash tool. Verify with `gh auth status`.
 
 **Version Files** (must match on release):
-- `plugins/requirements-expert/.claude-plugin/plugin.json`
+- `plugins/requirements-expert/.claude-plugin/plugin.json` (source of truth)
 - `.claude-plugin/marketplace.json`
+- `CLAUDE.md` (Quick Reference section)
 - All 6 `plugins/requirements-expert/skills/*/SKILL.md` frontmatter
 
 **Check Version Consistency**:
 ```bash
 rg '"version"' plugins/requirements-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
+rg 'Current Version.*v[0-9]' CLAUDE.md
 rg '^version:' plugins/requirements-expert/skills/*/SKILL.md
 ```
 
@@ -377,165 +381,39 @@ actionlint .github/workflows/markdownlint.yml
 
 ### CI/CD Workflows
 
-The repository includes 14 GitHub Actions workflows:
+**PR-blocking CI** (must pass before merge):
 
-**Primary CI** (runs on every PR):
-1. **markdownlint.yml** (~30-40s) - Enforces markdown style (ATX headers, dash lists, 2-space indentation)
-2. **links.yml** (~1-2min) - Validates all links (excluding `.lycheeignore`)
-3. **validate-workflows.yml** (~20-30s) - Validates workflow YAML syntax using actionlint
+- **markdownlint.yml** - Markdown style enforcement
+- **links.yml** - Link validation
+- **validate-workflows.yml** - GitHub Actions syntax validation
+- **version-check.yml** - Version consistency across plugin files
 
-**Claude Code Workflows**:
-4. **claude.yml** - Interactive Claude Code for `@claude` mentions (manual trigger)
-5. **claude-pr-review.yml** - Automated PR review on all non-draft PRs (automatic trigger)
-6. **component-validation.yml** - Deep validation of plugin components on PR changes (path-filtered)
-7. **version-check.yml** (~30-60s) - Validates version consistency across plugin files (path-filtered)
-8. **ci-failure-analysis.yml** - Analyzes failed CI runs and comments with fix suggestions (workflow_run trigger)
+**Claude-powered automation**:
 
-**Automation Workflows**:
-9. **semantic-labeler.yml** - Claude-powered semantic labeling for issues and PRs
-10. **sync-labels.yml** - Syncs labels from labels.yml to repository
-11. **weekly-maintenance.yml** - Weekly repository health audit creating maintenance report issues (scheduled Monday 9:00 UTC)
+- **claude-pr-review.yml** - Automated PR review on non-draft PRs
+- **component-validation.yml** - Deep plugin component validation
+- **ci-failure-analysis.yml** - Analyzes failures and suggests fixes
 
-**Dependency Management Workflows**:
-12. **dependabot-auto-merge.yml** - Auto-merges non-breaking Dependabot PRs
-
-**Utility Workflows**:
-13. **greet.yml** - Welcomes first-time contributors
-14. **stale.yml** - Marks inactive issues/PRs as stale
+See `.github/workflows/` for the complete list (14 workflows total).
 
 **If markdownlint fails**:
+
 ```bash
 markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix issues
-markdownlint plugins/requirements-expert/commands/*.md  # Check specific files
 ```
 
-### Testing Workflow
+### Testing
 
-**Prerequisites**:
-- Git repository with GitHub remote
-- GitHub CLI (`gh`) authenticated: `gh auth login`
-- GitHub Projects enabled on repository
+**Quick test**:
 
-**Full Lifecycle Test**:
-1. `/re:init` - Create project with custom fields
-2. `/re:discover-vision` - Create vision issue
-3. `/re:identify-epics` - Create epic issues
-4. `/re:create-stories` - Create story issues (select epic)
-5. `/re:create-tasks` - Create task issues (select story)
-6. `/re:prioritize` - Apply MoSCoW priorities
-7. `/re:review` - Validate structure and quality
-8. `/re:status` - View project summary
+```bash
+cc --plugin-dir plugins/requirements-expert
+/re:init  # Test a command
+```
 
-**Test Scenarios**:
-- **New project**: Start with `/re:init`, follow full workflow
-- **Resume work**: Agent checks GitHub state, suggests next appropriate command
-- **Add to existing**: Commands detect existing items and offer to add more
-- **Validation**: Run `/re:review` to check for issues
+**Full lifecycle test**: `/re:init` → `/re:discover-vision` → `/re:identify-epics` → `/re:create-stories` → `/re:create-tasks` → `/re:prioritize` → `/re:review` → `/re:status`
 
-### Comprehensive Testing Strategies
-
-This section provides detailed testing strategies for contributors who are creating or modifying commands before deployment and distribution.
-
-#### Testing `/re:init` Command
-
-**1. Happy Path Testing**:
-- [ ] Load plugin: `cc --plugin-dir plugins/requirements-expert`
-- [ ] Navigate to a test git repository with GitHub remote
-- [ ] Run `/re:init`
-- [ ] Verify project created with user-selected name
-- [ ] Verify all three custom fields exist: Type, Priority, Status
-- [ ] Verify field options are correct:
-  - Type: Vision, Epic, Story, Task
-  - Priority: Must Have, Should Have, Could Have, Won't Have
-  - Status: Not Started, In Progress, Completed
-- [ ] Verify success message displays with project URL and next steps
-
-**2. Idempotency Testing**:
-- [ ] Run `/re:init` again in the same repository
-- [ ] Verify no duplicate project created (reuses existing)
-- [ ] Verify no duplicate fields created (skips existing)
-- [ ] Verify appropriate "already exists" messages displayed
-- [ ] Verify command completes successfully
-
-**3. Error Cases - Prerequisites Validation**:
-- [ ] Test without `gh` CLI installed:
-  - Expected: Clear error message suggesting installation
-  - Verify: `brew install gh` or link to <https://cli.github.com/>
-- [ ] Test without GitHub authentication:
-  - Expected: Error message suggesting `gh auth login`
-  - Verify: Command exits gracefully
-- [ ] Test without project scope:
-  - Expected: Error message suggesting `gh auth refresh -s project`
-  - Verify: Clear explanation of required scopes
-- [ ] Test outside git repository:
-  - Expected: Error message about not being in git repo
-  - Verify: Suggests navigating to project repository
-
-**4. Interactive Recovery Testing (Step 6)**:
-- [ ] Simulate project creation failure (invalid permissions, network issue)
-- [ ] Verify AskUserQuestion presents 3 recovery options:
-  - Retry: Try creating the project again
-  - Check permissions: Show diagnostic commands
-  - Exit: Graceful exit with manual steps
-- [ ] Test "Retry" option:
-  - Verify command re-attempts project creation
-  - If fails again, recovery options presented again
-- [ ] Test "Check permissions" option:
-  - Verify `gh auth status` output displayed
-  - Verify `gh auth refresh -s project` command shown
-  - Verify explanation of required scopes
-  - Verify recovery options presented again after diagnostics
-- [ ] Test "Exit" option:
-  - Verify graceful exit message with manual troubleshooting steps
-  - Verify original error details included
-
-**5. Field Creation Optimization Testing**:
-- [ ] Verify single field-list query executed (not 3 separate calls):
-  - Step 7 queries field list once
-  - Steps 8-10 check stored list (no additional queries)
-- [ ] Test when all fields already exist:
-  - Verify "already exists, skipping creation" for all three fields
-  - Verify no field creation commands executed
-- [ ] Test when some fields exist:
-  - Verify existing fields skipped with message
-  - Verify only missing fields created
-- [ ] Test field-list query failure:
-  - Verify graceful degradation (empty list assumption)
-  - Verify warning message displayed
-  - Verify all fields attempted to be created
-
-**6. AskUserQuestion Structure Validation**:
-- [ ] Step 4 (Project Name):
-  - Verify proper structure: question, header, multiSelect, options
-  - Verify header within 12 character limit ("Project Name" = 12)
-  - Verify 3 options with labels and descriptions
-  - Verify "Other" option available for custom input
-  - Verify repository name placeholder substitution
-
-**7. Edge Cases**:
-- [ ] Test with special characters in repository name
-- [ ] Test with very long repository name
-- [ ] Test in organization vs personal account
-- [ ] Test with existing project using exact same name
-- [ ] Test with rate limiting (many API calls in succession)
-
-#### Testing Other Commands
-
-**General Testing Pattern**:
-1. Prerequisites validation (gh CLI, auth, repo context)
-2. Happy path execution
-3. Idempotency (safe to re-run)
-4. Error handling (graceful failures)
-5. User interaction (AskUserQuestion where applicable)
-6. GitHub API integration (correct commands, error handling)
-
-**Validation Checklist**:
-- [ ] YAML frontmatter syntax correct
-- [ ] Allowed-tools list matches actual tool usage
-- [ ] Commands use proper GitHub CLI patterns (see "Critical GitHub CLI Patterns")
-- [ ] Error messages are clear and actionable
-- [ ] Success messages include next steps
-- [ ] Markdown formatting passes linting
+See [TESTING.md](TESTING.md) for comprehensive testing strategies including checklists for each command, idempotency testing, error handling, and edge cases.
 
 ## GitHub CLI Integration
 
@@ -637,37 +515,14 @@ It looks like you're working on requirements. Would you like to use the
 requirements-expert plugin to help structure this work?
 ```
 
-## Methodology Summary
+## Methodology
 
-### Vision Elements
+See [README.md](README.md) for the complete methodology reference covering:
 
-- Problem statement (what problem, why it matters)
-- Target users (who, characteristics)
-- Solution overview (what it does)
-- Success metrics (measurable outcomes)
-- Scope boundaries (included/excluded)
-
-### Epics (5-12 typical)
-
-- Major capabilities or feature themes
-- Too large for single iteration
-- Linked to vision as parent
-- Examples: "User Authentication", "Data Management", "Reporting Dashboard"
-
-### User Stories (5-15 per epic)
-
-- Format: "As a {user}, I want {goal}, so that {benefit}"
-- INVEST criteria compliance required
-- 3-5 acceptance criteria minimum
-- Linked to epic as parent
-
-### Tasks (5-20 per story)
-
-- Implementation-specific work items
-- 2-8 hours of work (right-sized)
-- 3-5 acceptance criteria minimum
-- Organized by layer: frontend, backend, data, testing, docs
-- Linked to story as parent
+- **Vision**: Problem statement, target users, success metrics, scope boundaries
+- **Epics** (5-12 typical): Major capabilities linked to vision
+- **User Stories** (5-15 per epic): INVEST-compliant stories with 3-5 acceptance criteria
+- **Tasks** (5-20 per story): Implementation work items (2-8 hours) organized by layer
 
 ## Component File Structure
 
