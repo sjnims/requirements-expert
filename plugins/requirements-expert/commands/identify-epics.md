@@ -98,6 +98,7 @@ Before creating, check if epic already exists:
 
 2. **Check for Title Match:**
    - Compare new epic title against existing epic titles
+   - Trim leading/trailing whitespace before comparison
    - Use case-insensitive comparison (e.g., "User Authentication" matches "user authentication")
 
 3. **If Match Found:**
@@ -228,13 +229,13 @@ After processing all epics, display a batch summary:
 - #[num] - [Epic 1 name]
 - #[num] - [Epic 2 name]
 
-**Skipped (duplicates):** [N] epics (only if > 0)
-
-- [Epic name] (existing #[num])
-
 **Updated:** [N] existing epics (only if > 0)
 
 - #[num] - [Epic name]
+
+**Skipped (duplicates):** [N] epics (only if > 0)
+
+- [Epic name] (existing #[num])
 
 **Failed:** [N] epics (only if > 0)
 
