@@ -50,7 +50,7 @@ jobs:
             Check that all version files match:
             - `plugins/requirements-expert/.claude-plugin/plugin.json` (source of truth)
             - `.claude-plugin/marketplace.json` (both metadata.version and plugins[0].version)
-            - All 6 skill SKILL.md files in `plugins/requirements-expert/skills/*/SKILL.md`
+            - All 7 skill SKILL.md files in `plugins/requirements-expert/skills/*/SKILL.md`
 
             Read each file and extract the version. Report if any mismatch.
 

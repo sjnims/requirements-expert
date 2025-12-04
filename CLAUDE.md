@@ -548,7 +548,7 @@ Progressive disclosure pattern:
 - `references/*.md`: Detailed documentation, templates, worksheets
 - Trigger description uses third-person with specific phrases
 
-**Available skills**: vision-discovery, epic-identification, user-story-creation, task-breakdown, prioritization, requirements-feedback
+**Available skills**: vision-discovery, epic-identification, user-story-creation, task-breakdown, prioritization, requirements-feedback, shared-patterns
 
 ### Agents (`plugins/requirements-expert/agents/*.md`)
 
@@ -610,7 +610,7 @@ git checkout -b release/v0.x.x
 Update version in **all version files** (must match):
 - `plugins/requirements-expert/.claude-plugin/plugin.json`
 - `.claude-plugin/marketplace.json` (in plugins array and metadata)
-- All skill SKILL.md files (6 files in `plugins/requirements-expert/skills/*/SKILL.md`)
+- All skill SKILL.md files (7 files in `plugins/requirements-expert/skills/*/SKILL.md`)
 
 ```bash
 # Find all files with version to update

@@ -52,7 +52,7 @@ jobs:
             1. Read plugin.json and extract the version (this is the expected version)
             2. Read marketplace.json and extract both version fields
             3. Read CLAUDE.md and extract version from the "Current Version" line in Quick Reference
-            4. Read all 6 skill SKILL.md files and extract version from frontmatter
+            4. Read all 7 skill SKILL.md files and extract version from frontmatter
             5. Compare all versions against the plugin.json version
             6. Return structured JSON with results
 
@@ -64,6 +64,7 @@ jobs:
             - plugins/requirements-expert/skills/task-breakdown/SKILL.md
             - plugins/requirements-expert/skills/prioritization/SKILL.md
             - plugins/requirements-expert/skills/requirements-feedback/SKILL.md
+            - plugins/requirements-expert/skills/shared-patterns/SKILL.md
           claude_args: |
             --allowedTools "Read,Glob"
             --json-schema '{"type":"object","properties":{"plugin_json_version":{"type":"string","description":"Version from plugin.json"},"marketplace_metadata_version":{"type":"string","description":"Version from marketplace.json metadata.version"},"marketplace_plugin_version":{"type":"string","description":"Version from marketplace.json plugins[0].version"},"claude_md_version":{"type":"string","description":"Version from CLAUDE.md Quick Reference"},"skill_versions":{"type":"object","description":"Map of skill name to version","additionalProperties":{"type":"string"}},"all_match":{"type":"boolean","description":"True if all versions match plugin.json"},"expected_version":{"type":"string","description":"The expected version (from plugin.json)"},"mismatches":{"type":"array","description":"List of files with mismatched versions","items":{"type":"string"}}},"required":["plugin_json_version","all_match","expected_version","mismatches"]}'

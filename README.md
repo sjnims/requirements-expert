@@ -262,7 +262,7 @@ User: "I need to add another epic to my project"
 
 ## Skills
 
-The plugin includes six specialized skills that provide methodology and best practices. Skills are **automatically activated** when Claude Code detects relevant context in your conversation:
+The plugin includes seven specialized skills that provide methodology and best practices. Skills are **automatically activated** when Claude Code detects relevant context in your conversation:
 
 1. **vision-discovery** - How to discover and document product vision
 2. **epic-identification** - How to identify and define epics from vision
@@ -270,6 +270,7 @@ The plugin includes six specialized skills that provide methodology and best pra
 4. **task-breakdown** - How to decompose stories into tasks with acceptance criteria
 5. **prioritization** - MoSCoW prioritization framework
 6. **requirements-feedback** - Continuous feedback and iteration practices
+7. **shared-patterns** - Common patterns for error handling, idempotency, and batch operations
 
 Each skill provides structured guidance, templates, and best practices to ensure high-quality requirements at every level.
 

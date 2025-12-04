@@ -105,10 +105,11 @@ Fixes # (issue)
 ### Version Management (if applicable)
 
 - [ ] I have updated version numbers in both `plugin.json` and `marketplace.json` (if this is a release)
-- [ ] I have updated version numbers in all 6 skills (if this is a release):
+- [ ] I have updated version numbers in all 7 skills (if this is a release):
   - [ ] `plugins/requirements-expert/skills/epic-identification/SKILL.md`
   - [ ] `plugins/requirements-expert/skills/prioritization/SKILL.md`
   - [ ] `plugins/requirements-expert/skills/requirements-feedback/SKILL.md`
+  - [ ] `plugins/requirements-expert/skills/shared-patterns/SKILL.md`
   - [ ] `plugins/requirements-expert/skills/task-breakdown/SKILL.md`
   - [ ] `plugins/requirements-expert/skills/user-story-creation/SKILL.md`
   - [ ] `plugins/requirements-expert/skills/vision-discovery/SKILL.md`
