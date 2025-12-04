@@ -32,6 +32,11 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "20"
+
       - name: Review PR with Claude
         uses: anthropics/claude-code-action@6337623ebba10cf8c8214b507993f8062fd4ccfb # v1.0.22
         with:
@@ -47,8 +52,9 @@ jobs:
 
             ## Instructions
             1. Get the PR diff to understand what changed
-            2. Review the changes against the criteria below
-            3. Post a summary comment with your findings
+            2. If any `.md` files were changed, run `npx markdownlint --config .markdownlint.json <files>` to check for style issues
+            3. Review the changes against the criteria below
+            4. Post a summary comment with your findings
 
             ## Review Criteria
 
@@ -58,11 +64,13 @@ jobs:
             - **Agents** (`agents/*.md`): Verify <example> blocks for triggering, appropriate tool restrictions.
             - **Hooks** (`hooks/hooks.json`): Validate event types and matcher patterns.
 
-            ### Markdown Quality
+            ### Markdown Quality (run markdownlint)
+            Run `npx markdownlint --config .markdownlint.json` on changed `.md` files. Key rules enforced:
             - ATX-style headers (`#` not underlines)
             - Dash-style lists (`-` not `*` or `+`)
             - 2-space indentation for nested lists
             - Fenced code blocks (not indented)
+            Include any lint errors in your review under a "Markdown Linting" section.
 
             ### GitHub CLI Patterns (if applicable)
             - Projects use `--owner` not `--repo` (projects are owner-scoped)
@@ -82,4 +90,4 @@ jobs:
             Be constructive and helpful. Focus on significant issues, not nitpicks.
             If the PR looks good, say so briefly - don't invent problems.
           claude_args: |
-            --allowed-tools Bash(gh pr:*),Read,Glob,Grep
+            --allowed-tools Bash(gh pr:*),Bash(npx markdownlint:*),Read,Glob,Grep
