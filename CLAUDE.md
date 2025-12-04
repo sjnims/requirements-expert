@@ -28,7 +28,7 @@ markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix
 
 **8 Commands**: re:init, re:discover-vision, re:identify-epics, re:create-stories, re:create-tasks, re:prioritize, re:review, re:status
 
-**6 Skills**: vision-discovery, epic-identification, user-story-creation, task-breakdown, prioritization, requirements-feedback
+**7 Skills**: vision-discovery, epic-identification, user-story-creation, task-breakdown, prioritization, requirements-feedback, shared-patterns
 
 **2 Agents**: requirements-assistant (orchestration), requirements-validator (quality checks)
 
@@ -38,7 +38,7 @@ markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix
 - `plugins/requirements-expert/.claude-plugin/plugin.json` (source of truth)
 - `.claude-plugin/marketplace.json`
 - `CLAUDE.md` (Quick Reference section)
-- All 6 `plugins/requirements-expert/skills/*/SKILL.md` frontmatter
+- All 7 `plugins/requirements-expert/skills/*/SKILL.md` frontmatter
 
 **Check Version Consistency**:
 ```bash
@@ -62,7 +62,7 @@ This repository uses a **marketplace-at-root** structure where the repository ac
 │       ├── .claude-plugin/
 │       │   └── plugin.json          # Plugin manifest (v0.3.0)
 │       ├── commands/                # 8 slash commands (*.md)
-│       ├── skills/                  # 6 knowledge modules (*/SKILL.md)
+│       ├── skills/                  # 7 knowledge modules (*/SKILL.md)
 │       ├── agents/                  # 2 specialized agents (*.md)
 │       └── hooks/
 │           └── hooks.json           # UserPromptSubmit hook
