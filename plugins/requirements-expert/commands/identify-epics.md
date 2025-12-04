@@ -218,7 +218,7 @@ Use `gh project item-add [project-number] --owner [owner] --url [issue-url]`
 - Add comment to epic issue: "Parent: #[vision-issue-number]"
 - Use GitHub's task list syntax in vision issue to track epics
 
-### Step 6: Initial Prioritization Prompt
+### Step 6: Success Message & Next Steps
 
 After processing all epics, display a batch summary:
 
@@ -243,29 +243,12 @@ After processing all epics, display a batch summary:
 
 All epics linked to Vision (#[vision-num])
 
-Then ask about prioritization:
+**Next steps:**
 
-Use AskUserQuestion:
-
-- Question: "Prioritize epics now?"
-- Header: "Prioritize"
-- Options:
-  - "Prioritize now" (description: "Use MoSCoW framework to prioritize")
-  - "Skip" (description: "Skip prioritization for now")
-- multiSelect: false
-
-If "Prioritize now": Use the SlashCommand tool to invoke `/re:prioritize`
-
-If "Skip": Show next steps
-
-### Step 7: Success Message & Next Steps
-
-Display a success summary that includes:
-
-- Confirmation that epic identification is complete
-- Total epics processed with breakdown: [N] created, [N] skipped, [N] updated, [N] failed
-- Reference to the parent vision issue
-- Next steps: run `/re:prioritize` to rank epics by importance, review epic issues and add details as needed, run `/re:create-stories` to break down highest-priority epic, use `/re:status` to see project overview
+- Run `/re:prioritize` to rank epics by importance
+- Review epic issues and add details as needed
+- Run `/re:create-stories` to break down highest-priority epic
+- Use `/re:status` to see project overview
 
 ## Error Handling
 

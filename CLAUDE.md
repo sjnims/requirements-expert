@@ -133,21 +133,35 @@ Vision Issue (#1, Type: Vision, labels: type:vision)
 
 ## Key Design Patterns
 
-### 1. Command Chaining Pattern
+### 1. Command Completion Pattern
 
-Commands offer to auto-chain to the next phase:
+Commands complete their task, report results, and inform about next steps:
 
 ```
 /re:discover-vision completes
-  → Ask: "Continue to identify epics?"
-  → If yes: Execute /re:identify-epics
-  → If no: Exit gracefully
+  → Display success message with created issue
+  → List next steps (including /re:identify-epics)
+  → Exit
 ```
 
-Implemented in commands using:
-- AskUserQuestion for continuation prompt
-- SlashCommand tool (in agents) or direct command execution
-- State validation before chaining (ensure prerequisites exist)
+**Key principle**: Commands have single responsibility. They do NOT chain to other commands.
+
+**Implementation**:
+
+- Commands display success messages with next steps listed
+- Some commands offer to loop (e.g., "Create stories for another epic?")
+- All commands exit after completing their task
+- Users (or agents) decide which command to run next
+
+**Why no chaining?**
+
+- **Single responsibility**: Each command does one thing well
+- **Debuggability**: Clear boundaries make it obvious which command caused an issue
+- **Loose coupling**: Refactoring one command doesn't break others
+- **Testability**: Each command can be tested in isolation
+- **User agency**: Users explicitly control workflow progression
+
+**Agent orchestration**: The `requirements-assistant` agent uses `SlashCommand` to invoke commands when orchestrating workflows. Commands themselves never use `SlashCommand`.
 
 ### 2. Progressive Disclosure in Skills
 

@@ -164,25 +164,23 @@ Check total number of stories:
 - If > 20: Might be too many, epic might be too large
 - Ideal range: 5-15 stories per epic
 
-### Step 8: Next Story or Next Phase
+### Step 8: Continue or Done
 
 After creating all stories for current epic, ask:
 
 Use AskUserQuestion:
-- Question: "What would you like to do next?"
-- Header: "Next Step"
+
+- Question: "Create stories for another epic?"
+- Header: "Continue"
 - Options:
-  - "Select another epic" (description: "Select a different epic and create stories")
-  - "Prioritize stories" (description: "Use MoSCoW to prioritize these stories")
-  - "Create tasks" (description: "Break down a story into tasks")
-  - "Exit" (description: "Stop here")
+  - "Select another epic" (description: "Create stories for a different epic")
+  - "Done" (description: "Finish story creation")
 - multiSelect: false
 
 **Handle response:**
+
 - "Select another epic": Restart from Step 1
-- "Prioritize stories": Use the SlashCommand tool to invoke `/re:prioritize`
-- "Create tasks": Use the SlashCommand tool to invoke `/re:create-tasks`
-- "Exit": Show success message
+- "Done": Show success message
 
 ### Step 9: Success Message
 
@@ -190,7 +188,13 @@ Display a success summary that includes:
 
 - Confirmation of how many user stories were created and for which epic
 - List of all created stories with their issue numbers and titles
-- Next steps: run `/re:prioritize` to rank stories, run `/re:create-tasks` to break down highest-priority story, review stories and refine acceptance criteria, use `/re:status` to see progress
+
+**Next steps:**
+
+- Run `/re:prioritize` to rank stories by importance
+- Run `/re:create-tasks` to break down highest-priority story into tasks
+- Review stories and refine acceptance criteria
+- Use `/re:status` to see project progress
 
 ## Error Handling
 

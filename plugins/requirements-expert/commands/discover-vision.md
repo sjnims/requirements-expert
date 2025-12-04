@@ -179,19 +179,6 @@ Display a success summary that includes:
 - Confirmation that the vision has been documented and added to the project
 - Next steps: review the vision issue and add details, share with stakeholders for feedback, run `/re:identify-epics` to identify major capabilities, use `/re:review` to validate the vision
 
-### Step 7: Offer to Continue
-
-Use AskUserQuestion:
-- Question: "Would you like to continue to identify epics now?"
-- Header: "Continue"
-- Options:
-  - "Identify epics" (description: "Continue to epic identification")
-  - "Skip" (description: "Stop here for now")
-- multiSelect: false
-
-If user selects "Identify epics":
-- Use the SlashCommand tool to invoke `/re:identify-epics`
-
 ## Error Handling
 
 - If GitHub CLI not available: Provide installation instructions
