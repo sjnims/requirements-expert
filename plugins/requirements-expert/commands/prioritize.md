@@ -53,7 +53,7 @@ Display priority distribution (count and percentage per category). Validate per 
 
 ### Step 6: Update GitHub
 
-Initialize batch tracking per shared-patterns (created, updated, partial, failed, skipped).
+Initialize batch tracking per shared-patterns Batch Tracking pattern (created, updated, partial, failed, skipped).
 
 For each prioritized item:
 
