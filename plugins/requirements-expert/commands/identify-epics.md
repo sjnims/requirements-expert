@@ -6,264 +6,118 @@ allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 
 # Identify Epics
 
-Identify major capabilities (epics) from the product vision and create epic issues in GitHub Projects as children of the vision issue. This command is **idempotent** - safe to run multiple times without creating duplicates.
+Identify major capabilities (epics) from the product vision and create epic issues in GitHub Projects. This command is **idempotent**—safe to run multiple times without creating duplicates.
 
 ## Instructions
 
-Load the **epic-identification** skill to access methodology and templates.
+Load the **epic-identification** skill for methodology and templates. Load **shared-patterns** skill for error handling and idempotency patterns.
 
 ### Step 1: Verify Prerequisites
 
-1. **Check for Vision:**
-   - Use `gh project item-list [project-number] --format json` to list items
-   - Filter for Type = "Vision"
-   - If no vision found: Inform user they need to run `/re:discover-vision` first, then exit
-   - Store vision issue number/URL for parent linking
+1. Query project items: `gh project item-list [project-number] --format json`
+2. Filter for Type = "Vision"
+3. If no vision found: Inform user to run `/re:discover-vision` first, then exit
+4. Read vision issue: `gh issue view [vision-issue-number] --repo [repo] --json body`
+5. Store vision issue number for parent linking
 
-2. **Read Vision Issue:**
-   - Use `gh issue view [vision-issue-number] --repo [repo] --json body`
-   - Extract vision content to use for epic identification
+### Step 2: Suggest Epics
 
-### Step 2: Automated Epic Suggestion
+Apply discovery techniques from epic-identification skill (`references/discovery-techniques.md`):
 
-Analyze the vision and suggest potential epics using epic-identification skill methodology:
+- User Journey Mapping
+- Capability Decomposition
+- Stakeholder Needs Analysis
+- Technical Enablers Identification
 
-**Use these discovery techniques:**
-- User Journey Mapping: What end-to-end journeys do users take?
-- Capability Decomposition: What major capabilities are needed?
-- Stakeholder Needs: What do different user types need?
-- Technical Enablers: What infrastructure is required?
+Analyze vision content. Suggest 5-10 epics categorized by type (User-Facing, Infrastructure, Integration, etc.). Present numbered list with brief descriptions.
 
-**Suggest 5-10 potential epics based on the vision:**
-- Present as a numbered list
-- Brief description (1-2 sentences) for each
-- Categorize (User-Facing, Infrastructure, Integration, etc.)
-
-Present the suggested epics organized by category (User-Facing Capabilities, Infrastructure, Integration, etc.):
-
-- List each epic with a brief 1-2 sentence description
-- Number the epics for easy reference
-- Include a note that these are suggestions and can be accepted, modified, or supplemented with user's own ideas
-
-### Step 3: Epic Selection & Refinement
-
-Use AskUserQuestion to refine the epic list:
-
-**Question 1:**
-- Question: "Which of these suggested epics should we include? (Select all that apply)"
-- Header: "Epics"
-- multiSelect: true
-- Options: One option per suggested epic (label = epic name, description = brief desc)
-
-**Question 2:**
+### Step 3: Epic Selection
 
 Use AskUserQuestion:
-- question: "Would you like to add any additional epics?"
-- header: "Add Epics"
-- multiSelect: false
-- options:
-  - label: "Add more", description: "I have additional epics to include"
-  - label: "Continue", description: "Proceed with the selected epics"
-  - label: "Review selection", description: "Review the list before deciding"
 
-If user selects "Other", use their custom description for additional epics.
+1. **Select epics** (multiSelect: true): Present suggested epics as options
+2. **Add more?** (multiSelect: false): Options: "Add more", "Continue", "Review selection"
 
-If user selects "Add more", prompt for epic details. If "Review selection", display the current selection and ask again.
+Handle "Add more" by prompting for additional epic details. Handle "Review selection" by displaying current selection before re-asking.
 
-### Step 4: Validate Epic Count
+### Step 4: Validate Count
 
-Check the total number of epics:
-- If < 5: Suggest this might be too few, ask if more decomposition needed
-- If > 15: Suggest this might be too many, ask if some can be combined
-- Ideal range: 5-12 epics
+Check total epic count:
+
+- < 5: Suggest more decomposition may be needed
+- > 15: Suggest some could be combined
+- Ideal: 5-12 epics
 
 ### Step 5: Create Epic Issues
 
-Initialize batch tracking lists:
+Initialize batch tracking per shared-patterns skill: `created[]`, `skipped[]`, `updated[]`, `failed[]`
 
-- `created`: Epics successfully created (with issue numbers)
-- `skipped`: Epics skipped due to duplicates (with existing issue numbers)
-- `updated`: Existing epics that were updated (with issue numbers)
-- `failed`: Epics that failed to create (with error reasons)
+For each selected epic:
 
-For each selected/added epic:
+#### 5a. Idempotency Check
 
-#### 5a. Check for Existing Epic (Idempotency)
+Apply shared-patterns Idempotency Check pattern:
 
-Before creating, check if epic already exists:
+1. Query: `gh issue list --repo [repo] --label "type:epic" --json number,title`
+2. Compare titles (case-insensitive, trimmed)
+3. If match found: Use AskUserQuestion (Skip/Update/Create anyway)
+4. Track result in appropriate list
 
-1. **Query Existing Epics:**
-   - Use the project items already fetched in Step 1
-   - Filter for Type = "Epic"
+#### 5b. Create Issue
 
-2. **Check for Title Match:**
-   - Compare new epic title against existing epic titles
-   - Trim leading/trailing whitespace before comparison
-   - Use case-insensitive comparison (e.g., "User Authentication" matches "user authentication")
+Read template: `plugins/requirements-expert/skills/epic-identification/references/epic-template.md`
 
-3. **If Match Found:**
+Compile epic description following template structure. Create issue:
 
-   Use AskUserQuestion:
-
-   - question: "Epic '[epic-name]' appears to already exist as #[existing-issue-number]. What would you like to do?"
-   - header: "Duplicate"
-   - multiSelect: false
-   - options:
-     - label: "Skip"
-       description: "Don't create this epic, continue with next"
-     - label: "Update"
-       description: "Update existing epic with new content"
-     - label: "Create anyway"
-       description: "Create as new epic (will be duplicate)"
-
-   **Handle response:**
-
-   - **Skip**: Add to `skipped` list with existing issue number, continue to next epic
-   - **Update**: Use `gh issue edit [existing-issue-number] --repo [repo] --body "[new-description]"`, add to `updated` list, continue to next epic
-   - **Create anyway**: Proceed with creation (user acknowledged duplicate)
-
-4. **If No Match:**
-   - Proceed with creation
-
-#### 5b. Compile Epic Description
-
-Read the comprehensive template using the Read tool:
-
-```
-plugins/requirements-expert/skills/epic-identification/references/epic-template.md
+```bash
+gh issue create --repo [repo] --title "[Epic Name]" --body "[description]" --label "type:epic"
 ```
 
-Follow that template structure:
+On failure: Apply shared-patterns Recovery Flow (Retry/Skip/Check permissions/Stop).
 
-```markdown
-## Epic: [Epic Name]
+#### 5c. Add to Project
 
-### Overview
-[Brief description of what this epic delivers]
-
-### User Value
-[Who benefits and how]
-
-### Scope
-**Included:**
-- [Capability 1]
-- [Capability 2]
-
-**Excluded:**
-- [Not included 1]
-
-### Success Criteria
-- [Criterion 1]
-- [Criterion 2]
-
-### Dependencies
-[None identified yet - will be defined during story creation]
-
-**Parent:** [Link to Vision Issue #]
+```bash
+gh project item-add [project-number] --owner [owner] --url [issue-url]
 ```
 
-#### 5c. Create Issue
+#### 5d. Set Custom Fields
 
-Use `gh issue create --repo [repo] --title "[Epic Name]" --body "[epic description]" --label "type:epic"`
-
-**If Creation Fails:**
-
-Capture error output from gh CLI.
-
-Display: "Failed to create epic '[epic-name]': [error message]"
-
-Use AskUserQuestion for recovery:
-
-- question: "Epic creation failed. How would you like to proceed?"
-- header: "Recovery"
-- multiSelect: false
-- options:
-  - label: "Retry"
-    description: "Try creating this epic again"
-  - label: "Skip"
-    description: "Skip this epic, continue with remaining"
-  - label: "Check permissions"
-    description: "Show diagnostic commands"
-  - label: "Stop"
-    description: "Stop and show summary of progress"
-
-**Handle response:**
-
-- **Retry**: Re-attempt creation. If fails again, present recovery options again.
-- **Skip**: Add to `failed` list with error reason, continue to next epic.
-- **Check permissions**:
-  - Run: `gh auth status`
-  - Display the output
-  - Explain: "Issue creation requires 'repo' scope."
-  - After showing diagnostics, present the same recovery options again
-- **Stop**: Exit loop and proceed to Step 7 (show summary with progress so far)
-
-**If Creation Succeeds:**
-
-- Capture issue number and URL
-- Add to `created` list
-
-#### 5d. Add to Project
-
-Use `gh project item-add [project-number] --owner [owner] --url [issue-url]`
-
-#### 5e. Set Custom Fields
+Apply shared-patterns Two-Layer Metadata pattern:
 
 - Type: Epic
 - Status: Not Started
-- Priority: (Will be set in prioritization step)
 
-#### 5f. Link to Vision (Parent)
+#### 5e. Link to Vision
 
-- Add comment to epic issue: "Parent: #[vision-issue-number]"
-- Use GitHub's task list syntax in vision issue to track epics
+Add comment: "Parent: #[vision-issue-number]"
 
-### Step 6: Success Message & Next Steps
+### Step 6: Summary & Next Steps
 
-After processing all epics, display a batch summary:
+Display batch summary per shared-patterns format:
 
+```text
 **Epic identification complete!**
 
 **Created:** [N] new epics
-
-- #[num] - [Epic 1 name]
-- #[num] - [Epic 2 name]
-
-**Updated:** [N] existing epics (only if > 0)
-
 - #[num] - [Epic name]
 
-**Skipped (duplicates):** [N] epics (only if > 0)
-
-- [Epic name] (existing #[num])
-
-**Failed:** [N] epics (only if > 0)
-
-- [Epic name]: [error reason]
+**Updated:** [N] existing epics (if > 0)
+**Skipped:** [N] duplicates (if > 0)
+**Failed:** [N] epics (if > 0)
 
 All epics linked to Vision (#[vision-num])
 
 **Next steps:**
-
-- Run `/re:prioritize` to rank epics by importance
-- Review epic issues and add details as needed
+- Run `/re:prioritize` to rank epics
 - Run `/re:create-stories` to break down highest-priority epic
-- Use `/re:status` to see project overview
+- Use `/re:status` for project overview
+```
 
 ## Error Handling
 
-- If no vision exists: Guide to `/re:discover-vision`
-- If vision is incomplete: Suggest reviewing and updating it first
-- If duplicate epic detected: Use interactive prompt (Skip/Update/Create anyway)
-- If issue creation fails: Use interactive recovery (Retry/Skip/Check permissions/Stop)
-- If too many/few epics: Provide guidance on right-sizing
-
-## Notes
-
-- This command is idempotent: safe to run multiple times
-- Use epic-identification skill for methodology
-- Aim for 5-12 epics (sweet spot)
-- Each epic is a separate GitHub issue
-- Each epic links to vision as parent
-- Epics should be distinct and non-overlapping
-- Use common epic patterns (User-Facing, Infrastructure, Integration, Data)
+- No vision exists: Guide to `/re:discover-vision`
+- Vision incomplete: Suggest reviewing it first
+- Duplicate detected: Use Idempotency Check pattern
+- Creation fails: Use Recovery Flow pattern
+- Too many/few epics: Provide right-sizing guidance
