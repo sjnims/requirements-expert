@@ -132,32 +132,12 @@ Handle "Select another story" by restarting from Step 1. Handle "Done" by showin
 
 ### Step 9: Summary & Next Steps
 
-Display batch summary per shared-patterns format:
+Display batch summary per shared-patterns Batch Tracking format with task-specific additions:
 
-```text
-**Task creation complete for Story #[story-num]!**
-
-**Created:** [N] new tasks
-[Group by layer: Frontend, Backend, Data, Testing, Documentation]
-- #[num] - [Task title]
-
-**Updated:** [N] existing tasks (if > 0)
-**Skipped:** [N] duplicates (if > 0)
-**Failed:** [N] tasks (if > 0)
-
-**Suggested execution order:**
-Phase 1: #[num], #[num] (no dependencies)
-Phase 2: #[num] (depends on Phase 1)
-Phase 3: #[num] (testing and documentation)
-
-All tasks linked to Story (#[story-num])
-
-**Next steps:**
-- Review tasks in GitHub Projects
-- Assign tasks to team members
-- Start with Phase 1 tasks
-- Run `/re:status` for project overview
-```
+- Group created tasks by layer (Frontend, Backend, Data, Testing, Documentation)
+- Show suggested execution order by phase (from Step 7)
+- Include parent story link
+- Next steps: Review in GitHub Projects, assign tasks, start Phase 1, run `/re:status`
 
 ## Error Handling
 
