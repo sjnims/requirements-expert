@@ -32,40 +32,80 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
         with:
-          fetch-depth: 1
+          fetch-depth: 0
+
+      - name: Get changed plugin component files
+        id: changed-files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Get list of changed files in this PR, filtered to plugin components
+          changed_files=$(gh pr diff ${{ github.event.pull_request.number }} --name-only | \
+            grep -E '^plugins/requirements-expert/(commands|skills|agents|hooks)/' | \
+            grep -v '\-SUGGESTED\.md$' | \
+            grep -v '\-BACKUP\.md$' | \
+            grep -v '\-OLD\.md$' || true)
+
+          if [ -z "$changed_files" ]; then
+            echo "No plugin component files changed"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Changed plugin component files:"
+            echo "$changed_files"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            # Store as newline-separated list for the prompt
+            {
+              echo "files<<EOF"
+              echo "$changed_files"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Validate plugin components
+        if: steps.changed-files.outputs.has_changes == 'true'
         uses: anthropics/claude-code-action@6337623ebba10cf8c8214b507993f8062fd4ccfb # v1.0.22
         id: validate
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
-            Validate the plugin components in this repository for structural correctness and quality.
+            Validate ONLY the changed plugin component files listed below.
 
             ## Context
             - Repository: ${{ github.repository }}
             - PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}
 
+            ## Changed Files to Validate
+            ```
+            ${{ steps.changed-files.outputs.files }}
+            ```
+
+            **IMPORTANT**: Only validate the files listed above. Do NOT validate other files in the plugin directories.
+
             ## Instructions
 
             1. First, read the plugin version from `plugins/requirements-expert/.claude-plugin/plugin.json` (needed for skill version validation)
-            2. Then validate each component type against the rules below
+            2. Read and validate ONLY the changed files listed above
             3. Return structured JSON with validation results
 
             ## Validation Rules
 
             ### Commands (`plugins/requirements-expert/commands/*.md`)
 
-            For each command file, verify:
+            For each changed command file, verify:
             - [ ] YAML frontmatter exists with `name`, `description`, `allowed-tools` fields
             - [ ] `description` is 60 characters or fewer
-            - [ ] `allowed-tools` uses `Bash(gh:*)` not unrestricted `Bash` (security requirement)
+            - [ ] `allowed-tools` follows these rules:
+              - MUST use `Bash(gh:*)` not unrestricted `Bash` (security requirement)
+              - `Read` is always allowed (reading files is safe)
+              - `Write` is allowed ONLY if the command creates/exports files (e.g., status export)
+              - `AskUserQuestion` is always allowed (user interaction is safe)
+              - Do NOT flag tools that are appropriate for the command's purpose
             - [ ] Body uses imperative form ("Do X", "Create Y") not second person ("You should X")
-            - [ ] No draft files exist (`*-SUGGESTED.md`, `*-BACKUP.md`, `*-OLD.md`)
+            - [ ] No draft file patterns in filename (`*-SUGGESTED.md`, `*-BACKUP.md`, `*-OLD.md`)
 
             ### Skills (`plugins/requirements-expert/skills/*/SKILL.md`)
 
-            For each skill SKILL.md file, verify:
+            For each changed skill SKILL.md file, verify:
             - [ ] YAML frontmatter exists with `name`, `description`, `version` fields
             - [ ] `description` uses third-person with trigger phrases (starts with "This skill should be used when...")
             - [ ] `version` matches the plugin.json version
@@ -73,7 +113,7 @@ jobs:
 
             ### Agents (`plugins/requirements-expert/agents/*.md`)
 
-            For each agent file, verify:
+            For each changed agent file, verify:
             - [ ] YAML frontmatter exists with `name`, `description`, `model`, `color`, `tools` fields
             - [ ] `description` field includes `<example>` blocks (at least 2, ideally 3-4)
             - [ ] Each `<example>` block has proper structure (Context line, `user:` and `assistant:` dialogue lines, and `<commentary>` XML tags)
@@ -81,7 +121,7 @@ jobs:
 
             ### Hooks (`plugins/requirements-expert/hooks/hooks.json`)
 
-            Verify:
+            For changed hooks file, verify:
             - [ ] File is valid JSON
             - [ ] Event types are valid: UserPromptSubmit, PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, PreCompact, Notification
             - [ ] Matcher patterns are valid regex (test by attempting to compile)
@@ -104,14 +144,15 @@ jobs:
             }
             ```
 
-            Set `all_valid` to true only if all categories are valid.
+            Set `all_valid` to true only if all changed files pass validation.
+            Set category to valid (true) if no changed files exist for that category.
             Include specific file names and line numbers in issues when possible.
           claude_args: |
             --allowedTools "Read,Glob,Grep"
             --json-schema '{"type":"object","properties":{"commands_valid":{"type":"boolean"},"commands_issues":{"type":"array","items":{"type":"string"}},"skills_valid":{"type":"boolean"},"skills_issues":{"type":"array","items":{"type":"string"}},"agents_valid":{"type":"boolean"},"agents_issues":{"type":"array","items":{"type":"string"}},"hooks_valid":{"type":"boolean"},"hooks_issues":{"type":"array","items":{"type":"string"}},"all_valid":{"type":"boolean"},"summary":{"type":"string"}},"required":["all_valid"]}'
 
       - name: Check validation result
-        if: always() && steps.validate.outputs.structured_output != ''
+        if: always() && steps.changed-files.outputs.has_changes == 'true' && steps.validate.outputs.structured_output != ''
         env:
           VALIDATION_OUTPUT: ${{ steps.validate.outputs.structured_output }}
         run: |
@@ -160,5 +201,11 @@ jobs:
 
           {
             echo ""
-            echo "All plugin components are valid."
+            echo "All changed plugin components are valid."
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Skip validation (no changes)
+        if: steps.changed-files.outputs.has_changes != 'true'
+        run: |
+          echo "## Validation Skipped" >> "$GITHUB_STEP_SUMMARY"
+          echo "No plugin component files were changed in this PR." >> "$GITHUB_STEP_SUMMARY"
