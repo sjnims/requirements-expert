@@ -10,7 +10,7 @@ Break down a selected epic into user stories following INVEST criteria and creat
 
 ## Instructions
 
-Load the **user-story-creation** skill for methodology, INVEST criteria, and templates. Load **shared-patterns** skill for error handling and idempotency patterns.
+Load the **user-story-creation** skill for methodology and templates. Load **shared-patterns** skill for error handling and idempotency patterns.
 
 ### Step 1: Select Epic to Break Down
 
