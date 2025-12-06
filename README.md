@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner-flow-diagram.svg" alt="Requirements Expert - Transform ideas into action" width="100%">
+</p>
+
 # Requirements Expert Plugin for Claude Code
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
