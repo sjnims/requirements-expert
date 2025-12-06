@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#161b22;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Flow gradient for the line and bottom accent -->
+    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#22c55e;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Icon backgrounds -->
+    <linearGradient id="ideaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7" />
+      <stop offset="100%" style="stop-color:#8b5cf6" />
+    </linearGradient>
+    <linearGradient id="visionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6" />
+      <stop offset="100%" style="stop-color:#6366f1" />
+    </linearGradient>
+    <linearGradient id="epicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1" />
+      <stop offset="100%" style="stop-color:#3b82f6" />
+    </linearGradient>
+    <linearGradient id="storyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6" />
+      <stop offset="100%" style="stop-color:#10b981" />
+    </linearGradient>
+    <linearGradient id="taskGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981" />
+      <stop offset="100%" style="stop-color:#22c55e" />
+    </linearGradient>
+
+    <!-- Arrow markers -->
+    <marker id="arrowhead1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8b5cf6"/>
+    </marker>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6366f1"/>
+    </marker>
+    <marker id="arrowhead3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowhead4" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="320" fill="url(#bgGradient)"/>
+
+  <!-- Subtle grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.03"/>
+  </pattern>
+  <rect width="1280" height="320" fill="url(#grid)"/>
+
+  <!-- Subtle flow line connecting all nodes (simplified, properly aligned) -->
+  <line x1="155" y1="141" x2="875" y2="141"
+        stroke="url(#flowGradient)"
+        stroke-width="2"
+        opacity="0.25"
+        stroke-linecap="round"/>
+
+  <!-- Node 1: Idea (Lightbulb) -->
+  <g transform="translate(130, 116)">
+    <circle cx="25" cy="25" r="35" fill="url(#ideaGrad)" opacity="0.2"/>
+    <circle cx="25" cy="25" r="28" fill="url(#ideaGrad)" filter="url(#glow)"/>
+    <!-- Lightbulb icon (shifted up 4px to center vertically) -->
+    <path d="M 25 8 C 18 8 12 14 12 21 C 12 26 15 30 19 32 L 19 38 L 31 38 L 31 32 C 35 30 38 26 38 21 C 38 14 32 8 25 8 Z"
+          fill="#ffffff" opacity="0.9"/>
+    <rect x="20" y="40" width="10" height="3" rx="1" fill="#ffffff" opacity="0.9"/>
+    <text x="25" y="95" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500">Idea</text>
+  </g>
+
+  <!-- Arrow 1 (centered between Idea and Vision) -->
+  <path d="M 230 141 L 260 141" stroke="#8b5cf6" stroke-width="2" fill="none" marker-end="url(#arrowhead1)"/>
+
+  <!-- Node 2: Vision -->
+  <g transform="translate(310, 116)">
+    <circle cx="25" cy="25" r="35" fill="url(#visionGrad)" opacity="0.2"/>
+    <circle cx="25" cy="25" r="28" fill="url(#visionGrad)" filter="url(#glow)"/>
+    <!-- Clipboard/Document icon (shifted down 2px to center vertically) -->
+    <rect x="14" y="12" width="22" height="30" rx="2" fill="#ffffff" opacity="0.9"/>
+    <rect x="18" y="8" width="14" height="6" rx="1" fill="#ffffff" opacity="0.9"/>
+    <line x1="18" y1="22" x2="32" y2="22" stroke="#6366f1" stroke-width="2"/>
+    <line x1="18" y1="28" x2="32" y2="28" stroke="#6366f1" stroke-width="2"/>
+    <line x1="18" y1="34" x2="28" y2="34" stroke="#6366f1" stroke-width="2"/>
+    <text x="25" y="95" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500">Vision</text>
+  </g>
+
+  <!-- Arrow 2 (centered between Vision and Epics) -->
+  <path d="M 410 141 L 440 141" stroke="#6366f1" stroke-width="2" fill="none" marker-end="url(#arrowhead2)"/>
+
+  <!-- Node 3: Epics (Target) -->
+  <g transform="translate(490, 116)">
+    <circle cx="25" cy="25" r="35" fill="url(#epicGrad)" opacity="0.2"/>
+    <circle cx="25" cy="25" r="28" fill="url(#epicGrad)" filter="url(#glow)"/>
+    <!-- Target icon -->
+    <circle cx="25" cy="25" r="16" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.9"/>
+    <circle cx="25" cy="25" r="10" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.9"/>
+    <circle cx="25" cy="25" r="4" fill="#ffffff" opacity="0.9"/>
+    <text x="25" y="95" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500">Epics</text>
+  </g>
+
+  <!-- Arrow 3 (centered between Epics and Stories) -->
+  <path d="M 590 141 L 620 141" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrowhead3)"/>
+
+  <!-- Node 4: Stories -->
+  <g transform="translate(670, 116)">
+    <circle cx="25" cy="25" r="35" fill="url(#storyGrad)" opacity="0.2"/>
+    <circle cx="25" cy="25" r="28" fill="url(#storyGrad)" filter="url(#glow)"/>
+    <!-- Story/page icon -->
+    <path d="M 14 10 L 30 10 L 36 16 L 36 40 L 14 40 Z" fill="#ffffff" opacity="0.9"/>
+    <path d="M 30 10 L 30 16 L 36 16" fill="none" stroke="#10b981" stroke-width="1.5"/>
+    <line x1="18" y1="22" x2="32" y2="22" stroke="#10b981" stroke-width="2"/>
+    <line x1="18" y1="28" x2="32" y2="28" stroke="#10b981" stroke-width="2"/>
+    <line x1="18" y1="34" x2="26" y2="34" stroke="#10b981" stroke-width="2"/>
+    <text x="25" y="95" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500">Stories</text>
+  </g>
+
+  <!-- Arrow 4 (centered between Stories and Tasks) -->
+  <path d="M 770 141 L 800 141" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead4)"/>
+
+  <!-- Node 5: Tasks (Checkmark) -->
+  <g transform="translate(850, 116)">
+    <circle cx="25" cy="25" r="35" fill="url(#taskGrad)" opacity="0.2"/>
+    <circle cx="25" cy="25" r="28" fill="url(#taskGrad)" filter="url(#glow)"/>
+    <!-- Checkbox with checkmark -->
+    <rect x="12" y="12" width="26" height="26" rx="4" fill="#ffffff" opacity="0.9"/>
+    <path d="M 17 25 L 23 31 L 35 17" stroke="#22c55e" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="25" y="95" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500">Tasks</text>
+  </g>
+
+  <!-- Title -->
+  <text x="1050" y="113" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" letter-spacing="-0.5">
+    Requirements
+  </text>
+  <text x="1050" y="153" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" letter-spacing="-0.5">
+    Expert
+  </text>
+
+  <!-- Tagline -->
+  <text x="1050" y="188" text-anchor="middle" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="400">
+    Transform ideas into action
+  </text>
+
+  <!-- Plugin badge -->
+  <g transform="translate(985, 208)">
+    <rect width="130" height="24" rx="12" fill="#ffffff" opacity="0.1"/>
+    <text x="65" y="16" text-anchor="middle" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500">
+      Claude Code Plugin
+    </text>
+  </g>
+
+  <!-- Bottom accent line -->
+  <rect x="0" y="316" width="1280" height="4" fill="url(#flowGradient)"/>
+</svg>

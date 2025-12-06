@@ -26,6 +26,8 @@
       "details",
       "summary",
       "br",
+      "p",
+      "img",
       "example",
       "commentary",
       "antml:invoke",
@@ -34,7 +36,10 @@
   },
   "MD034": true,
   "MD040": false,
-  "MD041": true,
+  "MD041": {
+    "front_matter_title": "",
+    "level": 1
+  },
   "MD046": {
     "style": "fenced"
   },
