@@ -111,11 +111,3 @@ All epics linked to Vision (#[vision-num])
 - Run `/re:create-stories` to break down highest-priority epic
 - Use `/re:status` for project overview
 ```
-
-## Error Handling
-
-- No vision exists: Guide to `/re:discover-vision`
-- Vision incomplete: Suggest reviewing it first
-- Duplicate detected: Use Idempotency Check pattern
-- Creation fails: Use Recovery Flow pattern
-- Too many/few epics: Provide right-sizing guidance

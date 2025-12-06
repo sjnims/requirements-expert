@@ -136,12 +136,3 @@ All stories linked to Epic (#[epic-num])
 - Run `/re:create-tasks` to break down highest-priority story
 - Use `/re:status` for project overview
 ```
-
-## Error Handling
-
-- No epics exist: Guide to `/re:identify-epics`
-- Epic has no content: Suggest updating epic issue first
-- Duplicate detected: Use Idempotency Check pattern
-- Creation fails: Use Recovery Flow pattern
-- Story violates INVEST: Provide refinement per skill guidance
-- Too many/few stories: Provide right-sizing guidance

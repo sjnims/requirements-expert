@@ -83,11 +83,3 @@ If any items failed or had partial updates, note that `/re:prioritize` can be re
 Ask Next Step: "What would you like to do next?" (options: Prioritize another level, Show status, Start top priority, Exit)
 
 Handle response appropriately.
-
-## Error Handling
-
-- No items to prioritize → Guide to appropriate creation command
-- All Must Have → Guidance on right-sizing per prioritization skill
-- No Must Have → Confirm intentional
-- Priority/dependency conflicts → Highlight and suggest resolution
-- Operation failures → Apply shared-patterns Standard Recovery Flow

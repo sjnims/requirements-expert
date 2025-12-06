@@ -64,15 +64,3 @@ Based on project state, provide tailored next steps:
 Ask Export: "Would you like to export this report?" (options: Markdown file, Vision comment, Both, Skip)
 
 Handle: Markdown file saves as `status-report-[date].md`, Vision comment uses `gh issue comment`.
-
-## Error Handling
-
-- No project exists: Guide to `/re:init`
-- Project empty: Guide to `/re:discover-vision`
-- API failure: Show partial data with warning
-
-## Notes
-
-- No prerequisites - can be run anytime
-- Provides complete project snapshot with context-aware recommendations
-- Run regularly (daily/weekly) to track progress
