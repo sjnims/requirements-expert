@@ -37,6 +37,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli
+
       - name: Review PR with Claude
         uses: anthropics/claude-code-action@6337623ebba10cf8c8214b507993f8062fd4ccfb # v1.0.22
         with:
@@ -53,7 +56,7 @@ jobs:
 
             ## Instructions
             1. Get the PR diff to understand what changed
-            2. If any `.md` files were changed, run `npx markdownlint --config .markdownlint.json <files>` to check for style issues
+            2. If any `.md` files were changed, run `markdownlint --config .markdownlint.json <files>` to check for style issues
             3. Review the changes against the criteria below
             4. Post a summary comment with your findings
 
@@ -66,7 +69,7 @@ jobs:
             - **Hooks** (`hooks/hooks.json`): Validate event types and matcher patterns.
 
             ### Markdown Quality (run markdownlint)
-            Run `npx markdownlint --config .markdownlint.json` on changed `.md` files. Key rules enforced:
+            Run `markdownlint --config .markdownlint.json` on changed `.md` files. Key rules enforced:
             - ATX-style headers (`#` not underlines)
             - Dash-style lists (`-` not `*` or `+`)
             - 2-space indentation for nested lists
@@ -91,4 +94,4 @@ jobs:
             Be constructive and helpful. Focus on significant issues, not nitpicks.
             If the PR looks good, say so briefly - don't invent problems.
           claude_args: |
-            --allowedTools "Bash(gh pr:*),Bash(npx markdownlint:*),Read,Glob,Grep,mcp__github_inline_comment__create_inline_comment"
+            --allowedTools "Bash(gh pr:*),Bash(markdownlint:*),Read,Glob,Grep,mcp__github_inline_comment__create_inline_comment"
