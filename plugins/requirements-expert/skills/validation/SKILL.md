@@ -17,6 +17,7 @@ version: 0.3.0
 | Understand thresholds | Review pass/warning/fail levels | `references/quality-thresholds.md` |
 | Generate report | Use standard format | `references/report-template.md` |
 | Fix common issues | Apply fix patterns | `references/fix-patterns.md` |
+| View example report | Load sample validation output | `examples/example-validation-report.md` |
 
 ## Command Integration
 
@@ -199,6 +200,14 @@ Load references as needed:
 | **quality-thresholds.md** | Pass/warning/fail thresholds | `references/quality-thresholds.md` |
 | **report-template.md** | Validation report format | `references/report-template.md` |
 | **fix-patterns.md** | Common fixes for common issues | `references/fix-patterns.md` |
+
+## Examples
+
+Working examples that can be copied and adapted:
+
+| Example | Use Case | Path |
+|---------|----------|------|
+| **example-validation-report.md** | Viewing a complete validation report with realistic findings | `examples/example-validation-report.md` |
 
 ## Related Skills
 

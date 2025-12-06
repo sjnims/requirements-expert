@@ -300,11 +300,13 @@ For detailed guidance on each practice, see `references/best-practices.md`.
 
 Watch for these prioritization anti-patterns:
 
-- **Everything is a "Must Have"** - If everything is critical, nothing is
-- **Ignoring Technical Dependencies** - Prioritize prerequisites appropriately
-- **Forgetting "Won't Have"** - Explicitly identify what's out of scope
-- **Prioritizing Based on Who Shouts Loudest** - Use objective criteria, not volume
-- **Never Re-Prioritizing** - Stay flexible; revisit priorities regularly
+| Pitfall | Problem | Solution |
+|---------|---------|----------|
+| **Everything is "Must Have"** | If everything is critical, nothing is | Apply strict criteria; target <60% Must Have |
+| **Ignoring Dependencies** | High-priority items blocked by low-priority | Map dependencies; prioritize prerequisites |
+| **Forgetting "Won't Have"** | Scope creep when exclusions are implicit | Explicitly document what's out of scope |
+| **Loudest Voice Wins** | Decisions based on volume, not value | Use objective criteria and data |
+| **Never Re-Prioritizing** | Priorities become stale as context changes | Review and adjust priorities regularly |
 
 For detailed mitigation strategies, see `references/best-practices.md`.
 

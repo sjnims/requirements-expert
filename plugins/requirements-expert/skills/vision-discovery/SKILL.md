@@ -15,6 +15,7 @@ version: 0.3.0
 | Articulating solution | Use elevator pitch format | Step 3: Define the Solution Vision |
 | Establishing metrics | Apply SMART framework | `references/success-metrics-examples.md` |
 | Documenting vision | Use template | `references/vision-template.md` |
+| Reviewing vision quality | Check common pitfalls | `references/common-pitfalls.md` |
 | Viewing example | Load sample | `examples/sample-vision.md` |
 
 ## Command Integration
@@ -202,25 +203,18 @@ Vision is not set in stone:
 
 ## Common Pitfalls to Avoid
 
-### Too Vague
+Watch for these vision definition anti-patterns:
 
-❌ "Build a platform for users to interact"
-✅ "Enable marketing managers to track campaign ROI across channels in real-time"
+| Pitfall | Problem | Solution |
+|---------|---------|----------|
+| **Too Vague** | Vision could apply to anything | Name specific users, quantify problems |
+| **Too Prescriptive** | Specifies technology, not outcomes | Focus on "what" and "why," not "how" |
+| **Scope Creep** | Vision includes everything | Define explicit boundaries (included AND excluded) |
+| **Unmeasurable Success** | No way to validate achievement | Apply SMART framework with timeframes |
+| **Missing User Focus** | Users described as "everyone" | Create specific personas with roles and goals |
+| **Solution Before Problem** | Starts with "Build a..." | Use 5 Whys to understand root problem first |
 
-### Too Prescriptive
-
-❌ "Build a React app with a dashboard showing charts"
-✅ "Provide visibility into campaign performance to enable data-driven decisions"
-
-### Scope Creep
-
-❌ Vision that includes everything: e-commerce, social, analytics, AI, blockchain...
-✅ Focused vision with clear boundaries: "Campaign ROI tracking, NOT creative design or email delivery"
-
-### Unmeasurable Success
-
-❌ "Be the best product in the market"
-✅ "Achieve 10,000 active users with 70%+ weekly retention within 12 months"
+For detailed examples and remediation guidance, see `references/common-pitfalls.md`.
 
 ## Quick Reference: Vision Discovery Flow
 
@@ -281,6 +275,7 @@ For detailed guidance and templates:
 | **vision-template.md** | Creating vision issue content or documenting vision | `references/vision-template.md` |
 | **5-whys-technique.md** | Conducting root cause analysis during problem discovery | `references/5-whys-technique.md` |
 | **success-metrics-examples.md** | Defining SMART success metrics for the vision | `references/success-metrics-examples.md` |
+| **common-pitfalls.md** | Reviewing vision quality or troubleshooting vision issues | `references/common-pitfalls.md` |
 
 ## Examples
 
