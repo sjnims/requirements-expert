@@ -36,10 +36,7 @@
   },
   "MD034": true,
   "MD040": false,
-  "MD041": {
-    "front_matter_title": "",
-    "level": 1
-  },
+  "MD041": false,
   "MD046": {
     "style": "fenced"
   },
