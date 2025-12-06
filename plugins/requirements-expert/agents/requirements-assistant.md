@@ -50,7 +50,7 @@ color: blue
 # work for Skills (allowed-tools) and project-level settings, but not agents.
 # This agent only uses `gh` CLI commands in practice - see "Workflow Orchestration"
 # section. Restriction must be enforced at project level if required.
-# Reference: https://github.com/anthropics/claude-code/issues/370
+# Reference: https://github.com/sjnims/requirements-expert/issues/370
 tools:
   - Bash
   - AskUserQuestion

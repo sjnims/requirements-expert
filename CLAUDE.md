@@ -784,7 +784,9 @@ tools:
 - If stricter enforcement is needed, use project-level `settings.json` to restrict Bash patterns
 - The unrestricted `Bash` is documented in the agent file with rationale
 
-**Reference**: [Claude Code Subagents Documentation](https://docs.anthropic.com/en/docs/claude-code/sub-agents)
+**References**:
+- [Claude Code Subagents Documentation](https://docs.anthropic.com/en/docs/claude-code/sub-agents)
+- Investigation details: [#370](https://github.com/sjnims/requirements-expert/issues/370)
 
 ### GitHub CLI Usage Patterns (CRITICAL)
 
