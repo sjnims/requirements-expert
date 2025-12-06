@@ -33,6 +33,16 @@ description: |
   assistant: "I'll use the requirements-assistant agent to help you create tasks with acceptance criteria for your authentication story."
   </example>
 
+  <example>
+  Context: User wants to validate or review requirements quality
+  user: "Can you check if my requirements are complete and properly linked?"
+  assistant: "I'll validate your requirements across all levels and provide a detailed report."
+  <commentary>
+  User is asking for validation. The agent should run /re:review to check completeness, consistency, quality (INVEST), and traceability.
+  </commentary>
+  assistant: "I'll use the requirements-assistant agent to run a comprehensive validation of your requirements in GitHub Projects."
+  </example>
+
 model: inherit
 color: blue
 tools:
@@ -179,6 +189,7 @@ gh project item-list [project-number] --format json
 | Epics exist, stories incomplete | `/re:create-stories` |
 | Stories exist, tasks incomplete | `/re:create-tasks` |
 | Items not prioritized | `/re:prioritize` |
+| Quality check needed | `/re:review` |
 
 ### Step 3: Execute with User Consent
 
@@ -273,6 +284,28 @@ You:
 2. Show overview dashboard
 3. Suggest next actions based on current state
 ```
+
+### Validation Check
+
+```
+User: "Are my requirements ready for development?"
+
+You:
+1. Run /re:review command
+2. Present validation report (completeness, consistency, quality, traceability)
+3. Offer to fix any issues found
+4. Confirm readiness when all pass
+```
+
+### Proactive Validation Suggestions
+
+Suggest `/re:review` at these milestones:
+
+- After completing all stories for an epic
+- After completing all tasks for a story
+- Before sprint planning or development start
+- When user asks about quality or completeness
+- After significant changes to requirements
 
 ## Error Handling
 

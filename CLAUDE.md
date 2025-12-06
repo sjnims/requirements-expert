@@ -28,9 +28,9 @@ markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix
 
 **8 Commands**: re:init, re:discover-vision, re:identify-epics, re:create-stories, re:create-tasks, re:prioritize, re:review, re:status
 
-**7 Skills**: vision-discovery, epic-identification, user-story-creation, task-breakdown, prioritization, requirements-feedback, shared-patterns
+**8 Skills**: vision-discovery, epic-identification, user-story-creation, task-breakdown, prioritization, requirements-feedback, shared-patterns, validation
 
-**2 Agents**: requirements-assistant (orchestration), requirements-validator (quality checks)
+**1 Agent**: requirements-assistant (orchestration, validation awareness)
 
 **GitHub CLI is critical**: All operations use `gh` commands via Bash tool. Verify with `gh auth status`.
 
@@ -38,7 +38,7 @@ markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix
 - `plugins/requirements-expert/.claude-plugin/plugin.json` (source of truth)
 - `.claude-plugin/marketplace.json`
 - `CLAUDE.md` (Quick Reference section)
-- All 7 `plugins/requirements-expert/skills/*/SKILL.md` frontmatter
+- All 8 `plugins/requirements-expert/skills/*/SKILL.md` frontmatter
 
 **Check Version Consistency**:
 ```bash
@@ -62,8 +62,8 @@ This repository uses a **marketplace-at-root** structure where the repository ac
 │       ├── .claude-plugin/
 │       │   └── plugin.json          # Plugin manifest (v0.3.0)
 │       ├── commands/                # 8 slash commands (*.md)
-│       ├── skills/                  # 7 knowledge modules (*/SKILL.md)
-│       ├── agents/                  # 2 specialized agents (*.md)
+│       ├── skills/                  # 8 knowledge modules (*/SKILL.md)
+│       ├── agents/                  # 1 specialized agent (*.md)
 │       └── hooks/
 │           └── hooks.json           # UserPromptSubmit hook
 ├── README.md                        # User-facing documentation
@@ -87,8 +87,7 @@ This repository uses a **marketplace-at-root** structure where the repository ac
    - Written in imperative form for Claude consumption
 
 3. **Agents Layer** (autonomous assistance)
-   - `requirements-assistant`: Workflow orchestration, proactive guidance
-   - `requirements-validator`: Quality validation, compliance checking
+   - `requirements-assistant`: Workflow orchestration, proactive guidance, validation awareness
    - Triggered by specific contexts or explicit commands
 
 ### Data Architecture: 100% GitHub Projects
@@ -194,7 +193,7 @@ gh project item-list [project-number] --format json
 
 ### 4. INVEST Criteria Enforcement
 
-User stories MUST meet INVEST criteria (validated by requirements-validator agent):
+User stories MUST meet INVEST criteria (validated by `/re:review` command using validation skill):
 - **I**ndependent
 - **N**egotiable
 - **V**aluable
@@ -548,13 +547,12 @@ Progressive disclosure pattern:
 - `references/*.md`: Detailed documentation, templates, worksheets
 - Trigger description uses third-person with specific phrases
 
-**Available skills**: vision-discovery, epic-identification, user-story-creation, task-breakdown, prioritization, requirements-feedback, shared-patterns
+**Available skills**: vision-discovery, epic-identification, user-story-creation, task-breakdown, prioritization, requirements-feedback, shared-patterns, validation
 
 ### Agents (`plugins/requirements-expert/agents/*.md`)
 
 System prompts with YAML frontmatter and `<example>` blocks for triggering:
-- `requirements-assistant`: Workflow orchestration, proactive guidance
-- `requirements-validator`: Quality validation, INVEST compliance
+- `requirements-assistant`: Workflow orchestration, proactive guidance, validation awareness
 
 ### Hooks (`plugins/requirements-expert/hooks/hooks.json`)
 

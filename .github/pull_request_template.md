@@ -19,7 +19,7 @@
 
 - [ ] Commands (`/re:*`)
 - [ ] Skills (methodology and best practices)
-- [ ] Agents (requirements-assistant, requirements-validator)
+- [ ] Agents (requirements-assistant)
 - [ ] Hooks (UserPromptSubmit)
 - [ ] Documentation (README.md, CLAUDE.md, SECURITY.md)
 - [ ] Configuration (.markdownlint.json, plugin.json, marketplace.json)

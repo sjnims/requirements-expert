@@ -48,8 +48,8 @@ Before contributing, ensure you have:
    ```
    plugins/requirements-expert/
    ├── commands/      # 8 slash commands
-   ├── skills/        # 7 methodology skills
-   ├── agents/        # 2 specialized agents
+   ├── skills/        # 8 methodology skills
+   ├── agents/        # 1 specialized agent
    └── hooks/         # UserPromptSubmit hook
    ```
 

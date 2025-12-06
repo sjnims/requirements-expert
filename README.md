@@ -271,6 +271,7 @@ The plugin includes seven specialized skills that provide methodology and best p
 5. **prioritization** - MoSCoW prioritization framework
 6. **requirements-feedback** - Continuous feedback and iteration practices
 7. **shared-patterns** - Common patterns for error handling, idempotency, and batch operations
+8. **validation** - Requirements validation methodology for completeness, consistency, quality, and traceability
 
 Each skill provides structured guidance, templates, and best practices to ensure high-quality requirements at every level.
 
@@ -282,15 +283,8 @@ Proactively detects when you're working on requirements and offers help. Orchest
 - Detecting requirements-related queries in your messages
 - Suggesting appropriate commands based on context
 - Automatically chaining phases (vision → epics → stories → tasks)
-- Validating each phase before proceeding
-
-### requirements-validator
-
-Validates requirements documents for:
-- **Completeness**: All required sections present
-- **Consistency**: Proper linking between levels
-- **Quality**: INVEST criteria for stories, clear acceptance criteria
-- **Traceability**: Complete chain from vision to tasks
+- Suggesting validation via `/re:review` at key milestones
+- Invoking validation when quality concerns arise
 
 ## Methodology
 

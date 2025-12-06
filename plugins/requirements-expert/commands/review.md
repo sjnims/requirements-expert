@@ -6,211 +6,81 @@ allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 
 # Review & Validate Requirements
 
-Comprehensive validation of requirements at all levels (vision, epics, stories, tasks) checking for completeness, consistency, quality, and traceability.
+Validate requirements at all levels (vision, epics, stories, tasks) for completeness, consistency, quality, and traceability.
+
+Load the **validation** skill for methodology details.
 
 ## Instructions
 
-Load the **requirements-validator** agent OR implement validation logic directly.
+### Step 1: Gather Requirements
 
-### Step 1: Scan Requirements
+1. Get repository context: `gh repo view --json nameWithOwner`
+2. List projects: `gh project list --owner [owner] --format json`
+3. Get all items: `gh project item-list [project-number] --format json`
+4. Categorize by Type: Vision, Epic, Story, Task
+5. For each item, read full content: `gh issue view [number] --repo [repo] --json body,title,labels`
 
-1. **Retrieve All Requirements:**
-   - Use `gh project item-list [project-number] --format json`
-   - Categorize by Type: Vision, Epic, Story, Task
-   - Count items at each level
+### Step 2: Apply Validation Checks
 
-2. **Check Hierarchy:**
-   - Verify vision exists (exactly 1)
-   - Verify epics link to vision
-   - Verify stories link to epics
-   - Verify tasks link to stories
+Apply four-dimensional validation per skill methodology:
 
-### Step 2: Completeness Check
+1. **Completeness** - All required elements present (see `references/completeness-checks.md`)
+2. **Consistency** - Proper linking and alignment (see `references/consistency-checks.md`)
+3. **Quality** - INVEST criteria for stories (see `references/invest-criteria.md`)
+4. **Traceability** - Complete parent/child chain
 
-**Vision Level:**
+Use thresholds from `references/quality-thresholds.md`.
 
-Verify:
-- Problem statement exists and is clear
-- Target users are defined
-- Solution overview exists
-- Success metrics are defined
-- Scope boundaries are set
+### Step 3: Generate Report
 
-**Epic Level:**
+Format findings per `references/report-template.md`:
 
-Verify:
-- Each epic has clear description
-- User value is articulated
-- Scope (included/excluded) is defined
-- Success criteria exist
-- All vision elements are covered by epics
+- Executive Summary (dimensions + overall verdict)
+- Requirements Inventory (counts by level)
+- Critical Issues (must fix)
+- Warnings (should address)
+- INVEST Compliance (stories)
+- Recommendations (prioritized)
+- Next Steps
 
-**Story Level:**
+### Step 4: Present Results
 
-Verify:
-- Each story follows "As a... I want... So that..." format
-- Acceptance criteria are present (minimum 3-5)
-- Stories are small enough (1-5 days estimate)
-- All epic scope is covered by stories
+Display the validation report. Highlight:
 
-**Task Level:**
+- Overall verdict: Pass / Warning / Fail
+- Critical issue count
+- Warning count
+- Key recommendations
 
-Verify:
-- Each task has clear, action-oriented title
-- Acceptance criteria are specific and testable (minimum 3-5)
-- Tasks are right-sized (2-8 hours)
-- All story acceptance criteria are covered by tasks
+### Step 5: Offer Fixes
 
-### Step 3: Consistency Check
-
-**Traceability:**
-
-Verify:
-- Every epic links to vision
-- Every story links to an epic
-- Every task links to a story
-- No orphaned issues (items without parents)
-
-**Naming & IDs:**
-
-Verify:
-- Consistent terminology across levels
-- No duplicate or conflicting requirements
-- Labels are applied consistently
-
-**Priority Alignment:**
-
-Verify:
-- Child priorities don't exceed parent priorities
-- Dependencies respect priority order
-
-### Step 4: Quality Check (INVEST for Stories)
-
-For each user story, verify INVEST criteria:
-
-- **Independent**: Can be completed without depending on others
-- **Negotiable**: Details open for discussion
-- **Valuable**: Delivers clear user value
-- **Estimable**: Team can estimate size
-- **Small**: Fits in single iteration
-- **Testable**: Clear acceptance criteria
-
-### Step 5: Validation Report
-
-Generate a comprehensive validation report with these sections:
-
-**Header:**
-
-- Generation timestamp and project name
-
-**Summary:**
-
-- Table showing counts by level (Vision, Epic, Story, Task)
-- Completion status and issue count per level
-- Overall status: Pass / Warning / Fail
-
-**Critical Issues (Must Fix):**
-
-List any critical issues found, such as:
-
-- Missing vision (no vision issue exists)
-- Broken traceability (orphaned epics, stories, or tasks without parents)
-- Incomplete requirements (missing scope definitions, acceptance criteria)
-
-Reference specific issue numbers for each issue found.
-
-**Warnings (Should Address):**
-
-List any warnings found, such as:
-
-- Quality issues (oversized stories, vague tasks, overlapping epics)
-- INVEST violations (not independent, not valuable, not testable)
-- Priority imbalances (>60% Must Have, missing Won't Have, child priority > parent)
-
-Reference specific issue numbers for each warning.
-
-**Recommendations:**
-
-- Actionable fixes grouped by type (add content, split items, clarify, fix traceability)
-- Reference specific issue numbers with suggested actions
-
-**Next Steps:**
-
-- Context-appropriate actions based on validation results
-- Different guidance for critical issues, warnings only, or all pass
-
-**Validation Details:**
-
-- Per-level breakdown (Vision, Epic, Story, Task)
-- Status and specific issues for each level
-
-### Step 6: Offer to Fix Issues
-
-After presenting the validation report:
-
-- If no issues or warnings were found: Proceed directly to Step 7
-- If issues or warnings were found: Use AskUserQuestion below
-
-Use AskUserQuestion:
+If issues or warnings found, use AskUserQuestion:
 
 - Question: "Would you like help fixing these issues?"
 - Header: "Fix Issues"
 - Options:
-  - "Auto-fix" (description: "Automatically fix issues where possible via GitHub CLI")
+  - "Auto-fix" (description: "Automatically fix issues where possible")
   - "Guided fix" (description: "Walk through each issue with suggestions")
   - "Skip" (description: "Review the report without making changes")
 - multiSelect: false
 
-**If "Auto-fix" selected:**
+**If "Auto-fix"**: Apply fixes per `references/fix-patterns.md`, then re-run validation.
 
-1. For missing acceptance criteria: Add placeholder acceptance criteria to issues via `gh issue edit`
-2. For broken traceability links: Update issue bodies to add missing parent references
-3. For missing content: Add section headers and placeholder text
-4. After all fixes, re-run validation (Steps 1-5) to confirm fixes
+**If "Guided fix"**: For each issue, present options (Fix now / Skip / Dismiss), apply fixes, then re-run validation.
 
-**If "Guided fix" selected:**
+**If "Skip"**: Proceed to Step 6.
 
-For each issue found, use AskUserQuestion:
+### Step 6: Success Message
 
-- Question: "How would you like to address: [brief issue description]?"
-- Header: "Action"
-- Options:
-  - "Fix now" (description: "Apply the suggested fix")
-  - "Skip" (description: "Leave for manual review")
-  - "Dismiss" (description: "Mark as intentional/acceptable")
-- multiSelect: false
-
-If "Fix now": Apply the fix via `gh issue edit` and confirm success.
-If "Skip" or "Dismiss": Move to next issue.
-
-After processing all issues, re-run validation to show updated status.
-
-**If "Skip" selected:**
-
-Proceed directly to Step 7 without making changes.
-
-### Step 7: Success Message
-
-Display summary with:
+Display:
 
 - Overall status and issue counts
-- If issues found: guidance to address critical issues first
-- If no issues: confirmation that requirements are ready
-- Recommendations for ongoing maintenance (periodic reviews, iterative refinement)
+- If issues found: Guidance to address critical issues first
+- If no issues: Confirmation that requirements are ready
 - Context-appropriate next steps
 
 ## Error Handling
 
-- If no requirements exist: Guide to appropriate creation commands
-- If project doesn't exist: Suggest `/re:init`
-- If validation fails: Provide clear, actionable guidance
-
-## Notes
-
-- Validation checks all levels: vision, epics, stories, tasks
-- Focus on actionable findings
-- Distinguish critical issues from warnings
-- Provide specific guidance for each issue type
-- Offer to help fix issues automatically where possible
-- Can be run at any time - recommended weekly/monthly
-- Use as quality gate before sprint planning or releases
+- No project exists: Suggest `/re:init`
+- No requirements exist: Guide to appropriate creation commands
+- GitHub CLI errors: Check authentication with `gh auth status`
