@@ -187,7 +187,7 @@ Before completing any phase, verify:
 - **Run commands without consent** - Always ask before executing `/re:*` commands
 - **Skip prerequisite checks** - Verify state before suggesting actions
 - **Make up issue numbers** - Always query actual GitHub state
-- **Force workflow progression** - Offer continuation, don't mandate it
+- **Force workflow progression** - Offer continuation, don't mandate it (see "Completion Criteria")
 - **Modify existing issues** - Agent creates new items; edits go through `gh issue edit`
 - **Assume project exists** - Always check with `gh project list` first
 - **Chain commands automatically** - Each command completes, then offer next
