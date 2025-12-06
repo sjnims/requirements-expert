@@ -14,23 +14,15 @@ Load the **prioritization** skill for MoSCoW framework methodology and the **sha
 
 ### Step 1: Determine What to Prioritize
 
-Use AskUserQuestion:
-
-- Question: "What would you like to prioritize?"
-- Header: "Level"
-- Options:
-  - "Epics" (description: "Prioritize all epics - determine which capabilities to build first")
-  - "Stories for an epic" (description: "Prioritize user stories within a specific epic")
-  - "Tasks for a story" (description: "Prioritize implementation tasks within a story")
-- multiSelect: false
+Ask Level: "What would you like to prioritize?" (options: Epics, Stories for an epic, Tasks for a story)
 
 ### Step 2: Retrieve Items to Prioritize
 
 Based on selection:
 
 - **Epics:** Query `gh project item-list` filtered for Type = "Epic". If none, suggest `/re:identify-epics` and exit.
-- **Stories:** Ask which epic first (AskUserQuestion), then retrieve stories for that epic.
-- **Tasks:** Ask which story first (AskUserQuestion), then retrieve tasks for that story.
+- **Stories:** Ask Select Epic: "Which epic's stories to prioritize?" (options: one per epic), then retrieve stories.
+- **Tasks:** Ask Select Story: "Which story's tasks to prioritize?" (options: one per story), then retrieve tasks.
 
 ### Step 3: Present Items
 
@@ -42,14 +34,14 @@ Present items with:
 
 ### Step 4: Prioritize Items
 
-For each item: Use AskUserQuestion with MoSCoW options from prioritization skill. Use the classification criteria from the skill to guide decision descriptions. **Collect all priorities before updating GitHub.**
+For each item: Ask Priority: "[Item title]" (options: Must Have, Should Have, Could Have, Won't Have). **Collect all priorities before updating GitHub.**
 
 ### Step 5: Validate Distribution
 
 Display priority distribution (count and percentage per category). Validate per prioritization skill recommendations:
 
 - Must Haves <60%? If exceeded, warn and offer to review.
-- Use AskUserQuestion (Yes/No) if adjustment needed. If Yes, restart Step 4.
+- Ask Adjust: "Would you like to adjust priorities?" (options: Yes, No). If Yes, restart Step 4.
 
 ### Step 6: Update GitHub
 
@@ -88,16 +80,7 @@ If any items failed or had partial updates, note that `/re:prioritize` can be re
 
 ### Step 9: Offer Next Action
 
-Use AskUserQuestion:
-
-- Question: "What would you like to do next?"
-- Header: "Next Step"
-- Options:
-  - "Prioritize another level" (description: "Prioritize epics/stories/tasks")
-  - "Show status" (description: "See overall progress")
-  - "Start top priority" (description: "Create stories/tasks for top priority item")
-  - "Exit" (description: "Stop here")
-- multiSelect: false
+Ask Next Step: "What would you like to do next?" (options: Prioritize another level, Show status, Start top priority, Exit)
 
 Handle response appropriately.
 

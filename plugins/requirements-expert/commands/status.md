@@ -61,12 +61,9 @@ Based on project state, provide tailored next steps:
 
 ### Step 5: Export Option
 
-Use AskUserQuestion to offer export:
+Ask Export: "Would you like to export this report?" (options: Markdown file, Vision comment, Both, Skip)
 
-- **Markdown file**: Save as `status-report-[date].md` using Write tool
-- **Vision comment**: Add to Vision issue using `gh issue comment`
-- **Both**: File and comment
-- **Skip**: Display only
+Handle: Markdown file saves as `status-report-[date].md`, Vision comment uses `gh issue comment`.
 
 ## Error Handling
 

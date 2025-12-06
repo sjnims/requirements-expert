@@ -32,11 +32,7 @@ Run `gh repo view --json nameWithOwner`. Extract owner from nameWithOwner. If fa
 
 ### Step 4: Get Project Name
 
-Use AskUserQuestion with header "Project Name", question "What should we name the GitHub Project for requirements tracking?", options:
-
-- "[Repository Name] Requirements" (recommended)
-- "[Repository Name] Backlog" (alternative)
-- "[Repository Name] Roadmap" (emphasizes planning)
+Ask Project Name: "What should we name the GitHub Project for requirements tracking?" (options: [Repository Name] Requirements (recommended), [Repository Name] Backlog, [Repository Name] Roadmap)
 
 Replace [Repository Name] with actual repository name from nameWithOwner. Store user's choice.
 

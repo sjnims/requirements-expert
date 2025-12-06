@@ -33,10 +33,8 @@ Analyze vision content. Suggest 5-10 epics categorized by type (User-Facing, Inf
 
 ### Step 3: Epic Selection
 
-Use AskUserQuestion:
-
-1. **Select epics** (multiSelect: true): Present suggested epics as options
-2. **Add more?** (multiSelect: false): Options: "Add more", "Continue", "Review selection"
+1. Ask Select Epics: "Which epics should we create?" (options: one per suggested epic, multiSelect: true)
+2. Ask Add More: "Add more epics?" (options: Add more, Continue, Review selection)
 
 Handle "Add more" by prompting for additional epic details. Handle "Review selection" by displaying current selection before re-asking.
 
@@ -60,7 +58,7 @@ Apply shared-patterns Idempotency Check pattern:
 
 1. Query: `gh issue list --repo [repo] --label "type:epic" --json number,title`
 2. Compare titles (case-insensitive, trimmed)
-3. If match found: Use AskUserQuestion (Skip/Update/Create anyway)
+3. If match found: Ask Duplicate: "Epic already exists. How to proceed?" (options: Skip, Update, Create anyway)
 4. Track result in appropriate list
 
 #### 5b. Create Issue

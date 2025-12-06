@@ -18,12 +18,7 @@ Load the **task-breakdown** skill for methodology and templates. Load **shared-p
 2. Filter for Type = "Story"
 3. If no stories found: Inform user to run `/re:create-stories` first, then exit
 
-Use AskUserQuestion:
-
-- Question: "Which user story would you like to break down into tasks?"
-- Header: "Select Story"
-- Options: One per story (label = story title, description = user story text)
-- multiSelect: false
+Ask Select Story: "Which user story would you like to break down into tasks?" (options: one per story)
 
 Read selected story: `gh issue view [story-issue-number] --repo [repo] --json body,title`
 
@@ -40,10 +35,8 @@ Apply task-breakdown skill layer methodology (`references/task-layers.md`):
 
 ### Step 3: Task Refinement
 
-Use AskUserQuestion:
-
-1. **Select tasks** (multiSelect: true): Present suggested tasks as options
-2. **Add more?** (multiSelect: false): Options: "Add more", "Continue", "Review selection"
+1. Ask Select Tasks: "Which tasks should we create?" (options: one per suggested task, multiSelect: true)
+2. Ask Add More: "Add more tasks?" (options: Add more, Continue, Review selection)
 
 Handle "Add more" by prompting for task details. Handle "Review selection" by displaying current selection before re-asking.
 
@@ -76,7 +69,7 @@ Apply shared-patterns Idempotency Check pattern:
 
 1. Query: `gh issue list --repo [repo] --label "type:task" --json number,title`
 2. Compare titles (case-insensitive, trimmed)
-3. If match found: Use AskUserQuestion (Skip/Update/Create anyway)
+3. If match found: Ask Duplicate: "Task already exists. How to proceed?" (options: Skip, Update, Create anyway)
 4. Track result in appropriate list
 
 #### 6b. Create Issue
@@ -121,12 +114,7 @@ Apply task-breakdown skill sequencing methodology (`Step 5: Sequence and Depende
 
 ### Step 8: Continue or Done
 
-Use AskUserQuestion:
-
-- Question: "Create tasks for another story?"
-- Header: "Continue"
-- Options: "Select another story", "Done"
-- multiSelect: false
+Ask Continue: "Create tasks for another story?" (options: Select another story, Done)
 
 Handle "Select another story" by restarting from Step 1. Handle "Done" by showing summary.
 

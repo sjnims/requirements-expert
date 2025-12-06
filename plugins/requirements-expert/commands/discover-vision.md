@@ -18,7 +18,7 @@ Check if a GitHub Project exists for this repository:
 
 - Use `gh project list --owner [owner] --format json`
 - If no projects found: Suggest running `/re:init` first, then exit
-- If multiple projects: Use AskUserQuestion to ask which project to use
+- If multiple projects: Ask Select Project: "Which project to use?" (options: one per project)
 - Store project number for later use
 
 ### Step 2: Check for Existing Vision
@@ -27,25 +27,21 @@ Apply idempotency check from shared-patterns skill:
 
 1. Search for existing vision issues:
    - Use `gh issue list --repo [repo] --label "type:vision" --json number,title`
-   - If match found: Use AskUserQuestion with options (Skip/Update/Create anyway)
+   - If match found: Ask Existing Vision: "Found existing vision. How to proceed?" (options: Skip, Update, Create anyway)
    - Track decision in appropriate list (skipped/updated/created)
 
 ### Step 3: Interactive Vision Discovery
 
-Use AskUserQuestion for each discovery topic from vision-discovery skill:
+Ask each discovery topic from vision-discovery skill:
 
-1. **Problem Type** - What type of problem (Efficiency/Quality/Access/Cost)
-2. **Target Users** - Who experiences this problem (Technical/Business/Consumers/Internal)
-3. **Current State** - How users currently address it (Manual/Competitors/Internal/Don't)
-4. **Solution Category** - What kind of solution (Automation/Platform/Integration/Enhancement)
-5. **Differentiator** - Primary advantage (Speed/Simplicity/Cost/Features)
-6. **Success Metrics** - How to measure success (Adoption/Efficiency/Revenue/Quality)
+1. Ask Problem Type: "What type of problem are you solving?" (options: Efficiency, Quality, Access, Cost)
+2. Ask Target Users: "Who experiences this problem?" (options: Technical, Business, Consumers, Internal)
+3. Ask Current State: "How do users currently address it?" (options: Manual, Competitors, Internal, Don't)
+4. Ask Solution Category: "What kind of solution?" (options: Automation, Platform, Integration, Enhancement)
+5. Ask Differentiator: "Primary advantage?" (options: Speed, Simplicity, Cost, Features)
+6. Ask Success Metrics: "How to measure success?" (options: Adoption, Efficiency, Revenue, Quality)
 
-For each question:
-
-- Present options from vision-discovery skill
-- Capture "Other" as custom input
-- Ask follow-up for specifics on Problem (step 1) and Solution (step 4)
+For each: capture "Other" as custom input. Ask follow-up for specifics on Problem (1) and Solution (4).
 
 ### Step 4: Compile Vision Document
 

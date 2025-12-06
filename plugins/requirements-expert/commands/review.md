@@ -30,12 +30,7 @@ Query projects:
 gh project list --owner [owner] --format json
 ```
 
-If multiple projects found, use AskUserQuestion:
-
-- Question: "Which project would you like to validate?"
-- Header: "Select Project"
-- Options: One per project (label = project title, description = item count)
-- multiSelect: false
+If multiple projects found: Ask Select Project: "Which project would you like to validate?" (options: one per project)
 
 If no project found: Inform user to run `/re:init` first, then exit.
 
@@ -175,15 +170,7 @@ If validation passes with no issues or warnings:
 - Display congratulations message: "Requirements are solid and ready for implementation!"
 - Proceed directly to Step 5
 
-If issues or warnings found, use AskUserQuestion:
-
-- Question: "Would you like help fixing these issues?"
-- Header: "Fix Issues"
-- Options:
-  - "Auto-fix" (description: "Automatically fix issues where possible")
-  - "Guided fix" (description: "Walk through each issue with suggestions")
-  - "Skip" (description: "Review the report without making changes")
-- multiSelect: false
+If issues or warnings found: Ask Fix Issues: "Would you like help fixing these issues?" (options: Auto-fix, Guided fix, Skip)
 
 **If "Auto-fix" selected:**
 
@@ -219,15 +206,7 @@ Initialize batch tracking per shared-patterns skill: `fixed[]`, `skipped[]`, `fa
 
 For each issue (critical first, then warnings):
 
-Use AskUserQuestion:
-
-- Question: "Issue: [description]. How would you like to proceed?"
-- Header: "Fix Issue"
-- Options:
-  - "Fix now" (description: "Apply suggested fix")
-  - "Skip" (description: "Leave this issue for later")
-  - "Dismiss" (description: "Mark as not an issue")
-- multiSelect: false
+Ask Fix Issue: "Issue: [description]. How would you like to proceed?" (options: Fix now, Skip, Dismiss)
 
 If "Fix now": Apply fix per `plugins/requirements-expert/skills/validation/references/fix-patterns.md`, track in `fixed[]`. On failure: Apply shared-patterns Recovery Flow.
 

@@ -18,12 +18,7 @@ Load the **user-story-creation** skill for methodology and templates. Load **sha
 2. Filter for Type = "Epic"
 3. If no epics found: Inform user to run `/re:identify-epics` first, then exit
 
-Use AskUserQuestion:
-
-- Question: "Which epic would you like to break down into user stories?"
-- Header: "Select Epic"
-- Options: One per epic (label = epic name, description = brief desc)
-- multiSelect: false
+Ask Select Epic: "Which epic would you like to break down into user stories?" (options: one per epic)
 
 Read selected epic: `gh issue view [epic-issue-number] --repo [repo] --json body,title`
 
@@ -44,10 +39,8 @@ Present suggested stories organized by category (Core Functionality, Supporting 
 
 ### Step 3: Story Refinement
 
-Use AskUserQuestion:
-
-1. **Select stories** (multiSelect: true): Present suggested stories as options
-2. **Add more?** (multiSelect: false): Options: "Add more", "Continue", "Review selection"
+1. Ask Select Stories: "Which stories should we create?" (options: one per suggested story, multiSelect: true)
+2. Ask Add More: "Add more stories?" (options: Add more, Continue, Review selection)
 
 Handle "Add more" by prompting for story details. Handle "Review selection" by displaying current selection before re-asking.
 
@@ -75,7 +68,7 @@ Apply shared-patterns Idempotency Check pattern:
 
 1. Query: `gh issue list --repo [repo] --label "type:story" --json number,title`
 2. Compare titles (case-insensitive, trimmed)
-3. If match found: Use AskUserQuestion (Skip/Update/Create anyway)
+3. If match found: Ask Duplicate: "Story already exists. How to proceed?" (options: Skip, Update, Create anyway)
 4. Track result in appropriate list
 
 #### 6b. Create Issue
@@ -118,12 +111,7 @@ Check total stories for epic:
 
 ### Step 8: Continue or Done
 
-Use AskUserQuestion:
-
-- Question: "Create stories for another epic?"
-- Header: "Continue"
-- Options: "Select another epic", "Done"
-- multiSelect: false
+Ask Continue: "Create stories for another epic?" (options: Select another epic, Done)
 
 Handle "Select another epic" by restarting from Step 1. Handle "Done" by showing summary.
 
