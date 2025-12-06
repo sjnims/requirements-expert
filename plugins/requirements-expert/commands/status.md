@@ -12,181 +12,70 @@ Display a comprehensive overview of the requirements project including counts, p
 
 ### Step 1: Gather Project Data
 
-1. **Get Project Info:**
-   - Use `gh project list --owner [owner] --format json`
-   - Identify the requirements project
-   - Get project URL and metadata
+Query the project and retrieve all items:
 
-2. **Retrieve All Items:**
-   - Use `gh project item-list [project-number] --format json`
-   - Get full details including custom fields (Type, Priority, Status)
+```bash
+gh project list --owner [owner] --format json
+gh project item-list [project-number] --format json --limit 500
+gh issue list --repo [repo] --label type:epic,type:story,type:task --limit 10 --json number,title,updatedAt,state
+```
 
-3. **Categorize by Type:**
-   - Vision: Count and status
-   - Epics: Count, priorities, status
-   - Stories: Count, priorities, status, parent epic
-   - Tasks: Count, priorities, status, parent story
-
-4. **Get Recent Activity:**
-   - Use `gh issue list --repo [repo] --label type:epic,type:story,type:task --limit 10 --json number,title,updatedAt,state`
-   - Show last updated items
+Categorize items by Type custom field (Vision, Epic, Story, Task) and extract Status and Priority fields.
 
 ### Step 2: Calculate Metrics
 
-**Counts by Type:**
-- Total Vision issues (should be 1)
-- Total Epics
-- Total Stories
-- Total Tasks
+Calculate for display:
 
-**Progress by Status:**
-- Not Started: [Count] ([%]%)
-- In Progress: [Count] ([%]%)
-- Completed: [Count] ([%]%)
-
-**Priority Distribution:**
-- Must Have: [Count] ([%]%)
-- Should Have: [Count] ([%]%)
-- Could Have: [Count] ([%]%)
-- Won't Have: [Count] ([%]%)
-
-**Completion Metrics:**
-- Epics: [X] of [Total] completed ([%]%)
-- Stories: [X] of [Total] completed ([%]%)
-- Tasks: [X] of [Total] completed ([%]%)
-
-**Velocity (if applicable):**
-- Tasks completed in last 7 days
-- Stories completed in last 30 days
+- Counts by type (Vision, Epic, Story, Task)
+- Progress by status (Not Started, In Progress, Completed) with percentages
+- Priority distribution (Must Have, Should Have, Could Have, Won't Have) with percentages
+- Completion rates per level (Epics, Stories, Tasks)
+- Recent activity (items completed/created in last 7 days)
 
 ### Step 3: Generate Status Dashboard
 
-Generate a comprehensive status dashboard with these sections:
+Generate a dashboard with these sections:
 
-**Header:**
-
-- Project name, URL, and generation timestamp
-
-**Overview:**
-
-- Table showing counts by level (Vision, Epic, Story, Task) with status breakdown (Not Started, In Progress, Completed)
-- Overall completion percentage with progress visualization
-
-**Priority Breakdown:**
-
-- Counts per priority level (Must Have, Should Have, Could Have, Won't Have)
-- Status distribution within each priority level
-
-**Current Focus:**
-
-- Active work: all items currently In Progress
-- Next up: highest priority Not Started items
-
-**Epic Status Detail:**
-
-- Per-epic progress: priority, status, story/task completion percentages
-
-**Validation Status:**
-
-- Quick health check: vision exists, traceability intact, priority balance
-- Issue summary with pointer to `/re:review` if needed
-
-**Velocity & Trends:**
-
-- Recent activity: completions and creations in last 7 days
-- Last 10 updated items
-
-**Coverage Analysis:**
-
-- Parent-child relationship coverage (Vision→Epics→Stories→Tasks)
-- Identify gaps in breakdown
-
-**Recommendations:**
-
-- Context-appropriate immediate actions
-- Health issue remediation
-- Suggested next steps
-
-**Quick Links:**
-
-- Project URL and key filter links (by type, priority, status)
+- **Header**: Project name, URL, timestamp
+- **Overview**: Counts by level with status breakdown, overall completion percentage
+- **Priority Breakdown**: Counts and status per priority level
+- **Current Focus**: In-progress items and next highest-priority items
+- **Epic Status**: Per-epic progress with story/task completion
+- **Validation Status**: Quick health check (vision exists, traceability, priority balance), pointer to `/re:review` if issues found
+- **Velocity**: Recent completions, last 10 updated items
+- **Coverage**: Parent-child relationship gaps
+- **Recommendations**: Context-appropriate next actions
+- **Quick Links**: Project URL and filter links
 
 ### Step 4: Provide Context-Aware Guidance
 
-Based on project state, provide tailored guidance:
+Based on project state, provide tailored next steps:
 
-**Just starting (no vision):**
-
-- Guide to `/re:discover-vision`
-- Explain the full workflow ahead (vision → epics → stories → tasks)
-- Set expectations for time investment
-
-**Vision exists, few epics:**
-
-- Guide to `/re:identify-epics` (aim for 5-12 major capabilities)
-- Emphasize prioritization as next step
-- Prepare to focus on highest priority epic for stories
-
-**Epics exist, few stories:**
-
-- Identify the highest priority epic to focus on
-- Guide to `/re:create-stories` for that epic
-- Note the progression: stories → prioritization → tasks
-
-**Well underway:**
-
-- Encourage completing in-progress items before starting new work
-- Suggest running `/re:status` regularly to track progress
-- Recommend `/re:review` weekly for quality checks
-
-**Near complete:**
-
-- Celebrate progress and acknowledge remaining work
-- Show specific counts: remaining epics, stories, tasks
-- Encourage finishing strong
+| State | Guidance |
+|-------|----------|
+| No vision | Guide to `/re:discover-vision`, explain full workflow |
+| Vision only | Guide to `/re:identify-epics` (aim for 5-12 epics) |
+| Few stories | Focus highest-priority epic, guide to `/re:create-stories` |
+| Well underway | Complete in-progress items, suggest `/re:review` for quality |
+| Near complete | Celebrate progress, show remaining counts |
 
 ### Step 5: Export Option
 
-Use AskUserQuestion to offer export options:
+Use AskUserQuestion to offer export:
 
-- Question: "Would you like to export this status report?"
-- Header: "Export"
-- Options:
-  - "Markdown file" (description: "Save as status-report-[date].md in project root")
-  - "Vision comment" (description: "Add as comment on the Vision issue")
-  - "Both" (description: "Save file and add comment to Vision issue")
-  - "Skip" (description: "Don't export, just display")
-- multiSelect: false
-
-**If "Markdown file" or "Both" selected:**
-
-1. Generate filename: `status-report-YYYY-MM-DD.md`
-2. Write status report content to file using Write tool
-3. Confirm file created with path
-
-**If "Vision comment" or "Both" selected:**
-
-1. Get vision issue number from project data
-2. Add comment using: `gh issue comment [vision-number] --body "[status report]"`
-3. Confirm comment added with issue URL
-
-**If "Skip" selected:**
-
-Proceed without exporting. Display message: "Status report displayed above. Run `/re:status` again to export later."
+- **Markdown file**: Save as `status-report-[date].md` using Write tool
+- **Vision comment**: Add to Vision issue using `gh issue comment`
+- **Both**: File and comment
+- **Skip**: Display only
 
 ## Error Handling
 
-- If no project exists: Guide to `/re:init`
-- If project empty: Guide to `/re:discover-vision`
-- If GitHub API fails: Show cached/partial data with warning
+- No project exists: Guide to `/re:init`
+- Project empty: Guide to `/re:discover-vision`
+- API failure: Show partial data with warning
 
 ## Notes
 
-- Can be run anytime - no prerequisites
-- Provides complete project snapshot
-- Context-aware recommendations
-- Shows trends and velocity
-- Validates project health
-- Suggests next logical actions
-- Export-friendly format
+- No prerequisites - can be run anytime
+- Provides complete project snapshot with context-aware recommendations
 - Run regularly (daily/weekly) to track progress
