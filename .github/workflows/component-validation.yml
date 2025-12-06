@@ -40,11 +40,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           # Get list of changed files in this PR, filtered to plugin components
+          # Note: gh pr diff includes deleted files, so we filter to only existing files
           changed_files=$(gh pr diff ${{ github.event.pull_request.number }} --name-only | \
             grep -E '^plugins/requirements-expert/(commands|skills|agents|hooks)/' | \
             grep -v '\-SUGGESTED\.md$' | \
             grep -v '\-BACKUP\.md$' | \
-            grep -v '\-OLD\.md$' || true)
+            grep -v '\-OLD\.md$' | \
+            while read -r file; do [ -f "$file" ] && echo "$file"; done || true)
 
           if [ -z "$changed_files" ]; then
             echo "No plugin component files changed"
