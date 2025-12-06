@@ -757,6 +757,35 @@ allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 - Makes permission requirements explicit and auditable
 - Follows Claude Code best practice: "Limit scope"
 
+### Agent Tool Permissions (LIMITATION)
+
+**Important**: Agents do NOT support restricted tool patterns like `Bash(gh:*)`.
+
+Unlike commands (which use `allowed-tools` with pattern support), agent `tools` configuration only accepts tool names:
+
+```yaml
+# Commands - DO support restrictions
+allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
+
+# Agents - DO NOT support restrictions (only tool names)
+tools:
+  - Bash           # Cannot use Bash(gh:*)
+  - AskUserQuestion
+  - SlashCommand
+```
+
+**Why this limitation exists:**
+- Claude Code's agent tool configuration only parses tool names
+- Restricted patterns are supported in: Skills (`allowed-tools`), project settings
+- This is a platform limitation, not a design choice
+
+**Mitigation for `requirements-assistant` agent:**
+- The agent only uses `gh` CLI commands in practice (see agent's "Workflow Orchestration" section)
+- If stricter enforcement is needed, use project-level `settings.json` to restrict Bash patterns
+- The unrestricted `Bash` is documented in the agent file with rationale
+
+**Reference**: [Claude Code Subagents Documentation](https://docs.anthropic.com/en/docs/claude-code/sub-agents)
+
 ### GitHub CLI Usage Patterns (CRITICAL)
 
 When reviewing or writing commands that interact with GitHub Projects:
