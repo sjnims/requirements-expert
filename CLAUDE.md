@@ -10,7 +10,7 @@ The requirements-expert plugin is a **Claude Code plugin** that guides users thr
 
 ## Quick Reference
 
-**Current Version**: v0.3.0 (see [CHANGELOG.md](CHANGELOG.md) for release history)
+**Current Version**: v0.4.0 (see [CHANGELOG.md](CHANGELOG.md) for release history)
 
 **Plugin Root**: `plugins/requirements-expert/` (not repository root)
 
@@ -56,11 +56,11 @@ This repository uses a **marketplace-at-root** structure where the repository ac
 ```
 /                                    # Repository root (marketplace)
 ├── .claude-plugin/
-│   └── marketplace.json             # Marketplace manifest (v0.3.0)
+│   └── marketplace.json             # Marketplace manifest (v0.4.0)
 ├── plugins/
 │   └── requirements-expert/         # PLUGIN ROOT (publishable unit)
 │       ├── .claude-plugin/
-│       │   └── plugin.json          # Plugin manifest (v0.3.0)
+│       │   └── plugin.json          # Plugin manifest (v0.4.0)
 │       ├── commands/                # 8 slash commands (*.md)
 │       ├── skills/                  # 8 knowledge modules (*/SKILL.md)
 │       ├── agents/                  # 1 specialized agent (*.md)
@@ -608,7 +608,7 @@ git checkout -b release/v0.x.x
 Update version in **all version files** (must match):
 - `plugins/requirements-expert/.claude-plugin/plugin.json`
 - `.claude-plugin/marketplace.json` (in plugins array and metadata)
-- All skill SKILL.md files (7 files in `plugins/requirements-expert/skills/*/SKILL.md`)
+- All skill SKILL.md files (8 files in `plugins/requirements-expert/skills/*/SKILL.md`)
 
 ```bash
 # Find all files with version to update

@@ -262,7 +262,7 @@ User: "I need to add another epic to my project"
 
 ## Skills
 
-The plugin includes seven specialized skills that provide methodology and best practices. Skills are **automatically activated** when Claude Code detects relevant context in your conversation:
+The plugin includes eight specialized skills that provide methodology and best practices. Skills are **automatically activated** when Claude Code detects relevant context in your conversation:
 
 1. **vision-discovery** - How to discover and document product vision
 2. **epic-identification** - How to identify and define epics from vision

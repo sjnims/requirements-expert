@@ -1,7 +1,7 @@
 ---
 name: shared-patterns
 description: This skill should be used when the user asks to "implement recovery flow", "add error handling to command", "handle gh operation failures", "implement idempotency check", "prevent duplicate issues", "check before creating", "implement batch tracking", "track created and failed items", "implement two-layer metadata", "update custom fields and labels", "standardize command patterns", or when developing or modifying /re:* commands that need consistent error handling, duplicate detection, batch operation tracking, or GitHub Projects metadata updates.
-version: 0.3.0
+version: 0.4.0
 ---
 
 # Shared Command Patterns

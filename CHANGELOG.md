@@ -7,6 +7,76 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2025-12-06
+
+### Added
+
+- **New skills**:
+  - `shared-patterns` skill for common command flows including error handling, idempotency, batch tracking, and metadata patterns (#346)
+  - `validation` skill extracted from review command for reusable validation methodology (#356)
+- **Idempotency and recovery handling** added to 5 commands: discover-vision, identify-epics, create-stories, create-tasks, prioritize (#322, #325, #326, #327, #329)
+- **6 new CI/CD workflows**:
+  - Automated PR review with Claude (#307)
+  - Plugin component validation (#308)
+  - Version consistency check (#309)
+  - Semantic PR labeling (#310)
+  - CI failure analysis (#311)
+  - Weekly maintenance report (#312)
+- **Commit signing** for Claude Code Action (#333)
+- **AskUserQuestion specifications** to review and status commands (#315, #316)
+
+### Changed
+
+- **Commands now leverage associated skills** - discover-vision, identify-epics, create-stories, create-tasks, prioritize, and review commands load their corresponding skills for methodology (#348, #349, #350, #351, #352, #360)
+- **Standardized command format** for AI consumption:
+  - Removed redundant Notes and Error Handling sections (#365)
+  - Standardized AskUserQuestion format across all commands (#364)
+  - Simplified status.md metric specifications (#363)
+  - Standardized step heading format (#321)
+  - Separated output formatting from instructions (#320)
+  - Converted Note: sections to imperative instructions (#319)
+  - Replaced user-facing option labels with imperative alternatives (#318)
+  - Removed user-facing language and emojis (#279, #280)
+  - Condensed verbose templates to structural guidance (#281)
+- **Improved skills for progressive disclosure** - reduced verbosity and improved quality across all skills (#361, #362)
+- **Reduced init.md verbosity** from 288 to 135 lines (#347)
+- **Removed requirements-validator agent** - functionality consolidated into validation skill and review command (#356)
+
+### Fixed
+
+- **CI workflow fixes**:
+  - Install markdownlint-cli for Claude PR review (#359)
+  - Exclude deleted files from component validation (#357)
+  - Scope component validation to changed files only (#353)
+  - Correct allowedTools flag format (#331)
+  - Correct claude_args escaping for PR review workflow (#330)
+- **Command fixes**:
+  - Remove SlashCommand references and command chaining (#324)
+  - Shorten AskUserQuestion headers to ≤12 characters (#314)
+  - Correct AskUserQuestion usage patterns (#277)
+  - Use explicit Read tool for template references (#276)
+  - Add missing tool permissions to review and status commands (#274)
+- **Documentation fixes**:
+  - Update skill count from 6 to 8 across all documentation
+  - Fix README skill count (was "seven", now "eight")
+
+### Security
+
+- **Restricted Bash tool to `Bash(gh:*)`** in all commands for least privilege security (#275)
+
+### Documentation
+
+- **Added TESTING.md** with comprehensive testing strategies (#332)
+- **Streamlined CLAUDE.md** with improved organization
+- **Documented `${CLAUDE_PLUGIN_ROOT}` limitation** for command files (#317)
+- **Added semantic labeler documentation** to LABELS.md
+- **Removed Release Drafter** - replaced with manual release process
+
+### CI/CD
+
+- **Updated GitHub Actions** to latest versions (#354)
+- **Improved validation skill description triggers** (#358)
+
 ## [0.3.0] - 2025-11-30
 
 ### Added
@@ -218,7 +288,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `plugin.json` - Plugin metadata and configuration (v0.1.0)
 - `marketplace.json` - Marketplace distribution metadata (v0.1.0)
 
-[Unreleased]: https://github.com/sjnims/requirements-expert/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/sjnims/requirements-expert/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/sjnims/requirements-expert/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/sjnims/requirements-expert/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/sjnims/requirements-expert/releases/tag/v0.2.0
 [0.1.0]: https://github.com/sjnims/requirements-expert/releases/tag/v0.1.0

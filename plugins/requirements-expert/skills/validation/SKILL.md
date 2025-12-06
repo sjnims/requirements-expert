@@ -1,7 +1,7 @@
 ---
 name: validation
 description: This skill should be used when the user asks to "validate requirements", "review requirements quality", "check requirements completeness", "verify traceability", "check INVEST compliance", "validate user stories", "requirements health check", "quality gate check", or when running /re:review validation.
-version: 0.3.0
+version: 0.4.0
 ---
 
 # Validation
