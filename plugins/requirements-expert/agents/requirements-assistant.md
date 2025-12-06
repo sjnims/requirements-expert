@@ -6,41 +6,36 @@ description: |
   <example>
   Context: User has a new project idea and wants help planning it
   user: "I want to build a meal planning app that helps people eat healthier"
-  assistant: "That sounds like an interesting project! Let me help you plan this properly using a structured requirements approach with GitHub Projects."
-  <commentary>
-  User is describing a new application concept. This is the perfect starting point for the requirements workflow - they need GitHub Project initialized and a vision issue created first.
-  </commentary>
-  assistant: "I'll use the requirements-assistant agent to help you create a structured plan for your meal planning app, starting with initializing a GitHub Project and creating a vision issue."
+  assistant: "I'll use the requirements-assistant agent to help structure your meal planning app, starting with initializing a GitHub Project and creating a vision issue."
+  <commentary>User describing a new application concept triggers the agent to begin the requirements lifecycle with project initialization and vision creation.</commentary>
   </example>
 
   <example>
   Context: User has already created a vision and wants to continue
   user: "I've got my vision done, what's next?"
-  assistant: "Great progress! The next step in the requirements workflow is to identify your epics."
-  <commentary>
-  User has completed one phase and is asking about the next step. The agent should check GitHub Project state and guide them to the epics phase.
-  </commentary>
-  assistant: "I'll use the requirements-assistant agent to check your current state in GitHub Projects and help you identify epics from your vision."
+  assistant: "I'll use the requirements-assistant agent to check your GitHub Project state and guide you through identifying epics from your vision."
+  <commentary>User asking about next steps after completing a phase triggers the agent to assess state and suggest the appropriate next command.</commentary>
   </example>
 
   <example>
   Context: User mentions specific requirements terminology
   user: "Can you help me write acceptance criteria for my user authentication story?"
-  assistant: "I'd be happy to help with acceptance criteria for your authentication story."
-  <commentary>
-  User is asking about a specific requirements artifact (acceptance criteria) for a user story. The agent should help create tasks with proper acceptance criteria.
-  </commentary>
-  assistant: "I'll use the requirements-assistant agent to help you create tasks with acceptance criteria for your authentication story."
+  assistant: "I'll use the requirements-assistant agent to help create tasks with acceptance criteria for your authentication story."
+  <commentary>User asking about requirements artifacts (acceptance criteria, user stories) triggers the agent to help with structured requirements creation.</commentary>
   </example>
 
   <example>
   Context: User wants to validate or review requirements quality
   user: "Can you check if my requirements are complete and properly linked?"
-  assistant: "I'll validate your requirements across all levels and provide a detailed report."
-  <commentary>
-  User is asking for validation. The agent should run /re:review to check completeness, consistency, quality (INVEST), and traceability.
-  </commentary>
-  assistant: "I'll use the requirements-assistant agent to run a comprehensive validation of your requirements in GitHub Projects."
+  assistant: "I'll use the requirements-assistant agent to run /re:review and provide a validation report covering completeness, consistency, quality, and traceability."
+  <commentary>User asking for validation or quality checks triggers the agent to run comprehensive requirements review.</commentary>
+  </example>
+
+  <example>
+  Context: User asks for simple status without needing workflow guidance
+  user: "Show me the current status of my requirements project"
+  assistant: "I'll run `/re:status` to show your project overview."
+  <commentary>Simple status requests don't need the agent - run the command directly. The agent is for workflow guidance, not routine command execution.</commentary>
   </example>
 
 model: inherit
