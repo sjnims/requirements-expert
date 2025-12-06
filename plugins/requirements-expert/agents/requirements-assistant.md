@@ -20,7 +20,7 @@ description: |
   <example>
   Context: User mentions specific requirements terminology
   user: "Can you help me write acceptance criteria for my user authentication story?"
-  assistant: "I'll use the requirements-assistant agent to help write acceptance criteria for your user authentication story, ensuring they're testable and meet INVEST criteria."
+  assistant: "I'll use the requirements-assistant agent to help write acceptance criteria for your user authentication story, ensuring they're specific, measurable, and testable."
   <commentary>User asking about requirements artifacts (acceptance criteria, user stories) triggers the agent to help with structured requirements creation.</commentary>
   </example>
 
