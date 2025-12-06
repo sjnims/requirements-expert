@@ -189,75 +189,13 @@ Living document principles:
 
 ## Best Practices
 
-### Create Safe Space for Feedback
-
-A psychologically safe environment encourages honest input. When people fear blame or dismissal, they withhold valuable insights that could prevent costly mistakes.
-
-- Make it safe to say "this requirement doesn't make sense"
-- Reward people who catch problems early
-- Avoid blame when requirements change
-- Ask open questions: "What is missing?"
-
-**Examples:**
-
-- ✅ "Thanks for catching that gap—let's update the story"
-- ❌ "Why didn't anyone mention this earlier?"
-
-### Act on Feedback Quickly
-
-Timely action on feedback builds trust and keeps requirements aligned with reality. Delays cause context to fade and signal that input isn't valued.
-
-- Update requirements soon after feedback (while fresh)
-- Communicate changes to those who provided feedback
-- Tell people how their feedback was used
-- Explain decisions (even if feedback not incorporated)
-
-**Examples:**
-
-- ✅ Update the story within 24 hours and comment: "Updated based on your input—added mobile-responsive criterion"
-- ❌ Collect feedback in a meeting, then take no action for weeks
-
-### Balance Stability and Flexibility
-
-Requirements need enough stability for planning while remaining flexible enough to incorporate learnings. Neither rigid contracts nor constant churn serve the project well.
-
-- Batch small changes; major changes require broader review
-- New information should lead to updates
-- Better to change requirements than build wrong thing
-- Adaptability is a strength, not weakness
-
-**Examples:**
-
-- ✅ "We learned users need bulk upload—adding it to the sprint backlog"
-- ❌ Refuse to update stories because "we already agreed on the scope"
-
-### Document the "Why" Behind Changes
-
-Clear documentation of change rationale preserves context for future decisions. Without the "why," teams lose valuable institutional knowledge and may repeat past mistakes.
-
-- Add comment explaining significant updates
-- Reference supporting evidence (user quotes, data)
-- Tag relevant people
-- GitHub tracks all changes to issues via edit history
-
-**Examples:**
-
-- ✅ "Changed from 'export to PDF' to 'export to CSV' based on user research showing 80% prefer spreadsheet format"
-- ❌ Silently edit the acceptance criteria with no explanation
-
-### Validate with Real Users
-
-Internal assumptions can diverge from actual user needs. Regular validation with real users grounds requirements in observable behavior rather than guesswork.
-
-- Get outside perspective regularly
-- Test assumptions with actual users
-- Observe real usage, not just opinions
-- Gather feedback early, before reaching completion
-
-**Examples:**
-
-- ✅ Schedule bi-weekly usability sessions with 3-5 representative users
-- ❌ Wait until launch to discover users expected different functionality
+| Practice | Key Actions | Avoid |
+|----------|-------------|-------|
+| **Create Safe Space** | Reward early problem-catching; ask open questions ("What's missing?") | Blame when requirements change |
+| **Act Quickly** | Update within 24 hours; communicate changes to feedback providers | Collecting feedback then taking no action |
+| **Balance Stability/Flexibility** | Batch small changes; major changes need broader review | Refusing updates because "scope is agreed" |
+| **Document the "Why"** | Add comments explaining changes; reference evidence (user quotes, data) | Silent edits with no explanation |
+| **Validate with Real Users** | Regular usability sessions; observe actual usage, not just opinions | Waiting until launch to discover misalignment |
 
 ## Common Pitfalls to Avoid
 

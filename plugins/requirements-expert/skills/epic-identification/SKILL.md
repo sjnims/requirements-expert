@@ -290,14 +290,7 @@ Epics will likely be refined:
 
 ## Common Pitfalls to Avoid
 
-Watch for these epic identification anti-patterns:
-
-- **Wrong granularity**: Too many epics (>15) or too few (<5)
-- **Implementation-focused names**: "API Development" instead of "Third-party Integration Support"
-- **Vague names**: "Phase 1" instead of specific capability names
-- **Missing infrastructure**: Forgetting authentication, data migration, compliance needs
-
-For detailed examples and remediation guidance, see `references/common-pitfalls.md`.
+Watch for wrong granularity (too many/few epics), implementation-focused names, vague names, and missing infrastructure epics. See `references/common-pitfalls.md` for detailed examples and remediation.
 
 ## Quick Reference: Epic Identification Flow
 

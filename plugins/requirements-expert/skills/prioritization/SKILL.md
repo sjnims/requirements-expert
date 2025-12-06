@@ -40,100 +40,14 @@ Items must exist before prioritizing. If none exist, use **epic-identification**
 
 ## MoSCoW Framework
 
-### Must Have
+Categorize requirements into four priority levels. For detailed definitions, characteristics, and examples, see `references/moscow-framework.md`.
 
-**Definition:** Requirements critical for success. Without these, the product fails to deliver core value or is fundamentally broken.
-
-**Characteristics:**
-- Non-negotiable for initial release
-- Product is not viable without these
-- Legal, regulatory, or safety requirements
-- Core functionality essential to vision
-
-**Examples:**
-- User authentication (for a product requiring accounts)
-- Payment processing (for an e-commerce product)
-- Core workflow (the main thing users do)
-
-**Classification Criteria** (evaluate each before classifying):
-- Cannot ship without this feature
-- Delivers essential core value to primary users
-- Legal, regulatory, or contractual requirement
-- Users would reject the product without this
-
-**Typical Percentage:** 60% of total requirements
-
-### Should Have
-
-**Definition:** Important requirements that significantly enhance value but aren't absolutely critical for initial release. Can be deferred if necessary.
-
-**Characteristics:**
-- High impact, not mission-critical
-- Significantly improves user experience
-- Differentiates from competitors
-- Can work around absence (though painful)
-
-**Examples:**
-- Advanced filtering and search
-- Batch operations
-- Export to multiple formats
-- Email notifications
-
-**Classification Criteria** (evaluate each before classifying):
-- Significantly improves user experience or value
-- Users can achieve goals without this, but with difficulty
-- Provides important competitive differentiation
-- Delay causes pain but not product failure
-
-**Typical Percentage:** 20% of total requirements
-
-### Could Have
-
-**Definition:** Nice-to-have requirements that provide marginal value. Include only if time and resources permit.
-
-**Characteristics:**
-- Low impact on core value
-- "Nice to have" enhancements
-- Polish and convenience features
-- Easy to cut if needed
-
-**Examples:**
-- Customizable themes
-- Additional chart types
-- Keyboard shortcuts
-- Tooltips and help text
-
-**Classification Criteria** (evaluate each before classifying):
-- Users unlikely to notice if missing
-- Provides marginal or incremental value only
-- Primarily a convenience or polish feature
-- Easily added in a future release
-
-**Typical Percentage:** 20% of total requirements
-
-### Won't Have (This Time)
-
-**Definition:** Requirements explicitly excluded from current scope. May be considered for future releases but are off the table now.
-
-**Characteristics:**
-- Out of current scope
-- Lower priority than other work
-- Not aligned with current goals
-- Explicitly deferred or rejected
-
-**Examples:**
-- Mobile app (when focusing on web first)
-- AI-powered features (for MVP)
-- Advanced analytics (phase 2 feature)
-- Third-party integrations (beyond core)
-
-**Classification Criteria** (evaluate each before classifying):
-- Does not align with current vision and goals
-- Better suited for a future release
-- Including this risks delaying more important work
-- Can be explicitly documented as "not now"
-
-**Purpose:** Prevents scope creep by making exclusions explicit
+| Category | Definition | Target % |
+|----------|------------|----------|
+| **Must Have** | Critical for success; product fails without these | <60% |
+| **Should Have** | Important but deferrable; significantly enhances value | ~20% |
+| **Could Have** | Nice-to-have; marginal value, include if time permits | ~20% |
+| **Won't Have** | Explicitly excluded from current scope | Variable |
 
 ### Classification Decision Tree
 
@@ -328,9 +242,10 @@ Load references as needed:
 
 | Reference | When to Load | Path |
 |-----------|--------------|------|
-| **moscow-worksheet.md** | Load when executing a multi-phase prioritization session or needing step-by-step workflow guidance | `references/moscow-worksheet.md` |
-| **best-practices.md** | Load when reviewing prioritization decisions, resolving disputes, or validating distribution balance | `references/best-practices.md` |
-| **prioritization-examples.md** | Load when needing level-specific examples for epics, stories, or tasks | `references/prioritization-examples.md` |
+| **moscow-framework.md** | Detailed MoSCoW definitions, characteristics, examples, and classification criteria | `references/moscow-framework.md` |
+| **moscow-worksheet.md** | Executing a multi-phase prioritization session or needing step-by-step workflow guidance | `references/moscow-worksheet.md` |
+| **best-practices.md** | Reviewing prioritization decisions, resolving disputes, or validating distribution balance | `references/best-practices.md` |
+| **prioritization-examples.md** | Level-specific examples for epics, stories, or tasks | `references/prioritization-examples.md` |
 
 ## Examples
 

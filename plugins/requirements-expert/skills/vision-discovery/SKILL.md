@@ -203,18 +203,7 @@ Vision is not set in stone:
 
 ## Common Pitfalls to Avoid
 
-Watch for these vision definition anti-patterns:
-
-| Pitfall | Problem | Solution |
-|---------|---------|----------|
-| **Too Vague** | Vision could apply to anything | Name specific users, quantify problems |
-| **Too Prescriptive** | Specifies technology, not outcomes | Focus on "what" and "why," not "how" |
-| **Scope Creep** | Vision includes everything | Define explicit boundaries (included AND excluded) |
-| **Unmeasurable Success** | No way to validate achievement | Apply SMART framework with timeframes |
-| **Missing User Focus** | Users described as "everyone" | Create specific personas with roles and goals |
-| **Solution Before Problem** | Starts with "Build a..." | Use 5 Whys to understand root problem first |
-
-For detailed examples and remediation guidance, see `references/common-pitfalls.md`.
+Watch for visions that are too vague, too prescriptive, have scope creep, unmeasurable success, missing user focus, or solution-before-problem thinking. See `references/common-pitfalls.md` for detailed examples and remediation.
 
 ## Quick Reference: Vision Discovery Flow
 
