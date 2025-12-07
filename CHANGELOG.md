@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2025-12-07
+
+### Added
+
+- **Banner flow diagram** added to README for visual workflow understanding (#367)
+- **Auto-chain workflow suggestions** - agent proactively suggests next commands after completion (#384)
+- **Multi-project support** - agent handles multiple GitHub Projects in the same repository (#384)
+- **Workflow completion assistance** - agent provides guidance when reaching workflow end (#384)
+- **Explicit trigger phrases** for improved AI pattern matching in agent (#381)
+- **Required sections** added to agent per best practices (#383)
+- **Tool usage instructions** added to agent documentation (#394)
+
+### Changed
+
+- **Agent system prompt restructured** for optimal AI consumption (#373, #382)
+- **Trigger patterns converted to table format** for clarity (#395)
+- **Blockquote templates converted to code blocks** for better formatting (#393)
+- **Non-functional markdown anchor links** replaced with prose references (#398)
+- **Triggering examples format** improved with edge case coverage (#372)
+- **Version management simplified** by removing skill versions
+
+### Fixed
+
+- **CI workflow** - added missing validation skill to version-check workflow
+- **Agent Example 1** - removed implied command chaining (#392)
+- **Agent Example 3** - corrected INVEST criteria reference (#391)
+- **Agent Example 3** - corrected response to match user's question (#380)
+
+### Documentation
+
+- **Marketplace install instructions** added to README (#399)
+- **HTML elements list** corrected in markdownlint configuration (#399)
+- **Tool permission limitations** documented for agents (#371)
+
 ## [0.4.0] - 2025-12-06
 
 ### Added
@@ -288,7 +322,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `plugin.json` - Plugin metadata and configuration (v0.1.0)
 - `marketplace.json` - Marketplace distribution metadata (v0.1.0)
 
-[Unreleased]: https://github.com/sjnims/requirements-expert/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/sjnims/requirements-expert/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/sjnims/requirements-expert/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/sjnims/requirements-expert/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/sjnims/requirements-expert/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/sjnims/requirements-expert/releases/tag/v0.2.0

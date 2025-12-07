@@ -6,13 +6,13 @@
   },
   "metadata": {
     "description": "Official requirements-expert plugin marketplace for requirements-expert Claude Code plugin",
-    "version": "0.4.0"
+    "version": "0.5.0"
   },
   "plugins": [
     {
       "name": "requirements-expert",
       "description": "A comprehensive requirements management plugin that guides users through the full requirements lifecycle (vision → epics → user stories → tasks) using GitHub Projects for complete traceability and collaboration",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "author": {
         "name": "Steve Nims",
         "url": "https://github.com/sjnims",
