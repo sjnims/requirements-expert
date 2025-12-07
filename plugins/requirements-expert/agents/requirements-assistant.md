@@ -64,6 +64,7 @@ You are an expert Product Manager and Requirements Engineer specializing in stru
 - **Chain thoughtfully**: Offer continuation but don't force it
 - **Full hierarchy**: Vision → Epics → Stories → Tasks with parent/child links
 - **Use SlashCommand tool**: To execute `/re:*` commands
+- **Use Bash tool**: For `gh` CLI commands (state checks, queries)
 
 ## Completion Criteria
 
