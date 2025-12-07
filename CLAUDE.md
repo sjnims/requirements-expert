@@ -36,15 +36,13 @@ markdownlint '**/*.md' --ignore node_modules --fix  # Auto-fix
 
 **Version Files** (must match on release):
 - `plugins/requirements-expert/.claude-plugin/plugin.json` (source of truth)
-- `.claude-plugin/marketplace.json`
+- `.claude-plugin/marketplace.json` (metadata.version AND plugins[0].version)
 - `CLAUDE.md` (Quick Reference section)
-- All 8 `plugins/requirements-expert/skills/*/SKILL.md` frontmatter
 
 **Check Version Consistency**:
 ```bash
 rg '"version"' plugins/requirements-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
 rg 'Current Version.*v[0-9]' CLAUDE.md
-rg '^version:' plugins/requirements-expert/skills/*/SKILL.md
 ```
 
 ## Architecture
@@ -606,13 +604,17 @@ git checkout -b release/v0.x.x
 #### 2. Update Version Numbers
 
 Update version in **all version files** (must match):
-- `plugins/requirements-expert/.claude-plugin/plugin.json`
-- `.claude-plugin/marketplace.json` (in plugins array and metadata)
-- All skill SKILL.md files (8 files in `plugins/requirements-expert/skills/*/SKILL.md`)
+- `plugins/requirements-expert/.claude-plugin/plugin.json` (source of truth)
+- `.claude-plugin/marketplace.json` (metadata.version AND plugins[0].version)
+- `CLAUDE.md` (Quick Reference section)
 
 ```bash
-# Find all files with version to update
-grep -r "0\.x\.0" plugins/requirements-expert --include="*.json" --include="SKILL.md"
+# Find current version to replace
+rg '"version"' plugins/requirements-expert/.claude-plugin/plugin.json
+
+# Update all version files, then verify
+rg '"version"' plugins/requirements-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
+rg 'Current Version.*v[0-9]' CLAUDE.md
 ```
 
 #### 3. Update Documentation
@@ -625,9 +627,16 @@ grep -r "0\.x\.0" plugins/requirements-expert --include="*.json" --include="SKIL
 - `README.md` - Update version references if applicable
 - Any other relevant documentation
 
-#### 4. Test the Plugin
+#### 4. Test and Validate
 
 ```bash
+# Lint markdown files
+markdownlint '**/*.md' --ignore node_modules
+
+# Verify version consistency
+rg '"version"' plugins/requirements-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
+rg 'Current Version.*v[0-9]' CLAUDE.md
+
 # Load plugin locally and test
 cc --plugin-dir plugins/requirements-expert
 
@@ -642,13 +651,13 @@ cc --plugin-dir plugins/requirements-expert
 ```bash
 # Commit version bump and documentation updates
 git add .
-git commit -m "Bump version to v0.x.x"
+git commit -m "chore: prepare release v0.x.x"
 
 # Push release branch
 git push origin release/v0.x.x
 
 # Create pull request
-gh pr create --title "Release v0.x.x" \
+gh pr create --title "chore: prepare release v0.x.x" \
   --body "Version bump to v0.x.x
 
 ## Changes
@@ -657,15 +666,14 @@ gh pr create --title "Release v0.x.x" \
 - [List documentation updates]
 
 ## Checklist
-- [x] Version updated in manifests (plugin.json, marketplace.json)
-- [x] Version updated in all skill SKILL.md files
-- [x] CHANGELOG.md updated
-- [x] README.md updated (if applicable)
+- [x] Version updated in plugin.json, marketplace.json, CLAUDE.md
+- [x] CHANGELOG.md updated with release notes
+- [x] Markdownlint passes
 - [x] Plugin tested locally
 "
 ```
 
-#### 6. Merge and Tag
+#### 6. Merge and Create Release
 
 After PR review and approval:
 
@@ -673,22 +681,11 @@ After PR review and approval:
 # Merge PR via GitHub UI or:
 gh pr merge --squash  # or --merge or --rebase based on preference
 
-# Switch to main and pull the merged changes
-git checkout main
-git pull origin main
-
-# Tag the release (on the merge commit)
-git tag v0.x.x
-
-# Push the tag
-git push origin v0.x.x
-```
-
-#### 7. Create GitHub Release
-
-```bash
-# Create GitHub Release with notes from CHANGELOG
-gh release create v0.x.x --title "v0.x.x" --notes-file - <<'EOF'
+# Create GitHub Release (this also creates the tag atomically)
+gh release create v0.x.x \
+  --target main \
+  --title "v0.x.x" \
+  --notes-file - <<'EOF'
 ## Summary
 
 Brief description of the release focus.
@@ -701,7 +698,7 @@ Brief description of the release focus.
 EOF
 ```
 
-**Note**: Main branch is protected and requires PRs. All version bumps must go through the release branch workflow.
+**Note**: Main branch is protected and requires PRs. All version bumps must go through the release branch workflow. The `--target main` flag ensures the tag is created on the correct commit.
 
 **Publishing**: The entire repository acts as a marketplace. The `plugins/requirements-expert/` directory is the distributable plugin unit.
 
