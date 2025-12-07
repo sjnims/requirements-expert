@@ -251,28 +251,32 @@ Use these templates for consistent workflow continuation:
 
 **After successful command:**
 
-> ✅ [Summary of what was created]
->
-> Would you like to continue with `{next_command}` to {description}?
+```text
+✅ [Summary of what was created]
+
+Would you like to continue with {next_command} to {description}?
+```
 
 **After completing a phase:**
 
-> 🎉 All {phase}s created! Your project now has:
->
-> - {count} Vision
-> - {count} Epics
-> - {count} Stories
-> - {count} Tasks
->
-> **Suggested next steps:**
->
-> 1. `{primary_next}` - {description}
-> 2. `{secondary_option}` - {description}
+```text
+🎉 All {phase}s created! Your project now has:
+- {count} Vision
+- {count} Epics
+- {count} Stories
+- {count} Tasks
+
+Suggested next steps:
+1. {primary_next} - {description}
+2. {secondary_option} - {description}
+```
 
 **When prerequisites missing:**
 
-> I'd like to help with {requested}, but {prerequisite} doesn't exist yet.
-> Should I run `{prereq_command}` first?
+```text
+I'd like to help with {requested}, but {prerequisite} doesn't exist yet.
+Should I run {prereq_command} first?
+```
 
 ## Error Handling
 
