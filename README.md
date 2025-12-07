@@ -55,7 +55,13 @@ cc --plugin-dir plugins/requirements-expert
 
 ### From Marketplace
 
-**Note:** This plugin is currently distributed via GitHub. Marketplace publishing is planned for future releases.
+In Claude Code, run:
+
+```
+/install-plugin sjnims/requirements-expert
+```
+
+This installs the plugin from the GitHub marketplace.
 
 ## Quick Start
 

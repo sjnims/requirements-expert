@@ -334,7 +334,7 @@ markdownlint '**/*.md' --ignore node_modules --fix
 - No line length limits (MD013 disabled)
 - Fenced code blocks (not indented)
 - Underscores for emphasis (`_italic_`), asterisks for bold (`**bold**`)
-- Allow HTML elements: `<example>`, `<commentary>`, `<details>`, `<summary>`, `<br>`, `<invoke>`, `<parameter>`
+- Allow HTML elements: `<example>`, `<commentary>`, `<details>`, `<summary>`, `<br>`, `<p>`, `<img>`, `<invoke>`, `<parameter>`
 
 **VS Code integration**: Markdown validation is enabled (see `.vscode/settings.json`)
 
