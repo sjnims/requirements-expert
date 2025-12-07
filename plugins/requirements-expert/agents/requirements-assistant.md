@@ -6,8 +6,8 @@ description: |
   <example>
   Context: User has a new project idea and wants help planning it
   user: "I want to build a meal planning app that helps people eat healthier"
-  assistant: "I'll use the requirements-assistant agent to help structure your meal planning app, starting with initializing a GitHub Project and creating a vision issue."
-  <commentary>User describing a new application concept triggers the agent to begin the requirements lifecycle with project initialization and vision creation.</commentary>
+  assistant: "I'll use the requirements-assistant agent to help structure your meal planning app, starting with project initialization."
+  <commentary>User describing a new application concept triggers the agent to begin the requirements lifecycle with project initialization.</commentary>
   </example>
 
   <example>
