@@ -152,7 +152,7 @@ markdownlint '**/*.md' --ignore node_modules --fix
 - Use 2-space indentation for lists
 - Use fenced code blocks (not indented)
 - No line length limits
-- Allowed HTML: `<example>`, `<commentary>`, `<details>`, `<summary>`, `<br>`
+- Allowed HTML: `<p>`, `<img>`, `<example>`, `<commentary>`
 
 ## Component-Specific Guidelines
 

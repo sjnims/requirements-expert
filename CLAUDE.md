@@ -54,11 +54,11 @@ This repository uses a **marketplace-at-root** structure where the repository ac
 ```
 /                                    # Repository root (marketplace)
 ├── .claude-plugin/
-│   └── marketplace.json             # Marketplace manifest (v0.4.0)
+│   └── marketplace.json             # Marketplace manifest (v0.5.0)
 ├── plugins/
 │   └── requirements-expert/         # PLUGIN ROOT (publishable unit)
 │       ├── .claude-plugin/
-│       │   └── plugin.json          # Plugin manifest (v0.4.0)
+│       │   └── plugin.json          # Plugin manifest (v0.5.0)
 │       ├── commands/                # 8 slash commands (*.md)
 │       ├── skills/                  # 8 knowledge modules (*/SKILL.md)
 │       ├── agents/                  # 1 specialized agent (*.md)
@@ -332,7 +332,7 @@ markdownlint '**/*.md' --ignore node_modules --fix
 - No line length limits (MD013 disabled)
 - Fenced code blocks (not indented)
 - Underscores for emphasis (`_italic_`), asterisks for bold (`**bold**`)
-- Allow HTML elements: `<example>`, `<commentary>`, `<details>`, `<summary>`, `<br>`, `<p>`, `<img>`, `<invoke>`, `<parameter>`
+- Allow HTML elements: `<p>`, `<img>`, `<example>`, `<commentary>`
 
 **VS Code integration**: Markdown validation is enabled (see `.vscode/settings.json`)
 
@@ -821,7 +821,7 @@ The CI will fail if markdown doesn't comply:
 - ✅ Fenced code blocks, not indented blocks
 - ✅ No line length limits (MD013 disabled)
 
-**Allowed HTML tags**: `<example>`, `<commentary>`, `<details>`, `<summary>`, `<br>`, `<invoke>`, `<parameter>`
+**Allowed HTML tags**: `<p>`, `<img>`, `<example>`, `<commentary>`
 
 ### State-First Validation Pattern
 
