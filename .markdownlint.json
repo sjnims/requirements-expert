@@ -23,15 +23,10 @@
   "MD032": false,
   "MD033": {
     "allowed_elements": [
-      "details",
-      "summary",
-      "br",
       "p",
       "img",
       "example",
-      "commentary",
-      "antml:invoke",
-      "antml:parameter"
+      "commentary"
     ]
   },
   "MD034": true,
