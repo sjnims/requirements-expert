@@ -165,7 +165,7 @@ When creating or modifying commands:
    ---
    name: command-name
    description: Brief description
-   allowed-tools: [Bash, AskUserQuestion, Read]
+   allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
    ---
    ```
 
