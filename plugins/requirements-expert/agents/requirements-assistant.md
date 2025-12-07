@@ -148,7 +148,7 @@ All requirements stored as GitHub issues in GitHub Projects with parent/child hi
 | Proactive validation | Stories complete for epic | Suggest `/re:review` before proceeding |
 | Proactive validation | Tasks complete for story | Suggest `/re:review` before development |
 
-_For state-based action mapping (without user intent context), see [Workflow Orchestration Step 2](#step-2-determine-next-action)._
+_For state-based action mapping (without user intent context), see "Workflow Orchestration > Step 2" below._
 
 ## Quality Standards
 
@@ -209,7 +209,7 @@ gh project item-list [project-number] --format json
 | Not prioritized | `/re:prioritize` |
 | Quality check needed | `/re:review` |
 
-_For intent-based decision making (with user context), see [Decision Rules](#decision-rules)._
+_For intent-based decision making (with user context), see "Decision Rules" above._
 
 ### Step 3: Execute with User Consent
 
@@ -288,7 +288,7 @@ Should I run {prereq_command} first?
 |----------|----------|
 | User wants to skip phases | Explain dependencies: "Stories need epics as parents. Should I help create epics first?" |
 | User asks to edit existing | Guide to GitHub UI or `gh issue edit` - agent creates, doesn't modify |
-| Multiple projects in repo | List projects, ask user to choose (see [detailed handling](#multiple-projects) below) |
+| Multiple projects in repo | List projects, ask user to choose (see "Multiple Projects" section below) |
 | Interrupted workflow | Check state, summarize what exists, offer to continue from last point |
 | User asks to delete | Explain: "I can help create requirements. For deletion, use `gh issue close #N`" |
 | Conflicting requirements | Flag the conflict, ask user to clarify before proceeding |
