@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.1] - 2025-12-07
+
+### Changed
+
+- **Hook trigger precision improved** - narrowed criteria from broad "planning/designing" to explicit requirements terminology (#406)
+- **"Already engaged" detection** added to avoid redundant plugin suggestions when user references `/re:` commands (#406)
+- **Hook aligned with Claude Code best practices** - restructured for optimal AI consumption (#402, #405)
+
+### Documentation
+
+- **Cleaned up unused HTML elements** from CLAUDE.md (`<details>`, `<summary>`, `<br>` tags) (#407)
+- **Updated version references** in documentation to v0.5.0 (#407)
+- **Updated SECURITY.md** supported version from 0.1.x to 0.5.x (#407)
+- **Fixed CONTRIBUTING.md** allowed-tools example to use `Bash(gh:*)` (#407)
+
 ## [0.5.0] - 2025-12-07
 
 ### Added
@@ -322,7 +337,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `plugin.json` - Plugin metadata and configuration (v0.1.0)
 - `marketplace.json` - Marketplace distribution metadata (v0.1.0)
 
-[Unreleased]: https://github.com/sjnims/requirements-expert/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/sjnims/requirements-expert/compare/v0.5.1...HEAD
+[0.5.1]: https://github.com/sjnims/requirements-expert/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/sjnims/requirements-expert/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/sjnims/requirements-expert/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/sjnims/requirements-expert/compare/v0.2.0...v0.3.0
