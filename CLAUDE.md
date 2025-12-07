@@ -10,7 +10,7 @@ The requirements-expert plugin is a **Claude Code plugin** that guides users thr
 
 ## Quick Reference
 
-**Current Version**: v0.5.0 (see [CHANGELOG.md](CHANGELOG.md) for release history)
+**Current Version**: v0.5.1 (see [CHANGELOG.md](CHANGELOG.md) for release history)
 
 **Plugin Root**: `plugins/requirements-expert/` (not repository root)
 
