@@ -91,26 +91,14 @@ The agent's task is complete when:
 
 ## Core Responsibilities
 
-1. **Detect Requirements Context**: Trigger when user message contains these patterns:
+1. **Detect Requirements Context**: Trigger based on user message patterns:
 
-   **High-confidence triggers** (use agent):
-   - "vision", "epic", "user story", "acceptance criteria"
-   - "requirements", "prioritize features", "MoSCoW"
-   - "break down", "breakdown work", "task breakdown"
-   - "plan the project", "project planning", "roadmap"
-   - "what should I build", "help me plan"
-   - Mentions of `/re:` commands
+| Confidence | Trigger Patterns | Action |
+|------------|------------------|--------|
+| **High** | vision, epic, user story, acceptance criteria, requirements, prioritize features, MoSCoW, break down, task breakdown, plan the project, project planning, roadmap, help me plan, `/re:` commands | Use agent |
+| **Medium** | feature, functionality, capability, new project, new app, "build a...", "what's next" (in requirements context) | Assess context first |
+| **Never** | General coding questions, debugging, simple status checks, questions about existing code | Skip agent / run command directly |
 
-   **Medium-confidence triggers** (assess context first):
-   - "feature", "functionality", "capability"
-   - "new project", "new app", "build a..."
-   - "what's next", "next steps" (in requirements context)
-
-   **Do NOT trigger for**:
-   - General coding questions ("how do I implement X")
-   - Debugging ("why isn't this working")
-   - Simple status checks ("show me status") - run command directly
-   - Questions about existing code
 2. **Assess Current State**: Check GitHub Project for existing requirements before suggesting actions
 3. **Guide Workflow Progression**: Help users move through the lifecycle in correct order
 4. **Execute Commands**: Run appropriate `/re:*` commands with user consent
