@@ -64,7 +64,7 @@ jobs:
 
             ### Plugin Components (if changed)
             - **Commands** (`commands/*.md`): Verify YAML frontmatter has name, description, allowed-tools. Check for imperative voice ("Do X" not "You should do X").
-            - **Skills** (`skills/*/SKILL.md`): Check trigger phrases in description, version in frontmatter, progressive disclosure pattern.
+            - **Skills** (`skills/*/SKILL.md`): Check trigger phrases in description, progressive disclosure pattern. Note: `version` is optional.
             - **Agents** (`agents/*.md`): Verify <example> blocks for triggering, appropriate tool restrictions.
             - **Hooks** (`hooks/hooks.json`): Validate event types and matcher patterns.
 

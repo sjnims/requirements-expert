@@ -85,7 +85,7 @@ jobs:
 
             ## Instructions
 
-            1. First, read the plugin version from `plugins/requirements-expert/.claude-plugin/plugin.json` (needed for skill version validation)
+            1. First, read the plugin version from `plugins/requirements-expert/.claude-plugin/plugin.json` (for reference)
             2. Read and validate ONLY the changed files listed above
             3. Return structured JSON with validation results
 
@@ -108,9 +108,9 @@ jobs:
             ### Skills (`plugins/requirements-expert/skills/*/SKILL.md`)
 
             For each changed skill SKILL.md file, verify:
-            - [ ] YAML frontmatter exists with `name`, `description`, `version` fields
+            - [ ] YAML frontmatter exists with `name` and `description` fields (required)
             - [ ] `description` uses third-person with trigger phrases (starts with "This skill should be used when...")
-            - [ ] `version` matches the plugin.json version
+            - [ ] `version` field is optional - do NOT flag missing version as an error
             - [ ] Body length is reasonable (core concepts, not exhaustive documentation)
 
             ### Agents (`plugins/requirements-expert/agents/*.md`)

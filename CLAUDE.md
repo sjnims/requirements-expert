@@ -266,9 +266,9 @@ The `${CLAUDE_PLUGIN_ROOT}` variable only works in JSON configuration files (hoo
    ---
    name: New Skill Name
    description: This skill should be used when the user asks to "trigger phrase 1", "trigger phrase 2"...
-   version: 0.1.0
    ---
    ```
+   Note: `version` is optional in skill frontmatter (only `name` and `description` are required)
 3. **Critical**: Description must use third-person with specific trigger phrases
 4. Keep SKILL.md body lean (<2,000 words)
 5. Move detailed content to `references/` subdirectory
