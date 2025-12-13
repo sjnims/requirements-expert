@@ -300,10 +300,9 @@ Watch for wrong granularity (too many/few epics), implementation-focused names, 
 | 3 | Validate as Epics | Valuable, large, cohesive, bounded, measurable confirmed |
 | 4 | Name & Describe | Clear titles, structured descriptions using template |
 | 5 | Check Completeness | All vision elements covered, no gaps |
-| 6 | Organize | Logical grouping, dependencies mapped |
-| 7 | Prioritize | MoSCoW framework applied |
-| 8 | Create Issues | Added to GitHub Projects as children of vision |
-| 9 | Proceed | Move to user story creation for each epic |
+| 6 | Organize & Prioritize | Logical grouping, dependencies mapped, MoSCoW applied |
+| 7 | Create Issues | Added to GitHub Projects as children of vision |
+| — | Next | Move to user story creation for each epic |
 
 ## Integration with Requirements Lifecycle
 

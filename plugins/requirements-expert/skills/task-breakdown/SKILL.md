@@ -32,7 +32,7 @@ Tasks are the execution layer in the requirements hierarchy:
 - **Below**: (Nothing—tasks are the lowest level)
 
 Well-defined tasks:
-- Represent discrete units of work (hours to 1-2 days max)
+- Represent discrete units of work (2-8 hours typical, up to 1-2 days max)
 - Have clear, testable acceptance criteria
 - Can be assigned to individuals
 - Track progress toward story completion

@@ -126,7 +126,7 @@ Assign each item to a MoSCoW category based on assessment.
 
 ### Classification Logic
 
-**Must Have** (Target: 60% of items)
+**Must Have** (Target: <60% of items)
 
 - Non-negotiable for this release
 - Product is not viable without this
