@@ -192,9 +192,9 @@ When creating or modifying skills:
    ---
    name: Skill Name
    description: This skill should be used when the user asks to "trigger phrase 1"...
-   version: 0.1.0
    ---
    ```
+   Note: `version` is optional in skill frontmatter (only `name` and `description` are required)
 
 2. **Description**: Use third-person with specific trigger phrases
    - ✅ Good: `This skill should be used when the user asks to "create user stories"`
@@ -248,7 +248,7 @@ When modifying hooks:
 
 ### Full Workflow Test
 
-For significant changes, test the complete lifecycle:
+For significant changes, test the complete lifecycle. See [TESTING.md](TESTING.md) for comprehensive testing strategies, checklists, and edge cases.
 
 ```bash
 /re:init
@@ -341,7 +341,7 @@ See [pull_request_template.md](.github/pull_request_template.md) for the complet
 - **Lists**: Use dash-style (`-`)
 - **Code blocks**: Use fenced blocks with language tags
 - **Line length**: No limit (MD013 disabled)
-- **Emphasis**: Use `**bold**` for strong, `*italic*` for emphasis
+- **Emphasis**: Use `**bold**` for strong, `_italic_` for emphasis
 
 ### YAML Frontmatter
 
@@ -404,3 +404,5 @@ If you have questions not covered here:
 ---
 
 **Thank you for contributing to Requirements Expert!** Your contributions help make requirements management better for everyone using Claude Code.
+
+**Last updated:** December 13, 2025

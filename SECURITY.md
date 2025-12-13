@@ -59,7 +59,7 @@ When a security vulnerability is confirmed:
 ### For Plugin Users
 
 1. **Keep Updated**: Always use the latest version of the plugin
-2. **GitHub CLI**: Ensure your `gh` CLI is updated (`gh auth refresh`)
+2. **GitHub CLI**: Keep your `gh` CLI updated (check version with `gh --version`)
 3. **Permissions**: Only grant the minimum required GitHub permissions (`repo`, `project`)
 4. **Authentication**: Use GitHub's recommended authentication methods
 5. **Review Commands**: Review what each `/re:*` command does before running it
@@ -120,7 +120,7 @@ _No security issues have been reported yet._
 ## Additional Resources
 
 - [GitHub Security Features](https://docs.github.com/en/code-security)
-- [Claude Code Security](https://claude.ai/code)
+- [Claude Code Documentation](https://code.claude.com/docs/en/overview)
 - [Responsible Disclosure](https://en.wikipedia.org/wiki/Responsible_disclosure)
 
 ---

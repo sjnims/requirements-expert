@@ -54,11 +54,11 @@ This repository uses a **marketplace-at-root** structure where the repository ac
 ```
 /                                    # Repository root (marketplace)
 ├── .claude-plugin/
-│   └── marketplace.json             # Marketplace manifest (v0.5.0)
+│   └── marketplace.json             # Marketplace manifest
 ├── plugins/
 │   └── requirements-expert/         # PLUGIN ROOT (publishable unit)
 │       ├── .claude-plugin/
-│       │   └── plugin.json          # Plugin manifest (v0.5.0)
+│       │   └── plugin.json          # Plugin manifest
 │       ├── commands/                # 8 slash commands (*.md)
 │       ├── skills/                  # 8 knowledge modules (*/SKILL.md)
 │       ├── agents/                  # 1 specialized agent (*.md)
@@ -270,7 +270,7 @@ The `${CLAUDE_PLUGIN_ROOT}` variable only works in JSON configuration files (hoo
    ```
    Note: `version` is optional in skill frontmatter (only `name` and `description` are required)
 3. **Critical**: Description must use third-person with specific trigger phrases
-4. Keep SKILL.md body lean (<2,000 words)
+4. Keep SKILL.md body lean (1,500-2,000 words)
 5. Move detailed content to `references/` subdirectory
 6. Add templates to `references/` (e.g., `references/template.md`)
 7. Follow markdown style guide (ATX headers, dash lists, fenced code blocks)
@@ -568,7 +568,7 @@ When modifying this plugin:
 
 4. **Templates**: Store in skill references/ directories, not in commands.
 
-5. **Documentation**: Keep README comprehensive. This CLAUDE.md focuses on architecture/development.
+5. **Documentation**: Keep README comprehensive for users, CONTRIBUTING.md for contributors, this CLAUDE.md for architecture/development.
 
 ## Common Pitfalls to Avoid
 
@@ -719,7 +719,7 @@ When developing new features for this plugin:
 - Claude Code (claude.ai/code)
 - GitHub CLI (`gh`) v2.0+
 - Git repository with GitHub remote
-- GitHub Projects (beta) enabled on repository
+- GitHub Projects enabled on repository
 
 **Permissions Required**:
 - `repo`: Create and manage issues
@@ -861,3 +861,7 @@ Every requirement issue must have BOTH:
    - Labels: `type:*`, `priority:*`
 
 **Why both?** Custom fields are project-specific; labels are portable across GitHub.
+
+---
+
+**Last updated:** December 13, 2025

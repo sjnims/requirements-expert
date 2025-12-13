@@ -199,13 +199,11 @@ flowchart LR
     A[Claude Code<br/>requirements-expert] -->|gh CLI| B[GitHub API]
     B -->|Query/Create| C[GitHub Projects]
     C -->|Issues + Hierarchy| D[Requirements Data]
+    D -.->|No Local State| A
 
     style A fill:#0969da,color:#fff
     style C fill:#cf222e,color:#fff
     style D fill:#1a7f37,color:#fff
-
-    Note[No Local State<br/>Always Fresh Data]
-    style Note fill:#9a6700,color:#fff
 ```
 
 **Flow explanation:**
@@ -398,12 +396,12 @@ Run `/re:init` to create the project, or ensure the project exists in your repos
 
 ### "Cannot create child issues"
 
-GitHub Projects (the new version) is required for parent/child relationships. Ensure:
-1. You're using the new GitHub Projects, not classic projects
+GitHub Projects is required for parent/child relationships. Ensure:
+1. You're using GitHub Projects, not classic projects
 2. Your repository has Projects enabled
 3. You have write access to the project
 
-**Note**: Classic GitHub Projects do not support parent/child issue relationships. You must use the newer GitHub Projects (sometimes called "Projects Beta" or just "Projects").
+**Note**: Classic GitHub Projects do not support parent/child issue relationships. You must use GitHub Projects (not classic projects).
 
 ## Best Practices
 
@@ -451,3 +449,7 @@ This project wouldn't exist without the incredible work of others:
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed release history.
+
+---
+
+**Last updated:** December 13, 2025
