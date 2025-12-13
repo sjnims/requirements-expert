@@ -6,9 +6,11 @@ allowed-tools: [AskUserQuestion, Bash(gh:*), Read, Write]
 
 # Requirements Project Status
 
-Display a comprehensive overview of the requirements project including counts, progress, priorities, validation status, and recent activity.
+Display a comprehensive overview of the requirements project including counts, progress, priorities, validation status, and recent activity. Optionally export the report to a markdown file (requires Write tool).
 
 ## Instructions
+
+Load the **shared-patterns** skill for error handling patterns.
 
 ### Step 1: Gather Project Data
 
@@ -64,3 +66,11 @@ Based on project state, provide tailored next steps:
 Ask Export: "Would you like to export this report?" (options: Markdown file, Vision comment, Both, Skip)
 
 Handle: Markdown file saves as `status-report-[date].md`, Vision comment uses `gh issue comment`.
+
+## Error Handling
+
+- **No project exists**: Inform user to run `/re:init` to create requirements project, then exit
+- **Empty project**: Display minimal dashboard with guidance to run `/re:discover-vision`
+- **GitHub CLI not authenticated**: Run `gh auth status`, display authentication instructions, suggest `gh auth login`
+- **Network/API errors**: Apply shared-patterns Recovery Flow (Retry/Check connection/Exit)
+- **Export failure**: Inform user of write error, suggest checking file permissions, offer to display report instead

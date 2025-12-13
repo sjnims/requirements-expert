@@ -10,6 +10,8 @@ Initialize a GitHub Project for requirements management. This command is **idemp
 
 ## Instructions
 
+Load the **shared-patterns** skill for error handling and recovery patterns.
+
 ### Step 1: Check GitHub CLI
 
 Verify `gh` command exists: `command -v gh`

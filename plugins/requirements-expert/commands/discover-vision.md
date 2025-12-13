@@ -6,7 +6,7 @@ allowed-tools: [AskUserQuestion, Bash(gh:*), Read]
 
 # Discover Product Vision
 
-Guide the user through an interactive vision discovery session using the vision-discovery skill methodology. Create a vision issue in GitHub Projects with the discovered vision.
+Conduct an interactive vision discovery session using the vision-discovery skill methodology. Create a vision issue in GitHub Projects with the discovered vision.
 
 ## Instructions
 
