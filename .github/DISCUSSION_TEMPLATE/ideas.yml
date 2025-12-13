@@ -20,7 +20,7 @@ body:
     attributes:
       label: Proposed Idea
       description: Describe your idea clearly
-      placeholder: I think it would be great if...
+      placeholder: "I think it would be great if..."
     validations:
       required: true
 
@@ -29,7 +29,7 @@ body:
     attributes:
       label: Expected Benefit
       description: How would this improve the plugin?
-      placeholder: This would help users by...
+      placeholder: "I would benefit from this because..."
     validations:
       required: true
 
@@ -38,6 +38,6 @@ body:
     attributes:
       label: Alternatives Considered
       description: Have you thought of other ways to achieve this?
-      placeholder: Instead of this, we could also...
+      placeholder: "I've also considered..."
     validations:
       required: false

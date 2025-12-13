@@ -10,7 +10,9 @@ body:
     id: showcase
     attributes:
       label: What are you sharing?
-      description: Describe what you built or accomplished
+      description: |
+        Describe what you built or accomplished.
+        Tip: You can attach images or screenshots by dragging and dropping them here!
       placeholder: I used requirements-expert to...
     validations:
       required: true
