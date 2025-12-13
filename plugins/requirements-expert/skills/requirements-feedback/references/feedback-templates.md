@@ -99,6 +99,7 @@ cc: @[feedback-provider]
 
 Use this template to structure and document feedback review meetings.
 
+```markdown
 **Meeting:** [Vision/Epic/Story] Feedback Review
 **Date:** [YYYY-MM-DD]
 **Attendees:** [Names and roles]
@@ -133,9 +134,10 @@ Use this template to structure and document feedback review meetings.
 
 **Follow-up:**
 
-- [ ] Update GitHub issues within 48 hours - in GitHub Projects
+- [ ] Update GitHub issues within 48 hours
 - [ ] Communicate changes to broader team
 - [ ] Schedule next review
+```
 
 ---
 

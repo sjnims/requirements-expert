@@ -233,9 +233,7 @@ created.push({
 
 **Two-Layer Metadata - Label:** Already applied during create (success).
 
-Actually, let's show a partial failure case:
-
-**Two-Layer Metadata - Custom Field:**
+**Two-Layer Metadata - Custom Field (Partial Failure Case):**
 
 ```bash
 gh project item-edit ...
