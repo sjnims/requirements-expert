@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.2] - 2025-12-13
+
+### Added
+
+- **Discussion templates enhanced** with additional fields for better categorization and context gathering (#6af60f3)
+
+### Changed
+
+- **Dependabot configuration improved** with optimized settings (#0edb575)
+- **Deprecated sync-labels.sh removed** - no longer needed (#0b7594d)
+- **GitHub Actions updated** to latest versions (#6c6baeb)
+
+### Fixed
+
+- **Commands aligned with Claude Code best practices** - improved consistency across all commands (#412)
+- **Skills minor issues addressed** from comprehensive skill review (#411)
+- **PR template improved** with collapsible sections and comprehensive checklists (#b83daf6)
+- **Issue templates enhanced** with better UX and corrected URLs (#65c60fe)
+- **Discussion templates fixed** with proper ids, defaults, and UX improvements (#ee7d04f)
+- **Skill documentation corrected** - version field references now reflect optionality (#a327390)
+
+### Documentation
+
+- **URLs updated** to new claude.com/product/claude-code format across all files (#f4bff9e)
+- **Comprehensive documentation review** with fixes across multiple files (#da8dc9a)
+- **LABELS.md updated** to remove references to deprecated sync-labels.sh (#834362e)
+
 ## [0.5.1] - 2025-12-07
 
 ### Changed
@@ -337,7 +364,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `plugin.json` - Plugin metadata and configuration (v0.1.0)
 - `marketplace.json` - Marketplace distribution metadata (v0.1.0)
 
-[Unreleased]: https://github.com/sjnims/requirements-expert/compare/v0.5.1...HEAD
+[Unreleased]: https://github.com/sjnims/requirements-expert/compare/v0.5.2...HEAD
+[0.5.2]: https://github.com/sjnims/requirements-expert/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/sjnims/requirements-expert/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/sjnims/requirements-expert/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/sjnims/requirements-expert/compare/v0.3.0...v0.4.0
