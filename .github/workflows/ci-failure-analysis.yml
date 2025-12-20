@@ -34,23 +34,11 @@ jobs:
       id-token: write
 
     steps:
-      - name: Check if from fork
-        id: check-fork
-        run: |
-          if [ "${{ github.event.workflow_run.head_repository.full_name }}" != "${{ github.repository }}" ]; then
-            echo "is_fork=true" >> "$GITHUB_OUTPUT"
-            echo "::notice::Workflow triggered from fork - skipping code checkout for security"
-          else
-            echo "is_fork=false" >> "$GITHUB_OUTPUT"
-          fi
-
+      # Checkout default branch for config files (NOT head_sha to avoid untrusted code)
+      # Config files like .markdownlint.json rarely change and base repo version is authoritative
       - name: Checkout repository
-        if: steps.check-fork.outputs.is_fork != 'true'
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          # Checkout at the failed commit to access correct config files
-          ref: ${{ github.event.workflow_run.head_sha }}
-          fetch-depth: 1
           persist-credentials: false
 
       - name: Analyze failure with Claude
@@ -69,12 +57,6 @@ jobs:
             - **Branch**: ${{ github.event.workflow_run.head_branch }}
             - **Actor**: ${{ github.event.workflow_run.actor.login }}
             - **Repository**: ${{ github.repository }}
-
-            ## Security Context
-
-            - **From Fork**: ${{ steps.check-fork.outputs.is_fork }}
-
-            **Note**: If this workflow was triggered from a fork PR, the repository was NOT checked out for security reasons. You will not have access to local config files (`.markdownlint.json`, `.lycheeignore`, etc.). Analyze using only the workflow logs.
 
             ## Instructions
 
