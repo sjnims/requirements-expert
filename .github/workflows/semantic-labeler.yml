@@ -35,7 +35,7 @@ jobs:
           fetch-depth: 1
 
       - name: Label issue with Claude
-        uses: anthropics/claude-code-action@f0b507f2b4b4edab0b40652b11665b981464e874 # v1.0.28
+        uses: anthropics/claude-code-action@c9ec2b02b40ac0444c6716e51d5e19ef2e0b8d00 # v1.0.28
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
@@ -129,7 +129,7 @@ jobs:
           fetch-depth: 1
 
       - name: Label PR with Claude
-        uses: anthropics/claude-code-action@f0b507f2b4b4edab0b40652b11665b981464e874 # v1.0.28
+        uses: anthropics/claude-code-action@c9ec2b02b40ac0444c6716e51d5e19ef2e0b8d00 # v1.0.28
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
