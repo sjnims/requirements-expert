@@ -38,12 +38,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create Issue From File
+      - name: Create issue for broken links
         if: failure()
-        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6.0.0
-        with:
-          title: Broken links detected
-          content-filepath: ./lychee/out.md
-          labels: |
-            bug
-            documentation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Broken links detected" \
+            --body "$(cat ./lychee/out.md)"
