@@ -16,6 +16,7 @@ concurrency:
 
 permissions:
   contents: read
+  pull-requests: write  # Required for reviewdog PR comments
 
 jobs:
   actionlint:
@@ -27,3 +28,6 @@ jobs:
 
       - name: Run actionlint
         uses: reviewdog/action-actionlint@83e4ed25b168066ad8f62f5afbb29ebd8641d982 # v1.69.1
+        with:
+          reporter: github-pr-review
+          fail_level: error
