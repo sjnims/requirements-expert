@@ -65,7 +65,7 @@ jobs:
 
       - name: Validate plugin components
         if: steps.changed-files.outputs.has_changes == 'true'
-        uses: anthropics/claude-code-action@70e16deb18402428bd09e08d1ec3662a872e3c72 # v1.0.41
+        uses: anthropics/claude-code-action@6c61301d8e1ee91bef7b65172f93462bbb216394 # v1.0.46
         id: validate
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
